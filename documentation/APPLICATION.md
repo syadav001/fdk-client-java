@@ -11533,7 +11533,7 @@ payment.attachCardToCustomer(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |
 
-Use this API to attach a customer's saved card at the payment gateway, such as Stripe.
+Use this API to attach a customer's saved card at the payment gateway, such as Stripe, Juspay.
 
 *Success Response:*
 
@@ -12723,7 +12723,7 @@ Schema: `HttpErrorCodeAndResponse`
 
 
 #### getOrders
-Use this API to retrieve all the orders.
+Get all orders
 
 
 ```java
@@ -12741,7 +12741,7 @@ order.getOrders(
 | toDate | String? | The date till which the orders should be retrieved. |    
 | orderStatus | Integer? | A filter to retrieve orders by their current status such as _placed_, _delivered_, etc. |  
 
-Get all orders
+Use this API to retrieve all the orders.
 
 *Success Response:*
 
@@ -12788,7 +12788,7 @@ Schema: `ApefaceApiError`
 
 
 #### getOrderById
-Use this API to retrieve order details such as tracking details, shipment, store information using Fynd Order ID.
+Get details of an order
 
 
 ```java
@@ -12802,7 +12802,7 @@ order.getOrderById(
 | --------- | ----  | --- |  
 | orderId | String? | A unique number used for identifying and tracking your orders. |  
 
-Get details of an order
+Use this API to retrieve order details such as tracking details, shipment, store information using Fynd Order ID.
 
 *Success Response:*
 
@@ -12849,7 +12849,7 @@ Schema: `ApefaceApiError`
 
 
 #### getShipmentById
-Use this API to retrieve shipment details such as price breakup, tracking details, store information, etc. using Shipment ID.
+Get details of a shipment
 
 
 ```java
@@ -12863,7 +12863,7 @@ order.getShipmentById(
 | --------- | ----  | --- |  
 | shipmentId | String? | ID of the shipment. An order may contain multiple items and may get divided into one or more shipment, each having its own ID. |  
 
-Get details of a shipment
+Use this API to retrieve shipment details such as price breakup, tracking details, store information, etc. using Shipment ID.
 
 *Success Response:*
 
@@ -12910,7 +12910,7 @@ Schema: `ApefaceApiError`
 
 
 #### getShipmentReasons
-Use this API to retrieve the issues that led to the cancellation of bags within a shipment.
+Get reasons behind full or partial cancellation of a shipment
 
 
 ```java
@@ -12924,7 +12924,7 @@ order.getShipmentReasons(
 | --------- | ----  | --- |  
 | shipmentId | String? | ID of the shipment. An order may contain multiple items and may get divided into one or more shipment, each having its own ID. |  
 
-Get reasons behind full or partial cancellation of a shipment
+Use this API to retrieve the issues that led to the cancellation of bags within a shipment.
 
 *Success Response:*
 
@@ -12971,7 +12971,7 @@ Schema: `ApefaceApiError`
 
 
 #### updateShipmentStatus
-Use this API to update the status of a shipment using its shipment ID.
+Update the shipment status
 
 
 ```java
@@ -12985,7 +12985,7 @@ order.updateShipmentStatus(
 | --------- | ----  | --- |  
 | shipmentId | String? | ID of the shipment. An order may contain multiple items and may get divided into one or more shipment, each having its own ID. |  
 
-Update the shipment status
+Use this API to update the status of a shipment using its shipment ID.
 
 *Success Response:*
 
@@ -13032,7 +13032,7 @@ Schema: `ApefaceApiError`
 
 
 #### trackShipment
-Use this API to track a shipment using its shipment ID.
+Track shipment
 
 
 ```java
@@ -13046,7 +13046,7 @@ order.trackShipment(
 | --------- | ----  | --- |  
 | shipmentId | String? | ID of the shipment. An order may contain multiple items and may get divided into one or more shipment, each having its own ID. |  
 
-Track shipment
+Use this API to track a shipment using its shipment ID.
 
 *Success Response:*
 
@@ -13093,7 +13093,7 @@ Schema: `ApefaceApiError`
 
 
 #### getPosOrderById
-Use this API to retrieve a POS order and all its details such as tracking details, shipment, store information using Fynd Order ID.
+Get POS Order
 
 
 ```java
@@ -13107,7 +13107,7 @@ order.getPosOrderById(
 | --------- | ----  | --- |  
 | orderId | String? | A unique number used for identifying and tracking your orders. |  
 
-Get POS Order
+Use this API to retrieve a POS order and all its details such as tracking details, shipment, store information using Fynd Order ID.
 
 *Success Response:*
 
