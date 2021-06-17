@@ -854,9 +854,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -868,9 +868,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4083,9 +4083,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.MediaGetResponse getMedias(String entityType , String entityId , String id , String pageId , Integer pageSize ) throws IOException {
+    public ApplicationModels.MediaGetResponse getMedias(String entityType , String entityId , String id , String type , String pageId , Integer pageSize ) throws IOException {
     
-        Response<ApplicationModels.MediaGetResponse> response = feedbackApiList.getMedias(entityType, entityId, id, pageId, pageSize).execute();
+        Response<ApplicationModels.MediaGetResponse> response = feedbackApiList.getMedias(entityType, entityId, id, type, pageId, pageSize).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4121,6 +4121,10 @@ public class FileStorageService extends FileStorage {
         
         
         
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getMedias
@@ -4131,6 +4135,7 @@ public class FileStorageService extends FileStorage {
         String entityType,
         String entityId,
         String id,
+        String type,
         Integer pageSize
         
         ){ 
@@ -4146,6 +4151,7 @@ public class FileStorageService extends FileStorage {
                  entityType,
                  entityId,
                  id,
+                 type,
                  paginator.getNextId()
                 ,
                  paginator.getPageSize()

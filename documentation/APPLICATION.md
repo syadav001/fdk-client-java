@@ -49,8 +49,8 @@
     * [getCollectionItemsBySlug](#getcollectionitemsbyslug)
     * [getCollectionDetailBySlug](#getcollectiondetailbyslug)
     * [getFollowedListing](#getfollowedlisting)
-    * [followById](#followbyid)
     * [unfollowById](#unfollowbyid)
+    * [followById](#followbyid)
     * [getFollowerCountById](#getfollowercountbyid)
     * [getFollowIds](#getfollowids)
     * [getStores](#getstores)
@@ -1486,12 +1486,12 @@ Schema: `ErrorResponse`
 ---
 
 
-#### followById
-Follow an entity (product/brand/collection)
+#### unfollowById
+Unfollow an entity (product/brand/collection)
 
 
 ```java
-catalog.followById(
+catalog.unfollowById(
   collectionType, collectionId
   );
   //use response
@@ -1502,7 +1502,7 @@ catalog.followById(
 | collectionType | String? | Type of collection followed, i.e. products, brands, or collections. |    
 | collectionId | String? | The ID of the collection type. |  
 
-Follow a particular entity such as product, brand, collection specified by its ID.
+You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
 
 *Success Response:*
 
@@ -1536,12 +1536,12 @@ Schema: `ErrorResponse`
 ---
 
 
-#### unfollowById
-Unfollow an entity (product/brand/collection)
+#### followById
+Follow an entity (product/brand/collection)
 
 
 ```java
-catalog.unfollowById(
+catalog.followById(
   collectionType, collectionId
   );
   //use response
@@ -1552,7 +1552,7 @@ catalog.unfollowById(
 | collectionType | String? | Type of collection followed, i.e. products, brands, or collections. |    
 | collectionId | String? | The ID of the collection type. |  
 
-You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+Follow a particular entity such as product, brand, collection specified by its ID.
 
 *Success Response:*
 
@@ -14201,7 +14201,7 @@ Get Media
 
 ```java
 feedback.getMedias(
-  entityType, entityId, id, pageId, pageSize
+  entityType, entityId, id, type, pageId, pageSize
   );
   //use response
 ```
@@ -14211,6 +14211,7 @@ feedback.getMedias(
 | entityType | String? | Type of entity, e.g. question or product. |    
 | entityId | String? | ID of the eligible entity as specified in the entity type(question ID/product ID). |    
 | id | String? | ID of the media. |    
+| type | String? | Media type. |    
 | pageId | String? | Pagination page ID to retrieve next set of results. |    
 | pageSize | Integer? | The number of items to retrieve in each page. |  
 
@@ -18976,7 +18977,7 @@ Cart Merged/Replaced
 
 
 #### getTatProduct
-Use this API to know the delivery turnaround time (TAT) by entering the product details along with the PIN Code of the location.
+Get TAT of a product
 
 
 ```java
@@ -18989,7 +18990,7 @@ logistic.getTatProduct(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |
 
-Get TAT of a product
+Use this API to know the delivery turnaround time (TAT) by entering the product details along with the PIN Code of the location.
 
 *Success Response:*
 
@@ -19036,7 +19037,7 @@ Schema: `ApefaceApiError`
 
 
 #### getPincodeCity
-Use this API to retrieve a city by its PIN Code.
+Get city from PIN Code
 
 
 ```java
@@ -19050,7 +19051,7 @@ logistic.getPincodeCity(
 | --------- | ----  | --- |  
 | pincode | String? | The PIN Code of the area, e.g. 400059 |  
 
-Get city from PIN Code
+Use this API to retrieve a city by its PIN Code.
 
 *Success Response:*
 

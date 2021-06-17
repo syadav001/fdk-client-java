@@ -76,11 +76,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -621,7 +621,7 @@ interface FeedbackApiList {
     Call<ApplicationModels.UpdateResponse> updateMedia(@Body ApplicationModels.UpdateMediaListRequest payload);
     
     @GET ("/service/application/feedback/v1.0/media/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.MediaGetResponse> getMedias(@Path("entity_type") String entityType , @Path("entity_id") String entityId , @Query("id") String id , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
+    Call<ApplicationModels.MediaGetResponse> getMedias(@Path("entity_type") String entityType , @Path("entity_id") String entityId , @Query("id") String id , @Query("type") String type , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
     @GET ("/service/application/feedback/v1.0/rating/summary/entity/{entity_type}/entity-id/{entity_id}")
     Call<ApplicationModels.ReviewMetricGetResponse> getReviewSummaries(@Path("entity_type") String entityType , @Path("entity_id") String entityId , @Query("id") String id , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
