@@ -19,12 +19,12 @@ public class ApplicationModels {
 public static class ProductListingActionPage{
     
     
-    @JsonProperty("type")
-    private String type;
-    
-    
     @JsonProperty("query")
     private HashMap<String,Object> query;
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     @JsonProperty("params")
@@ -119,16 +119,66 @@ public static class ProductBrand{
     private ProductListingAction action;
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
     @JsonProperty("uid")
     private Integer uid;
     
     
+    @JsonProperty("name")
+    private String name;
+    
+    
     @JsonProperty("logo")
     private Media logo;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductDetailAttribute
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public static class ProductDetailAttribute{
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductDetailGroupedAttribute
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public static class ProductDetailGroupedAttribute{
+    
+    
+    @JsonProperty("details")
+    private List<ProductDetailAttribute> details;
+    
+    
+    @JsonProperty("title")
+    private String title;
     
     
     
@@ -146,10 +196,6 @@ public static class ProductBrand{
 public static class Price{
     
     
-    @JsonProperty("max")
-    private Double max;
-    
-    
     @JsonProperty("currency_code")
     private String currencyCode;
     
@@ -160,6 +206,10 @@ public static class Price{
     
     @JsonProperty("min")
     private Double min;
+    
+    
+    @JsonProperty("max")
+    private Double max;
     
     
     
@@ -190,56 +240,6 @@ public static class ProductListingPrice{
 
 
 /*
-    Model: ProductDetailAttribute
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class ProductDetailAttribute{
-    
-    
-    @JsonProperty("key")
-    private String key;
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-}
-
-
-/*
-    Model: ProductDetailGroupedAttribute
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class ProductDetailGroupedAttribute{
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    @JsonProperty("details")
-    private List<ProductDetailAttribute> details;
-    
-    
-    
-}
-
-
-/*
     Model: ProductDetail
 */
 @AllArgsConstructor
@@ -250,68 +250,64 @@ public static class ProductDetailGroupedAttribute{
 public static class ProductDetail{
     
     
-    @JsonProperty("type")
-    private String type;
-    
-    
-    @JsonProperty("action")
-    private ProductListingAction action;
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    @JsonProperty("rating_count")
-    private Integer ratingCount;
-    
-    
-    @JsonProperty("tryouts")
-    private List<String> tryouts;
+    @JsonProperty("image_nature")
+    private String imageNature;
     
     
     @JsonProperty("brand")
     private ProductBrand brand;
     
     
-    @JsonProperty("item_code")
-    private String itemCode;
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    @JsonProperty("medias")
-    private List<Media> medias;
+    @JsonProperty("grouped_attributes")
+    private List<ProductDetailGroupedAttribute> groupedAttributes;
     
     
     @JsonProperty("name")
     private String name;
     
     
-    @JsonProperty("description")
-    private String description;
+    @JsonProperty("action")
+    private ProductListingAction action;
+    
+    
+    @JsonProperty("medias")
+    private List<Media> medias;
+    
+    
+    @JsonProperty("teaser_tag")
+    private String teaserTag;
     
     
     @JsonProperty("highlights")
     private List<String> highlights;
     
     
-    @JsonProperty("short_description")
-    private String shortDescription;
+    @JsonProperty("attributes")
+    private HashMap<String,Object> attributes;
     
     
-    @JsonProperty("color")
-    private String color;
-    
-    
-    @JsonProperty("image_nature")
-    private String imageNature;
+    @JsonProperty("type")
+    private String type;
     
     
     @JsonProperty("item_type")
     private String itemType;
+    
+    
+    @JsonProperty("rating_count")
+    private Integer ratingCount;
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    @JsonProperty("tryouts")
+    private List<String> tryouts;
+    
+    
+    @JsonProperty("price")
+    private ProductListingPrice price;
     
     
     @JsonProperty("discount")
@@ -322,36 +318,40 @@ public static class ProductDetail{
     private Boolean hasVariant;
     
     
-    @JsonProperty("teaser_tag")
-    private String teaserTag;
-    
-    
-    @JsonProperty("categories")
-    private List<ProductBrand> categories;
-    
-    
-    @JsonProperty("price")
-    private ProductListingPrice price;
-    
-    
-    @JsonProperty("product_online_date")
-    private String productOnlineDate;
+    @JsonProperty("short_description")
+    private String shortDescription;
     
     
     @JsonProperty("rating")
     private Double rating;
     
     
-    @JsonProperty("grouped_attributes")
-    private List<ProductDetailGroupedAttribute> groupedAttributes;
+    @JsonProperty("item_code")
+    private String itemCode;
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    @JsonProperty("color")
+    private String color;
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    @JsonProperty("product_online_date")
+    private String productOnlineDate;
     
     
     @JsonProperty("similars")
     private List<String> similars;
     
     
-    @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    @JsonProperty("categories")
+    private List<ProductBrand> categories;
     
     
     
@@ -378,150 +378,6 @@ public static class ErrorResponse{
 
 
 /*
-    Model: SizeChartValues
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class SizeChartValues{
-    
-    
-    @JsonProperty("col_2")
-    private String col2;
-    
-    
-    @JsonProperty("col_3")
-    private String col3;
-    
-    
-    @JsonProperty("col_6")
-    private String col6;
-    
-    
-    @JsonProperty("col_4")
-    private String col4;
-    
-    
-    @JsonProperty("col_1")
-    private String col1;
-    
-    
-    @JsonProperty("col_5")
-    private String col5;
-    
-    
-    
-}
-
-
-/*
-    Model: ColumnHeader
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class ColumnHeader{
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    @JsonProperty("convertable")
-    private Boolean convertable;
-    
-    
-    
-}
-
-
-/*
-    Model: ColumnHeaders
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class ColumnHeaders{
-    
-    
-    @JsonProperty("col_2")
-    private ColumnHeader col2;
-    
-    
-    @JsonProperty("col_3")
-    private ColumnHeader col3;
-    
-    
-    @JsonProperty("col_6")
-    private ColumnHeader col6;
-    
-    
-    @JsonProperty("col_4")
-    private ColumnHeader col4;
-    
-    
-    @JsonProperty("col_1")
-    private ColumnHeader col1;
-    
-    
-    @JsonProperty("col_5")
-    private ColumnHeader col5;
-    
-    
-    
-}
-
-
-/*
-    Model: SizeChart
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class SizeChart{
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    @JsonProperty("sizes")
-    private List<SizeChartValues> sizes;
-    
-    
-    @JsonProperty("image")
-    private String image;
-    
-    
-    @JsonProperty("headers")
-    private ColumnHeaders headers;
-    
-    
-    @JsonProperty("size_tip")
-    private String sizeTip;
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    @JsonProperty("unit")
-    private String unit;
-    
-    
-    
-}
-
-
-/*
     Model: ProductSize
 */
 @AllArgsConstructor
@@ -530,6 +386,10 @@ public static class SizeChart{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public static class ProductSize{
+    
+    
+    @JsonProperty("value")
+    private String value;
     
     
     @JsonProperty("is_available")
@@ -542,10 +402,6 @@ public static class ProductSize{
     
     @JsonProperty("display")
     private String display;
-    
-    
-    @JsonProperty("value")
-    private String value;
     
     
     
@@ -572,6 +428,150 @@ public static class ProductSizeStores{
 
 
 /*
+    Model: SizeChartValues
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public static class SizeChartValues{
+    
+    
+    @JsonProperty("col_4")
+    private String col4;
+    
+    
+    @JsonProperty("col_1")
+    private String col1;
+    
+    
+    @JsonProperty("col_2")
+    private String col2;
+    
+    
+    @JsonProperty("col_5")
+    private String col5;
+    
+    
+    @JsonProperty("col_6")
+    private String col6;
+    
+    
+    @JsonProperty("col_3")
+    private String col3;
+    
+    
+    
+}
+
+
+/*
+    Model: ColumnHeader
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public static class ColumnHeader{
+    
+    
+    @JsonProperty("convertable")
+    private Boolean convertable;
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+}
+
+
+/*
+    Model: ColumnHeaders
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public static class ColumnHeaders{
+    
+    
+    @JsonProperty("col_4")
+    private ColumnHeader col4;
+    
+    
+    @JsonProperty("col_1")
+    private ColumnHeader col1;
+    
+    
+    @JsonProperty("col_2")
+    private ColumnHeader col2;
+    
+    
+    @JsonProperty("col_5")
+    private ColumnHeader col5;
+    
+    
+    @JsonProperty("col_6")
+    private ColumnHeader col6;
+    
+    
+    @JsonProperty("col_3")
+    private ColumnHeader col3;
+    
+    
+    
+}
+
+
+/*
+    Model: SizeChart
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public static class SizeChart{
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    @JsonProperty("sizes")
+    private List<SizeChartValues> sizes;
+    
+    
+    @JsonProperty("image")
+    private String image;
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    @JsonProperty("size_tip")
+    private String sizeTip;
+    
+    
+    @JsonProperty("unit")
+    private String unit;
+    
+    
+    @JsonProperty("headers")
+    private ColumnHeaders headers;
+    
+    
+    
+}
+
+
+/*
     Model: ProductSizes
 */
 @AllArgsConstructor
@@ -580,10 +580,6 @@ public static class ProductSizeStores{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public static class ProductSizes{
-    
-    
-    @JsonProperty("size_chart")
-    private SizeChart sizeChart;
     
     
     @JsonProperty("price")
@@ -598,66 +594,16 @@ public static class ProductSizes{
     private List<ProductSize> sizes;
     
     
-    @JsonProperty("sellable")
-    private Boolean sellable;
-    
-    
     @JsonProperty("stores")
     private ProductSizeStores stores;
     
     
-    
-}
-
-
-/*
-    Model: Store
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class Store{
+    @JsonProperty("sellable")
+    private Boolean sellable;
     
     
-    @JsonProperty("count")
-    private Integer count;
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-}
-
-
-/*
-    Model: Seller
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class Seller{
-    
-    
-    @JsonProperty("count")
-    private Integer count;
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
+    @JsonProperty("size_chart")
+    private SizeChart sizeChart;
     
     
     
@@ -692,80 +638,26 @@ public static class ProductStockPrice{
 
 
 /*
-    Model: ArticleAssignment
+    Model: Seller
 */
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public static class ArticleAssignment{
+public static class Seller{
     
     
-    @JsonProperty("level")
-    private String level;
+    @JsonProperty("uid")
+    private Integer uid;
     
     
-    @JsonProperty("strategy")
-    private String strategy;
+    @JsonProperty("name")
+    private String name;
     
     
-    
-}
-
-
-/*
-    Model: StrategyWiseListing
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class StrategyWiseListing{
-    
-    
-    @JsonProperty("distance")
-    private Integer distance;
-    
-    
-    @JsonProperty("tat")
-    private Integer tat;
-    
-    
-    @JsonProperty("quantity")
-    private Integer quantity;
-    
-    
-    @JsonProperty("pincode")
-    private Integer pincode;
-    
-    
-    
-}
-
-
-/*
-    Model: ReturnConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class ReturnConfig{
-    
-    
-    @JsonProperty("returnable")
-    private Boolean returnable;
-    
-    
-    @JsonProperty("time")
-    private Integer time;
-    
-    
-    @JsonProperty("unit")
-    private String unit;
+    @JsonProperty("count")
+    private Integer count;
     
     
     
@@ -783,12 +675,12 @@ public static class ReturnConfig{
 public static class ProductSetDistributionSize{
     
     
-    @JsonProperty("size")
-    private String size;
-    
-    
     @JsonProperty("pieces")
     private Integer pieces;
+    
+    
+    @JsonProperty("size")
+    private String size;
     
     
     
@@ -825,12 +717,120 @@ public static class ProductSetDistribution{
 public static class ProductSet{
     
     
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
     @JsonProperty("size_distribution")
     private ProductSetDistribution sizeDistribution;
     
     
+    
+}
+
+
+/*
+    Model: ReturnConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public static class ReturnConfig{
+    
+    
+    @JsonProperty("time")
+    private Integer time;
+    
+    
+    @JsonProperty("unit")
+    private String unit;
+    
+    
+    @JsonProperty("returnable")
+    private Boolean returnable;
+    
+    
+    
+}
+
+
+/*
+    Model: Store
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public static class Store{
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    @JsonProperty("count")
+    private Integer count;
+    
+    
+    
+}
+
+
+/*
+    Model: StrategyWiseListing
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public static class StrategyWiseListing{
+    
+    
+    @JsonProperty("tat")
+    private Integer tat;
+    
+    
     @JsonProperty("quantity")
     private Integer quantity;
+    
+    
+    @JsonProperty("distance")
+    private Integer distance;
+    
+    
+    @JsonProperty("pincode")
+    private Integer pincode;
+    
+    
+    
+}
+
+
+/*
+    Model: ArticleAssignment
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public static class ArticleAssignment{
+    
+    
+    @JsonProperty("level")
+    private String level;
+    
+    
+    @JsonProperty("strategy")
+    private String strategy;
     
     
     
@@ -848,72 +848,72 @@ public static class ProductSet{
 public static class ProductSizePriceResponse{
     
     
-    @JsonProperty("store")
-    private Store store;
-    
-    
-    @JsonProperty("item_type")
-    private String itemType;
-    
-    
-    @JsonProperty("seller")
-    private Seller seller;
-    
-    
-    @JsonProperty("pincode")
-    private Integer pincode;
-    
-    
     @JsonProperty("price")
     private ProductStockPrice price;
-    
-    
-    @JsonProperty("discount")
-    private String discount;
     
     
     @JsonProperty("long_lat")
     private List<Double> longLat;
     
     
-    @JsonProperty("price_per_price")
-    private ProductStockPrice pricePerPrice;
+    @JsonProperty("item_type")
+    private String itemType;
     
     
-    @JsonProperty("special_badge")
-    private String specialBadge;
+    @JsonProperty("discount")
+    private String discount;
     
     
     @JsonProperty("marketplace_attributes")
     private List<HashMap<String,Object>> marketplaceAttributes;
     
     
-    @JsonProperty("seller_count")
-    private Integer sellerCount;
-    
-    
-    @JsonProperty("article_assignment")
-    private ArticleAssignment articleAssignment;
-    
-    
-    @JsonProperty("strategy_wise_listing")
-    private List<StrategyWiseListing> strategyWiseListing;
-    
-    
-    @JsonProperty("return_config")
-    private ReturnConfig returnConfig;
+    @JsonProperty("special_badge")
+    private String specialBadge;
     
     
     @JsonProperty("article_id")
     private String articleId;
     
     
-    @JsonProperty("set")
-    private ProductSet set;
+    @JsonProperty("price_per_price")
+    private ProductStockPrice pricePerPrice;
     
     
     @JsonProperty("quantity")
     private Integer quantity;
+    
+    
+    @JsonProperty("seller")
+    private Seller seller;
+    
+    
+    @JsonProperty("seller_count")
+    private Integer sellerCount;
+    
+    
+    @JsonProperty("pincode")
+    private Integer pincode;
+    
+    
+    @JsonProperty("set")
+    private ProductSet set;
+    
+    
+    @JsonProperty("return_config")
+    private ReturnConfig returnConfig;
+    
+    
+    @JsonProperty("store")
+    private Store store;
+    
+    
+    @JsonProperty("strategy_wise_listing")
+    private List<StrategyWiseListing> strategyWiseListing;
+    
+    
+    @JsonProperty("article_assignment")
+    private ArticleAssignment articleAssignment;
     
     
     
@@ -931,16 +931,16 @@ public static class ProductSizePriceResponse{
 public static class ProductSizeSellerFilter{
     
     
-    @JsonProperty("is_selected")
-    private Boolean isSelected;
+    @JsonProperty("value")
+    private String value;
     
     
     @JsonProperty("name")
     private String name;
     
     
-    @JsonProperty("value")
-    private String value;
+    @JsonProperty("is_selected")
+    private Boolean isSelected;
     
     
     
@@ -958,12 +958,12 @@ public static class ProductSizeSellerFilter{
 public static class ProductSizeSellersResponse{
     
     
-    @JsonProperty("sort_on")
-    private List<ProductSizeSellerFilter> sortOn;
-    
-    
     @JsonProperty("page")
     private Page page;
+    
+    
+    @JsonProperty("sort_on")
+    private List<ProductSizeSellerFilter> sortOn;
     
     
     @JsonProperty("items")
@@ -985,20 +985,20 @@ public static class ProductSizeSellersResponse{
 public static class AttributeDetail{
     
     
-    @JsonProperty("key")
-    private String key;
-    
-    
     @JsonProperty("description")
     private String description;
     
     
-    @JsonProperty("display")
-    private String display;
-    
-    
     @JsonProperty("logo")
     private String logo;
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    @JsonProperty("display")
+    private String display;
     
     
     
@@ -1016,12 +1016,12 @@ public static class AttributeDetail{
 public static class AttributeMetadata{
     
     
-    @JsonProperty("title")
-    private String title;
-    
-    
     @JsonProperty("details")
     private List<AttributeDetail> details;
+    
+    
+    @JsonProperty("title")
+    private String title;
     
     
     
@@ -1158,24 +1158,12 @@ public static class SimilarProductByTypeResponse{
 public static class ProductVariantItemResponse{
     
     
-    @JsonProperty("is_available")
-    private Boolean isAvailable;
-    
-    
-    @JsonProperty("color")
-    private String color;
-    
-    
-    @JsonProperty("color_name")
-    private String colorName;
-    
-    
-    @JsonProperty("medias")
-    private List<Media> medias;
-    
-    
     @JsonProperty("name")
     private String name;
+    
+    
+    @JsonProperty("value")
+    private String value;
     
     
     @JsonProperty("uid")
@@ -1186,12 +1174,24 @@ public static class ProductVariantItemResponse{
     private ProductListingAction action;
     
     
-    @JsonProperty("value")
-    private String value;
+    @JsonProperty("medias")
+    private List<Media> medias;
     
     
     @JsonProperty("slug")
     private String slug;
+    
+    
+    @JsonProperty("is_available")
+    private Boolean isAvailable;
+    
+    
+    @JsonProperty("color_name")
+    private String colorName;
+    
+    
+    @JsonProperty("color")
+    private String color;
     
     
     
@@ -1209,6 +1209,10 @@ public static class ProductVariantItemResponse{
 public static class ProductVariantResponse{
     
     
+    @JsonProperty("display_type")
+    private String displayType;
+    
+    
     @JsonProperty("key")
     private String key;
     
@@ -1219,10 +1223,6 @@ public static class ProductVariantResponse{
     
     @JsonProperty("items")
     private List<ProductVariantItemResponse> items;
-    
-    
-    @JsonProperty("display_type")
-    private String displayType;
     
     
     
@@ -1267,12 +1267,12 @@ public static class StoreDetail{
     private String name;
     
     
-    @JsonProperty("city")
-    private String city;
-    
-    
     @JsonProperty("code")
     private String code;
+    
+    
+    @JsonProperty("city")
+    private String city;
     
     
     
@@ -1313,40 +1313,40 @@ public static class CompanyDetail{
 public static class ProductStockStatusItem{
     
     
-    @JsonProperty("store")
-    private StoreDetail store;
-    
-    
-    @JsonProperty("size")
-    private String size;
-    
-    
-    @JsonProperty("seller")
-    private Seller seller;
+    @JsonProperty("identifier")
+    private HashMap<String,Object> identifier;
     
     
     @JsonProperty("price")
     private ProductStockPrice price;
     
     
-    @JsonProperty("uid")
-    private String uid;
+    @JsonProperty("size")
+    private String size;
     
     
     @JsonProperty("item_id")
     private Integer itemId;
     
     
-    @JsonProperty("company")
-    private CompanyDetail company;
+    @JsonProperty("seller")
+    private Seller seller;
     
     
-    @JsonProperty("identifier")
-    private HashMap<String,Object> identifier;
+    @JsonProperty("uid")
+    private String uid;
     
     
     @JsonProperty("quantity")
     private Integer quantity;
+    
+    
+    @JsonProperty("store")
+    private StoreDetail store;
+    
+    
+    @JsonProperty("company")
+    private CompanyDetail company;
     
     
     
@@ -1396,129 +1396,6 @@ public static class ProductStockPolling{
 
 
 /*
-    Model: ProductListingDetail
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class ProductListingDetail{
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    @JsonProperty("action")
-    private ProductListingAction action;
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    @JsonProperty("rating_count")
-    private Integer ratingCount;
-    
-    
-    @JsonProperty("tryouts")
-    private List<String> tryouts;
-    
-    
-    @JsonProperty("brand")
-    private ProductBrand brand;
-    
-    
-    @JsonProperty("item_code")
-    private String itemCode;
-    
-    
-    @JsonProperty("sellable")
-    private Boolean sellable;
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    @JsonProperty("medias")
-    private List<Media> medias;
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    @JsonProperty("highlights")
-    private List<String> highlights;
-    
-    
-    @JsonProperty("short_description")
-    private String shortDescription;
-    
-    
-    @JsonProperty("color")
-    private String color;
-    
-    
-    @JsonProperty("image_nature")
-    private String imageNature;
-    
-    
-    @JsonProperty("item_type")
-    private String itemType;
-    
-    
-    @JsonProperty("discount")
-    private String discount;
-    
-    
-    @JsonProperty("has_variant")
-    private Boolean hasVariant;
-    
-    
-    @JsonProperty("teaser_tag")
-    private String teaserTag;
-    
-    
-    @JsonProperty("categories")
-    private List<ProductBrand> categories;
-    
-    
-    @JsonProperty("price")
-    private ProductListingPrice price;
-    
-    
-    @JsonProperty("product_online_date")
-    private String productOnlineDate;
-    
-    
-    @JsonProperty("rating")
-    private Double rating;
-    
-    
-    @JsonProperty("grouped_attributes")
-    private List<ProductDetailGroupedAttribute> groupedAttributes;
-    
-    
-    @JsonProperty("similars")
-    private List<String> similars;
-    
-    
-    @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
-    
-    
-    
-}
-
-
-/*
     Model: ProductSortOn
 */
 @AllArgsConstructor
@@ -1529,16 +1406,79 @@ public static class ProductListingDetail{
 public static class ProductSortOn{
     
     
-    @JsonProperty("is_selected")
-    private Boolean isSelected;
+    @JsonProperty("value")
+    private String value;
     
     
     @JsonProperty("name")
     private String name;
     
     
+    @JsonProperty("is_selected")
+    private Boolean isSelected;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductFiltersValue
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public static class ProductFiltersValue{
+    
+    
+    @JsonProperty("selected_max")
+    private Integer selectedMax;
+    
+    
     @JsonProperty("value")
     private String value;
+    
+    
+    @JsonProperty("currency_symbol")
+    private String currencySymbol;
+    
+    
+    @JsonProperty("is_selected")
+    private Boolean isSelected;
+    
+    
+    @JsonProperty("min")
+    private Integer min;
+    
+    
+    @JsonProperty("count")
+    private Integer count;
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    @JsonProperty("display_format")
+    private String displayFormat;
+    
+    
+    @JsonProperty("query_format")
+    private String queryFormat;
+    
+    
+    @JsonProperty("selected_min")
+    private Integer selectedMin;
+    
+    
+    @JsonProperty("max")
+    private Integer max;
+    
+    
+    @JsonProperty("display")
+    private String display;
     
     
     
@@ -1560,79 +1500,16 @@ public static class ProductFiltersKey{
     private String kind;
     
     
+    @JsonProperty("logo")
+    private String logo;
+    
+    
     @JsonProperty("name")
     private String name;
     
     
     @JsonProperty("display")
     private String display;
-    
-    
-    @JsonProperty("logo")
-    private String logo;
-    
-    
-    
-}
-
-
-/*
-    Model: ProductFiltersValue
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class ProductFiltersValue{
-    
-    
-    @JsonProperty("min")
-    private Integer min;
-    
-    
-    @JsonProperty("max")
-    private Integer max;
-    
-    
-    @JsonProperty("selected_min")
-    private Integer selectedMin;
-    
-    
-    @JsonProperty("currency_symbol")
-    private String currencySymbol;
-    
-    
-    @JsonProperty("selected_max")
-    private Integer selectedMax;
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    @JsonProperty("currency_code")
-    private String currencyCode;
-    
-    
-    @JsonProperty("display_format")
-    private String displayFormat;
-    
-    
-    @JsonProperty("count")
-    private Integer count;
-    
-    
-    @JsonProperty("is_selected")
-    private Boolean isSelected;
-    
-    
-    @JsonProperty("display")
-    private String display;
-    
-    
-    @JsonProperty("query_format")
-    private String queryFormat;
     
     
     
@@ -1650,12 +1527,135 @@ public static class ProductFiltersValue{
 public static class ProductFilters{
     
     
+    @JsonProperty("values")
+    private List<ProductFiltersValue> values;
+    
+    
     @JsonProperty("key")
     private ProductFiltersKey key;
     
     
-    @JsonProperty("values")
-    private List<ProductFiltersValue> values;
+    
+}
+
+
+/*
+    Model: ProductListingDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public static class ProductListingDetail{
+    
+    
+    @JsonProperty("image_nature")
+    private String imageNature;
+    
+    
+    @JsonProperty("brand")
+    private ProductBrand brand;
+    
+    
+    @JsonProperty("grouped_attributes")
+    private List<ProductDetailGroupedAttribute> groupedAttributes;
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    @JsonProperty("action")
+    private ProductListingAction action;
+    
+    
+    @JsonProperty("medias")
+    private List<Media> medias;
+    
+    
+    @JsonProperty("teaser_tag")
+    private String teaserTag;
+    
+    
+    @JsonProperty("highlights")
+    private List<String> highlights;
+    
+    
+    @JsonProperty("attributes")
+    private HashMap<String,Object> attributes;
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    @JsonProperty("item_type")
+    private String itemType;
+    
+    
+    @JsonProperty("rating_count")
+    private Integer ratingCount;
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    @JsonProperty("tryouts")
+    private List<String> tryouts;
+    
+    
+    @JsonProperty("price")
+    private ProductListingPrice price;
+    
+    
+    @JsonProperty("discount")
+    private String discount;
+    
+    
+    @JsonProperty("has_variant")
+    private Boolean hasVariant;
+    
+    
+    @JsonProperty("short_description")
+    private String shortDescription;
+    
+    
+    @JsonProperty("rating")
+    private Double rating;
+    
+    
+    @JsonProperty("item_code")
+    private String itemCode;
+    
+    
+    @JsonProperty("sellable")
+    private Boolean sellable;
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    @JsonProperty("color")
+    private String color;
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    @JsonProperty("product_online_date")
+    private String productOnlineDate;
+    
+    
+    @JsonProperty("similars")
+    private List<String> similars;
+    
+    
+    @JsonProperty("categories")
+    private List<ProductBrand> categories;
     
     
     
@@ -1673,10 +1673,6 @@ public static class ProductFilters{
 public static class ProductListingResponse{
     
     
-    @JsonProperty("items")
-    private List<ProductListingDetail> items;
-    
-    
     @JsonProperty("sort_on")
     private List<ProductSortOn> sortOn;
     
@@ -1687,6 +1683,10 @@ public static class ProductListingResponse{
     
     @JsonProperty("filters")
     private List<ProductFilters> filters;
+    
+    
+    @JsonProperty("items")
+    private List<ProductListingDetail> items;
     
     
     
@@ -1727,6 +1727,10 @@ public static class ImageUrls{
 public static class BrandItem{
     
     
+    @JsonProperty("name")
+    private String name;
+    
+    
     @JsonProperty("discount")
     private String discount;
     
@@ -1735,12 +1739,12 @@ public static class BrandItem{
     private ProductListingAction action;
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
     @JsonProperty("uid")
     private Integer uid;
+    
+    
+    @JsonProperty("slug")
+    private String slug;
     
     
     @JsonProperty("banners")
@@ -1749,10 +1753,6 @@ public static class BrandItem{
     
     @JsonProperty("departments")
     private List<String> departments;
-    
-    
-    @JsonProperty("slug")
-    private String slug;
     
     
     @JsonProperty("logo")
@@ -1797,16 +1797,16 @@ public static class BrandListingResponse{
 public static class BrandDetailResponse{
     
     
-    @JsonProperty("banners")
-    private ImageUrls banners;
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     @JsonProperty("name")
     private String name;
     
     
-    @JsonProperty("uid")
-    private Integer uid;
+    @JsonProperty("banners")
+    private ImageUrls banners;
     
     
     @JsonProperty("logo")
@@ -1828,32 +1828,32 @@ public static class BrandDetailResponse{
 public static class ThirdLevelChild{
     
     
-    @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
-    
-    
-    @JsonProperty("childs")
-    private List<HashMap<String,Object>> childs;
-    
-    
     @JsonProperty("name")
     private String name;
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
     
     
     @JsonProperty("action")
     private ProductListingAction action;
     
     
-    @JsonProperty("banners")
-    private ImageUrls banners;
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    @JsonProperty("_custom_json")
+    private HashMap<String,Object> customJson;
     
     
     @JsonProperty("slug")
     private String slug;
+    
+    
+    @JsonProperty("banners")
+    private ImageUrls banners;
+    
+    
+    @JsonProperty("childs")
+    private List<HashMap<String,Object>> childs;
     
     
     
@@ -1871,32 +1871,32 @@ public static class ThirdLevelChild{
 public static class SecondLevelChild{
     
     
-    @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
-    
-    
-    @JsonProperty("childs")
-    private List<ThirdLevelChild> childs;
-    
-    
     @JsonProperty("name")
     private String name;
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
     
     
     @JsonProperty("action")
     private ProductListingAction action;
     
     
-    @JsonProperty("banners")
-    private ImageUrls banners;
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    @JsonProperty("_custom_json")
+    private HashMap<String,Object> customJson;
     
     
     @JsonProperty("slug")
     private String slug;
+    
+    
+    @JsonProperty("banners")
+    private ImageUrls banners;
+    
+    
+    @JsonProperty("childs")
+    private List<ThirdLevelChild> childs;
     
     
     
@@ -1914,32 +1914,32 @@ public static class SecondLevelChild{
 public static class Child{
     
     
-    @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
-    
-    
-    @JsonProperty("childs")
-    private List<SecondLevelChild> childs;
-    
-    
     @JsonProperty("name")
     private String name;
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
     
     
     @JsonProperty("action")
     private ProductListingAction action;
     
     
-    @JsonProperty("banners")
-    private ImageUrls banners;
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    @JsonProperty("_custom_json")
+    private HashMap<String,Object> customJson;
     
     
     @JsonProperty("slug")
     private String slug;
+    
+    
+    @JsonProperty("banners")
+    private ImageUrls banners;
+    
+    
+    @JsonProperty("childs")
+    private List<SecondLevelChild> childs;
     
     
     
@@ -1957,28 +1957,28 @@ public static class Child{
 public static class CategoryItems{
     
     
-    @JsonProperty("childs")
-    private List<Child> childs;
-    
-    
     @JsonProperty("name")
     private String name;
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
     
     
     @JsonProperty("action")
     private ProductListingAction action;
     
     
-    @JsonProperty("banners")
-    private ImageUrls banners;
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     @JsonProperty("slug")
     private String slug;
+    
+    
+    @JsonProperty("banners")
+    private ImageUrls banners;
+    
+    
+    @JsonProperty("childs")
+    private List<Child> childs;
     
     
     
@@ -2065,16 +2065,16 @@ public static class CategoryListingResponse{
 public static class CategoryMetaResponse{
     
     
-    @JsonProperty("banners")
-    private ImageUrls banners;
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     @JsonProperty("name")
     private String name;
     
     
-    @JsonProperty("uid")
-    private Integer uid;
+    @JsonProperty("banners")
+    private ImageUrls banners;
     
     
     @JsonProperty("logo")
@@ -2096,12 +2096,12 @@ public static class CategoryMetaResponse{
 public static class HomeListingResponse{
     
     
-    @JsonProperty("message")
-    private String message;
-    
-    
     @JsonProperty("page")
     private Page page;
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     @JsonProperty("items")
@@ -2127,12 +2127,12 @@ public static class Department{
     private String name;
     
     
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
     @JsonProperty("priority_order")
     private Integer priorityOrder;
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     @JsonProperty("slug")
@@ -2177,20 +2177,20 @@ public static class DepartmentResponse{
 public static class AutocompleteItem{
     
     
-    @JsonProperty("type")
-    private String type;
-    
-    
     @JsonProperty("action")
     private ProductListingAction action;
     
     
-    @JsonProperty("display")
-    private String display;
+    @JsonProperty("type")
+    private String type;
     
     
     @JsonProperty("logo")
     private Media logo;
+    
+    
+    @JsonProperty("display")
+    private String display;
     
     
     
@@ -2227,12 +2227,12 @@ public static class AutoCompleteResponse{
 public static class CollectionListingFilterType{
     
     
-    @JsonProperty("is_selected")
-    private Boolean isSelected;
-    
-    
     @JsonProperty("name")
     private String name;
+    
+    
+    @JsonProperty("is_selected")
+    private Boolean isSelected;
     
     
     @JsonProperty("display")
@@ -2254,12 +2254,12 @@ public static class CollectionListingFilterType{
 public static class CollectionListingFilterTag{
     
     
-    @JsonProperty("is_selected")
-    private Boolean isSelected;
-    
-    
     @JsonProperty("name")
     private String name;
+    
+    
+    @JsonProperty("is_selected")
+    private Boolean isSelected;
     
     
     @JsonProperty("display")
@@ -2304,60 +2304,36 @@ public static class CollectionListingFilter{
 public static class GetCollectionDetailNest{
     
     
-    @JsonProperty("type")
-    private String type;
-    
-    
-    @JsonProperty("action")
-    private ProductListingAction action;
-    
-    
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    @JsonProperty("app_id")
-    private String appId;
-    
-    
-    @JsonProperty("banners")
-    private ImageUrls banners;
+    @JsonProperty("name")
+    private String name;
     
     
     @JsonProperty("visible_facets_keys")
     private List<String> visibleFacetsKeys;
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    @JsonProperty("cron")
-    private HashMap<String,Object> cron;
+    @JsonProperty("badge")
+    private HashMap<String,Object> badge;
     
     
     @JsonProperty("_schedule")
     private HashMap<String,Object> schedule;
     
     
-    @JsonProperty("description")
-    private String description;
+    @JsonProperty("action")
+    private ProductListingAction action;
     
     
-    @JsonProperty("tag")
-    private List<String> tag;
+    @JsonProperty("banners")
+    private ImageUrls banners;
     
     
-    @JsonProperty("badge")
-    private HashMap<String,Object> badge;
+    @JsonProperty("type")
+    private String type;
+    
+    
+    @JsonProperty("uid")
+    private String uid;
     
     
     @JsonProperty("allow_sort")
@@ -2368,16 +2344,40 @@ public static class GetCollectionDetailNest{
     private HashMap<String,Object> meta;
     
     
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    @JsonProperty("query")
+    private HashMap<String,Object> query;
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    @JsonProperty("tag")
+    private List<String> tag;
+    
+    
     @JsonProperty("logo")
     private Media logo;
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     @JsonProperty("allow_facets")
     private Boolean allowFacets;
     
     
-    @JsonProperty("query")
-    private HashMap<String,Object> query;
+    @JsonProperty("cron")
+    private HashMap<String,Object> cron;
     
     
     
@@ -2395,12 +2395,12 @@ public static class GetCollectionDetailNest{
 public static class GetCollectionListingResponse{
     
     
-    @JsonProperty("filters")
-    private CollectionListingFilter filters;
-    
-    
     @JsonProperty("page")
     private Page page;
+    
+    
+    @JsonProperty("filters")
+    private CollectionListingFilter filters;
     
     
     @JsonProperty("items")
@@ -2422,24 +2422,40 @@ public static class GetCollectionListingResponse{
 public static class CollectionDetailResponse{
     
     
-    @JsonProperty("visible_facets_keys")
-    private List<String> visibleFacetsKeys;
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
     
     
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("description")
+    private String description;
     
     
     @JsonProperty("name")
     private String name;
     
     
-    @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    @JsonProperty("visible_facets_keys")
+    private List<String> visibleFacetsKeys;
     
     
-    @JsonProperty("cron")
-    private HashMap<String,Object> cron;
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    @JsonProperty("badge")
+    private HashMap<String,Object> badge;
+    
+    
+    @JsonProperty("allow_sort")
+    private Boolean allowSort;
+    
+    
+    @JsonProperty("query")
+    private HashMap<String,Object> query;
+    
+    
+    @JsonProperty("_schedule")
+    private HashMap<String,Object> schedule;
     
     
     @JsonProperty("allow_facets")
@@ -2450,40 +2466,24 @@ public static class CollectionDetailResponse{
     private String appId;
     
     
-    @JsonProperty("description")
-    private String description;
+    @JsonProperty("slug")
+    private String slug;
     
     
     @JsonProperty("banners")
     private ImageUrls banners;
     
     
-    @JsonProperty("query")
-    private HashMap<String,Object> query;
+    @JsonProperty("cron")
+    private HashMap<String,Object> cron;
     
     
-    @JsonProperty("allow_sort")
-    private Boolean allowSort;
-    
-    
-    @JsonProperty("_schedule")
-    private HashMap<String,Object> schedule;
+    @JsonProperty("type")
+    private String type;
     
     
     @JsonProperty("tag")
     private List<String> tag;
-    
-    
-    @JsonProperty("badge")
-    private HashMap<String,Object> badge;
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    @JsonProperty("slug")
-    private String slug;
     
     
     @JsonProperty("logo")
@@ -2528,12 +2528,12 @@ public static class GetFollowListingResponse{
 public static class FollowPostResponse{
     
     
-    @JsonProperty("message")
-    private String message;
-    
-    
     @JsonProperty("id")
     private String id;
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -2570,12 +2570,12 @@ public static class FollowerCountResponse{
 public static class FollowIdsData{
     
     
-    @JsonProperty("products")
-    private List<Integer> products;
-    
-    
     @JsonProperty("collections")
     private List<Integer> collections;
+    
+    
+    @JsonProperty("products")
+    private List<Integer> products;
     
     
     @JsonProperty("brands")
@@ -2643,40 +2643,40 @@ public static class Store1{
     private String storeEmail;
     
     
-    @JsonProperty("pincode")
-    private Integer pincode;
-    
-    
-    @JsonProperty("store_code")
-    private String storeCode;
-    
-    
     @JsonProperty("name")
     private String name;
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    @JsonProperty("state")
-    private String state;
     
     
     @JsonProperty("lat_long")
     private LatLong latLong;
     
     
-    @JsonProperty("address")
-    private String address;
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    @JsonProperty("pincode")
+    private Integer pincode;
+    
+    
+    @JsonProperty("state")
+    private String state;
     
     
     @JsonProperty("city")
     private String city;
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    @JsonProperty("store_code")
+    private String storeCode;
+    
+    
+    @JsonProperty("country")
+    private String country;
     
     
     
