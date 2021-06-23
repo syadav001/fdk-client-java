@@ -14,7 +14,7 @@ interface CatalogApiList {
     Call<ApplicationModels.ProductSizes> getProductSizesBySlug(@Path("slug") String slug , @Query("store_id") Integer storeId );
     
     @GET ("/service/application/catalog/v1.0/products/{slug}/sizes/{size}/pincode/{pincode}/price/")
-    Call<ApplicationModels.ProductSizePriceResponse> getProductPriceBySlug(@Path("slug") String slug , @Path("size") String size , @Path("pincode") String pincode , @Query("store_id") String storeId );
+    Call<ApplicationModels.ProductSizePriceResponse> getProductPriceBySlug(@Path("slug") String slug , @Path("size") String size , @Path("pincode") String pincode , @Query("store_id") Integer storeId );
     
     @GET ("/service/application/catalog/v1.0/products/{slug}/sizes/{size}/pincode/{pincode}/sellers/")
     Call<ApplicationModels.ProductSizeSellersResponse> getProductSellersBySlug(@Path("slug") String slug , @Path("size") String size , @Path("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
@@ -76,11 +76,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );

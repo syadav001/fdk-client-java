@@ -68,7 +68,7 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizePriceResponse getProductPriceBySlug(String slug , String size , String pincode , String storeId ) throws IOException {
+    public ApplicationModels.ProductSizePriceResponse getProductPriceBySlug(String slug , String size , String pincode , Integer storeId ) throws IOException {
     
         Response<ApplicationModels.ProductSizePriceResponse> response = catalogApiList.getProductPriceBySlug(slug, size, pincode, storeId).execute();
         if(!response.isSuccessful()) {
@@ -854,9 +854,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -868,9 +868,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
