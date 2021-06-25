@@ -93,6 +93,7 @@
     * [submitCustomForm](#submitcustomform)
     * [getParticipantsInsideVideoRoom](#getparticipantsinsidevideoroom)
     * [getTokenForVideoRoom](#gettokenforvideoroom)
+    * [getASDF](#getasdf)
     
 
 * [Theme](#Theme)
@@ -1752,14 +1753,14 @@ Fetch all items added to the cart
 
 ```java
 cart.getCart(
-  uid, i, b, assignCardId
+  id, i, b, assignCardId
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| uid | Integer? |  |    
+| id | String? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |    
 | assignCardId | Integer? |  |  
@@ -1792,14 +1793,14 @@ Fetch last-modified timestamp
 
 ```java
 cart.getCartLastModified(
-  uid
+  id
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| uid | Integer? |  |  
+| id | String? |  |  
 
 Use this API to fetch Last-Modified timestamp in header metadata.
 
@@ -2494,14 +2495,14 @@ Update items in the cart
 
 ```java
 cart.updateCart(
-  uid, i, b, body 
+  id, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| uid | Integer? |  |    
+| id | String? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -2895,14 +2896,14 @@ Count items in the cart
 
 ```java
 cart.getItemCount(
-  uid
+  id
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| uid | Integer? | The unique identifier of the cart. |  
+| id | String? | The unique identifier of the cart. |  
 
 Use this API to get the total number of items present in cart.
 
@@ -3208,14 +3209,14 @@ Fetch address
 
 ```java
 cart.getAddresses(
-  uid, mobileNo, checkoutMode, tags, isDefault
+  cartId, mobileNo, checkoutMode, tags, isDefault
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| uid | Integer? |  |    
+| cartId | String? |  |    
 | mobileNo | String? |  |    
 | checkoutMode | String? |  |    
 | tags | String? |  |    
@@ -3285,15 +3286,15 @@ Fetch a single address by its ID
 
 ```java
 cart.getAddressById(
-  id, uid, mobileNo, checkoutMode, tags, isDefault
+  id, cartId, mobileNo, checkoutMode, tags, isDefault
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | Integer? |  |    
-| uid | Integer? |  |    
+| id | String? |  |    
+| cartId | String? |  |    
 | mobileNo | String? |  |    
 | checkoutMode | String? |  |    
 | tags | String? |  |    
@@ -3401,14 +3402,14 @@ Select an address from available addresses
 
 ```java
 cart.selectAddress(
-  uid, i, b, body 
+  cartId, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| uid | Integer? |  |    
+| cartId | String? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -6089,6 +6090,58 @@ lead.getTokenForVideoRoom(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
 | uniqueName | String? | Unique name of Video Room |  
+
+Get Token to join a specific Video Room using it's unqiue name, this Token is your ticket to Room and also creates your identity there.
+
+*Success Response:*
+
+
+
+Success
+
+
+Schema: `GetTokenForVideoRoomResponse`
+
+
+*Examples:*
+
+
+Default
+```json
+{
+  "value": {
+    "access_token": "your_token_to_the_room"
+  }
+}
+```
+
+
+
+
+
+
+
+
+
+---
+
+
+#### getASDF
+Get Token to join a specific Video Room using it's unqiue name
+
+
+```java
+lead.getASDF(
+  inQuery, inHeader, inPath
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- |  
+| inQuery | undefined.PriorityEnum? | For adding support for enum |    
+| inHeader | undefined.PriorityEnum? | For adding support for enum |    
+| inPath | undefined.PriorityEnum? | For adding support for enum |  
 
 Get Token to join a specific Video Room using it's unqiue name, this Token is your ticket to Room and also creates your identity there.
 
@@ -14822,14 +14875,14 @@ Fetch all items added to the cart
 
 ```java
 poscart.getCart(
-  uid, i, b, assignCardId
+  id, i, b, assignCardId
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| uid | Integer? |  |    
+| id | String? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |    
 | assignCardId | Integer? |  |  
@@ -14862,14 +14915,14 @@ Fetch last-modified timestamp
 
 ```java
 poscart.getCartLastModified(
-  uid
+  id
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| uid | Integer? |  |  
+| id | String? |  |  
 
 Use this API to fetch Last-Modified timestamp in header metadata.
 
@@ -15564,14 +15617,14 @@ Update items in the cart
 
 ```java
 poscart.updateCart(
-  uid, i, b, body 
+  id, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| uid | Integer? |  |    
+| id | String? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -15965,14 +16018,14 @@ Count items in the cart
 
 ```java
 poscart.getItemCount(
-  uid
+  id
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| uid | Integer? | The unique identifier of the cart. |  
+| id | String? | The unique identifier of the cart. |  
 
 Use this API to get the total number of items present in cart.
 
@@ -16278,14 +16331,14 @@ Fetch address
 
 ```java
 poscart.getAddresses(
-  uid, mobileNo, checkoutMode, tags, isDefault
+  cartId, mobileNo, checkoutMode, tags, isDefault
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| uid | Integer? |  |    
+| cartId | String? |  |    
 | mobileNo | String? |  |    
 | checkoutMode | String? |  |    
 | tags | String? |  |    
@@ -16355,15 +16408,15 @@ Fetch a single address by its ID
 
 ```java
 poscart.getAddressById(
-  id, uid, mobileNo, checkoutMode, tags, isDefault
+  id, cartId, mobileNo, checkoutMode, tags, isDefault
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | Integer? |  |    
-| uid | Integer? |  |    
+| id | String? |  |    
+| cartId | String? |  |    
 | mobileNo | String? |  |    
 | checkoutMode | String? |  |    
 | tags | String? |  |    
@@ -16471,14 +16524,14 @@ Select an address from available addresses
 
 ```java
 poscart.selectAddress(
-  uid, i, b, body 
+  cartId, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| uid | Integer? |  |    
+| cartId | String? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 

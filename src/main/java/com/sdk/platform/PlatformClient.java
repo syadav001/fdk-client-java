@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PlatformClient{
+public class PlatformClient extends PlatformEnums{
 
     private PlatformConfig config;
 

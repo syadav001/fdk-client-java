@@ -40,6 +40,8 @@
   * [Lead#editTicket](#leadeditticket)
   * [Lead#createHistory](#leadcreatehistory)
   * [Lead#getTicketHistory](#leadgettickethistory)
+  * [Lead#getFeedbacks](#leadgetfeedbacks)
+  * [Lead#submitFeedback](#leadsubmitfeedback)
   * [Lead#createHistory](#leadcreatehistory)
   * [Lead#getTicketHistory](#leadgettickethistory)
   * [Lead#getCustomForm](#leadgetcustomform)
@@ -52,6 +54,8 @@
   * [Lead#getVideoParticipants](#leadgetvideoparticipants)
   * [Lead#openVideoRoom](#leadopenvideoroom)
   * [Lead#closeVideoRoom](#leadclosevideoroom)
+  * [Lead#getASDF](#leadgetasdf)
+  * [Lead#getASDF](#leadgetasdf)
  
 * [Feedback](#Feedback)
   * [Feedback#getAttributes](#feedbackgetattributes)
@@ -92,6 +96,9 @@
 * [User](#User)
   * [User#getCustomers](#usergetcustomers)
   * [User#searchUsers](#usersearchusers)
+  * [User#createUser](#usercreateuser)
+  * [User#updateUser](#userupdateuser)
+  * [User#createUserSession](#usercreateusersession)
   * [User#getPlatformConfig](#usergetplatformconfig)
   * [User#updatePlatformConfig](#userupdateplatformconfig)
  
@@ -269,34 +276,34 @@
   * [Catalog#deleteSearchKeywords](#catalogdeletesearchkeywords)
   * [Catalog#getSearchKeywords](#cataloggetsearchkeywords)
   * [Catalog#updateSearchKeywords](#catalogupdatesearchkeywords)
-  * [Catalog#getAllSearchKeyword](#cataloggetallsearchkeyword)
   * [Catalog#createCustomKeyword](#catalogcreatecustomkeyword)
+  * [Catalog#getAllSearchKeyword](#cataloggetallsearchkeyword)
   * [Catalog#deleteAutocompleteKeyword](#catalogdeleteautocompletekeyword)
   * [Catalog#getAutocompleteKeywordDetail](#cataloggetautocompletekeyworddetail)
   * [Catalog#updateAutocompleteKeyword](#catalogupdateautocompletekeyword)
-  * [Catalog#getAutocompleteConfig](#cataloggetautocompleteconfig)
   * [Catalog#createCustomAutocompleteRule](#catalogcreatecustomautocompleterule)
-  * [Catalog#getProductBundle](#cataloggetproductbundle)
+  * [Catalog#getAutocompleteConfig](#cataloggetautocompleteconfig)
   * [Catalog#createProductBundle](#catalogcreateproductbundle)
+  * [Catalog#getProductBundle](#cataloggetproductbundle)
   * [Catalog#getProductBundleDetail](#cataloggetproductbundledetail)
   * [Catalog#updateProductBundle](#catalogupdateproductbundle)
-  * [Catalog#getSizeGuides](#cataloggetsizeguides)
   * [Catalog#createSizeGuide](#catalogcreatesizeguide)
+  * [Catalog#getSizeGuides](#cataloggetsizeguides)
   * [Catalog#getSizeGuide](#cataloggetsizeguide)
   * [Catalog#updateSizeGuide](#catalogupdatesizeguide)
   * [Catalog#getCatalogConfiguration](#cataloggetcatalogconfiguration)
-  * [Catalog#getConfigurations](#cataloggetconfigurations)
   * [Catalog#createConfigurationProductListing](#catalogcreateconfigurationproductlisting)
-  * [Catalog#getConfigurationByType](#cataloggetconfigurationbytype)
+  * [Catalog#getConfigurations](#cataloggetconfigurations)
   * [Catalog#createConfigurationByType](#catalogcreateconfigurationbytype)
+  * [Catalog#getConfigurationByType](#cataloggetconfigurationbytype)
   * [Catalog#getQueryFilters](#cataloggetqueryfilters)
-  * [Catalog#getAllCollections](#cataloggetallcollections)
   * [Catalog#createCollection](#catalogcreatecollection)
+  * [Catalog#getAllCollections](#cataloggetallcollections)
   * [Catalog#getCollectionDetail](#cataloggetcollectiondetail)
   * [Catalog#deleteCollection](#catalogdeletecollection)
   * [Catalog#updateCollection](#catalogupdatecollection)
-  * [Catalog#getCollectionItems](#cataloggetcollectionitems)
   * [Catalog#addCollectionItems](#catalogaddcollectionitems)
+  * [Catalog#getCollectionItems](#cataloggetcollectionitems)
   * [Catalog#getCatalogInsights](#cataloggetcataloginsights)
   * [Catalog#getSellerInsights](#cataloggetsellerinsights)
   * [Catalog#createMarketplaceOptin](#catalogcreatemarketplaceoptin)
@@ -317,37 +324,37 @@
   * [Catalog#listHSNCodes](#cataloglisthsncodes)
   * [Catalog#listProductTemplateExportDetails](#cataloglistproducttemplateexportdetails)
   * [Catalog#listTemplateBrandTypeValues](#cataloglisttemplatebrandtypevalues)
-  * [Catalog#listCategories](#cataloglistcategories)
   * [Catalog#createCategories](#catalogcreatecategories)
+  * [Catalog#listCategories](#cataloglistcategories)
   * [Catalog#getCategoryData](#cataloggetcategorydata)
   * [Catalog#updateCategory](#catalogupdatecategory)
-  * [Catalog#getProducts](#cataloggetproducts)
   * [Catalog#createProduct](#catalogcreateproduct)
+  * [Catalog#getProducts](#cataloggetproducts)
   * [Catalog#deleteProduct](#catalogdeleteproduct)
   * [Catalog#getProduct](#cataloggetproduct)
   * [Catalog#editProduct](#catalogeditproduct)
   * [Catalog#getProductValidation](#cataloggetproductvalidation)
   * [Catalog#getProductSize](#cataloggetproductsize)
-  * [Catalog#getProductBulkUploadHistory](#cataloggetproductbulkuploadhistory)
   * [Catalog#updateProductAssetsInBulk](#catalogupdateproductassetsinbulk)
+  * [Catalog#getProductBulkUploadHistory](#cataloggetproductbulkuploadhistory)
   * [Catalog#deleteProductBulkJob](#catalogdeleteproductbulkjob)
   * [Catalog#createProductsInBulk](#catalogcreateproductsinbulk)
   * [Catalog#getCompanyTags](#cataloggetcompanytags)
-  * [Catalog#getProductAssetsInBulk](#cataloggetproductassetsinbulk)
   * [Catalog#createProductAssetsInBulk](#catalogcreateproductassetsinbulk)
+  * [Catalog#getProductAssetsInBulk](#cataloggetproductassetsinbulk)
   * [Catalog#deleteSize](#catalogdeletesize)
-  * [Catalog#getInventory](#cataloggetinventory)
   * [Catalog#addInventory](#catalogaddinventory)
+  * [Catalog#getInventory](#cataloggetinventory)
   * [Catalog#deleteInventory](#catalogdeleteinventory)
-  * [Catalog#getInventoryBulkUploadHistory](#cataloggetinventorybulkuploadhistory)
   * [Catalog#createBulkInventoryJob](#catalogcreatebulkinventoryjob)
+  * [Catalog#getInventoryBulkUploadHistory](#cataloggetinventorybulkuploadhistory)
   * [Catalog#deleteBulkInventoryJob](#catalogdeletebulkinventoryjob)
   * [Catalog#createBulkInventory](#catalogcreatebulkinventory)
-  * [Catalog#getInventoryExport](#cataloggetinventoryexport)
   * [Catalog#createInventoryExportJob](#catalogcreateinventoryexportjob)
+  * [Catalog#getInventoryExport](#cataloggetinventoryexport)
   * [Catalog#exportInventoryConfig](#catalogexportinventoryconfig)
-  * [Catalog#getAllHsnCodes](#cataloggetallhsncodes)
   * [Catalog#createHsnCode](#catalogcreatehsncode)
+  * [Catalog#getAllHsnCodes](#cataloggetallhsncodes)
   * [Catalog#getHsnCode](#cataloggethsncode)
   * [Catalog#updateHsnCode](#catalogupdatehsncode)
   * [Catalog#bulkHsnCode](#catalogbulkhsncode)
@@ -358,18 +365,18 @@
   * [Catalog#getProductDetailBySlug](#cataloggetproductdetailbyslug)
  
 * [CompanyProfile](#CompanyProfile)
-  * [CompanyProfile#cbsOnboardGet](#companyprofilecbsonboardget)
   * [CompanyProfile#updateCompany](#companyprofileupdatecompany)
+  * [CompanyProfile#cbsOnboardGet](#companyprofilecbsonboardget)
   * [CompanyProfile#getCompanyMetrics](#companyprofilegetcompanymetrics)
-  * [CompanyProfile#getBrand](#companyprofilegetbrand)
   * [CompanyProfile#editBrand](#companyprofileeditbrand)
+  * [CompanyProfile#getBrand](#companyprofilegetbrand)
   * [CompanyProfile#createBrand](#companyprofilecreatebrand)
-  * [CompanyProfile#getBrands](#companyprofilegetbrands)
   * [CompanyProfile#createCompanyBrandMapping](#companyprofilecreatecompanybrandmapping)
-  * [CompanyProfile#getLocations](#companyprofilegetlocations)
+  * [CompanyProfile#getBrands](#companyprofilegetbrands)
   * [CompanyProfile#createLocation](#companyprofilecreatelocation)
-  * [CompanyProfile#getLocationDetail](#companyprofilegetlocationdetail)
+  * [CompanyProfile#getLocations](#companyprofilegetlocations)
   * [CompanyProfile#updateLocation](#companyprofileupdatelocation)
+  * [CompanyProfile#getLocationDetail](#companyprofilegetlocationdetail)
   * [CompanyProfile#createLocationBulk](#companyprofilecreatelocationbulk)
  
 * [FileStorage](#FileStorage)
@@ -449,6 +456,11 @@
   * [Cart#getCouponById](#cartgetcouponbyid)
   * [Cart#updateCoupon](#cartupdatecoupon)
   * [Cart#updateCouponPartially](#cartupdatecouponpartially)
+  * [Cart#fetchCartItems](#cartfetchcartitems)
+  * [Cart#fetchAndvalidateCartItems](#cartfetchandvalidatecartitems)
+  * [Cart#checkCartServiceability](#cartcheckcartserviceability)
+  * [Cart#checkoutCartItems](#cartcheckoutcartitems)
+  * [Cart#updateCheckoutPaymentStatus](#cartupdatecheckoutpaymentstatus)
  
 * [Rewards](#Rewards)
   * [Rewards#getGiveaways](#rewardsgetgiveaways)
@@ -844,6 +856,80 @@ Success
 
 
 Schema: `TicketHistoryList`
+
+
+
+
+
+
+---
+
+
+#### getFeedbacks
+Gets a list of feedback submitted against that ticket
+
+
+```java
+lead.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Company ID for ticket |   
+| id | String? | Ticket ID for which feedbacks are to be fetched |  
+
+
+
+Gets a list of feedback submitted against that ticket
+
+*Success Response*
+
+
+
+Success
+
+
+Schema: `TicketFeedbackList`
+
+
+
+
+
+
+---
+
+
+#### submitFeedback
+Submit a response for feeback form against that ticket
+
+
+```java
+lead.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Company ID for ticket |   
+| id | String? | Ticket ID for which feedback is to be submitted |  
+
+
+
+Submit a response for feeback form against that ticket
+
+*Success Response*
+
+
+
+Success
+
+
+Schema: `TicketFeedback`
 
 
 
@@ -1295,6 +1381,85 @@ Success
 
 
 Schema: `CloseVideoRoomResponse`
+
+
+
+
+
+
+---
+
+
+#### getASDF
+Get Token to join a specific Video Room using it's unqiue name
+
+
+```java
+lead.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Company ID of the application |   
+| applicationId | String? | Application ID for video room |   
+| inQuery | undefined.PriorityEnum? | For adding support for enum |   
+| inHeader | undefined.PriorityEnum? | For adding support for enum |   
+| inPath | undefined.PriorityEnum? | For adding support for enum |  
+
+
+
+Get Token to join a specific Video Room using it's unqiue name, this Token is your ticket to Room and also creates your identity there.
+
+*Success Response*
+
+
+
+Success
+
+
+Schema: `GetTokenForVideoRoomResponse`
+
+
+
+
+
+
+---
+
+
+#### getASDF
+Get Token to join a specific Video Room using it's unqiue name
+
+
+```java
+lead.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Company ID of the application |   
+| inQuery | undefined.PriorityEnum? | For adding support for enum |   
+| inHeader | undefined.PriorityEnum? | For adding support for enum |   
+| inPath | undefined.PriorityEnum? | For adding support for enum |  
+
+
+
+Get Token to join a specific Video Room using it's unqiue name, this Token is your ticket to Room and also creates your identity there.
+
+*Success Response*
+
+
+
+Success
+
+
+Schema: `GetTokenForVideoRoomResponse`
 
 
 
@@ -2101,7 +2266,7 @@ Schema: `BlitzkriegInternalServerError`
 
 
 #### getThemeLibrary
-Gets list of themes in theme library
+Get a list of themes from the theme library
 
 
 ```java
@@ -2113,20 +2278,20 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| pageSize | Integer? | Number of items to retrieve in each page. Default is 10. |   
-| pageNo | Integer? | Page number. Default is 1. |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| pageSize | Integer? | The number of items to retrieve in each page. Default value is 10.  |   
+| pageNo | Integer? | The page number to navigate through the given set of results. Default value is 1. |  
 
 
 
-Gets list of themes in theme library
+Theme library is a personalized collection of themes that are chosen and added from the available themes. Use this API to fetch a list of themes from the library along with their configuration details. 
 
 *Success Response*
 
 
 
-Themes list
+Success. Refer `ThemesListingResponseSchema` for more details.
 
 
 Schema: `ThemesListingResponseSchema`
@@ -2158,7 +2323,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### addToThemeLibrary
-Add theme to theme library
+Add a theme to the theme library
 
 
 ```java
@@ -2170,18 +2335,18 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Add theme to theme library
+Theme library is a personalized collection of themes that are chosen and added from the available themes. Use this API to choose a theme and add it to the theme library.
 
 *Success Response*
 
 
 
-Theme
+Success. Refer `ThemesSchema` for more details.
 
 
 Schema: `ThemesSchema`
@@ -2213,7 +2378,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### applyTheme
-Apply theme
+Apply a theme
 
 
 ```java
@@ -2225,18 +2390,18 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Apply theme
+Use this API to apply a theme to the website.
 
 *Success Response*
 
 
 
-Theme
+Success. Refer `ThemesSchema` for more details.
 
 
 Schema: `ThemesSchema`
@@ -2280,19 +2445,19 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
 | themeId | String? | Theme ID |  
 
 
 
-Checks if theme is upgradable
+There's always a possibility that new features get added to a theme. Use this API to check if the applied theme has an upgrade available.
 
 *Success Response*
 
 
 
-Upgradable Theme
+Success. If the boolean value of `upgrade` returns **true**, the theme can be upgraded. Refer `UpgradableThemeSchema` for more details.
 
 
 Schema: `UpgradableThemeSchema`
@@ -2324,7 +2489,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### upgradeTheme
-Upgrades theme
+Upgrade a theme
 
 
 ```java
@@ -2336,19 +2501,19 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| themeId | String? | Theme ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| themeId | String? | ID allotted to the theme. |  
 
 
 
-Upgrades theme
+Use this API to upgrade the current theme to its latest version.
 
 *Success Response*
 
 
 
-Upgrades Theme
+Success. Upgrades the theme and shares the details of the new version in the response. Refer `ThemesSchema` for more details.
 
 
 Schema: `ThemesSchema`
@@ -2380,7 +2545,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### getPublicThemes
-Gets public themes
+Get all public themes
 
 
 ```java
@@ -2392,20 +2557,20 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| pageSize | Integer? | Number of items to retrieve in each page. Default is 10. |   
-| pageNo | Integer? | Page number. Default is 1. |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| pageSize | Integer? | The number of items to retrieve in each page. Default value is 10.  |   
+| pageNo | Integer? | The page number to navigate through the given set of results. Default value is 1.  |  
 
 
 
-Gets public themes
+Use this API to get a list of free themes that you can apply to your website.
 
 *Success Response*
 
 
 
-Themes list
+Success. Refer `ThemesListingResponseSchema` for more details.
 
 
 Schema: `ThemesListingResponseSchema`
@@ -2437,7 +2602,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### createTheme
-Create new theme
+Create a new theme
 
 
 ```java
@@ -2449,12 +2614,12 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Create new theme
+Themes improve the look and appearance of a website. Use this API to create a theme.
 
 *Success Response*
 
@@ -2492,7 +2657,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### getAppliedTheme
-Get applied theme
+Get the applied theme
 
 
 ```java
@@ -2504,18 +2669,18 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Get applied theme
+Use this API to retrieve the theme that is currently applied to the website along with its details.
 
 *Success Response*
 
 
 
-Theme
+Success. Refer `ThemesSchema` for more details.
 
 
 Schema: `ThemesSchema`
@@ -2547,7 +2712,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### getFonts
-Gets fonts
+Get all the supported fonts in a theme
 
 
 ```java
@@ -2559,18 +2724,18 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Gets fonts
+Font is a collection of characters with a similar design. Use this API to retrieve a list of website fonts.
 
 *Success Response*
 
 
 
-Fonts list
+Success. Refer `FontsSchema` for more details.
 
 
 Schema: `FontsSchema`
@@ -2614,19 +2779,19 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| themeId | String? | Theme ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| themeId | String? | ID allotted to the theme. |  
 
 
 
-Gets theme by id
+Use this API to retrieve the details of a specific theme by using its ID.
 
 *Success Response*
 
 
 
-Theme
+Success. Refer `ThemesSchema` for more details.
 
 
 Schema: `ThemesSchema`
@@ -2658,7 +2823,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### updateTheme
-Update theme
+Update a theme
 
 
 ```java
@@ -2670,19 +2835,19 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| themeId | String? | Theme ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| themeId | String? | ID allotted to the theme. |  
 
 
 
-Update theme
+Use this API to edit an existing theme. You can customize the website font, sections, images, styles, and many more.
 
 *Success Response*
 
 
 
-Theme
+Success. Refer `ThemesSchema` for more details.
 
 
 Schema: `ThemesSchema`
@@ -2714,7 +2879,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### deleteTheme
-Delete theme
+Delete a theme
 
 
 ```java
@@ -2726,19 +2891,19 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| themeId | String? | Theme ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| themeId | String? | ID allotted to the theme. |  
 
 
 
-Delete theme
+Use this API to delete a theme from the theme library.
 
 *Success Response*
 
 
 
-Theme
+Success. Refer `ThemesSchema` for more details.
 
 
 Schema: `ThemesSchema`
@@ -2770,7 +2935,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### getThemeForPreview
-Gets theme for preview
+Get a theme preview
 
 
 ```java
@@ -2782,19 +2947,19 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| themeId | String? | Theme ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| themeId | String? | ID allotted to the theme. |  
 
 
 
-Gets theme for preview
+A theme can be previewed before applying it. Use this API to retrieve the theme preview by using its ID.
 
 *Success Response*
 
 
 
-Theme
+Success. Refer `ThemesSchema` for more details.
 
 
 Schema: `ThemesSchema`
@@ -2826,7 +2991,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### publishTheme
-Publish theme
+Publish a theme
 
 
 ```java
@@ -2838,19 +3003,19 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| themeId | String? | Theme ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| themeId | String? | ID allotted to the theme. |  
 
 
 
-Publish theme
+Use this API to publish a theme that is either newly created or edited.
 
 *Success Response*
 
 
 
-Theme
+Success. Refer `ThemesSchema` for more details.
 
 
 Schema: `ThemesSchema`
@@ -2882,7 +3047,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### unpublishTheme
-Unpublish theme
+Unpublish a theme
 
 
 ```java
@@ -2894,19 +3059,19 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| themeId | String? | Theme ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| themeId | String? | ID allotted to the theme. |  
 
 
 
-Unpublish theme
+Use this API to remove an existing theme from the list of available themes.
 
 *Success Response*
 
 
 
-Theme
+Success. Refer `ThemesSchema` for more details.
 
 
 Schema: `ThemesSchema`
@@ -2938,7 +3103,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### archiveTheme
-Archive theme
+Archive a theme
 
 
 ```java
@@ -2950,19 +3115,19 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| themeId | String? | Theme ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| themeId | String? | ID allotted to the theme. |  
 
 
 
-Archive theme
+Use this API to store an existing theme but not delete it so that it can be used in future if required. 
 
 *Success Response*
 
 
 
-Theme
+Success. Refer `ThemesSchema` for more details.
 
 
 Schema: `ThemesSchema`
@@ -2994,7 +3159,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### unarchiveTheme
-Unarchive theme
+Unarchive a theme
 
 
 ```java
@@ -3006,19 +3171,19 @@ theme.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| themeId | String? | Theme ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| themeId | String? | ID allotted to the theme. |  
 
 
 
-Unarchive theme
+Use this API to restore an archived theme and bring it back for editing or publishing. 
 
 *Success Response*
 
 
 
-Theme
+Success. Refer `ThemesSchema` for more details.
 
 
 Schema: `ThemesSchema`
@@ -3058,7 +3223,7 @@ Schema: `BlitzkriegApiError`
 
 
 #### getCustomers
-Gets list of customers
+Get a list of customers
 
 
 ```java
@@ -3070,21 +3235,21 @@ user.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| q | String? | The search query. This can be a partial or complete name of a either a product, brand or category |   
-| pageSize | Integer? | Number of items to retrieve in each page. Default is 10. |   
-| pageNo | Integer? | Page number. Default is 1. |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| q | String? | The search query. Mobile number or email ID of a customer. |   
+| pageSize | Integer? | The number of items to retrieve in each page. Default value is 10. |   
+| pageNo | Integer? | The page number to navigate through the given set of results. Default value is 1.  |  
 
 
 
-Used to get application customers list
+Use this API to retrieve a list of customers who have registered in the application.
 
 *Success Response*
 
 
 
-Customer list
+Success. Refer `CustomerListResponseSchema` for more details.
 
 
 Schema: `CustomerListResponseSchema`
@@ -3116,7 +3281,7 @@ Schema: `AuthenticationApiError`
 
 
 #### searchUsers
-Search users
+Search an existing user.
 
 
 ```java
@@ -3128,19 +3293,19 @@ user.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| q | String? | The search query. This can be a partial or complete name of a either a product, brand or category |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| q | String? | The search query. Mobile number or email ID of a customer. |  
 
 
 
-Search users
+Use this API to retrieve an existing user from a list.
 
 *Success Response*
 
 
 
-User list
+Success. Returns first name, last name, emails, phone number and gender of the user. Refer `UserSearchResponseSchema` for more details.
 
 
 Schema: `UserSearchResponseSchema`
@@ -3171,8 +3336,8 @@ Schema: `AuthenticationApiError`
 ---
 
 
-#### getPlatformConfig
-Get platform config
+#### createUser
+Create user
 
 
 ```java
@@ -3189,13 +3354,179 @@ user.(
 
 
 
-Used to get platform config
+Create user
 
 *Success Response*
 
 
 
-Platform Config
+User create
+
+
+Schema: `CreateUserResponseSchema`
+
+
+
+
+
+
+
+
+Schema: `AuthenticationApiError`
+
+
+
+
+
+
+
+
+Schema: `AuthenticationApiError`
+
+
+
+
+
+
+---
+
+
+#### updateUser
+Update user
+
+
+```java
+user.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Company ID |   
+| applicationId | String? | Application ID |   
+| userId | String? | User ID |  
+
+
+
+Update user
+
+*Success Response*
+
+
+
+User update
+
+
+Schema: `CreateUserResponseSchema`
+
+
+
+
+
+
+
+
+Schema: `AuthenticationApiError`
+
+
+
+
+
+
+
+
+Schema: `AuthenticationApiError`
+
+
+
+
+
+
+---
+
+
+#### createUserSession
+Create user session
+
+
+```java
+user.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Company ID |   
+| applicationId | String? | Application ID |  
+
+
+
+Create user session
+
+*Success Response*
+
+
+
+Create user session
+
+
+Schema: `CreateUserSessionResponseSchema`
+
+
+
+
+
+
+
+
+Schema: `AuthenticationApiError`
+
+
+
+
+
+
+
+
+Schema: `AuthenticationApiError`
+
+
+
+
+
+
+---
+
+
+#### getPlatformConfig
+Get platform configurations
+
+
+```java
+user.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
+
+
+
+Use this API to get all the platform configurations such as mobile image, desktop image, social logins, and all other text.
+
+*Success Response*
+
+
+
+Success. Returns a JSON object containing the all the platform configurations. Refer `PlatformSchema` for more details.
 
 
 Schema: `PlatformSchema`
@@ -3227,7 +3558,7 @@ Schema: `AuthenticationApiError`
 
 
 #### updatePlatformConfig
-Update platform config
+Update platform configurations
 
 
 ```java
@@ -3239,18 +3570,18 @@ user.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Used to update platform config
+Use this API to edit the existing platform configurations such as mobile image, desktop image, social logins, and all other text.
 
 *Success Response*
 
 
 
-Platform Config
+Success. Returns a JSON object with the updated platform configurations. Refer `PlatformSchema` for more details.
 
 
 Schema: `PlatformSchema`
@@ -3290,7 +3621,7 @@ Schema: `AuthenticationApiError`
 
 
 #### getAnnouncementsList
-Get annoucements list
+Get a list of announcements
 
 
 ```java
@@ -3302,20 +3633,20 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| pageNo | Integer? | Each response will contain **page_no** param, which should be sent back to make pagination work. |   
-| pageSize | Integer? | Number of items to retrieve in each page. |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| pageNo | Integer? | The page number to navigate through the given set of results. Default value is 1. |   
+| pageSize | Integer? | The number of items to retrieve in each page. Default value is 10. |  
 
 
 
-Get list of announcements
+Announcements are useful to highlight a message or information on top of a webpage. Use this API to retrieve a list of announcements.	
 
 *Success Response*
 
 
 
-Success
+Success. Refer `GetAnnouncementListSchema` for more details.
 
 
 Schema: `GetAnnouncementListSchema`
@@ -3324,7 +3655,7 @@ Schema: `GetAnnouncementListSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3333,7 +3664,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3347,7 +3678,7 @@ Schema: `APIError`
 
 
 #### createAnnouncement
-Create an annoucement
+Create an announcement
 
 
 ```java
@@ -3359,18 +3690,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Create an announcement
+Announcements are useful to highlight a message or information on top of a webpage. Use this API to create an announcement.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `CreateAnnouncementSchema` for more details.
 
 
 Schema: `CreateAnnouncementSchema`
@@ -3379,7 +3710,7 @@ Schema: `CreateAnnouncementSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3388,7 +3719,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3402,7 +3733,7 @@ Schema: `APIError`
 
 
 #### getAnnouncementById
-Get annoucement by id
+Get announcement by ID
 
 
 ```java
@@ -3414,19 +3745,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| announcementId | String? | Announcement ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| announcementId | String? | ID allotted to the announcement. |  
 
 
 
-Get announcement by id
+Use this API to retrieve an announcement and its details such as the target platform and pages on which it's applicable
 
 *Success Response*
 
 
 
-Success
+Success. Refer `AdminAnnouncementSchema` for more details.
 
 
 Schema: `AdminAnnouncementSchema`
@@ -3435,7 +3766,7 @@ Schema: `AdminAnnouncementSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3444,7 +3775,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3458,7 +3789,7 @@ Schema: `APIError`
 
 
 #### updateAnnouncement
-Update an annoucement
+Update an announcement
 
 
 ```java
@@ -3470,19 +3801,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| announcementId | String? | Announcement ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| announcementId | String? | ID allotted to the announcement. |  
 
 
 
-Update an announcement
+Use this API to edit an existing announcement and its details such as the target platform and pages on which it's applicable
 
 *Success Response*
 
 
 
-Success
+Success. Refer `CreateAnnouncementSchema` for more details.
 
 
 Schema: `CreateAnnouncementSchema`
@@ -3491,7 +3822,7 @@ Schema: `CreateAnnouncementSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3500,7 +3831,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3514,7 +3845,7 @@ Schema: `APIError`
 
 
 #### updateAnnouncementSchedule
-Update schedule or published status of an annoucement
+Update the schedule and the publish status of an announcement
 
 
 ```java
@@ -3526,19 +3857,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| announcementId | String? | Announcement ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| announcementId | String? | ID allotted to the announcement. |  
 
 
 
-Update schedule or published status of an announcement
+Use this API to edit the duration, i.e. start date-time and end date-time of an announcement. Moreover, you can enable/disable an announcement using this API.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `CreateAnnouncementSchema` for more details.
 
 
 Schema: `CreateAnnouncementSchema`
@@ -3547,7 +3878,7 @@ Schema: `CreateAnnouncementSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3556,7 +3887,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3570,7 +3901,7 @@ Schema: `APIError`
 
 
 #### deleteAnnouncement
-Delete annoucement by id
+Delete announcement by id
 
 
 ```java
@@ -3582,19 +3913,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| announcementId | String? | Announcement ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| announcementId | String? | ID allotted to the announcement. |  
 
 
 
-Delete announcement by id
+Use this API to delete an existing announcement.
 
 *Success Response*
 
 
 
-Success
+Success.
 
 
 Schema: `CreateAnnouncementSchema`
@@ -3603,7 +3934,7 @@ Schema: `CreateAnnouncementSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3612,7 +3943,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3626,7 +3957,7 @@ Schema: `APIError`
 
 
 #### createBlog
-Create blog
+Create a blog
 
 
 ```java
@@ -3638,18 +3969,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Use this to create a blog.
+Use this API to create a blog.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `BlogSchema` for more details.
 
 
 Schema: `BlogSchema`
@@ -3658,7 +3989,7 @@ Schema: `BlogSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3667,7 +3998,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3693,20 +4024,20 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |   
-| pageNo | Integer? | Each response will contain **page_no** param, which should be sent back to make pagination work. |   
-| pageSize | Integer? | Number of items to retrieve in each page. |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| pageNo | Integer? | The page number to navigate through the given set of results. Default value is 1. |   
+| pageSize | Integer? | The number of items to retrieve in each page. Default value is 10. |  
 
 
 
-Use this to get blogs.
+Use this API to get a list of blogs along with their details, such as the title, reading time, publish status, feature image, tags, author, etc.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `BlogGetResponse` for more details.
 
 
 Schema: `BlogGetResponse`
@@ -3715,7 +4046,7 @@ Schema: `BlogGetResponse`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3724,7 +4055,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3738,7 +4069,7 @@ Schema: `APIError`
 
 
 #### updateBlog
-Update blog
+Update a blog
 
 
 ```java
@@ -3750,19 +4081,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |   
-| id | String? | Blog Id |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| id | String? | ID allotted to the blog. |  
 
 
 
-Use this to update blog.
+Use this API to update the details of an existing blog which includes title, feature image, content, SEO details, expiry, etc.
 
 *Success Response*
 
 
 
-Success
+Success.
 
 
 Schema: `BlogSchema`
@@ -3771,7 +4102,7 @@ Schema: `BlogSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3780,7 +4111,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3806,19 +4137,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |   
-| id | String? | Blog Id |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| id | String? | ID allotted to the blog. |  
 
 
 
-Use this to delete blogs.
+Use this API to delete a blog.
 
 *Success Response*
 
 
 
-Success
+Success.
 
 
 Schema: `BlogSchema`
@@ -3827,7 +4158,7 @@ Schema: `BlogSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3836,7 +4167,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3850,7 +4181,7 @@ Schema: `APIError`
 
 
 #### getComponentById
-Get components by component Id
+Get components of a blog
 
 
 ```java
@@ -3862,19 +4193,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |   
-| slug | String? | slug of page to be fetched |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| slug | String? | A short, human-readable, URL-friendly identifier of a blog page. You can get slug value of a blog from `getBlogs` API. |  
 
 
 
-The endpoint fetches the component by component Id
+Use this API to retrieve the components of a blog, such as title, slug, feature image, content, schedule, publish status, author, etc.
 
 *Success Response*
 
 
 
-A JSON object with components
+Success. Returns a a JSON object with components. Refer `BlogSchema` for more details.
 
 
 Schema: `BlogSchema`
@@ -3883,7 +4214,7 @@ Schema: `BlogSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3892,7 +4223,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3906,7 +4237,7 @@ Schema: `APIError`
 
 
 #### getFaqCategories
-Get FAQ categories list
+Get a list of FAQ categories
 
 
 ```java
@@ -3918,18 +4249,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Get list of FAQ categories
+FAQs can be divided into categories. Use this API to get a list of FAQ categories.
 
 *Success Response*
 
 
 
-Get FAQ Categories
+Success. Refer `GetFaqCategoriesSchema` for more details.
 
 
 Schema: `GetFaqCategoriesSchema`
@@ -3938,7 +4269,7 @@ Schema: `GetFaqCategoriesSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3947,7 +4278,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -3961,7 +4292,7 @@ Schema: `APIError`
 
 
 #### getFaqCategoryBySlugOrId
-Get FAQ category by slug or id
+Get an FAQ category by slug or id
 
 
 ```java
@@ -3973,19 +4304,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| idOrSlug | String? | Slug or Id of FAQ Category |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| idOrSlug | String? | ID or the slug allotted to an FAQ category. Slug is a short, human-readable, URL-friendly identifier of an object. You can get slug value of an FAQ category from `getFaqCategories` API. |  
 
 
 
-Get FAQ category by slug or id
+FAQs can be divided into categories. Use this API to get an FAQ categories using its slug or ID.
 
 *Success Response*
 
 
 
-Get FAQ Categories
+Success. Refer `GetFaqCategoryBySlugSchema` for more details.
 
 
 Schema: `GetFaqCategoryBySlugSchema`
@@ -3994,7 +4325,7 @@ Schema: `GetFaqCategoryBySlugSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4003,7 +4334,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4017,7 +4348,7 @@ Schema: `APIError`
 
 
 #### createFaqCategory
-Creates a FAQ category
+Create an FAQ category
 
 
 ```java
@@ -4029,18 +4360,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Add Faq Category
+FAQs help users to solve an issue or know more about a process. FAQs can be categorized separately, for e.g. some questions can be related to payment, some could be related to purchase, shipping, navigating, etc. Use this API to create an FAQ category.
 
 *Success Response*
 
 
 
-Create a FAQ Category
+Success.
 
 
 Schema: `CreateFaqCategorySchema`
@@ -4049,7 +4380,7 @@ Schema: `CreateFaqCategorySchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4058,7 +4389,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4072,7 +4403,7 @@ Schema: `APIError`
 
 
 #### updateFaqCategory
-Updates a FAQ category
+Update an FAQ category
 
 
 ```java
@@ -4084,19 +4415,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| id | String? | Faq category ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| id | String? | ID allotted to an FAQ category. |  
 
 
 
-Update Faq Category
+Use this API to edit an existing FAQ category.
 
 *Success Response*
 
 
 
-Update a FAQ Category
+Success.
 
 
 Schema: `CreateFaqCategorySchema`
@@ -4105,7 +4436,7 @@ Schema: `CreateFaqCategorySchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4114,7 +4445,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4128,7 +4459,7 @@ Schema: `APIError`
 
 
 #### deleteFaqCategory
-Deletes a FAQ category
+Delete an FAQ category
 
 
 ```java
@@ -4140,19 +4471,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| id | String? | Faq category ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| id | String? | ID allotted to an FAQ category. |  
 
 
 
-Delete Faq Category
+Use this API to delete an FAQ category.
 
 *Success Response*
 
 
 
-Delete a FAQ Category
+Success.
 
 
 Schema: `FaqSchema`
@@ -4161,7 +4492,7 @@ Schema: `FaqSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4170,7 +4501,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4184,7 +4515,7 @@ Schema: `APIError`
 
 
 #### getFaqsByCategoryIdOrSlug
-Get FAQs of a Faq Category id or slug
+Get question and answers within an FAQ category
 
 
 ```java
@@ -4196,19 +4527,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| idOrSlug | String? | Faq category ID or slug |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| idOrSlug | String? | ID or the slug allotted to an FAQ category. Slug is a short, human-readable, URL-friendly identifier of an object. You can get slug value of an FAQ category from `getFaqCategories` API. |  
 
 
 
-Get FAQs of a Faq Category `id` or `slug`
+Use this API to retrieve all the commonly asked question and answers belonging to an FAQ category.
 
 *Success Response*
 
 
 
-Get FAQs by slug/id of FAQ Category
+Success. Refer `GetFaqSchema` for more details.
 
 
 Schema: `GetFaqSchema`
@@ -4217,7 +4548,7 @@ Schema: `GetFaqSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4226,7 +4557,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4240,7 +4571,7 @@ Schema: `APIError`
 
 
 #### addFaq
-Creates FAQs for category whose `id` is specified
+Create an FAQ
 
 
 ```java
@@ -4252,19 +4583,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| categoryId | String? | Faq category ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| categoryId | String? | ID allotted to an FAQ category. |  
 
 
 
-Creates FAQs for category whose `id` is specified
+FAQs help users to solve an issue or know more about a process. Use this API to create an FAQ for a given FAQ category.
 
 *Success Response*
 
 
 
-Create a FAQ for FAQ Category
+Success.
 
 
 Schema: `CreateFaqResponseSchema`
@@ -4273,7 +4604,7 @@ Schema: `CreateFaqResponseSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4282,7 +4613,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4296,7 +4627,7 @@ Schema: `APIError`
 
 
 #### updateFaq
-Updates FAQ
+Update an FAQ
 
 
 ```java
@@ -4308,20 +4639,20 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| categoryId | String? | Faq category ID |   
-| faqId | String? | Faq ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| categoryId | String? | ID allotted to an FAQ category. |   
+| faqId | String? | ID allotted to an FAQ. |  
 
 
 
-Updates FAQ
+Use this API to edit an existing FAQ.
 
 *Success Response*
 
 
 
-Update FAQ by id
+Success.
 
 
 Schema: `CreateFaqResponseSchema`
@@ -4330,7 +4661,7 @@ Schema: `CreateFaqResponseSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4339,7 +4670,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4353,7 +4684,7 @@ Schema: `APIError`
 
 
 #### deleteFaq
-Delete FAQ
+Delete an FAQ
 
 
 ```java
@@ -4365,20 +4696,20 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| categoryId | String? | Faq category ID |   
-| faqId | String? | Faq ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| categoryId | String? | ID allotted to an FAQ category. |   
+| faqId | String? | ID allotted to an FAQ. |  
 
 
 
-Delete FAQ
+Use this API to delete an existing FAQ.
 
 *Success Response*
 
 
 
-Delete FAQ by id
+Success.
 
 
 Schema: `CreateFaqResponseSchema`
@@ -4387,7 +4718,7 @@ Schema: `CreateFaqResponseSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4396,7 +4727,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4410,7 +4741,7 @@ Schema: `APIError`
 
 
 #### getFaqByIdOrSlug
-Get frequently asked question
+Get an FAQ
 
 
 ```java
@@ -4422,19 +4753,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| idOrSlug | String? | Slug or Id of FAQ |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| idOrSlug | String? | ID or the slug allotted to an FAQ category. Slug is a short, human-readable, URL-friendly identifier of an object. You can get slug value of an FAQ category from `getFaqCategories` API. |  
 
 
 
-Get frequently asked questions list. These will be helpful for users to using website.
+Use this API to retrieve a specific FAQ. You will get the question and answer of that FAQ.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `CreateFaqResponseSchema` for more details.
 
 
 Schema: `CreateFaqResponseSchema`
@@ -4443,7 +4774,7 @@ Schema: `CreateFaqResponseSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4452,7 +4783,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4466,7 +4797,7 @@ Schema: `APIError`
 
 
 #### getLandingPages
-Get landing-pages
+Get landing pages
 
 
 ```java
@@ -4478,20 +4809,20 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| pageNo | Integer? | Each response will contain **page_no** param, which should be sent back to make pagination work. |   
-| pageSize | Integer? | Number of items to retrieve in each page. |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| pageNo | Integer? | The page number to navigate through the given set of results. Default value is 1. |   
+| pageSize | Integer? | The number of items to retrieve in each page. Default value is 10. |  
 
 
 
-Use this to get landing-pages.
+Landing page is the first page that a prospect lands upon while visiting a website. Use this API to fetch a list of landing pages.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `LandingPageGetResponse` for more details.
 
 
 Schema: `LandingPageGetResponse`
@@ -4500,7 +4831,7 @@ Schema: `LandingPageGetResponse`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4509,7 +4840,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4523,7 +4854,7 @@ Schema: `APIError`
 
 
 #### createLandingPage
-Create landing-page
+Create a landing page
 
 
 ```java
@@ -4535,18 +4866,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Use this to create landing-page.
+Landing page is the first page that a prospect lands upon while visiting a website. Use this API to create a landing page.
 
 *Success Response*
 
 
 
-Success
+Success.
 
 
 Schema: `LandingPageSchema`
@@ -4555,7 +4886,7 @@ Schema: `LandingPageSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4564,7 +4895,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4578,7 +4909,7 @@ Schema: `APIError`
 
 
 #### updateLandingPage
-Update landing-page
+Update a landing page
 
 
 ```java
@@ -4590,19 +4921,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| id | String? | Landing page ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| id | String? | ID allotted to a landing page. |  
 
 
 
-Use this to update landing-page.
+Use this API to edit the details of an existing landing page.
 
 *Success Response*
 
 
 
-Success
+Success.
 
 
 Schema: `LandingPageSchema`
@@ -4611,7 +4942,7 @@ Schema: `LandingPageSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4620,7 +4951,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4634,7 +4965,7 @@ Schema: `APIError`
 
 
 #### deleteLandingPage
-Delete landing-page
+Delete a landing page
 
 
 ```java
@@ -4646,19 +4977,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| id | String? | Landing page ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| id | String? | ID allotted to a landing page. |  
 
 
 
-Use this to delete landing-page.
+Use this API to delete an existing landing page.
 
 *Success Response*
 
 
 
-Success
+Success.
 
 
 Schema: `LandingPageSchema`
@@ -4667,7 +4998,7 @@ Schema: `LandingPageSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4676,7 +5007,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4702,18 +5033,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Get legal information of application, which includes policy, Terms and Conditions, and FAQ information of application.
+Use this API to get the legal information of an application, which includes Policy, Terms and Conditions, Shipping Policy and FAQ regarding the application.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `ApplicationLegal` for more details.
 
 
 Schema: `ApplicationLegal`
@@ -4722,7 +5053,7 @@ Schema: `ApplicationLegal`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4731,7 +5062,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4757,18 +5088,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Save legal information of application, which includes Policy, Terms and Conditions, and FAQ information of application.
+Use this API to edit, update and save the legal information of an application, which includes Policy, Terms and Conditions, Shipping Policy and FAQ regarding the application.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `ApplicationLegal` for more details.
 
 
 Schema: `ApplicationLegal`
@@ -4777,7 +5108,7 @@ Schema: `ApplicationLegal`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4786,7 +5117,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4812,21 +5143,21 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| devicePlatform | String? | Device platform |   
-| pageNo | Integer? | Each response will contain **page_no** param, which should be sent back to make pagination work. |   
-| pageSize | Integer? | Number of items to retrieve in each page. |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| devicePlatform | String? | Filter navigations by platform. Acceptable values are: web, android, ios, all |   
+| pageNo | Integer? | The page number to navigate through the given set of results. Default value is 1. |   
+| pageSize | Integer? | The number of items to retrieve in each page. Default value is 10. |  
 
 
 
-Use this to get navigations.
+Use this API to fetch the navigations details which includes the items of the navigation pane. It also shows the orientation, links, sub-navigations, etc.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `NavigationGetResponse` for more details.
 
 
 Schema: `NavigationGetResponse`
@@ -4835,7 +5166,7 @@ Schema: `NavigationGetResponse`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4844,7 +5175,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4858,7 +5189,7 @@ Schema: `APIError`
 
 
 #### createNavigation
-Create navigation
+Create a navigation
 
 
 ```java
@@ -4870,18 +5201,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Use this to create navigation.
+Navigation is the arrangement of navigational items to ease the accessibility of resources for users on a website. Use this API to create a navigation.
 
 *Success Response*
 
 
 
-Success
+Success.
 
 
 Schema: `NavigationSchema`
@@ -4890,7 +5221,7 @@ Schema: `NavigationSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4899,7 +5230,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4925,18 +5256,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Use this to get default navigations.
+On any website (application), there are navigations that are present by default. Use this API to retrieve those default navigations.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `DefaultNavigationResponse` for more details.
 
 
 Schema: `DefaultNavigationResponse`
@@ -4945,7 +5276,7 @@ Schema: `DefaultNavigationResponse`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4954,7 +5285,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -4968,7 +5299,7 @@ Schema: `APIError`
 
 
 #### getNavigationBySlug
-Get navigation by slug
+Get a navigation by slug
 
 
 ```java
@@ -4980,20 +5311,20 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| slug | String? | Slug |   
-| devicePlatform | String? | Device platform |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| slug | String? | A short, human-readable, URL-friendly identifier of a navigation. You can get slug value of a navigation from `getNavigations` API. |   
+| devicePlatform | String? | Filter navigations by platform. Acceptable values are: web, android, ios, all |  
 
 
 
-Use this to get navigation by slug.
+Use this API to retrieve a navigation by its slug.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `NavigationSchema` for more details.
 
 
 Schema: `NavigationSchema`
@@ -5002,7 +5333,7 @@ Schema: `NavigationSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5011,7 +5342,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5025,7 +5356,7 @@ Schema: `APIError`
 
 
 #### updateNavigation
-Update navigation
+Update a navigation
 
 
 ```java
@@ -5037,19 +5368,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| id | String? | Navigation ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| id | String? | ID allotted to the navigation. |  
 
 
 
-Use this to update navigation.
+Use this API to edit the details of an existing navigation.
 
 *Success Response*
 
 
 
-Success
+Success.
 
 
 Schema: `NavigationSchema`
@@ -5058,7 +5389,7 @@ Schema: `NavigationSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5067,7 +5398,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5081,7 +5412,7 @@ Schema: `APIError`
 
 
 #### deleteNavigation
-Delete navigation
+Delete a navigation
 
 
 ```java
@@ -5093,19 +5424,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| id | String? | Navigation ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| id | String? | ID allotted to the navigation. |  
 
 
 
-Use this to delete navigation.
+Use this API to delete an existing navigation.
 
 *Success Response*
 
 
 
-Success
+Success.
 
 
 Schema: `NavigationSchema`
@@ -5114,7 +5445,7 @@ Schema: `NavigationSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5123,7 +5454,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5149,18 +5480,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Use this to get Page Meta.
+Use this API to get the meta of custom pages (blog, page) and default system pages (e.g. home/brand/category/collection).
 
 *Success Response*
 
 
 
-Success
+Success. Refer `PageMetaSchema` for more details.
 
 
 Schema: `PageMetaSchema`
@@ -5169,7 +5500,7 @@ Schema: `PageMetaSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5178,7 +5509,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5204,18 +5535,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Use this to get page spec.
+Use this API to get the specifications of a page, such as page type, display name, params and query.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `PageSpec` for more details.
 
 
 Schema: `PageSpec`
@@ -5224,7 +5555,7 @@ Schema: `PageSpec`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5233,7 +5564,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5247,7 +5578,7 @@ Schema: `APIError`
 
 
 #### createPage
-Create page
+Create a page
 
 
 ```java
@@ -5259,18 +5590,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Use this to create a page.
+Use this API to create a custom page using a title, seo, publish status, feature image, tags, meta, etc.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `PageSchema` for more details.
 
 
 Schema: `PageSchema`
@@ -5279,7 +5610,7 @@ Schema: `PageSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5288,7 +5619,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5302,7 +5633,7 @@ Schema: `APIError`
 
 
 #### getPages
-Get pages
+Get a list of pages
 
 
 ```java
@@ -5314,20 +5645,20 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |   
-| pageNo | Integer? | Each response will contain **page_no** param, which should be sent back to make pagination work. |   
-| pageSize | Integer? | Number of items to retrieve in each page. |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| pageNo | Integer? | The page number to navigate through the given set of results. Default value is 1. |   
+| pageSize | Integer? | The number of items to retrieve in each page. Default value is 10. |  
 
 
 
-Use this to get pages.
+Use this API to retrieve a list of pages.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `PageGetResponse` for more details.
 
 
 Schema: `PageGetResponse`
@@ -5336,7 +5667,7 @@ Schema: `PageGetResponse`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5345,7 +5676,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5359,7 +5690,7 @@ Schema: `APIError`
 
 
 #### createPagePreview
-Create page preview
+Create a page preview
 
 
 ```java
@@ -5371,18 +5702,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Use this to create a page preview.
+Use this API to create a page preview to check the appearance of a custom page.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `PageSchema` for more details.
 
 
 Schema: `PageSchema`
@@ -5391,7 +5722,7 @@ Schema: `PageSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5400,7 +5731,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5414,7 +5745,7 @@ Schema: `APIError`
 
 
 #### updatePagePreview
-Update page
+Change the publish status of a page
 
 
 ```java
@@ -5426,19 +5757,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |   
-| slug | String? | Page publish slug |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| slug | String? | A short, human-readable, URL-friendly identifier of a page. You can get slug value of a page from `getPages` API. |  
 
 
 
-Use this to update page.
+Use this API to change the publish status of an existing page. Allows you to publish and unpublish the page.
 
 *Success Response*
 
 
 
-Success
+Success.
 
 
 Schema: `PageSchema`
@@ -5447,7 +5778,7 @@ Schema: `PageSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5456,7 +5787,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5470,7 +5801,7 @@ Schema: `APIError`
 
 
 #### updatePage
-Update page
+Update a page
 
 
 ```java
@@ -5482,19 +5813,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |   
-| id | String? | Page Id |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| id | String? | ID allotted to the page. |  
 
 
 
-Use this to update page.
+Use this API to edit the details of an existing page, such as its title, seo, publish status, feature image, tags, schedule, etc.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `PageSchema` for more details.
 
 
 Schema: `PageSchema`
@@ -5503,7 +5834,7 @@ Schema: `PageSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5512,7 +5843,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5526,7 +5857,7 @@ Schema: `APIError`
 
 
 #### deletePage
-Delete page
+Delete a page
 
 
 ```java
@@ -5538,19 +5869,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |   
-| id | String? | Page Id |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| id | String? | ID allotted to the page. |  
 
 
 
-Use this to delete page.
+Use this API to delete an existing page.
 
 *Success Response*
 
 
 
-Success
+Success.
 
 
 Schema: `PageSchema`
@@ -5559,7 +5890,7 @@ Schema: `PageSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5568,7 +5899,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5594,19 +5925,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company Id |   
-| applicationId | String? | Application Id |   
-| slug | String? | Slug of page to be fetched |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| slug | String? | A short, human-readable, URL-friendly identifier of a page. You can get slug value of a page from `getPages` API. |  
 
 
 
-The endpoint fetches the component by component Id
+Use this API to retrieve the components of a page, such as its title, seo, publish status, feature image, tags, schedule, etc.
 
 *Success Response*
 
 
 
-A JSON object with page
+Success. Returns a JSON object of components. Refer `PageSchema` for more details.
 
 
 Schema: `PageSchema`
@@ -5615,7 +5946,7 @@ Schema: `PageSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5624,7 +5955,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5638,7 +5969,7 @@ Schema: `APIError`
 
 
 #### getSEOConfiguration
-Get seo of application
+Get SEO configuration of an application
 
 
 ```java
@@ -5650,18 +5981,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Get seo of application
+Use this API to know how the SEO is configured in the application. This includes the sitemap, robot.txt, custom meta tags, etc.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `SeoComponent` for more details.
 
 
 Schema: `SeoComponent`
@@ -5670,7 +6001,7 @@ Schema: `SeoComponent`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5679,7 +6010,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5693,7 +6024,7 @@ Schema: `APIError`
 
 
 #### updateSEOConfiguration
-Update seo of application
+Update SEO of application
 
 
 ```java
@@ -5705,18 +6036,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Update seo of application
+Use this API to edit the SEO details of an application. This includes the sitemap, robot.txt, custom meta tags, etc.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `SeoSchema` for more details.
 
 
 Schema: `SeoSchema`
@@ -5725,7 +6056,7 @@ Schema: `SeoSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5734,7 +6065,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5760,21 +6091,21 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| devicePlatform | String? | Device platform |   
-| pageNo | Integer? | Each response will contain **page_no** param, which should be sent back to make pagination work. |   
-| pageSize | Integer? | Number of items to retrieve in each page. |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| devicePlatform | String? | Filter slideshows by platform. Acceptable values are: web, android, ios and all |   
+| pageNo | Integer? | The page number to navigate through the given set of results. Default value is 1. |   
+| pageSize | Integer? | The number of items to retrieve in each page. Default value is 10. |  
 
 
 
-Use this to get slideshows.
+A slideshow is a group of images, videos or a combination of both that are shown on the website in the form of slides. Use this API to fetch a list of slideshows.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `SlideshowGetResponse` for more details.
 
 
 Schema: `SlideshowGetResponse`
@@ -5783,7 +6114,7 @@ Schema: `SlideshowGetResponse`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5792,7 +6123,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5806,7 +6137,7 @@ Schema: `APIError`
 
 
 #### createSlideshow
-Create slideshow
+Create a slideshow
 
 
 ```java
@@ -5818,18 +6149,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
 
 
 
-Use this to create slideshow.
+A slideshow is a group of images, videos or a combination of both that are shown on the website in the form of slides. Use this API to create a slideshow.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `SlideshowSchema` for more details.
 
 
 Schema: `SlideshowSchema`
@@ -5838,7 +6169,7 @@ Schema: `SlideshowSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5847,7 +6178,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5873,20 +6204,20 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| slug | String? | Slug |   
-| devicePlatform | String? | Device platform |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| slug | String? | A short, human-readable, URL-friendly identifier of a slideshow. You can get slug value of a page from `getSlideshows` API. |   
+| devicePlatform | String? | Filter slideshows by platform. Acceptable values are: web, android, ios and all |  
 
 
 
-Use this to get slideshow by slug.
+Use this API to retrieve the details of a slideshow by its slug.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `SlideshowSchema` for more details.
 
 
 Schema: `SlideshowSchema`
@@ -5895,7 +6226,7 @@ Schema: `SlideshowSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5904,7 +6235,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5918,7 +6249,7 @@ Schema: `APIError`
 
 
 #### updateSlideshow
-Update slideshow
+Update a slideshow
 
 
 ```java
@@ -5930,19 +6261,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| id | String? | Slideshow ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| id | String? | ID allotted to the slideshow. |  
 
 
 
-Use this to update slideshow.
+Use this API to edit the details of an existing slideshow.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `SlideshowSchema` for more details.
 
 
 Schema: `SlideshowSchema`
@@ -5951,7 +6282,7 @@ Schema: `SlideshowSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5960,7 +6291,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -5974,7 +6305,7 @@ Schema: `APIError`
 
 
 #### deleteSlideshow
-Delete slideshow
+Delete a slideshow
 
 
 ```java
@@ -5986,19 +6317,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| id | String? | Slideshow ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| id | String? | ID allotted to the slideshow. |  
 
 
 
-Use this to delete slideshow.
+Use this API to delete an existing slideshow.
 
 *Success Response*
 
 
 
-Success
+Success.
 
 
 Schema: `SlideshowSchema`
@@ -6007,7 +6338,7 @@ Schema: `SlideshowSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6016,7 +6347,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6042,18 +6373,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Get contact details for customer support. Including emails and phone numbers
+Use this API to get the contact details for customer support, including emails and phone numbers.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `Support` for more details.
 
 
 Schema: `Support`
@@ -6062,7 +6393,7 @@ Schema: `Support`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6071,7 +6402,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6085,7 +6416,7 @@ Schema: `APIError`
 
 
 #### updateSupportInformation
-Update support data of application
+Update the support data of an application
 
 
 ```java
@@ -6097,18 +6428,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Update support data of application
+Use this API to edit the existing contact details for customer support, including emails and phone numbers.
 
 *Success Response*
 
 
 
-Success
+Success. Refer `Support` for more details.
 
 
 Schema: `Support`
@@ -6117,7 +6448,7 @@ Schema: `Support`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6126,7 +6457,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6140,7 +6471,7 @@ Schema: `APIError`
 
 
 #### updateInjectableTag
-Updates a Tag
+Update a tag
 
 
 ```java
@@ -6152,18 +6483,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Update tag
+Use this API to edit the details of an existing tag. This includes the tag name, tag type (css/js), url and position of the tag.
 
 *Success Response*
 
 
 
-Tags Array
+Success.
 
 
 Schema: `TagsSchema`
@@ -6172,7 +6503,7 @@ Schema: `TagsSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6181,7 +6512,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6195,7 +6526,7 @@ Schema: `APIError`
 
 
 #### deleteAllInjectableTags
-Delete tags for application
+Delete tags in application
 
 
 ```java
@@ -6207,18 +6538,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Delete tags for application
+Use this API to delete all the existing tags at once.
 
 *Success Response*
 
 
 
-Tags Array
+Success.
 
 
 Schema: `TagsSchema`
@@ -6227,7 +6558,7 @@ Schema: `TagsSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6236,7 +6567,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6250,7 +6581,7 @@ Schema: `APIError`
 
 
 #### getInjectableTags
-Get tags for application
+Get all the tags in an application
 
 
 ```java
@@ -6262,18 +6593,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Get tags for application
+Use this API to get all the CSS and JS injected in the application in the form of tags.
 
 *Success Response*
 
 
 
-Tags Array
+Success. Refer `TagsSchema` for more details.
 
 
 Schema: `TagsSchema`
@@ -6282,7 +6613,7 @@ Schema: `TagsSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6291,7 +6622,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6305,7 +6636,7 @@ Schema: `APIError`
 
 
 #### addInjectableTag
-Adds a Tag
+Add a tag
 
 
 ```java
@@ -6317,18 +6648,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Add tag
+CSS and JS can be injected in the application (website) with the help of tags. Use this API to create such tags by entering the tag name, tag type (css/js), url and position of the tag.
 
 *Success Response*
 
 
 
-Tags Array
+Success.
 
 
 Schema: `TagsSchema`
@@ -6337,7 +6668,7 @@ Schema: `TagsSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6346,7 +6677,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6360,7 +6691,7 @@ Schema: `APIError`
 
 
 #### removeInjectableTag
-Removes a Tag
+Remove a tag
 
 
 ```java
@@ -6372,18 +6703,18 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |  
 
 
 
-Remove a particular tag
+Use this API to delete an existing tag.
 
 *Success Response*
 
 
 
-Tags Array
+Success.
 
 
 Schema: `TagsSchema`
@@ -6392,7 +6723,7 @@ Schema: `TagsSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6401,7 +6732,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6415,7 +6746,7 @@ Schema: `APIError`
 
 
 #### editInjectableTag
-Edits a Tag by Id
+Edit a tag by id
 
 
 ```java
@@ -6427,19 +6758,19 @@ content.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Company ID |   
-| applicationId | String? | Application ID |   
-| tagId | String? | Tag ID |  
+| companyId | String? | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String? | Alphanumeric ID allotted to an application created within a business account. |   
+| tagId | String? | ID allotted to the tag. |  
 
 
 
-Edits a particular tag
+Use this API to edit the details of an existing tag by its ID.
 
 *Success Response*
 
 
 
-Tags Array
+Success.
 
 
 Schema: `TagsSchema`
@@ -6448,7 +6779,7 @@ Schema: `TagsSchema`
 
 
 
-Failed
+Bad Request. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -6457,7 +6788,7 @@ Schema: `APIError`
 
 
 
-Failed
+Internal Server Error. See the error object in the response body to know the exact reason.
 
 
 Schema: `APIError`
@@ -11549,52 +11880,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### getAllSearchKeyword
-List all Search Custom Keyword Listing
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
-
-
-
-Custom Search Keyword allows you to map conditions with keywords to give you the ultimate results
-
-*Success Response*
-
-
-
-List of custom search keywords. See example below or refer `GetSearchWordsResponseSchema` for details
-
-
-Schema: `GetSearchWordsResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### createCustomKeyword
 Add a Custom Search Keywords
 
@@ -11623,6 +11908,52 @@ Get keyword object with id that is added. See example below or refer `GetSearchW
 
 
 Schema: `GetSearchWordsData`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### getAllSearchKeyword
+List all Search Custom Keyword Listing
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
+
+
+
+Custom Search Keyword allows you to map conditions with keywords to give you the ultimate results
+
+*Success Response*
+
+
+
+List of custom search keywords. See example below or refer `GetSearchWordsResponseSchema` for details
+
+
+Schema: `GetSearchWordsResponse`
 
 
 
@@ -11782,52 +12113,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### getAutocompleteConfig
-List all Autocomplete Keyword Listing
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
-
-
-
-Custom Autocomplete Keyword allows you to map conditions with keywords to give you the ultimate results
-
-*Success Response*
-
-
-
-List of custom autocomplete keywords. See example below or refer `GetAutocompleteWordsResponseSchema` for details
-
-
-Schema: `GetAutocompleteWordsResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### createCustomAutocompleteRule
 Add a Custom Autocomplete Keywords
 
@@ -11874,8 +12159,8 @@ Schema: `ErrorResponse`
 ---
 
 
-#### getProductBundle
-List all Product Bundles
+#### getAutocompleteConfig
+List all Autocomplete Keyword Listing
 
 
 ```java
@@ -11888,20 +12173,20 @@ catalog.(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
 | companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| q | String? | A search string that is searched with product bundle name. |  
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
 
 
 
-Get all product bundles for a particular company
+Custom Autocomplete Keyword allows you to map conditions with keywords to give you the ultimate results
 
 *Success Response*
 
 
 
-List of bundle configured for a company. See example below or refer `GetProductBundleListingResponse` for details
+List of custom autocomplete keywords. See example below or refer `GetAutocompleteWordsResponseSchema` for details
 
 
-Schema: `GetProductBundleListingResponse`
+Schema: `GetAutocompleteWordsResponse`
 
 
 
@@ -11947,6 +12232,52 @@ Get bundle with id that is added. See example below or refer `GetProductBundleCr
 
 
 Schema: `GetProductBundleCreateResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### getProductBundle
+List all Product Bundles
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| q | String? | A search string that is searched with product bundle name. |  
+
+
+
+Get all product bundles for a particular company
+
+*Success Response*
+
+
+
+List of bundle configured for a company. See example below or refer `GetProductBundleListingResponse` for details
+
+
+Schema: `GetProductBundleListingResponse`
 
 
 
@@ -12057,6 +12388,51 @@ Schema: `ErrorResponse`
 ---
 
 
+#### createSizeGuide
+Create a size guide.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Id of the company inside which the size guide is to be created. |  
+
+
+
+This API allows to create a size guide associated to a brand.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### getSizeGuides
 Get list of size guides
 
@@ -12089,51 +12465,6 @@ Size guide object. See example below or refer `ListSizeGuide` for details
 
 
 Schema: `ListSizeGuide`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
-#### createSizeGuide
-Create a size guide.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | Id of the company inside which the size guide is to be created. |  
-
-
-
-This API allows to create a size guide associated to a brand.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
 
 
 
@@ -12290,6 +12621,52 @@ Schema: `ErrorResponse`
 ---
 
 
+#### createConfigurationProductListing
+Add configuration for products & listings
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
+
+
+
+Add configuration for products & listing.
+
+*Success Response*
+
+
+
+success flag will tell whether the operation was successful.
+
+
+Schema: `GetAppCatalogConfiguration`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### getConfigurations
 Get configured details for catalog
 
@@ -12336,8 +12713,8 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createConfigurationProductListing
-Add configuration for products & listings
+#### createConfigurationByType
+Add configuration for categories and brands
 
 
 ```java
@@ -12350,11 +12727,12 @@ catalog.(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
 | companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
+| type | String? | type can be brands, categories etc. |  
 
 
 
-Add configuration for products & listing.
+Add configuration for categories & brands.
 
 *Success Response*
 
@@ -12429,53 +12807,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createConfigurationByType
-Add configuration for categories and brands
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
-| type | String? | type can be brands, categories etc. |  
-
-
-
-Add configuration for categories & brands.
-
-*Success Response*
-
-
-
-success flag will tell whether the operation was successful.
-
-
-Schema: `GetAppCatalogConfiguration`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### getQueryFilters
 Get query filters to configure a collection
 
@@ -12522,52 +12853,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### getAllCollections
-List all the collections
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
-
-
-
-A Collection allows you to organize your products into hierarchical groups. For example, a dress might be in the category _Clothing_, the individual product might also be in the collection _Summer_. On successful request, returns all the collections as specified in `CollectionListingSchema`
-
-*Success Response*
-
-
-
-List of collections. See example below or refer `GetCollectionListingResponse` for details
-
-
-Schema: `GetCollectionListingResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### createCollection
 Add a Collection
 
@@ -12596,6 +12881,52 @@ List of all the collections including the one you added. See example below or re
 
 
 Schema: `CollectionCreateResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### getAllCollections
+List all the collections
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
+
+
+
+A Collection allows you to organize your products into hierarchical groups. For example, a dress might be in the category _Clothing_, the individual product might also be in the collection _Summer_. On successful request, returns all the collections as specified in `CollectionListingSchema`
+
+*Success Response*
+
+
+
+List of collections. See example below or refer `GetCollectionListingResponse` for details
+
+
+Schema: `GetCollectionListingResponse`
 
 
 
@@ -12755,6 +13086,53 @@ Schema: `ErrorResponse`
 ---
 
 
+#### addCollectionItems
+Add items to a collection
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
+| id | String? | A `id` is a unique identifier of a collection. |  
+
+
+
+Adds items to a collection specified by its `id`. See `CollectionItemRequest` for the list of attributes needed to add items to an collection.
+
+*Success Response*
+
+
+
+Status object. Tells whether the operation was successful.
+
+
+Schema: `UpdatedResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### getCollectionItems
 Get the items for a collection
 
@@ -12787,53 +13165,6 @@ The attached items of an collection. See example below or refer `GetCollectionIt
 
 
 Schema: `GetCollectionItemsResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
-#### addCollectionItems
-Add items to a collection
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
-| id | String? | A `id` is a unique identifier of a collection. |  
-
-
-
-Adds items to a collection specified by its `id`. See `CollectionItemRequest` for the list of attributes needed to add items to an collection.
-
-*Success Response*
-
-
-
-Status object. Tells whether the operation was successful.
-
-
-Schema: `UpdatedResponse`
 
 
 
@@ -13779,6 +14110,51 @@ Schema: `PTErrorResponse`
 ---
 
 
+#### createCategories
+Create product categories
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |  
+
+
+
+This API lets user create product categories
+
+*Success Response*
+
+
+
+Category Meta. See example below or refer `CategoryCreateResponse` for details
+
+
+Schema: `CategoryCreateResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### listCategories
 Get product categories list
 
@@ -13811,51 +14187,6 @@ Category Meta. See example below or refer `CategoryResponse` for details
 
 
 Schema: `CategoryResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
-#### createCategories
-Create product categories
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |  
-
-
-
-This API lets user create product categories
-
-*Success Response*
-
-
-
-Category Meta. See example below or refer `CategoryCreateResponse` for details
-
-
-Schema: `CategoryCreateResponse`
 
 
 
@@ -13966,6 +14297,51 @@ Schema: `ErrorResponse`
 ---
 
 
+#### createProduct
+Create a product.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Id of the company associated to product that is to be viewed. |  
+
+
+
+This API allows to create product.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### getProducts
 Get product list
 
@@ -13998,51 +14374,6 @@ Product Meta. See example below for details
 
 
 Schema: `ProductListingResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
-#### createProduct
-Create a product.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | Id of the company associated to product that is to be viewed. |  
-
-
-
-This API allows to create product.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
 
 
 
@@ -14296,6 +14627,51 @@ Schema: `ErrorResponse`
 ---
 
 
+#### updateProductAssetsInBulk
+Create a Bulk asset upload Job.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | Integer? | Company Id in which assets to be uploaded. |  
+
+
+
+This API helps to create a bulk asset upload job.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### getProductBulkUploadHistory
 Get a list of all bulk product upload jobs.
 
@@ -14325,51 +14701,6 @@ List of bulk product upload jobs. See `BulkRequestGetSchema` for details
 
 
 Schema: `ProductBulkRequestList`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
-#### updateProductAssetsInBulk
-Create a Bulk asset upload Job.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id in which assets to be uploaded. |  
-
-
-
-This API helps to create a bulk asset upload job.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
 
 
 
@@ -14525,6 +14856,51 @@ Schema: `ErrorResponse`
 ---
 
 
+#### createProductAssetsInBulk
+Create a Bulk asset upload Job.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | Integer? | Company Id in which assets to be uploaded. |  
+
+
+
+This API helps to create a bulk asset upload job.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### getProductAssetsInBulk
 Get a list of all bulk asset jobs.
 
@@ -14572,51 +14948,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createProductAssetsInBulk
-Create a Bulk asset upload Job.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id in which assets to be uploaded. |  
-
-
-
-This API helps to create a bulk asset upload job.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### deleteSize
 Delete a Size associated with product.
 
@@ -14646,6 +14977,53 @@ Returns a success response
 
 
 Schema: `ProductSizeDeleteResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### addInventory
+Add Inventory for particular size and store.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Id of the company associated to product that is to be viewed. |   
+| itemId | Double? | Item code of the product of which size is to be get. |   
+| size | String? | Size in which inventory is to be added. |  
+
+
+
+This API allows add Inventory for particular size and store.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
 
 
 
@@ -14713,53 +15091,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### addInventory
-Add Inventory for particular size and store.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | Id of the company associated to product that is to be viewed. |   
-| itemId | Double? | Item code of the product of which size is to be get. |   
-| size | String? | Size in which inventory is to be added. |  
-
-
-
-This API allows add Inventory for particular size and store.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### deleteInventory
 Delete a Inventory.
 
@@ -14807,6 +15138,51 @@ Schema: `ErrorResponse`
 ---
 
 
+#### createBulkInventoryJob
+Create a Bulk Inventory upload Job.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | Integer? | Company Id in which Inventory to be uploaded. |  
+
+
+
+This API helps to create a bulk Inventory upload job.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `CommonResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### getInventoryBulkUploadHistory
 Get a list of all bulk Inventory upload jobs.
 
@@ -14836,51 +15212,6 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
 
 
 Schema: `BulkInventoryGet`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
-#### createBulkInventoryJob
-Create a Bulk Inventory upload Job.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id in which Inventory to be uploaded. |  
-
-
-
-This API helps to create a bulk Inventory upload job.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `CommonResponse`
 
 
 
@@ -14989,51 +15320,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### getInventoryExport
-Get Inventory export history.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id in which assets to be uploaded. |  
-
-
-
-This API helps to get Inventory export history.
-
-*Success Response*
-
-
-
-Returns a list of inventory export jobs
-
-
-Schema: `InventoryExportJob`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### createInventoryExportJob
 Create a Inventory export Job.
 
@@ -15061,6 +15347,51 @@ Returns a success response
 
 
 Schema: `SuccessResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### getInventoryExport
+Get Inventory export history.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | Integer? | Company Id in which assets to be uploaded. |  
+
+
+
+This API helps to get Inventory export history.
+
+*Success Response*
+
+
+
+Returns a list of inventory export jobs
+
+
+Schema: `InventoryExportJob`
 
 
 
@@ -15125,6 +15456,51 @@ Schema: `ErrorResponse`
 ---
 
 
+#### createHsnCode
+Create Hsn Code.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | company id |  
+
+
+
+Create Hsn Code.
+
+*Success Response*
+
+
+
+See example below for details
+
+
+Schema: `HsnCode`
+
+
+
+
+
+Bad request.
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### getAllHsnCodes
 Hsn Code List.
 
@@ -15155,51 +15531,6 @@ List of all HSN Codes. See example below or refer `HsnCodesListingResponseSchema
 
 
 Schema: `HsnCodesListingResponse`
-
-
-
-
-
-Bad request.
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
-#### createHsnCode
-Create Hsn Code.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | company id |  
-
-
-
-Create Hsn Code.
-
-*Success Response*
-
-
-
-See example below for details
-
-
-Schema: `HsnCode`
 
 
 
@@ -15606,51 +15937,6 @@ Schema: `ErrorResponse`
 ## CompanyProfile
 
 
-#### cbsOnboardGet
-Get company profile
-
-
-```java
-companyprofile.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |  
-
-
-
-This API allows to view the company profile of the seller account.
-
-*Success Response*
-
-
-
-Company profile object. See example below or refer `GetCompanyProfileSerializerResponse` for details
-
-
-Schema: `GetCompanyProfileSerializerResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### updateCompany
 Edit company profile
 
@@ -15696,6 +15982,51 @@ Schema: `ErrorResponse`
 ---
 
 
+#### cbsOnboardGet
+Get company profile
+
+
+```java
+companyprofile.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |  
+
+
+
+This API allows to view the company profile of the seller account.
+
+*Success Response*
+
+
+
+Company profile object. See example below or refer `GetCompanyProfileSerializerResponse` for details
+
+
+Schema: `GetCompanyProfileSerializerResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### getCompanyMetrics
 Get company metrics
 
@@ -15723,52 +16054,6 @@ Metrics response object. See example below or refer `MetricsSerializer` for deta
 
 
 Schema: `MetricsSerializer`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
-#### getBrand
-Get a single brand.
-
-
-```java
-companyprofile.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | Id of the company associated to brand that is to be viewed. |   
-| brandId | String? | Id of the brand to be viewed. |  
-
-
-
-This API helps to get data associated to a particular brand.
-
-*Success Response*
-
-
-
-Brand object. See example below or refer `GetBrandResponseSerializer` for details
-
-
-Schema: `GetBrandResponseSerializer`
 
 
 
@@ -15833,6 +16118,52 @@ Schema: `ErrorResponse`
 ---
 
 
+#### getBrand
+Get a single brand.
+
+
+```java
+companyprofile.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Id of the company associated to brand that is to be viewed. |   
+| brandId | String? | Id of the brand to be viewed. |  
+
+
+
+This API helps to get data associated to a particular brand.
+
+*Success Response*
+
+
+
+Brand object. See example below or refer `GetBrandResponseSerializer` for details
+
+
+Schema: `GetBrandResponseSerializer`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### createBrand
 Create a Brand.
 
@@ -15851,6 +16182,51 @@ companyprofile.(
 
 
 This API allows to create a brand associated to a company.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### createCompanyBrandMapping
+Create a company brand mapping.
+
+
+```java
+companyprofile.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Id of the company inside which the brand is to be mapped. |  
+
+
+
+This API allows to create a company brand mapping, for a already existing brand in the system.
 
 *Success Response*
 
@@ -15925,8 +16301,8 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createCompanyBrandMapping
-Create a company brand mapping.
+#### createLocation
+Create a location asscoiated to a company.
 
 
 ```java
@@ -15938,11 +16314,11 @@ companyprofile.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Id of the company inside which the brand is to be mapped. |  
+| companyId | String? | Id of the company inside which the location is to be created. |  
 
 
 
-This API allows to create a company brand mapping, for a already existing brand in the system.
+This API allows to create a location associated to a company.
 
 *Success Response*
 
@@ -16020,8 +16396,8 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createLocation
-Create a location asscoiated to a company.
+#### updateLocation
+Edit a location asscoiated to a company.
 
 
 ```java
@@ -16033,11 +16409,12 @@ companyprofile.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | Id of the company inside which the location is to be created. |  
+| companyId | String? | Id of the company inside which the location is to be created. |   
+| locationId | String? | Id of the location which you want to edit. |  
 
 
 
-This API allows to create a location associated to a company.
+This API allows to edit a location associated to a company.
 
 *Success Response*
 
@@ -16093,52 +16470,6 @@ Brand object. See example below or refer `GetLocationSerializer` for details
 
 
 Schema: `GetLocationSerializer`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
-#### updateLocation
-Edit a location asscoiated to a company.
-
-
-```java
-companyprofile.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | Id of the company inside which the location is to be created. |   
-| locationId | String? | Id of the location which you want to edit. |  
-
-
-
-This API allows to edit a location associated to a company.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
 
 
 
@@ -17014,8 +17345,7 @@ inventory.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | Integer? | Company Id |   
-| xUserData | String? |  |  
+| companyId | Integer? | Company Id |  
 
 
 
@@ -17078,8 +17408,7 @@ inventory.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | Integer? | Company Id |   
-| xUserData | String? |  |  
+| companyId | Integer? | Company Id |  
 
 
 
@@ -19258,6 +19587,225 @@ Coupon not found for `id` from path params
 
 
 Schema: `OperationErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### fetchCartItems
+Fetch Cart Details
+
+
+```java
+cart.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Current company id |   
+| applicationId | String? | Current Application _id |   
+| cartItems | List<CartItem>? |  |  
+
+
+
+Get all the details of cart for a list of provided `cart_items`
+
+*Success Response*
+
+
+
+Cart details with breakup
+
+
+Schema: `CartDetail`
+
+
+
+
+
+Invalid Cart Items
+
+
+
+
+
+
+---
+
+
+#### fetchAndvalidateCartItems
+Fetch Cart Details
+
+
+```java
+cart.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Current company id |   
+| applicationId | String? | Current Application _id |  
+
+
+
+Get all the details of cart for a list of provided `cart_items`
+
+*Success Response*
+
+
+
+Cart details with breakup
+
+
+Schema: `OpenapiCartDetailsResponse`
+
+
+
+
+
+Invalid Cart Items
+
+
+Schema: `HashMap<String,Object>`
+
+
+
+
+
+
+---
+
+
+#### checkCartServiceability
+Check Pincode Serviceability
+
+
+```java
+cart.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Current company id |   
+| applicationId | String? | Current Application _id |  
+
+
+
+Check Pincode serviceability for cart items provided in `cart_items` and address pincode in `shipping_address`
+
+*Success Response*
+
+
+
+Cart details with pincode validity information at item level
+
+
+Schema: `CartDetailsResponseSerializer`
+
+
+
+
+
+
+---
+
+
+#### checkoutCartItems
+Create Fynd order with cart details
+
+
+```java
+cart.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Current company id |   
+| applicationId | String? | Current Application _id |  
+
+
+
+Generate Fynd order for cart details send with provided `cart_items`
+
+*Success Response*
+
+
+
+Checkout cart and create Fynd order id
+
+
+Schema: `HashMap<String,Object>`
+
+
+
+
+
+Invalid Cart Items or Invalid request hash or Invalid Calculation. Invalid cart calculation will trigger if difference of values is greater than ₹1.
+
+
+Schema: `HashMap<String,Object>`
+
+
+
+
+
+
+---
+
+
+#### updateCheckoutPaymentStatus
+Confirm payment on Fynd order id
+
+
+```java
+cart.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Current company id |   
+| applicationId | String? | Current Application _id |  
+
+
+
+Confirm paymet successful status for sent `order_id`
+
+*Success Response*
+
+
+
+Confirm payment successful status on Fynd order id
+
+
+Schema: `HashMap<String,Object>`
+
+
+
+
+
+Invalid request hash
+
+
+Schema: `HashMap<String,Object>`
 
 
 
