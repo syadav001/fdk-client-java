@@ -49,8 +49,8 @@
     * [getCollectionItemsBySlug](#getcollectionitemsbyslug)
     * [getCollectionDetailBySlug](#getcollectiondetailbyslug)
     * [getFollowedListing](#getfollowedlisting)
-    * [unfollowById](#unfollowbyid)
     * [followById](#followbyid)
+    * [unfollowById](#unfollowbyid)
     * [getFollowerCountById](#getfollowercountbyid)
     * [getFollowIds](#getfollowids)
     * [getStores](#getstores)
@@ -93,7 +93,6 @@
     * [submitCustomForm](#submitcustomform)
     * [getParticipantsInsideVideoRoom](#getparticipantsinsidevideoroom)
     * [getTokenForVideoRoom](#gettokenforvideoroom)
-    * [getASDF](#getasdf)
     
 
 * [Theme](#Theme)
@@ -1289,7 +1288,7 @@ List all the collections
 
 ```java
 catalog.getCollections(
-  pageNo, pageSize
+  pageNo, pageSize, tag
   );
   //use response
 ```
@@ -1297,7 +1296,8 @@ catalog.getCollections(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
 | pageNo | Integer? | The page number to navigate through the given set of results. |    
-| pageSize | Integer? | The number of items to retrieve in each page. |  
+| pageSize | Integer? | The number of items to retrieve in each page. |    
+| tag | String? | List of tags  to filter collections |  
 
 Collections are a great way to organize your products and can improve the ability for customers to find items quickly and efficiently.
 
@@ -1487,12 +1487,12 @@ Schema: `ErrorResponse`
 ---
 
 
-#### unfollowById
-Unfollow an entity (product/brand/collection)
+#### followById
+Follow an entity (product/brand/collection)
 
 
 ```java
-catalog.unfollowById(
+catalog.followById(
   collectionType, collectionId
   );
   //use response
@@ -1503,7 +1503,7 @@ catalog.unfollowById(
 | collectionType | String? | Type of collection followed, i.e. products, brands, or collections. |    
 | collectionId | String? | The ID of the collection type. |  
 
-You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+Follow a particular entity such as product, brand, collection specified by its ID.
 
 *Success Response:*
 
@@ -1537,12 +1537,12 @@ Schema: `ErrorResponse`
 ---
 
 
-#### followById
-Follow an entity (product/brand/collection)
+#### unfollowById
+Unfollow an entity (product/brand/collection)
 
 
 ```java
-catalog.followById(
+catalog.unfollowById(
   collectionType, collectionId
   );
   //use response
@@ -1553,7 +1553,7 @@ catalog.followById(
 | collectionType | String? | Type of collection followed, i.e. products, brands, or collections. |    
 | collectionId | String? | The ID of the collection type. |  
 
-Follow a particular entity such as product, brand, collection specified by its ID.
+You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
 
 *Success Response:*
 
@@ -1753,14 +1753,14 @@ Fetch all items added to the cart
 
 ```java
 cart.getCart(
-  id, i, b, assignCardId
+  uid, i, b, assignCardId
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |    
 | assignCardId | Integer? |  |  
@@ -1774,7 +1774,7 @@ Use this API to get details of all the items added to a cart.
 Success. Returns a Cart object. Check the example shown below or refer `CartResponse` for more details.
 
 
-Schema: `CartRequestResponse`
+Schema: `CartResponse`
 
 
 
@@ -1793,14 +1793,14 @@ Fetch last-modified timestamp
 
 ```java
 cart.getCartLastModified(
-  id
+  uid
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |  
+| uid | Integer? |  |  
 
 Use this API to fetch Last-Modified timestamp in header metadata.
 
@@ -1840,10 +1840,10 @@ Use this API to add items to the cart.
 
 
 
-Success. Returns a cart object as shown below. Refer `AddRequestCartResponse` for more details.
+Success. Returns a cart object as shown below. Refer `AddCartResponse` for more details.
 
 
-Schema: `AddRequestCartResponse`
+Schema: `AddCartResponse`
 
 
 *Examples:*
@@ -2495,14 +2495,14 @@ Update items in the cart
 
 ```java
 cart.updateCart(
-  id, i, b, body 
+  uid, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -2512,10 +2512,10 @@ Use this API to update items added to the cart with the help of a request object
 
 
 
-Success. Updates and returns a cart object as shown below. Refer `UpdateRequestCartResponse` for more details.
+Success. Updates and returns a cart object as shown below. Refer `UpdateCartResponse` for more details.
 
 
-Schema: `UpdateRequestCartResponse`
+Schema: `UpdateCartResponse`
 
 
 *Examples:*
@@ -2896,14 +2896,14 @@ Count items in the cart
 
 ```java
 cart.getItemCount(
-  id
+  uid
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? | The unique identifier of the cart. |  
+| uid | Integer? | The unique identifier of the cart. |  
 
 Use this API to get the total number of items present in cart.
 
@@ -2991,7 +2991,7 @@ Use this API to apply coupons on items in the cart.
 Success. Returns coupons applied to the cart along with item details and price breakup. Refer `CartResponse` for more details.
 
 
-Schema: `CartRequestResponse`
+Schema: `CartResponse`
 
 
 
@@ -3028,7 +3028,7 @@ Remove Coupon applied on the cart by passing uid in request body.
 Success. Returns coupons removed from the cart along with item details and price breakup. Refer `CartResponse` for more details.
 
 
-Schema: `CartRequestResponse`
+Schema: `CartResponse`
 
 
 
@@ -3190,7 +3190,7 @@ Use this API to redeem a fixed no. of reward points by applying it to the cart.
 Success. Returns a Cart object. Check the example shown below or refer `CartResponse` for more details.
 
 
-Schema: `CartRequestResponse`
+Schema: `CartResponse`
 
 
 
@@ -3209,14 +3209,14 @@ Fetch address
 
 ```java
 cart.getAddresses(
-  cartId, mobileNo, checkoutMode, tags, isDefault
+  uid, mobileNo, checkoutMode, tags, isDefault
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| cartId | String? |  |    
+| uid | Integer? |  |    
 | mobileNo | String? |  |    
 | checkoutMode | String? |  |    
 | tags | String? |  |    
@@ -3286,15 +3286,15 @@ Fetch a single address by its ID
 
 ```java
 cart.getAddressById(
-  id, cartId, mobileNo, checkoutMode, tags, isDefault
+  id, uid, mobileNo, checkoutMode, tags, isDefault
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
-| cartId | String? |  |    
+| id | Integer? |  |    
+| uid | Integer? |  |    
 | mobileNo | String? |  |    
 | checkoutMode | String? |  |    
 | tags | String? |  |    
@@ -3402,14 +3402,14 @@ Select an address from available addresses
 
 ```java
 cart.selectAddress(
-  cartId, i, b, body 
+  uid, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| cartId | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -3422,7 +3422,7 @@ cart.selectAddress(
 Success. Returns a Cart object as shown below. Refer `CartResponse` for more details.  .
 
 
-Schema: `CartRequestResponse`
+Schema: `CartResponse`
 
 
 
@@ -3495,7 +3495,7 @@ Use this API to update cart payment.
 Success. Returns a Cart object as shown below. Refer `CartResponse` for more details.
 
 
-Schema: `CartRequestResponse`
+Schema: `CartResponse`
 
 
 
@@ -6090,58 +6090,6 @@ lead.getTokenForVideoRoom(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
 | uniqueName | String? | Unique name of Video Room |  
-
-Get Token to join a specific Video Room using it's unqiue name, this Token is your ticket to Room and also creates your identity there.
-
-*Success Response:*
-
-
-
-Success
-
-
-Schema: `GetTokenForVideoRoomResponse`
-
-
-*Examples:*
-
-
-Default
-```json
-{
-  "value": {
-    "access_token": "your_token_to_the_room"
-  }
-}
-```
-
-
-
-
-
-
-
-
-
----
-
-
-#### getASDF
-Get Token to join a specific Video Room using it's unqiue name
-
-
-```java
-lead.getASDF(
-  inQuery, inHeader, inPath
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- |  
-| inQuery | undefined.PriorityEnum? | For adding support for enum |    
-| inHeader | undefined.PriorityEnum? | For adding support for enum |    
-| inPath | undefined.PriorityEnum? | For adding support for enum |  
 
 Get Token to join a specific Video Room using it's unqiue name, this Token is your ticket to Room and also creates your identity there.
 
@@ -14875,14 +14823,14 @@ Fetch all items added to the cart
 
 ```java
 poscart.getCart(
-  id, i, b, assignCardId
+  uid, i, b, assignCardId
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |    
 | assignCardId | Integer? |  |  
@@ -14896,7 +14844,7 @@ Use this API to get details of all the items added to a cart.
 Success. Returns a Cart object. Check the example shown below or refer `CartResponse` for more details.
 
 
-Schema: `CartRequestResponse`
+Schema: `CartResponse`
 
 
 
@@ -14915,14 +14863,14 @@ Fetch last-modified timestamp
 
 ```java
 poscart.getCartLastModified(
-  id
+  uid
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |  
+| uid | Integer? |  |  
 
 Use this API to fetch Last-Modified timestamp in header metadata.
 
@@ -14962,10 +14910,10 @@ Use this API to add items to the cart.
 
 
 
-Success. Returns a cart object as shown below. Refer `AddRequestCartResponse` for more details.
+Success. Returns a cart object as shown below. Refer `AddCartResponse` for more details.
 
 
-Schema: `AddRequestCartResponse`
+Schema: `AddCartResponse`
 
 
 *Examples:*
@@ -15617,14 +15565,14 @@ Update items in the cart
 
 ```java
 poscart.updateCart(
-  id, i, b, body 
+  uid, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -15634,10 +15582,10 @@ Use this API to update items added to the cart with the help of a request object
 
 
 
-Success. Updates and returns a cart object as shown below. Refer `UpdateRequestCartResponse` for more details.
+Success. Updates and returns a cart object as shown below. Refer `UpdateCartResponse` for more details.
 
 
-Schema: `UpdateRequestCartResponse`
+Schema: `UpdateCartResponse`
 
 
 *Examples:*
@@ -16018,14 +15966,14 @@ Count items in the cart
 
 ```java
 poscart.getItemCount(
-  id
+  uid
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? | The unique identifier of the cart. |  
+| uid | Integer? | The unique identifier of the cart. |  
 
 Use this API to get the total number of items present in cart.
 
@@ -16113,7 +16061,7 @@ Use this API to apply coupons on items in the cart.
 Success. Returns coupons applied to the cart along with item details and price breakup. Refer `CartResponse` for more details.
 
 
-Schema: `CartRequestResponse`
+Schema: `CartResponse`
 
 
 
@@ -16150,7 +16098,7 @@ Remove Coupon applied on the cart by passing uid in request body.
 Success. Returns coupons removed from the cart along with item details and price breakup. Refer `CartResponse` for more details.
 
 
-Schema: `CartRequestResponse`
+Schema: `CartResponse`
 
 
 
@@ -16312,7 +16260,7 @@ Use this API to redeem a fixed no. of reward points by applying it to the cart.
 Success. Returns a Cart object. Check the example shown below or refer `CartResponse` for more details.
 
 
-Schema: `CartRequestResponse`
+Schema: `CartResponse`
 
 
 
@@ -16331,14 +16279,14 @@ Fetch address
 
 ```java
 poscart.getAddresses(
-  cartId, mobileNo, checkoutMode, tags, isDefault
+  uid, mobileNo, checkoutMode, tags, isDefault
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| cartId | String? |  |    
+| uid | Integer? |  |    
 | mobileNo | String? |  |    
 | checkoutMode | String? |  |    
 | tags | String? |  |    
@@ -16408,15 +16356,15 @@ Fetch a single address by its ID
 
 ```java
 poscart.getAddressById(
-  id, cartId, mobileNo, checkoutMode, tags, isDefault
+  id, uid, mobileNo, checkoutMode, tags, isDefault
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
-| cartId | String? |  |    
+| id | Integer? |  |    
+| uid | Integer? |  |    
 | mobileNo | String? |  |    
 | checkoutMode | String? |  |    
 | tags | String? |  |    
@@ -16524,14 +16472,14 @@ Select an address from available addresses
 
 ```java
 poscart.selectAddress(
-  cartId, i, b, body 
+  uid, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| cartId | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -16544,7 +16492,7 @@ poscart.selectAddress(
 Success. Returns a Cart object as shown below. Refer `CartResponse` for more details.  .
 
 
-Schema: `CartRequestResponse`
+Schema: `CartResponse`
 
 
 
@@ -16617,7 +16565,7 @@ Use this API to update cart payment.
 Success. Returns a Cart object as shown below. Refer `CartResponse` for more details.
 
 
-Schema: `CartRequestResponse`
+Schema: `CartResponse`
 
 
 
