@@ -65,7 +65,7 @@ interface CatalogApiList {
     Call<ApplicationModels.AutoCompleteResponse> getSearchResults(@Query("q") String q );
     
     @GET ("/service/application/catalog/v1.0/collections/")
-    Call<ApplicationModels.GetCollectionListingResponse> getCollections(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("tag") String tag );
+    Call<ApplicationModels.GetCollectionListingResponse> getCollections(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("tag") List<String> tag );
     
     @GET ("/service/application/catalog/v1.0/collections/{slug}/items/")
     Call<ApplicationModels.ProductListingResponse> getCollectionItemsBySlug(@Path("slug") String slug , @Query("f") String f , @Query("filters") Boolean filters , @Query("sort_on") String sortOn , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
@@ -96,34 +96,34 @@ interface CatalogApiList {
 interface CartApiList {
     
     @GET ("/service/application/cart/v1.0/detail")
-    Call<ApplicationModels.CartRequestResponse> getCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId );
+    Call<ApplicationModels.CartDetailResponse> getCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId );
     
     @HEAD ("/service/application/cart/v1.0/detail")
     Call<Object> getCartLastModified(@Query("id") String id );
     
     @POST ("/service/application/cart/v1.0/detail")
-    Call<ApplicationModels.AddRequestCartResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.AddCartRequest payload);
+    Call<ApplicationModels.AddCartDetailResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.AddCartRequest payload);
     
     @PUT ("/service/application/cart/v1.0/detail")
-    Call<ApplicationModels.UpdateRequestCartResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.UpdateCartRequest payload);
+    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.UpdateCartRequest payload);
     
     @GET ("/service/application/cart/v1.0/basic")
     Call<ApplicationModels.CartItemCountResponse> getItemCount(@Query("id") String id );
     
     @GET ("/service/application/cart/v1.0/coupon")
-    Call<ApplicationModels.GetCouponResponse> getCoupons(@Query("uid") Integer uid );
+    Call<ApplicationModels.GetCouponResponse> getCoupons(@Query("id") String id );
     
     @POST ("/service/application/cart/v1.0/coupon")
-    Call<ApplicationModels.CartRequestResponse> applyCoupon(@Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("uid") Integer uid ,@Body ApplicationModels.ApplyCouponRequest payload);
+    Call<ApplicationModels.CartDetailResponse> applyCoupon(@Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("id") String id ,@Body ApplicationModels.ApplyCouponRequest payload);
     
     @DELETE ("/service/application/cart/v1.0/coupon")
-    Call<ApplicationModels.CartRequestResponse> removeCoupon(@Query("uid") Integer uid );
+    Call<ApplicationModels.CartDetailResponse> removeCoupon(@Query("id") String id );
     
     @GET ("/service/application/cart/v1.0/bulk-price")
     Call<ApplicationModels.BulkPriceResponse> getBulkDiscountOffers(@Query("item_id") Integer itemId , @Query("article_id") String articleId , @Query("uid") Integer uid , @Query("slug") String slug );
     
     @POST ("/service/application/cart/v1.0/redeem/points/")
-    Call<ApplicationModels.CartRequestResponse> applyRewardPoints(@Query("uid") Integer uid , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.RewardPointRequest payload);
+    Call<ApplicationModels.CartDetailResponse> applyRewardPoints(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.RewardPointRequest payload);
     
     @GET ("/service/application/cart/v1.0/address")
     Call<ApplicationModels.GetAddressesResponse> getAddresses(@Query("cart_id") String cartId , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
@@ -135,28 +135,28 @@ interface CartApiList {
     Call<ApplicationModels.Address> getAddressById(@Path("id") String id , @Query("cart_id") String cartId , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
     
     @PUT ("/service/application/cart/v1.0/address/{id}")
-    Call<ApplicationModels.UpdateAddressResponse> updateAddress(@Path("id") Integer id ,@Body ApplicationModels.Address payload);
+    Call<ApplicationModels.UpdateAddressResponse> updateAddress(@Path("id") String id ,@Body ApplicationModels.Address payload);
     
     @DELETE ("/service/application/cart/v1.0/address/{id}")
-    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Path("id") Integer id );
+    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Path("id") String id );
     
     @POST ("/service/application/cart/v1.0/select-address")
-    Call<ApplicationModels.CartRequestResponse> selectAddress(@Query("cart_id") String cartId , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.SelectCartAddressRequest payload);
+    Call<ApplicationModels.CartDetailResponse> selectAddress(@Query("cart_id") String cartId , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.SelectCartAddressRequest payload);
     
     @PUT ("/service/application/cart/v1.0/payment")
-    Call<ApplicationModels.CartRequestResponse> selectPaymentMode(@Query("uid") String uid ,@Body ApplicationModels.UpdateCartPaymentRequest payload);
+    Call<ApplicationModels.CartDetailResponse> selectPaymentMode(@Query("id") String id ,@Body ApplicationModels.UpdateCartPaymentRequest payload);
     
     @GET ("/service/application/cart/v1.0/payment/validate/")
-    Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Query("uid") String uid , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
+    Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Query("id") String id , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
     
     @GET ("/service/application/cart/v1.0/shipment")
-    Call<ApplicationModels.CartShipmentsResponse> getShipments(@Query("p") Boolean p , @Query("uid") Integer uid , @Query("address_id") Integer addressId , @Query("area_code") String areaCode );
+    Call<ApplicationModels.CartShipmentsResponse> getShipments(@Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("area_code") String areaCode );
     
     @POST ("/service/application/cart/v1.0/checkout")
-    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Body ApplicationModels.CartCheckoutRequest payload);
+    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Body ApplicationModels.CartCheckoutDetailRequest payload);
     
     @PUT ("/service/application/cart/v1.0/meta")
-    Call<ApplicationModels.CartMetaResponse> updateCartMeta(@Query("uid") Integer uid ,@Body ApplicationModels.CartMetaRequest payload);
+    Call<ApplicationModels.CartMetaResponse> updateCartMeta(@Query("id") String id ,@Body ApplicationModels.CartMetaRequest payload);
     
     @POST ("/service/application/cart/v1.0/share-cart")
     Call<ApplicationModels.GetShareCartLinkResponse> getCartShareLink(@Body ApplicationModels.GetShareCartLinkRequest payload);
@@ -661,34 +661,34 @@ interface FeedbackApiList {
 interface PosCartApiList {
     
     @GET ("/service/application/pos/cart/v1.0/detail")
-    Call<ApplicationModels.CartRequestResponse> getCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId );
+    Call<ApplicationModels.CartDetailResponse> getCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId );
     
     @HEAD ("/service/application/pos/cart/v1.0/detail")
     Call<Object> getCartLastModified(@Query("id") String id );
     
     @POST ("/service/application/pos/cart/v1.0/detail")
-    Call<ApplicationModels.AddRequestCartResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.AddCartRequest payload);
+    Call<ApplicationModels.AddCartDetailResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.AddCartRequest payload);
     
     @PUT ("/service/application/pos/cart/v1.0/detail")
-    Call<ApplicationModels.UpdateRequestCartResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.UpdateCartRequest payload);
+    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.UpdateCartRequest payload);
     
     @GET ("/service/application/pos/cart/v1.0/basic")
     Call<ApplicationModels.CartItemCountResponse> getItemCount(@Query("id") String id );
     
     @GET ("/service/application/pos/cart/v1.0/coupon")
-    Call<ApplicationModels.GetCouponResponse> getCoupons(@Query("uid") Integer uid );
+    Call<ApplicationModels.GetCouponResponse> getCoupons(@Query("id") String id );
     
     @POST ("/service/application/pos/cart/v1.0/coupon")
-    Call<ApplicationModels.CartRequestResponse> applyCoupon(@Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("uid") Integer uid ,@Body ApplicationModels.ApplyCouponRequest payload);
+    Call<ApplicationModels.CartDetailResponse> applyCoupon(@Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("id") String id ,@Body ApplicationModels.ApplyCouponRequest payload);
     
     @DELETE ("/service/application/pos/cart/v1.0/coupon")
-    Call<ApplicationModels.CartRequestResponse> removeCoupon(@Query("uid") Integer uid );
+    Call<ApplicationModels.CartDetailResponse> removeCoupon(@Query("id") String id );
     
     @GET ("/service/application/pos/cart/v1.0/bulk-price")
     Call<ApplicationModels.BulkPriceResponse> getBulkDiscountOffers(@Query("item_id") Integer itemId , @Query("article_id") String articleId , @Query("uid") Integer uid , @Query("slug") String slug );
     
     @POST ("/service/application/pos/cart/v1.0/redeem/points/")
-    Call<ApplicationModels.CartRequestResponse> applyRewardPoints(@Query("uid") Integer uid , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.RewardPointRequest payload);
+    Call<ApplicationModels.CartDetailResponse> applyRewardPoints(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.RewardPointRequest payload);
     
     @GET ("/service/application/pos/cart/v1.0/address")
     Call<ApplicationModels.GetAddressesResponse> getAddresses(@Query("cart_id") String cartId , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
@@ -700,34 +700,34 @@ interface PosCartApiList {
     Call<ApplicationModels.Address> getAddressById(@Path("id") String id , @Query("cart_id") String cartId , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
     
     @PUT ("/service/application/pos/cart/v1.0/address/{id}")
-    Call<ApplicationModels.UpdateAddressResponse> updateAddress(@Path("id") Integer id ,@Body ApplicationModels.Address payload);
+    Call<ApplicationModels.UpdateAddressResponse> updateAddress(@Path("id") String id ,@Body ApplicationModels.Address payload);
     
     @DELETE ("/service/application/pos/cart/v1.0/address/{id}")
-    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Path("id") Integer id );
+    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Path("id") String id );
     
     @POST ("/service/application/pos/cart/v1.0/select-address")
-    Call<ApplicationModels.CartRequestResponse> selectAddress(@Query("cart_id") String cartId , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.SelectCartAddressRequest payload);
+    Call<ApplicationModels.CartDetailResponse> selectAddress(@Query("cart_id") String cartId , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.SelectCartAddressRequest payload);
     
     @PUT ("/service/application/pos/cart/v1.0/payment")
-    Call<ApplicationModels.CartRequestResponse> selectPaymentMode(@Query("uid") String uid ,@Body ApplicationModels.UpdateCartPaymentRequest payload);
+    Call<ApplicationModels.CartDetailResponse> selectPaymentMode(@Query("id") String id ,@Body ApplicationModels.UpdateCartPaymentRequest payload);
     
     @GET ("/service/application/pos/cart/v1.0/payment/validate/")
-    Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Query("uid") String uid , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
+    Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Query("id") String id , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
     
     @GET ("/service/application/pos/cart/v1.0/shipment")
-    Call<ApplicationModels.CartShipmentsResponse> getShipments(@Query("pick_at_store_uid") Integer pickAtStoreUid , @Query("ordering_store_id") Integer orderingStoreId , @Query("p") Boolean p , @Query("uid") Integer uid , @Query("address_id") Integer addressId , @Query("area_code") String areaCode , @Query("order_type") String orderType );
+    Call<ApplicationModels.CartShipmentsResponse> getShipments(@Query("pick_at_store_uid") Integer pickAtStoreUid , @Query("ordering_store_id") Integer orderingStoreId , @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("area_code") String areaCode , @Query("order_type") String orderType );
     
     @PUT ("/service/application/pos/cart/v1.0/shipment")
-    Call<ApplicationModels.CartShipmentsResponse> updateShipments(@Query("i") Boolean i , @Query("p") Boolean p , @Query("uid") Integer uid , @Query("address_id") Integer addressId , @Query("order_type") String orderType ,@Body ApplicationModels.UpdateCartShipmentRequest payload);
+    Call<ApplicationModels.CartShipmentsResponse> updateShipments(@Query("i") Boolean i , @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("order_type") String orderType ,@Body ApplicationModels.UpdateCartShipmentRequest payload);
     
     @POST ("/service/application/pos/cart/v1.0/checkout")
-    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Query("uid") Integer uid ,@Body ApplicationModels.CartPosCheckoutRequest payload);
+    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Query("id") String id ,@Body ApplicationModels.CartPosCheckoutDetailRequest payload);
     
     @PUT ("/service/application/pos/cart/v1.0/meta")
-    Call<ApplicationModels.CartMetaResponse> updateCartMeta(@Query("uid") Integer uid ,@Body ApplicationModels.CartMetaRequest payload);
+    Call<ApplicationModels.CartMetaResponse> updateCartMeta(@Query("id") String id ,@Body ApplicationModels.CartMetaRequest payload);
     
     @GET ("/service/application/pos/cart/v1.0/available-delivery-mode")
-    Call<ApplicationModels.CartDeliveryModesResponse> getAvailableDeliveryModes(@Query("area_code") String areaCode , @Query("uid") Integer uid );
+    Call<ApplicationModels.CartDeliveryModesResponse> getAvailableDeliveryModes(@Query("area_code") String areaCode , @Query("id") String id );
     
     @GET ("/service/application/pos/cart/v1.0/store-address")
     Call<ApplicationModels.StoreDetailsResponse> getStoreAddressByUid(@Query("store_uid") Integer storeUid );
