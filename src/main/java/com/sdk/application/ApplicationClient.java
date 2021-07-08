@@ -12,6 +12,8 @@ public class ApplicationClient extends ApplicationEnums {
     
     public ApplicationService.CartService cart;
     
+    public ApplicationService.CommonService common;
+    
     public ApplicationService.LeadService lead;
     
     public ApplicationService.ThemeService theme;
@@ -46,6 +48,8 @@ public class ApplicationClient extends ApplicationEnums {
         this.catalog = new ApplicationService().new CatalogService(applicationConfig);
         
         this.cart = new ApplicationService().new CartService(applicationConfig);
+        
+        this.common = new ApplicationService().new CommonService(applicationConfig);
         
         this.lead = new ApplicationService().new LeadService(applicationConfig);
         
