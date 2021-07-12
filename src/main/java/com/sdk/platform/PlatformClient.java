@@ -10,8 +10,6 @@ public class PlatformClient extends PlatformEnums{
     private PlatformConfig config;
 
     
-    public PlatformService.CommonService common;
-    
     public PlatformService.LeadService lead;
     
     public PlatformService.FeedbackService feedback;
@@ -60,8 +58,6 @@ public class PlatformClient extends PlatformEnums{
     public PlatformClient(PlatformConfig config)   
     {
         this.config = config;
-        
-        this.common = new PlatformService.CommonService(config);
         
         this.lead = new PlatformService.LeadService(config);
         
@@ -117,8 +113,6 @@ public class PlatformClient extends PlatformEnums{
     public class ApplicationClient{
 
         
-        public PlatformService.CommonService.ApplicationClient common;
-        
         public PlatformService.LeadService.ApplicationClient lead;
         
         public PlatformService.FeedbackService.ApplicationClient feedback;
@@ -165,8 +159,6 @@ public class PlatformClient extends PlatformEnums{
         
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
-            
-            this.common = new PlatformService.CommonService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.lead = new PlatformService.LeadService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
