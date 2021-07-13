@@ -23,7 +23,6 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 public class RequestSigner {
 
     private Request request;
@@ -31,17 +30,10 @@ public class RequestSigner {
     private String nowDateTime;
     private boolean signQuery;
 
-    static final List<String> HEADERS_TO_IGNORE = List.of(
-        "authorization",
-        "connection",
-        "x-amzn-trace-id",
-        "user-agent",
-        "expect",
-        "presigned-expires",
-        "range"
-    );
+    static final List<String> HEADERS_TO_IGNORE = List.of("authorization", "connection", "x-amzn-trace-id",
+            "user-agent", "expect", "presigned-expires", "range");
 
-    static final List<String> HEADERS_TO_INCLUDE = List.of("x-fp-.*","host");
+    static final List<String> HEADERS_TO_INCLUDE = List.of("x-fp-.*", "host");
 
     RequestSigner(Request request) {
         this.request = request;
@@ -52,12 +44,11 @@ public class RequestSigner {
         updatedReq = prepareRequest();
         try {
             if (this.signQuery) {
-                okhttp3.HttpUrl httpUrl =
-                        updatedReq.url().newBuilder().addQueryParameter("x-fp-signature", signature())
-                                .build();
+                okhttp3.HttpUrl httpUrl = updatedReq.url().newBuilder().addQueryParameter("x-fp-signature", signature())
+                        .addQueryParameter("x-fp-date", getDateTime()).build();
                 updatedReq = updatedReq.newBuilder().url(httpUrl).build();
             } else {
-                updatedReq =  updatedReq.newBuilder().header("x-fp-signature", signature()).build();
+                updatedReq = updatedReq.newBuilder().header("x-fp-signature", signature()).build();
             }
 
         } catch (Exception e) {
@@ -80,14 +71,13 @@ public class RequestSigner {
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
             df.setTimeZone(tz);
             String nowAsISO = df.format(new Date());
-            nowDateTime = nowAsISO.replace("-", Fields.EMPTY_STRING)
-                    .replace(Fields.COLON, Fields.EMPTY_STRING)
+            nowDateTime = nowAsISO.replace("-", Fields.EMPTY_STRING).replace(Fields.COLON, Fields.EMPTY_STRING)
                     .replace("'", Fields.EMPTY_STRING);
         }
         return nowDateTime;
     }
 
-    private String signature()  {
+    private String signature() {
         String kCredentials = "1234567";
         String strToSign = stringToSign();
         return "v1:" + hMac(kCredentials, strToSign);
@@ -102,9 +92,9 @@ public class RequestSigner {
             Mac sha256Hmac = Mac.getInstance("HmacSHA256");
             sha256Hmac.init(new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "HmacSHA256"));
             return Hex.encodeHexString(sha256Hmac.doFinal(strToSign.getBytes(StandardCharsets.UTF_8)));
-        } catch (Exception e ){
+        } catch (Exception e) {
             e.getStackTrace();
-            throw new HttpServerErrorException(HttpStatus.EXPECTATION_FAILED,"Could not using Hmac SHA to convert");
+            throw new HttpServerErrorException(HttpStatus.EXPECTATION_FAILED, "Could not using Hmac SHA to convert");
         }
     }
 
@@ -125,7 +115,7 @@ public class RequestSigner {
         String canonicalQueryString = canonicalQueryString();
         canonicalRequest.append(updatedReq.method()).append("\n");
         canonicalRequest.append(canonicalPath()).append("\n");
-        if(!ObjectUtils.isEmpty(canonicalQueryString))  {
+        if (!ObjectUtils.isEmpty(canonicalQueryString)) {
             canonicalRequest.append(canonicalQueryString);
         }
         canonicalRequest.append("\n");
@@ -140,52 +130,45 @@ public class RequestSigner {
             } else {
                 canonicalRequest.append(hash(Fields.EMPTY_STRING));
             }
-        }catch (IOException e) {
+        } catch (IOException e) {
             throw new HttpClientErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "Could not append BODY");
         }
         return canonicalRequest.toString();
     }
 
-    //Logic to create Query String
+    // Logic to create Query String
     private String canonicalQueryString() {
         String canonicalQueryString = Fields.EMPTY_STRING;
         if (updatedReq.url().querySize() > 0) {
             StringBuilder encodedQueryPieces = new StringBuilder(Fields.EMPTY_STRING);
-            updatedReq.url().queryParameterNames()
-                    .stream()
-                    .filter(Objects::nonNull)
-                    //.map(this::encode)
-                    .sorted()
-                    .forEach(params -> addQueryParam(params, encodedQueryPieces));
+            updatedReq.url().queryParameterNames().stream().filter(Objects::nonNull)
+                    // .map(this::encode)
+                    .sorted().forEach(params -> addQueryParam(params, encodedQueryPieces));
             return encodedQueryPieces.toString();
         }
         return canonicalQueryString;
     }
 
-    //Logic to create Path String
+    // Logic to create Path String
     private String canonicalPath() {
         StringBuilder encodedPathPieces = new StringBuilder();
-        updatedReq.url().encodedPathSegments()
-                .stream()
-                .map(this::encode)
+        updatedReq.url().encodedPathSegments().stream().map(this::encode)
                 .forEach(path -> encodedPathPieces.append("/").append(path));
         return encodedPathPieces.toString();
     }
 
     private void addQueryParam(String encodedQueryName, StringBuilder encodedQueryPieces) {
-        updatedReq.url().queryParameterValues(URLDecoder.decode(encodedQueryName, StandardCharsets.UTF_8))
-                .stream()
-                .sorted()
-                .forEach(queryValue-> includeQueryValue(queryValue, encodedQueryName, encodedQueryPieces));
+        updatedReq.url().queryParameterValues(URLDecoder.decode(encodedQueryName, StandardCharsets.UTF_8)).stream()
+                .sorted().forEach(queryValue -> includeQueryValue(queryValue, encodedQueryName, encodedQueryPieces));
     }
 
-    private void includeQueryValue(String queryValue, String encodedQueryName , StringBuilder encodedQueryPieces) {
-            String query = encodedQueryName + "=" + queryValue;
-            if (ObjectUtils.isEmpty(encodedQueryPieces)) {
-                encodedQueryPieces.append(query);
-            } else {
-                encodedQueryPieces.append("&").append(query);
-            }
+    private void includeQueryValue(String queryValue, String encodedQueryName, StringBuilder encodedQueryPieces) {
+        String query = encodedQueryName + "=" + queryValue;
+        if (ObjectUtils.isEmpty(encodedQueryPieces)) {
+            encodedQueryPieces.append(query);
+        } else {
+            encodedQueryPieces.append("&").append(query);
+        }
     }
 
     private String encode(String parameter) {
@@ -195,10 +178,10 @@ public class RequestSigner {
     private void addHeaderValues(String headerName, StringBuilder canonicalHeader) {
         updatedReq.headers().values(headerName).forEach(headerValue -> {
             if (!ObjectUtils.isEmpty(canonicalHeader)) {
-                    canonicalHeader.append("\n");
-                }
-                canonicalHeader.append(headerName).append(Fields.COLON).append(headerValue.trim());
-            });
+                canonicalHeader.append("\n");
+            }
+            canonicalHeader.append(headerName).append(Fields.COLON).append(headerValue.trim());
+        });
     }
 
     private boolean filterHeaders(String headerName) {
@@ -206,10 +189,10 @@ public class RequestSigner {
         if (notInIgnoreHeader) {
             AtomicReference<Boolean> foundMatch = new AtomicReference<>(false);
             HEADERS_TO_INCLUDE.forEach(regExp -> {
-                    Pattern pattern = Pattern.compile(regExp, Pattern.CASE_INSENSITIVE);
-                    Matcher matcher = pattern.matcher(headerName);
-                    boolean result = (foundMatch.get() || matcher.matches());
-                    foundMatch.set(result);
+                Pattern pattern = Pattern.compile(regExp, Pattern.CASE_INSENSITIVE);
+                Matcher matcher = pattern.matcher(headerName);
+                boolean result = (foundMatch.get() || matcher.matches());
+                foundMatch.set(result);
             });
             return foundMatch.get();
         } else {
@@ -219,25 +202,19 @@ public class RequestSigner {
 
     private String canonicalHeaders() {
         StringBuilder canonicalHeader = new StringBuilder();
-        updatedReq.headers().names()
-                .stream()
-                .filter(this::filterHeaders)
+        updatedReq.headers().names().stream().filter(this::filterHeaders)
                 .forEach(header -> addHeaderValues(header, canonicalHeader));
         return canonicalHeader.toString();
     }
 
     private String signedHeaders() {
         StringBuilder headerNames = new StringBuilder();
-        updatedReq.headers().names()
-                .stream()
-                .filter(this::filterHeaders)
-                .sorted()
-                .forEach(headerName -> {
-                    if (!ObjectUtils.isEmpty(headerNames)) {
-                        headerNames.append(Fields.SEMI_COLON);
-                    }
-                    headerNames.append(headerName.trim());
-                });
+        updatedReq.headers().names().stream().filter(this::filterHeaders).sorted().forEach(headerName -> {
+            if (!ObjectUtils.isEmpty(headerNames)) {
+                headerNames.append(Fields.SEMI_COLON);
+            }
+            headerNames.append(headerName.trim());
+        });
         return headerNames.toString();
     }
 
@@ -247,4 +224,3 @@ public class RequestSigner {
         String EMPTY_STRING = "";
     }
 }
-

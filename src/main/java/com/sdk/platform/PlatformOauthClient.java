@@ -28,24 +28,22 @@ public class PlatformOauthClient {
     private long tokenExpiresIn;
     private static String URI = "/service/panel/authentication/v1.0/company/";
 
-    PlatformOauthClient(PlatformConfig config)
-    {
-        this.config=config;
+    PlatformOauthClient(PlatformConfig config) {
+        this.config = config;
         this.refreshToken = "";
         this.retrofitServiceFactory = new RetrofitServiceFactory();
     }
 
     enum GrantType {
-        AUTHORIZATION_CODE,
-        REFRESH_TOKEN
+        AUTHORIZATION_CODE, REFRESH_TOKEN
     }
 
     private void setToken(AccessToken accessToken) {
         this.rawToken = accessToken;
         this.tokenExpiresIn = accessToken.getExpiresIn();
         this.token = accessToken.getToken();
-        this.refreshToken = ObjectUtils.isEmpty(accessToken.getRefreshToken())? "":accessToken.getRefreshToken();
-        if(ObjectUtils.isEmpty(this.refreshToken)) {
+        this.refreshToken = ObjectUtils.isEmpty(accessToken.getRefreshToken()) ? "" : accessToken.getRefreshToken();
+        if (ObjectUtils.isEmpty(this.refreshToken)) {
             this.retryOAuthTokenTimer(accessToken.getExpiresIn());
         }
     }
@@ -60,21 +58,23 @@ public class PlatformOauthClient {
         }
     }
 
-    private String getRandomState(){
+    private String getRandomState() {
         return RandomStringUtils.randomAlphanumeric(15).toUpperCase();
     }
 
-    public String getAuthorizationURL(List<String> scope, String redirectUri, String state, boolean isOnline)
-    {
+    public String getAuthorizationURL(List<String> scope, String redirectUri, String state, boolean isOnline) {
         String apiKey = config.getApiKey();
         if (ObjectUtils.isEmpty(apiKey)) {
             throw new FDKError("API Key missing in config");
         }
-        state = StringUtils.isNotEmpty(state)?state:getRandomState();
-        String accessMode = isOnline?"online":"offline";
-        String query = "client_id=" + apiKey + "&scope="+String.join(",", scope)
-                + "&redirect_uri=" + redirectUri + "&state="+state + "&access_mode=" + accessMode + "&response_type=code";
-        return config.getDomain()+URI+config.getCompanyId()+"/oauth/authorize?"+ query;
+        state = StringUtils.isNotEmpty(state) ? state : getRandomState();
+        String accessMode = isOnline ? "online" : "offline";
+        String query = "client_id=" + apiKey + "&scope=" + String.join(",", scope) + "&redirect_uri=" + redirectUri
+                + "&state=" + state + "&access_mode=" + accessMode + "&response_type=code";
+        var queryString = config.getDomain() + URI + config.getCompanyId() + "/oauth/authorize?" + query;
+        Request request = new Request.Builder().url(queryString).method("GET", null).build();
+        request = new RequestSigner(request).sign(true);
+        return request.url().query();
     }
 
     public void renewAccesstoken() throws IOException {
@@ -83,7 +83,7 @@ public class PlatformOauthClient {
         body.put("grant_type", GrantType.REFRESH_TOKEN.toString().toLowerCase());
         body.put("refresh_token", this.refreshToken);
 
-        String url = config.getDomain()+URI+config.getCompanyId()+"/oauth/token";
+        String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessToken newToken = getToken(body, url);
         setToken(newToken);
     }
@@ -94,16 +94,16 @@ public class PlatformOauthClient {
         body.put("grant_type", GrantType.AUTHORIZATION_CODE.toString().toLowerCase());
         body.put("code", authorizationCode);
 
-        String url = config.getDomain()+URI+config.getCompanyId()+"/oauth/token";
+        String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessToken newToken = getToken(body, url);
         setToken(newToken);
     }
 
     public boolean isAccessTokenValid() {
-        return !ObjectUtils.isEmpty(this.token) && this.rawToken.getExpiresIn()>0;
+        return !ObjectUtils.isEmpty(this.token) && this.rawToken.getExpiresIn() > 0;
     }
 
-    private AccessToken getToken(HashMap<String, String> body , String url ) throws IOException {
+    private AccessToken getToken(HashMap<String, String> body, String url) throws IOException {
         TokenApiList tokenApiList = generateTokenApiList();
         Response<AccessResponse> response = tokenApiList.getAccessToken(url, body).execute();
         if (response.isSuccessful() && !ObjectUtils.isEmpty(response.body())) {
@@ -111,8 +111,8 @@ public class PlatformOauthClient {
             AccessToken accessToken = new AccessToken();
             accessToken.setToken(accessResponse.getAccessToken());
             accessToken.setRefreshToken(accessResponse.getRefreshToken());
-            accessToken.setExpiresIn(TimeUnit.SECONDS.toMillis(
-                    accessResponse.getExpiresIn()) + System.currentTimeMillis());
+            accessToken.setExpiresIn(
+                    TimeUnit.SECONDS.toMillis(accessResponse.getExpiresIn()) + System.currentTimeMillis());
             return accessToken;
         }
         return new AccessToken();
@@ -122,7 +122,7 @@ public class PlatformOauthClient {
         List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new PlatformHeaderInterceptor(config));
         interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(config.getDomain(),TokenApiList.class,interceptorList);
+        return retrofitServiceFactory.createService(config.getDomain(), TokenApiList.class, interceptorList);
     }
 }
 
@@ -135,7 +135,7 @@ interface TokenApiList {
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-class AccessResponse{
+class AccessResponse {
     @JsonProperty("access_token")
     String accessToken;
 

@@ -18,7 +18,7 @@ public class ApplicationConfig {
 
     private CookieStore persistentCookieStore = new CookieManager().getCookieStore();
 
-    public ApplicationConfig(String applicationId , String applicationToken) {
+    public ApplicationConfig(String applicationId, String applicationToken) {
         this.applicationId = applicationId;
         this.applicationToken = applicationToken;
         var regex = "^[0-9a-fA-F]{24}$";
@@ -27,11 +27,10 @@ public class ApplicationConfig {
         }
     }
 
-    public ApplicationConfig(String applicationId , String applicationToken, String domain, CookieStore cookieStore) {
+    public ApplicationConfig(String applicationId, String applicationToken, String domain) {
         this.applicationId = applicationId;
         this.applicationToken = applicationToken;
         this.domain = domain;
-        this.persistentCookieStore = cookieStore;
         var regex = "^[0-9a-fA-F]{24}$";
         if (!this.applicationId.matches(regex)) {
             throw new IllegalArgumentException("Invalid Application Id");
