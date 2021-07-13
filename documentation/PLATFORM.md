@@ -278,34 +278,34 @@
   * [Catalog#deleteSearchKeywords](#catalogdeletesearchkeywords)
   * [Catalog#getSearchKeywords](#cataloggetsearchkeywords)
   * [Catalog#updateSearchKeywords](#catalogupdatesearchkeywords)
-  * [Catalog#createCustomKeyword](#catalogcreatecustomkeyword)
   * [Catalog#getAllSearchKeyword](#cataloggetallsearchkeyword)
+  * [Catalog#createCustomKeyword](#catalogcreatecustomkeyword)
   * [Catalog#deleteAutocompleteKeyword](#catalogdeleteautocompletekeyword)
   * [Catalog#getAutocompleteKeywordDetail](#cataloggetautocompletekeyworddetail)
   * [Catalog#updateAutocompleteKeyword](#catalogupdateautocompletekeyword)
-  * [Catalog#createCustomAutocompleteRule](#catalogcreatecustomautocompleterule)
   * [Catalog#getAutocompleteConfig](#cataloggetautocompleteconfig)
-  * [Catalog#createProductBundle](#catalogcreateproductbundle)
+  * [Catalog#createCustomAutocompleteRule](#catalogcreatecustomautocompleterule)
   * [Catalog#getProductBundle](#cataloggetproductbundle)
+  * [Catalog#createProductBundle](#catalogcreateproductbundle)
   * [Catalog#getProductBundleDetail](#cataloggetproductbundledetail)
   * [Catalog#updateProductBundle](#catalogupdateproductbundle)
-  * [Catalog#createSizeGuide](#catalogcreatesizeguide)
   * [Catalog#getSizeGuides](#cataloggetsizeguides)
+  * [Catalog#createSizeGuide](#catalogcreatesizeguide)
   * [Catalog#getSizeGuide](#cataloggetsizeguide)
   * [Catalog#updateSizeGuide](#catalogupdatesizeguide)
   * [Catalog#getCatalogConfiguration](#cataloggetcatalogconfiguration)
-  * [Catalog#createConfigurationProductListing](#catalogcreateconfigurationproductlisting)
   * [Catalog#getConfigurations](#cataloggetconfigurations)
-  * [Catalog#createConfigurationByType](#catalogcreateconfigurationbytype)
+  * [Catalog#createConfigurationProductListing](#catalogcreateconfigurationproductlisting)
   * [Catalog#getConfigurationByType](#cataloggetconfigurationbytype)
+  * [Catalog#createConfigurationByType](#catalogcreateconfigurationbytype)
   * [Catalog#getQueryFilters](#cataloggetqueryfilters)
-  * [Catalog#createCollection](#catalogcreatecollection)
   * [Catalog#getAllCollections](#cataloggetallcollections)
+  * [Catalog#createCollection](#catalogcreatecollection)
   * [Catalog#getCollectionDetail](#cataloggetcollectiondetail)
   * [Catalog#deleteCollection](#catalogdeletecollection)
   * [Catalog#updateCollection](#catalogupdatecollection)
-  * [Catalog#addCollectionItems](#catalogaddcollectionitems)
   * [Catalog#getCollectionItems](#cataloggetcollectionitems)
+  * [Catalog#addCollectionItems](#catalogaddcollectionitems)
   * [Catalog#getCatalogInsights](#cataloggetcataloginsights)
   * [Catalog#getSellerInsights](#cataloggetsellerinsights)
   * [Catalog#createMarketplaceOptin](#catalogcreatemarketplaceoptin)
@@ -326,37 +326,37 @@
   * [Catalog#listHSNCodes](#cataloglisthsncodes)
   * [Catalog#listProductTemplateExportDetails](#cataloglistproducttemplateexportdetails)
   * [Catalog#listTemplateBrandTypeValues](#cataloglisttemplatebrandtypevalues)
-  * [Catalog#createCategories](#catalogcreatecategories)
   * [Catalog#listCategories](#cataloglistcategories)
+  * [Catalog#createCategories](#catalogcreatecategories)
   * [Catalog#getCategoryData](#cataloggetcategorydata)
   * [Catalog#updateCategory](#catalogupdatecategory)
-  * [Catalog#createProduct](#catalogcreateproduct)
   * [Catalog#getProducts](#cataloggetproducts)
+  * [Catalog#createProduct](#catalogcreateproduct)
   * [Catalog#deleteProduct](#catalogdeleteproduct)
   * [Catalog#getProduct](#cataloggetproduct)
   * [Catalog#editProduct](#catalogeditproduct)
   * [Catalog#getProductValidation](#cataloggetproductvalidation)
   * [Catalog#getProductSize](#cataloggetproductsize)
-  * [Catalog#updateProductAssetsInBulk](#catalogupdateproductassetsinbulk)
   * [Catalog#getProductBulkUploadHistory](#cataloggetproductbulkuploadhistory)
-  * [Catalog#createProductsInBulk](#catalogcreateproductsinbulk)
+  * [Catalog#updateProductAssetsInBulk](#catalogupdateproductassetsinbulk)
   * [Catalog#deleteProductBulkJob](#catalogdeleteproductbulkjob)
+  * [Catalog#createProductsInBulk](#catalogcreateproductsinbulk)
   * [Catalog#getCompanyTags](#cataloggetcompanytags)
-  * [Catalog#createProductAssetsInBulk](#catalogcreateproductassetsinbulk)
   * [Catalog#getProductAssetsInBulk](#cataloggetproductassetsinbulk)
+  * [Catalog#createProductAssetsInBulk](#catalogcreateproductassetsinbulk)
   * [Catalog#deleteSize](#catalogdeletesize)
-  * [Catalog#addInventory](#catalogaddinventory)
   * [Catalog#getInventory](#cataloggetinventory)
+  * [Catalog#addInventory](#catalogaddinventory)
   * [Catalog#deleteInventory](#catalogdeleteinventory)
-  * [Catalog#createBulkInventoryJob](#catalogcreatebulkinventoryjob)
   * [Catalog#getInventoryBulkUploadHistory](#cataloggetinventorybulkuploadhistory)
-  * [Catalog#createBulkInventory](#catalogcreatebulkinventory)
+  * [Catalog#createBulkInventoryJob](#catalogcreatebulkinventoryjob)
   * [Catalog#deleteBulkInventoryJob](#catalogdeletebulkinventoryjob)
-  * [Catalog#createInventoryExportJob](#catalogcreateinventoryexportjob)
+  * [Catalog#createBulkInventory](#catalogcreatebulkinventory)
   * [Catalog#getInventoryExport](#cataloggetinventoryexport)
+  * [Catalog#createInventoryExportJob](#catalogcreateinventoryexportjob)
   * [Catalog#exportInventoryConfig](#catalogexportinventoryconfig)
-  * [Catalog#createHsnCode](#catalogcreatehsncode)
   * [Catalog#getAllHsnCodes](#cataloggetallhsncodes)
+  * [Catalog#createHsnCode](#catalogcreatehsncode)
   * [Catalog#getHsnCode](#cataloggethsncode)
   * [Catalog#updateHsnCode](#catalogupdatehsncode)
   * [Catalog#bulkHsnCode](#catalogbulkhsncode)
@@ -8165,7 +8165,7 @@ communication.(
 | applicationId | String? | Application id |   
 | pageNo | Integer? | Current page no |   
 | pageSize | Integer? | Current request items count |   
-| sort | HashMap<String,Object>? | To sort based on created_at |  
+| sort | Object? | To sort based on created_at |  
 
 
 
@@ -8383,7 +8383,7 @@ communication.(
 | applicationId | String? | Application id |   
 | pageNo | Integer? | Current page no |   
 | pageSize | Integer? | Current request items count |   
-| sort | HashMap<String,Object>? | To sort based on created_at |  
+| sort | Object? | To sort based on created_at |  
 
 
 
@@ -8646,7 +8646,7 @@ communication.(
 | applicationId | String? | Application id |   
 | pageNo | Integer? | Current page no |   
 | pageSize | Integer? | Current request items count |   
-| sort | HashMap<String,Object>? | To sort based on created_at |  
+| sort | Object? | To sort based on created_at |  
 
 
 
@@ -8799,7 +8799,7 @@ communication.(
 | applicationId | String? | Application id |   
 | pageNo | Integer? | Current page no |   
 | pageSize | Integer? | Current request items count |   
-| sort | HashMap<String,Object>? | To sort based on created_at |  
+| sort | Object? | To sort based on created_at |  
 
 
 
@@ -8876,7 +8876,7 @@ communication.(
 | applicationId | String? | Application id |   
 | pageNo | Integer? | Current page no |   
 | pageSize | Integer? | Current request items count |   
-| sort | HashMap<String,Object>? | To sort based on created_at |  
+| sort | Object? | To sort based on created_at |  
 
 
 
@@ -9079,7 +9079,7 @@ communication.(
 | applicationId | String? | Application id |   
 | pageNo | Integer? | Current page no |   
 | pageSize | Integer? | Current request items count |   
-| sort | HashMap<String,Object>? | To sort based on created_at |  
+| sort | Object? | To sort based on created_at |  
 
 
 
@@ -9156,7 +9156,7 @@ communication.(
 | applicationId | String? | Application id |   
 | pageNo | Integer? | Current page no |   
 | pageSize | Integer? | Current request items count |   
-| sort | HashMap<String,Object>? | To sort based on created_at |  
+| sort | Object? | To sort based on created_at |  
 
 
 
@@ -9196,8 +9196,8 @@ communication.(
 | applicationId | String? | Application id |   
 | pageId | String? | Current page no |   
 | pageSize | Integer? | Current request items count |   
-| sort | HashMap<String,Object>? | To sort based on _id |   
-| query | HashMap<String,Object>? |  |  
+| sort | Object? | To sort based on _id |   
+| query | Object? |  |  
 
 
 
@@ -9275,7 +9275,7 @@ communication.(
 | applicationId | String? | Application id |   
 | pageNo | Integer? | Current page no |   
 | pageSize | Integer? | Current request items count |   
-| sort | HashMap<String,Object>? | To sort based on created_at |  
+| sort | Object? | To sort based on created_at |  
 
 
 
@@ -9428,7 +9428,7 @@ communication.(
 | applicationId | String? | Application id |   
 | pageNo | Integer? | Current page no |   
 | pageSize | Integer? | Current request items count |   
-| sort | HashMap<String,Object>? | To sort based on created_at |  
+| sort | Object? | To sort based on created_at |  
 
 
 
@@ -9655,7 +9655,7 @@ communication.(
 | applicationId | String? | Application id |   
 | pageNo | Integer? | Current page no |   
 | pageSize | Integer? | Current request items count |   
-| sort | HashMap<String,Object>? | To sort based on created_at |  
+| sort | Object? | To sort based on created_at |  
 
 
 
@@ -10811,7 +10811,7 @@ Check Refund is available or not
 Success
 
 
-Schema: `HashMap<String,Object>`
+Schema: `Object`
 
 
 
@@ -11845,52 +11845,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createCustomKeyword
-Add a Custom Search Keywords
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
-
-
-
-Create a Custom Search Keywords. See `CreateSearchKeywordSchema` for the list of attributes needed to create a mapping and /collections/query-options for the available options to create a rule. On successful request, returns a paginated list of collections specified in `CreateSearchKeywordSchema`
-
-*Success Response*
-
-
-
-Get keyword object with id that is added. See example below or refer `GetSearchWordsDataSchema` for details
-
-
-Schema: `GetSearchWordsData`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### getAllSearchKeyword
 List all Search Custom Keyword Listing
 
@@ -11919,6 +11873,52 @@ List of custom search keywords. See example below or refer `GetSearchWordsRespon
 
 
 Schema: `GetSearchWordsResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### createCustomKeyword
+Add a Custom Search Keywords
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
+
+
+
+Create a Custom Search Keywords. See `CreateSearchKeywordSchema` for the list of attributes needed to create a mapping and /collections/query-options for the available options to create a rule. On successful request, returns a paginated list of collections specified in `CreateSearchKeywordSchema`
+
+*Success Response*
+
+
+
+Get keyword object with id that is added. See example below or refer `GetSearchWordsDataSchema` for details
+
+
+Schema: `GetSearchWordsData`
 
 
 
@@ -12078,52 +12078,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createCustomAutocompleteRule
-Add a Custom Autocomplete Keywords
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
-
-
-
-Create a Custom Autocomplete Keywords. See `CreateAutocompleteKeywordSchema` for the list of attributes needed to create a mapping and /collections/query-options for the available options to create a rule. On successful request, returns a paginated list of collections specified in `CreateAutocompleteKeywordSchema`
-
-*Success Response*
-
-
-
-List of all the collections including the one you added. See example below or refer `CreateAutocompleteWordsResponseSchema` for details
-
-
-Schema: `CreateAutocompleteWordsResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### getAutocompleteConfig
 List all Autocomplete Keyword Listing
 
@@ -12170,8 +12124,8 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createProductBundle
-Create Product Bundle
+#### createCustomAutocompleteRule
+Add a Custom Autocomplete Keywords
 
 
 ```java
@@ -12183,20 +12137,21 @@ catalog.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |  
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
 
 
 
-Create Product Bundle. See `ProductBundleRequest` for the request body parameter need to create a product bundle. On successful request, returns in `ProductBundleRequest` with id
+Create a Custom Autocomplete Keywords. See `CreateAutocompleteKeywordSchema` for the list of attributes needed to create a mapping and /collections/query-options for the available options to create a rule. On successful request, returns a paginated list of collections specified in `CreateAutocompleteKeywordSchema`
 
 *Success Response*
 
 
 
-Get bundle with id that is added. See example below or refer `GetProductBundleCreateResponse` for details
+List of all the collections including the one you added. See example below or refer `CreateAutocompleteWordsResponseSchema` for details
 
 
-Schema: `GetProductBundleCreateResponse`
+Schema: `CreateAutocompleteWordsResponse`
 
 
 
@@ -12243,6 +12198,51 @@ List of bundle configured for a company. See example below or refer `GetProductB
 
 
 Schema: `GetProductBundleListingResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### createProductBundle
+Create Product Bundle
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |  
+
+
+
+Create Product Bundle. See `ProductBundleRequest` for the request body parameter need to create a product bundle. On successful request, returns in `ProductBundleRequest` with id
+
+*Success Response*
+
+
+
+Get bundle with id that is added. See example below or refer `GetProductBundleCreateResponse` for details
+
+
+Schema: `GetProductBundleCreateResponse`
 
 
 
@@ -12353,51 +12353,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createSizeGuide
-Create a size guide.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | Id of the company inside which the size guide is to be created. |  
-
-
-
-This API allows to create a size guide associated to a brand.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### getSizeGuides
 Get list of size guides
 
@@ -12430,6 +12385,51 @@ Size guide object. See example below or refer `ListSizeGuide` for details
 
 
 Schema: `ListSizeGuide`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### createSizeGuide
+Create a size guide.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Id of the company inside which the size guide is to be created. |  
+
+
+
+This API allows to create a size guide associated to a brand.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
 
 
 
@@ -12586,52 +12586,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createConfigurationProductListing
-Add configuration for products & listings
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
-
-
-
-Add configuration for products & listing.
-
-*Success Response*
-
-
-
-success flag will tell whether the operation was successful.
-
-
-Schema: `GetAppCatalogConfiguration`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### getConfigurations
 Get configured details for catalog
 
@@ -12678,8 +12632,8 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createConfigurationByType
-Add configuration for categories and brands
+#### createConfigurationProductListing
+Add configuration for products & listings
 
 
 ```java
@@ -12692,12 +12646,11 @@ catalog.(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
 | companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
-| type | String? | type can be brands, categories etc. |  
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
 
 
 
-Add configuration for categories & brands.
+Add configuration for products & listing.
 
 *Success Response*
 
@@ -12772,6 +12725,53 @@ Schema: `ErrorResponse`
 ---
 
 
+#### createConfigurationByType
+Add configuration for categories and brands
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
+| type | String? | type can be brands, categories etc. |  
+
+
+
+Add configuration for categories & brands.
+
+*Success Response*
+
+
+
+success flag will tell whether the operation was successful.
+
+
+Schema: `GetAppCatalogConfiguration`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### getQueryFilters
 Get query filters to configure a collection
 
@@ -12818,52 +12818,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createCollection
-Add a Collection
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
-
-
-
-Create a collection. See `CreateCollectionRequestSchema` for the list of attributes needed to create a collection and collections/query-options for the available options to create a collection. On successful request, returns a paginated list of collections specified in `CollectionCreateResponse`
-
-*Success Response*
-
-
-
-List of all the collections including the one you added. See example below or refer `CollectionCreateResponse` for details
-
-
-Schema: `CollectionCreateResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### getAllCollections
 List all the collections
 
@@ -12892,6 +12846,52 @@ List of collections. See example below or refer `GetCollectionListingResponse` f
 
 
 Schema: `GetCollectionListingResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### createCollection
+Add a Collection
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |  
+
+
+
+Create a collection. See `CreateCollectionRequestSchema` for the list of attributes needed to create a collection and collections/query-options for the available options to create a collection. On successful request, returns a paginated list of collections specified in `CollectionCreateResponse`
+
+*Success Response*
+
+
+
+List of all the collections including the one you added. See example below or refer `CollectionCreateResponse` for details
+
+
+Schema: `CollectionCreateResponse`
 
 
 
@@ -13051,53 +13051,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### addCollectionItems
-Add items to a collection
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
-| id | String? | A `id` is a unique identifier of a collection. |  
-
-
-
-Adds items to a collection specified by its `id`. See `CollectionItemRequest` for the list of attributes needed to add items to an collection.
-
-*Success Response*
-
-
-
-Status object. Tells whether the operation was successful.
-
-
-Schema: `UpdatedResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### getCollectionItems
 Get the items for a collection
 
@@ -13130,6 +13083,53 @@ The attached items of an collection. See example below or refer `GetCollectionIt
 
 
 Schema: `GetCollectionItemsResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### addCollectionItems
+Add items to a collection
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
+| id | String? | A `id` is a unique identifier of a collection. |  
+
+
+
+Adds items to a collection specified by its `id`. See `CollectionItemRequest` for the list of attributes needed to add items to an collection.
+
+*Success Response*
+
+
+
+Status object. Tells whether the operation was successful.
+
+
+Schema: `UpdatedResponse`
 
 
 
@@ -14075,51 +14075,6 @@ Schema: `PTErrorResponse`
 ---
 
 
-#### createCategories
-Create product categories
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |  
-
-
-
-This API lets user create product categories
-
-*Success Response*
-
-
-
-Category Meta. See example below or refer `CategoryCreateResponse` for details
-
-
-Schema: `CategoryCreateResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### listCategories
 Get product categories list
 
@@ -14152,6 +14107,51 @@ Category Meta. See example below or refer `CategoryResponse` for details
 
 
 Schema: `CategoryResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### createCategories
+Create product categories
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |  
+
+
+
+This API lets user create product categories
+
+*Success Response*
+
+
+
+Category Meta. See example below or refer `CategoryCreateResponse` for details
+
+
+Schema: `CategoryCreateResponse`
 
 
 
@@ -14262,51 +14262,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createProduct
-Create a product.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | Id of the company associated to product that is to be viewed. |  
-
-
-
-This API allows to create product.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### getProducts
 Get product list
 
@@ -14339,6 +14294,51 @@ Product Meta. See example below for details
 
 
 Schema: `ProductListingResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### createProduct
+Create a product.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Id of the company associated to product that is to be viewed. |  
+
+
+
+This API allows to create product.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
 
 
 
@@ -14592,51 +14592,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### updateProductAssetsInBulk
-Create a Bulk asset upload Job.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id in which assets to be uploaded. |  
-
-
-
-This API helps to create a bulk asset upload job.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### getProductBulkUploadHistory
 Get a list of all bulk product upload jobs.
 
@@ -14684,8 +14639,8 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createProductsInBulk
-Create products in bulk associated with given batch Id.
+#### updateProductAssetsInBulk
+Create a Bulk asset upload Job.
 
 
 ```java
@@ -14697,12 +14652,11 @@ catalog.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | Integer? | Company Id in which assets to be uploaded. |   
-| batchId | String? | Batch Id in which assets to be uploaded. |  
+| companyId | Integer? | Company Id in which assets to be uploaded. |  
 
 
 
-This API helps to create products in bulk push to kafka for approval/creation.
+This API helps to create a bulk asset upload job.
 
 *Success Response*
 
@@ -14776,6 +14730,52 @@ Schema: `ErrorResponse`
 ---
 
 
+#### createProductsInBulk
+Create products in bulk associated with given batch Id.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | Integer? | Company Id in which assets to be uploaded. |   
+| batchId | String? | Batch Id in which assets to be uploaded. |  
+
+
+
+This API helps to create products in bulk push to kafka for approval/creation.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### getCompanyTags
 Get a list of all tags associated with company.
 
@@ -14803,51 +14803,6 @@ Tag List. See example below for details
 
 
 Schema: `ProductTagsViewResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
-#### createProductAssetsInBulk
-Create a Bulk asset upload Job.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id in which assets to be uploaded. |  
-
-
-
-This API helps to create a bulk asset upload job.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
 
 
 
@@ -14913,6 +14868,51 @@ Schema: `ErrorResponse`
 ---
 
 
+#### createProductAssetsInBulk
+Create a Bulk asset upload Job.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | Integer? | Company Id in which assets to be uploaded. |  
+
+
+
+This API helps to create a bulk asset upload job.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### deleteSize
 Delete a Size associated with product.
 
@@ -14942,53 +14942,6 @@ Returns a success response
 
 
 Schema: `ProductSizeDeleteResponse`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
-#### addInventory
-Add Inventory for particular size and store.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | Id of the company associated to product that is to be viewed. |   
-| itemId | Double? | Item code of the product of which size is to be get. |   
-| size | String? | Size in which inventory is to be added. |  
-
-
-
-This API allows add Inventory for particular size and store.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
 
 
 
@@ -15056,6 +15009,53 @@ Schema: `ErrorResponse`
 ---
 
 
+#### addInventory
+Add Inventory for particular size and store.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Id of the company associated to product that is to be viewed. |   
+| itemId | Double? | Item code of the product of which size is to be get. |   
+| size | String? | Size in which inventory is to be added. |  
+
+
+
+This API allows add Inventory for particular size and store.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### deleteInventory
 Delete a Inventory.
 
@@ -15085,51 +15085,6 @@ Returns a success response
 
 
 Schema: `InventoryDelete`
-
-
-
-
-
-Bad request. See the error object in the response body for specific reason
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
-#### createBulkInventoryJob
-Create a Bulk Inventory upload Job.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id in which Inventory to be uploaded. |  
-
-
-
-This API helps to create a bulk Inventory upload job.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `CommonResponse`
 
 
 
@@ -15195,8 +15150,8 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createBulkInventory
-Create products in bulk associated with given batch Id.
+#### createBulkInventoryJob
+Create a Bulk Inventory upload Job.
 
 
 ```java
@@ -15208,11 +15163,11 @@ catalog.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | Integer? | Company Id in which Inventory is to be uploaded. |  
+| companyId | Integer? | Company Id in which Inventory to be uploaded. |  
 
 
 
-This API helps to create products in bulk push to kafka for approval/creation.
+This API helps to create a bulk Inventory upload job.
 
 *Success Response*
 
@@ -15221,7 +15176,7 @@ This API helps to create products in bulk push to kafka for approval/creation.
 Returns a success response
 
 
-Schema: `SuccessResponse`
+Schema: `CommonResponse`
 
 
 
@@ -15285,8 +15240,8 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createInventoryExportJob
-Create a Inventory export Job.
+#### createBulkInventory
+Create products in bulk associated with given batch Id.
 
 
 ```java
@@ -15298,11 +15253,11 @@ catalog.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | Integer? | Company Id in which assets to be uploaded. |  
+| companyId | Integer? | Company Id in which Inventory is to be uploaded. |  
 
 
 
-This API helps to create a Inventory export job.
+This API helps to create products in bulk push to kafka for approval/creation.
 
 *Success Response*
 
@@ -15375,6 +15330,51 @@ Schema: `ErrorResponse`
 ---
 
 
+#### createInventoryExportJob
+Create a Inventory export Job.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | Integer? | Company Id in which assets to be uploaded. |  
+
+
+
+This API helps to create a Inventory export job.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
+
+
+
+
+
+Bad request. See the error object in the response body for specific reason
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
 #### exportInventoryConfig
 Get List of different filters for inventory export
 
@@ -15421,51 +15421,6 @@ Schema: `ErrorResponse`
 ---
 
 
-#### createHsnCode
-Create Hsn Code.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | company id |  
-
-
-
-Create Hsn Code.
-
-*Success Response*
-
-
-
-See example below for details
-
-
-Schema: `HsnCode`
-
-
-
-
-
-Bad request.
-
-
-Schema: `ErrorResponse`
-
-
-
-
-
-
----
-
-
 #### getAllHsnCodes
 Hsn Code List.
 
@@ -15496,6 +15451,51 @@ List of all HSN Codes. See example below or refer `HsnCodesListingResponseSchema
 
 
 Schema: `HsnCodesListingResponse`
+
+
+
+
+
+Bad request.
+
+
+Schema: `ErrorResponse`
+
+
+
+
+
+
+---
+
+
+#### createHsnCode
+Create Hsn Code.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | company id |  
+
+
+
+Create Hsn Code.
+
+*Success Response*
+
+
+
+See example below for details
+
+
+Schema: `HsnCode`
 
 
 

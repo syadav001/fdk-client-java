@@ -38,7 +38,7 @@ public class PlatformOauthClient {
         AUTHORIZATION_CODE, REFRESH_TOKEN
     }
 
-    private void setToken(AccessToken accessToken) {
+    public void setToken(AccessToken accessToken) {
         this.rawToken = accessToken;
         this.tokenExpiresIn = accessToken.getExpiresIn();
         this.token = accessToken.getToken();

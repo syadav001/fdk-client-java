@@ -3157,7 +3157,7 @@ Offers not found
 Unhandled API error
 
 
-Schema: `HashMap<String,Object>`
+Schema: `Object`
 
 
 
@@ -3440,7 +3440,7 @@ Schema: `CartResponse`
 Address or PIN code error
 
 
-Schema: `HashMap<String,Object>`
+Schema: `Object`
 
 
 *Examples:*
@@ -4235,7 +4235,7 @@ Shipment Generation Failed
 Unhandled API error
 
 
-Schema: `HashMap<String,Object>`
+Schema: `Object`
 
 
 
@@ -7144,7 +7144,7 @@ Success
 
 
 
-Schema: `HashMap<String,Object>`
+Schema: `Object`
 
 
 
@@ -16273,7 +16273,7 @@ Offers not found
 Unhandled API error
 
 
-Schema: `HashMap<String,Object>`
+Schema: `Object`
 
 
 
@@ -16556,7 +16556,7 @@ Schema: `CartResponse`
 Address or PIN code error
 
 
-Schema: `HashMap<String,Object>`
+Schema: `Object`
 
 
 *Examples:*
@@ -17354,7 +17354,7 @@ Shipment Generation Failed
 Unhandled API error
 
 
-Schema: `HashMap<String,Object>`
+Schema: `Object`
 
 
 
@@ -18048,7 +18048,7 @@ Shipment Generation Failed
 Unhandled API error
 
 
-Schema: `HashMap<String,Object>`
+Schema: `Object`
 
 
 

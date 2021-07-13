@@ -218,7 +218,7 @@ public static class ProductListingActionPage{
     
     
     @JsonProperty("params")
-    private HashMap<String,Object> params;
+    private Object params;
     
     
     
@@ -232,7 +232,7 @@ public static class ProductListingActionPage{
     
     
     @JsonProperty("query")
-    private HashMap<String,Object> query;
+    private Object query;
     
     
     
@@ -459,7 +459,7 @@ public static class ProductDetail{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -1922,7 +1922,7 @@ public static class ProductStockStatusItem{
     
     
     @JsonProperty("identifier")
-    private HashMap<String,Object> identifier;
+    private Object identifier;
     
     
     
@@ -2356,7 +2356,7 @@ public static class ProductListingDetail{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -2642,7 +2642,7 @@ public static class ThirdLevelChild{
     
     
     @JsonProperty("childs")
-    private List<HashMap<String,Object>> childs;
+    private List<Object> childs;
     
     
     
@@ -2677,7 +2677,7 @@ public static class ThirdLevelChild{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -2741,7 +2741,7 @@ public static class SecondLevelChild{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -2805,7 +2805,7 @@ public static class Child{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -3288,7 +3288,7 @@ public static class GetCollectionDetailNest{
     
     
     @JsonProperty("badge")
-    private HashMap<String,Object> badge;
+    private Object badge;
     
     
     
@@ -3330,7 +3330,7 @@ public static class GetCollectionDetailNest{
     
     
     @JsonProperty("query")
-    private HashMap<String,Object> query;
+    private Object query;
     
     
     
@@ -3365,7 +3365,7 @@ public static class GetCollectionDetailNest{
     
     
     @JsonProperty("_schedule")
-    private HashMap<String,Object> schedule;
+    private Object schedule;
     
     
     
@@ -3393,14 +3393,14 @@ public static class GetCollectionDetailNest{
     
     
     @JsonProperty("cron")
-    private HashMap<String,Object> cron;
+    private Object cron;
     
     
     
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -3479,14 +3479,14 @@ public static class CollectionDetailResponse{
     
     
     @JsonProperty("badge")
-    private HashMap<String,Object> badge;
+    private Object badge;
     
     
     
     
     
     @JsonProperty("cron")
-    private HashMap<String,Object> cron;
+    private Object cron;
     
     
     
@@ -3507,7 +3507,7 @@ public static class CollectionDetailResponse{
     
     
     @JsonProperty("_schedule")
-    private HashMap<String,Object> schedule;
+    private Object schedule;
     
     
     
@@ -3528,7 +3528,7 @@ public static class CollectionDetailResponse{
     
     
     @JsonProperty("query")
-    private HashMap<String,Object> query;
+    private Object query;
     
     
     
@@ -3549,7 +3549,7 @@ public static class CollectionDetailResponse{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -4341,7 +4341,7 @@ public static class ProductArticle{
     
     
     @JsonProperty("extra_meta")
-    private HashMap<String,Object> extraMeta;
+    private Object extraMeta;
     
     
     
@@ -4548,7 +4548,7 @@ public static class CartProductInfo{
     
     
     @JsonProperty("bulk_offer")
-    private HashMap<String,Object> bulkOffer;
+    private Object bulkOffer;
     
     
     
@@ -5126,7 +5126,7 @@ public static class AddProductCart{
     
     
     @JsonProperty("article_assignment")
-    private HashMap<String,Object> articleAssignment;
+    private Object articleAssignment;
     
     
     
@@ -5168,7 +5168,7 @@ public static class AddProductCart{
     
     
     @JsonProperty("extra_meta")
-    private HashMap<String,Object> extraMeta;
+    private Object extraMeta;
     
     
     
@@ -5304,7 +5304,7 @@ public static class UpdateProductCart{
     
     
     @JsonProperty("extra_meta")
-    private HashMap<String,Object> extraMeta;
+    private Object extraMeta;
     
     
     
@@ -5886,7 +5886,7 @@ public static class Address{
     
     
     @JsonProperty("google_map_point")
-    private HashMap<String,Object> googleMapPoint;
+    private Object googleMapPoint;
     
     
     
@@ -5921,7 +5921,7 @@ public static class Address{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -6392,7 +6392,7 @@ public static class ShipmentResponse{
     
     
     @JsonProperty("dp_options")
-    private HashMap<String,Object> dpOptions;
+    private Object dpOptions;
     
     
     
@@ -6555,7 +6555,7 @@ public static class CartCheckoutRequest{
     
     
     @JsonProperty("payment_params")
-    private HashMap<String,Object> paymentParams;
+    private Object paymentParams;
     
     
     
@@ -6583,7 +6583,7 @@ public static class CartCheckoutRequest{
     
     
     @JsonProperty("delivery_address")
-    private HashMap<String,Object> deliveryAddress;
+    private Object deliveryAddress;
     
     
     
@@ -6604,14 +6604,14 @@ public static class CartCheckoutRequest{
     
     
     @JsonProperty("staff")
-    private HashMap<String,Object> staff;
+    private Object staff;
     
     
     
     
     
     @JsonProperty("billing_address")
-    private HashMap<String,Object> billingAddress;
+    private Object billingAddress;
     
     
     
@@ -6632,7 +6632,7 @@ public static class CartCheckoutRequest{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -6646,7 +6646,7 @@ public static class CartCheckoutRequest{
     
     
     @JsonProperty("extra_meta")
-    private HashMap<String,Object> extraMeta;
+    private Object extraMeta;
     
     
     
@@ -6822,7 +6822,7 @@ public static class CheckCart{
     
     
     @JsonProperty("store_emps")
-    private List<HashMap<String,Object>> storeEmps;
+    private List<Object> storeEmps;
     
     
     
@@ -6886,7 +6886,7 @@ public static class CartCheckoutResponse{
     
     
     @JsonProperty("data")
-    private HashMap<String,Object> data;
+    private Object data;
     
     
     
@@ -6971,7 +6971,7 @@ public static class CartMetaRequest{
     
     
     @JsonProperty("pick_up_customer_details")
-    private HashMap<String,Object> pickUpCustomerDetails;
+    private Object pickUpCustomerDetails;
     
     
     
@@ -7044,7 +7044,7 @@ public static class GetShareCartLinkRequest{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -7109,21 +7109,21 @@ public static class SharedCartDetails{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
     
     
     @JsonProperty("source")
-    private HashMap<String,Object> source;
+    private Object source;
     
     
     
     
     
     @JsonProperty("user")
-    private HashMap<String,Object> user;
+    private Object user;
     
     
     
@@ -7677,7 +7677,7 @@ public static class CreateCustomFormPayload{
     
     
     @JsonProperty("inputs")
-    private List<HashMap<String,Object>> inputs;
+    private List<Object> inputs;
     
     
     
@@ -7748,7 +7748,7 @@ public static class EditCustomFormPayload{
     
     
     @JsonProperty("inputs")
-    private List<HashMap<String,Object>> inputs;
+    private List<Object> inputs;
     
     
     
@@ -8035,7 +8035,7 @@ public static class Filter{
     
     
     @JsonProperty("assignees")
-    private List<HashMap<String,Object>> assignees;
+    private List<Object> assignees;
     
     
     
@@ -8057,7 +8057,7 @@ public static class TicketHistoryPayload{
     
     
     @JsonProperty("value")
-    private HashMap<String,Object> value;
+    private Object value;
     
     
     
@@ -8122,7 +8122,7 @@ public static class KeyValue{
     
     
     @JsonProperty("value")
-    private HashMap<String,Object> value;
+    private Object value;
     
     
     
@@ -8497,7 +8497,7 @@ public static class AddTicketPayload{
     
     
     @JsonProperty("created_by")
-    private HashMap<String,Object> createdBy;
+    private Object createdBy;
     
     
     
@@ -8705,7 +8705,7 @@ public static class TicketFeedbackForm{
     
     
     @JsonProperty("display")
-    private List<HashMap<String,Object>> display;
+    private List<Object> display;
     
     
     
@@ -8749,7 +8749,7 @@ public static class TicketFeedbackPayload{
     
     
     @JsonProperty("form_response")
-    private HashMap<String,Object> formResponse;
+    private Object formResponse;
     
     
     
@@ -8920,7 +8920,7 @@ public static class CustomForm{
     
     
     @JsonProperty("inputs")
-    private List<HashMap<String,Object>> inputs;
+    private List<Object> inputs;
     
     
     
@@ -8934,7 +8934,7 @@ public static class CustomForm{
     
     
     @JsonProperty("created_by")
-    private HashMap<String,Object> createdBy;
+    private Object createdBy;
     
     
     
@@ -9041,7 +9041,7 @@ public static class TicketFeedback{
     
     
     @JsonProperty("user")
-    private HashMap<String,Object> user;
+    private Object user;
     
     
     
@@ -9084,7 +9084,7 @@ public static class TicketHistory{
     
     
     @JsonProperty("value")
-    private HashMap<String,Object> value;
+    private Object value;
     
     
     
@@ -9105,7 +9105,7 @@ public static class TicketHistory{
     
     
     @JsonProperty("created_by")
-    private HashMap<String,Object> createdBy;
+    private Object createdBy;
     
     
     
@@ -9218,14 +9218,14 @@ public static class Ticket{
     
     
     @JsonProperty("created_by")
-    private HashMap<String,Object> createdBy;
+    private Object createdBy;
     
     
     
     
     
     @JsonProperty("assigned_to")
-    private HashMap<String,Object> assignedTo;
+    private Object assignedTo;
     
     
     
@@ -9239,7 +9239,7 @@ public static class Ticket{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -9347,7 +9347,7 @@ public static class AvailablePageSchema{
     
     
     @JsonProperty("props")
-    private List<HashMap<String,Object>> props;
+    private List<Object> props;
     
     
     
@@ -9376,7 +9376,7 @@ public static class AvailablePageSectionMetaAttributes{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -9448,21 +9448,21 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("props")
-    private HashMap<String,Object> props;
+    private Object props;
     
     
     
     
     
     @JsonProperty("blocks")
-    private List<HashMap<String,Object>> blocks;
+    private List<Object> blocks;
     
     
     
     
     
     @JsonProperty("preset")
-    private HashMap<String,Object> preset;
+    private Object preset;
     
     
     
@@ -9570,7 +9570,7 @@ public static class AvailablePageRoutePredicate{
     
     
     @JsonProperty("query")
-    private HashMap<String,Object> query;
+    private Object query;
     
     
     
@@ -10094,14 +10094,14 @@ public static class ThemesSchema{
     
     
     @JsonProperty("constants")
-    private HashMap<String,Object> constants;
+    private Object constants;
     
     
     
     
     
     @JsonProperty("styles")
-    private HashMap<String,Object> styles;
+    private Object styles;
     
     
     
@@ -10115,7 +10115,7 @@ public static class ThemesSchema{
     
     
     @JsonProperty("settings")
-    private HashMap<String,Object> settings;
+    private Object settings;
     
     
     
@@ -10556,7 +10556,7 @@ public static class ListSchemaItem{
     
     
     @JsonProperty("global")
-    private HashMap<String,Object> global;
+    private Object global;
     
     
     
@@ -10649,7 +10649,7 @@ public static class Custom{
     
     
     @JsonProperty("props")
-    private HashMap<String,Object> props;
+    private Object props;
     
     
     
@@ -10671,7 +10671,7 @@ public static class ConfigPage{
     
     
     @JsonProperty("settings")
-    private HashMap<String,Object> settings;
+    private Object settings;
     
     
     
@@ -12967,7 +12967,7 @@ public static class CreateUserRequestSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -13075,7 +13075,7 @@ public static class CreateUserSessionResponseSchema{
     
     
     @JsonProperty("cookie")
-    private HashMap<String,Object> cookie;
+    private Object cookie;
     
     
     
@@ -13708,7 +13708,7 @@ public static class UpdateUserRequestSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -13737,7 +13737,7 @@ public static class UserSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -14016,7 +14016,7 @@ public static class SeoSchema{
     
     
     @JsonProperty("custom_meta_tags")
-    private List<HashMap<String,Object>> customMetaTags;
+    private List<Object> customMetaTags;
     
     
     
@@ -14345,7 +14345,7 @@ public static class ScheduleSchema{
     
     
     @JsonProperty("next_schedule")
-    private List<HashMap<String,Object>> nextSchedule;
+    private List<Object> nextSchedule;
     
     
     
@@ -14591,7 +14591,7 @@ public static class BlogSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -14798,7 +14798,7 @@ public static class BlogRequest{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -15500,7 +15500,7 @@ public static class HandpickedTagSchema{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -15621,7 +15621,7 @@ public static class CreateTagSchema{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -15721,7 +15721,7 @@ public static class APIError{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -15799,7 +15799,7 @@ public static class CategorySchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -15956,7 +15956,7 @@ public static class FAQCategorySchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -16108,7 +16108,7 @@ public static class GetFaqSchema{
     
     
     @JsonProperty("faqs")
-    private List<HashMap<String,Object>> faqs;
+    private List<Object> faqs;
     
     
     
@@ -16325,7 +16325,7 @@ public static class LandingPageSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -16639,7 +16639,7 @@ public static class CustomPageSchema{
     
     
     @JsonProperty("content")
-    private List<HashMap<String,Object>> content;
+    private List<Object> content;
     
     
     
@@ -16689,7 +16689,7 @@ public static class ContentSchema{
     
     
     @JsonProperty("value")
-    private HashMap<String,Object> value;
+    private Object value;
     
     
     
@@ -16784,7 +16784,7 @@ public static class PageSpec{
     
     
     @JsonProperty("specifications")
-    private List<HashMap<String,Object>> specifications;
+    private List<Object> specifications;
     
     
     
@@ -16948,7 +16948,7 @@ public static class PageSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -17011,7 +17011,7 @@ public static class PageSchema{
     
     
     @JsonProperty("visibility")
-    private HashMap<String,Object> visibility;
+    private Object visibility;
     
     
     
@@ -17062,7 +17062,7 @@ public static class PageContent{
     
     
     @JsonProperty("value")
-    private HashMap<String,Object> value;
+    private Object value;
     
     
     
@@ -17091,7 +17091,7 @@ public static class PageMeta{
     
     
     @JsonProperty("value")
-    private HashMap<String,Object> value;
+    private Object value;
     
     
     
@@ -17134,7 +17134,7 @@ public static class PageRequest{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -17148,7 +17148,7 @@ public static class PageRequest{
     
     
     @JsonProperty("content")
-    private List<HashMap<String,Object>> content;
+    private List<Object> content;
     
     
     
@@ -17412,7 +17412,7 @@ public static class SlideshowSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -17778,7 +17778,7 @@ public static class TagSchema{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -18937,7 +18937,7 @@ public static class StartRequest{
     
     
     @JsonProperty("params")
-    private HashMap<String,Object> params;
+    private Object params;
     
     
     
@@ -20973,14 +20973,14 @@ public static class LaunchPage{
     
     
     @JsonProperty("params")
-    private HashMap<String,Object> params;
+    private Object params;
     
     
     
     
     
     @JsonProperty("query")
-    private HashMap<String,Object> query;
+    private Object query;
     
     
     
@@ -23901,7 +23901,7 @@ public static class AttachCardsResponse{
     
     
     @JsonProperty("data")
-    private HashMap<String,Object> data;
+    private Object data;
     
     
     
@@ -24230,7 +24230,7 @@ public static class ValidateCustomerRequest{
     
     
     @JsonProperty("merchant_params")
-    private HashMap<String,Object> merchantParams;
+    private Object merchantParams;
     
     
     
@@ -24273,7 +24273,7 @@ public static class ValidateCustomerResponse{
     
     
     @JsonProperty("data")
-    private HashMap<String,Object> data;
+    private Object data;
     
     
     
@@ -24749,7 +24749,7 @@ public static class AggregatorRoute{
     
     
     @JsonProperty("data")
-    private HashMap<String,Object> data;
+    private Object data;
     
     
     
@@ -25984,7 +25984,7 @@ public static class RefundAccountResponse{
     
     
     @JsonProperty("data")
-    private HashMap<String,Object> data;
+    private Object data;
     
     
     
@@ -26448,7 +26448,7 @@ public static class StatusesBody{
     
     
     @JsonProperty("shipments")
-    private HashMap<String,Object> shipments;
+    private Object shipments;
     
     
     
@@ -26470,7 +26470,7 @@ public static class ShipmentStatusUpdate{
     
     
     @JsonProperty("message")
-    private List<HashMap<String,Object>> message;
+    private List<Object> message;
     
     
     
@@ -27878,7 +27878,7 @@ public static class Shipments{
     
     
     @JsonProperty("size_info")
-    private HashMap<String,Object> sizeInfo;
+    private Object sizeInfo;
     
     
     
@@ -28361,7 +28361,7 @@ public static class Offer{
     
     
     @JsonProperty("rule")
-    private HashMap<String,Object> rule;
+    private Object rule;
     
     
     
@@ -29793,7 +29793,7 @@ public static class CursorGetResponse{
     
     
     @JsonProperty("items")
-    private List<HashMap<String,Object>> items;
+    private List<Object> items;
     
     
     
@@ -30057,7 +30057,7 @@ public static class FeedbackError{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -30508,7 +30508,7 @@ public static class NumberGetResponse{
     
     
     @JsonProperty("items")
-    private List<HashMap<String,Object>> items;
+    private List<Object> items;
     
     
     
@@ -32466,7 +32466,7 @@ public static class CartPosCheckoutRequest{
     
     
     @JsonProperty("staff")
-    private HashMap<String,Object> staff;
+    private Object staff;
     
     
     
@@ -32501,7 +32501,7 @@ public static class CartPosCheckoutRequest{
     
     
     @JsonProperty("delivery_address")
-    private HashMap<String,Object> deliveryAddress;
+    private Object deliveryAddress;
     
     
     
@@ -32529,14 +32529,14 @@ public static class CartPosCheckoutRequest{
     
     
     @JsonProperty("payment_params")
-    private HashMap<String,Object> paymentParams;
+    private Object paymentParams;
     
     
     
     
     
     @JsonProperty("billing_address")
-    private HashMap<String,Object> billingAddress;
+    private Object billingAddress;
     
     
     
@@ -32550,7 +32550,7 @@ public static class CartPosCheckoutRequest{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -32578,7 +32578,7 @@ public static class CartPosCheckoutRequest{
     
     
     @JsonProperty("extra_meta")
-    private HashMap<String,Object> extraMeta;
+    private Object extraMeta;
     
     
     
@@ -33146,7 +33146,7 @@ public static class GetTatProductResponse{
     
     
     @JsonProperty("error")
-    private HashMap<String,Object> error;
+    private Object error;
     
     
     
@@ -33260,7 +33260,7 @@ public static class TatProductArticles{
     
     
     @JsonProperty("error")
-    private HashMap<String,Object> error;
+    private Object error;
     
     
     
