@@ -35,7 +35,7 @@ public class RequestSigner {
 
     static final List<String> HEADERS_TO_INCLUDE = List.of("x-fp-.*", "host");
 
-    RequestSigner(Request request) {
+    public RequestSigner(Request request) {
         this.request = request;
     }
 
