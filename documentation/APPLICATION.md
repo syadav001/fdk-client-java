@@ -50,8 +50,8 @@
     * [getCollectionItemsBySlug](#getcollectionitemsbyslug)
     * [getCollectionDetailBySlug](#getcollectiondetailbyslug)
     * [getFollowedListing](#getfollowedlisting)
-    * [followById](#followbyid)
     * [unfollowById](#unfollowbyid)
+    * [followById](#followbyid)
     * [getFollowerCountById](#getfollowercountbyid)
     * [getFollowIds](#getfollowids)
     * [getStores](#getstores)
@@ -1217,12 +1217,12 @@ Schema: `GetFollowListingResponse`
 ---
 
 
-#### followById
-Follow an entity (product/brand/collection)
+#### unfollowById
+Unfollow an entity (product/brand/collection)
 
 
 ```java
-catalog.followById(
+catalog.unfollowById(
   collectionType, collectionId
   );
   //use response
@@ -1233,7 +1233,7 @@ catalog.followById(
 | collectionType | String? | Type of collection followed, i.e. products, brands, or collections. |    
 | collectionId | String? | The ID of the collection type. |  
 
-Follow a particular entity such as product, brand, collection specified by its ID.
+You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
 
 *Success Response:*
 
@@ -1255,12 +1255,12 @@ Schema: `FollowPostResponse`
 ---
 
 
-#### unfollowById
-Unfollow an entity (product/brand/collection)
+#### followById
+Follow an entity (product/brand/collection)
 
 
 ```java
-catalog.unfollowById(
+catalog.followById(
   collectionType, collectionId
   );
   //use response
@@ -1271,7 +1271,7 @@ catalog.unfollowById(
 | collectionType | String? | Type of collection followed, i.e. products, brands, or collections. |    
 | collectionId | String? | The ID of the collection type. |  
 
-You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+Follow a particular entity such as product, brand, collection specified by its ID.
 
 *Success Response:*
 
@@ -1423,14 +1423,14 @@ Fetch all items added to the cart
 
 ```java
 cart.getCart(
-  id, i, b, assignCardId
+  uid, i, b, assignCardId
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |    
 | assignCardId | Integer? |  |  
@@ -1444,7 +1444,7 @@ Use this API to get details of all the items added to a cart.
 Success. Returns a Cart object. Check the example shown below or refer `CartResponse` for more details.
 
 
-Schema: `CartDetailResponse`
+Schema: `CartResponse`
 
 
 
@@ -1463,14 +1463,14 @@ Fetch last-modified timestamp
 
 ```java
 cart.getCartLastModified(
-  id
+  uid
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |  
+| uid | Integer? |  |  
 
 Use this API to fetch Last-Modified timestamp in header metadata.
 
@@ -1510,10 +1510,10 @@ Use this API to add items to the cart.
 
 
 
-Success. Returns a cart object as shown below. Refer `AddRequestCartResponse` for more details.
+Success. Returns a cart object as shown below. Refer `AddCartResponse` for more details.
 
 
-Schema: `AddCartDetailResponse`
+Schema: `AddCartResponse`
 
 
 *Examples:*
@@ -2165,14 +2165,14 @@ Update items in the cart
 
 ```java
 cart.updateCart(
-  id, i, b, body 
+  uid, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -2182,10 +2182,10 @@ Use this API to update items added to the cart with the help of a request object
 
 
 
-Success. Updates and returns a cart object as shown below. Refer `UpdateRequestCartResponse` for more details.
+Success. Updates and returns a cart object as shown below. Refer `UpdateCartResponse` for more details.
 
 
-Schema: `UpdateCartDetailResponse`
+Schema: `UpdateCartResponse`
 
 
 *Examples:*
@@ -2566,14 +2566,14 @@ Count items in the cart
 
 ```java
 cart.getItemCount(
-  id
+  uid
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? | The unique identifier of the cart. |  
+| uid | Integer? | The unique identifier of the cart. |  
 
 Use this API to get the total number of items present in cart.
 
@@ -2603,14 +2603,14 @@ Fetch Coupon
 
 ```java
 cart.getCoupons(
-  id
+  uid
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |  
+| uid | Integer? |  |  
 
 Use this API to get a list of available coupons along with their details.
 
@@ -2640,7 +2640,7 @@ Apply Coupon
 
 ```java
 cart.applyCoupon(
-  i, b, p, id, body 
+  i, b, p, uid, body 
   );
   //use response
 ```
@@ -2650,7 +2650,7 @@ cart.applyCoupon(
 | i | Boolean? |  |    
 | b | Boolean? |  |    
 | p | Boolean? |  |    
-| id | String? |  |  
+| uid | Integer? |  |  
 
 Use this API to apply coupons on items in the cart.
 
@@ -2668,14 +2668,14 @@ Remove Coupon Applied
 
 ```java
 cart.removeCoupon(
-  id
+  uid
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? | The unique identifier of the cart |  
+| uid | Integer? | The unique identifier of the cart |  
 
 Remove Coupon applied on the cart by passing uid in request body.
 
@@ -2686,7 +2686,7 @@ Remove Coupon applied on the cart by passing uid in request body.
 Success. Returns coupons removed from the cart along with item details and price breakup. Refer `CartResponse` for more details.
 
 
-Schema: `CartDetailResponse`
+Schema: `CartResponse`
 
 
 
@@ -2816,14 +2816,14 @@ Apply reward points at cart
 
 ```java
 cart.applyRewardPoints(
-  id, i, b, body 
+  uid, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -2836,7 +2836,7 @@ Use this API to redeem a fixed no. of reward points by applying it to the cart.
 Success. Returns a Cart object. Check the example shown below or refer `CartResponse` for more details.
 
 
-Schema: `CartDetailResponse`
+Schema: `CartResponse`
 
 
 
@@ -2855,14 +2855,14 @@ Fetch address
 
 ```java
 cart.getAddresses(
-  cartId, mobileNo, checkoutMode, tags, isDefault
+  uid, mobileNo, checkoutMode, tags, isDefault
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| cartId | String? |  |    
+| uid | Integer? |  |    
 | mobileNo | String? |  |    
 | checkoutMode | String? |  |    
 | tags | String? |  |    
@@ -2932,15 +2932,15 @@ Fetch a single address by its ID
 
 ```java
 cart.getAddressById(
-  id, cartId, mobileNo, checkoutMode, tags, isDefault
+  id, uid, mobileNo, checkoutMode, tags, isDefault
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
-| cartId | String? |  |    
+| id | Integer? |  |    
+| uid | Integer? |  |    
 | mobileNo | String? |  |    
 | checkoutMode | String? |  |    
 | tags | String? |  |    
@@ -2981,7 +2981,7 @@ cart.updateAddress(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? | ID allotted to the selected address |  
+| id | Integer? | ID allotted to the selected address |  
 
 Use this API to update an existing address in the account. Request object should contain attributes mentioned in  <font color="blue">Address </font> can be updated. These attributes are:</p> <ul> <li> <font color="monochrome">is_default_address</font></li> <li> <font color="monochrome">landmark</font></li> <li> <font color="monochrome">area</font></li> <li> <font color="monochrome">pincode</font></li> <li> <font color="monochrome">email</font></li> <li> <font color="monochrome">address_type</font></li> <li> <font color="monochrome">name</font></li> <li> <font color="monochrome">address_id</font></li> <li> <font color="monochrome">address</font></li> </ul>
 
@@ -3006,7 +3006,7 @@ cart.removeAddress(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? | ID allotted to the selected address |  
+| id | Integer? | ID allotted to the selected address |  
 
 Use this API to delete an address by its ID. This will returns an object that will indicate whether the address was deleted successfully or not.
 
@@ -3024,14 +3024,14 @@ Select an address from available addresses
 
 ```java
 cart.selectAddress(
-  cartId, i, b, body 
+  uid, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| cartId | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -3051,14 +3051,14 @@ Update cart payment
 
 ```java
 cart.selectPaymentMode(
-  id, body 
+  uid, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |  
+| uid | String? |  |  
 
 Use this API to update cart payment.
 
@@ -3069,7 +3069,7 @@ Use this API to update cart payment.
 Success. Returns a Cart object as shown below. Refer `CartResponse` for more details.
 
 
-Schema: `CartDetailResponse`
+Schema: `CartResponse`
 
 
 
@@ -3088,14 +3088,14 @@ Verify the coupon eligibility against the payment mode
 
 ```java
 cart.validateCouponForPayment(
-  id, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode
+  uid, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
+| uid | String? |  |    
 | addressId | String? |  |    
 | paymentMode | String? |  |    
 | paymentIdentifier | String? |  |    
@@ -3130,7 +3130,7 @@ Get delivery date and options before checkout
 
 ```java
 cart.getShipments(
-  p, id, addressId, areaCode
+  p, uid, addressId, areaCode
   );
   //use response
 ```
@@ -3138,8 +3138,8 @@ cart.getShipments(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
 | p | Boolean? | This is a boolean value. Select `true` for getting a payment option in response. |    
-| id | String? | The unique identifier of the cart |    
-| addressId | String? | ID allotted to the selected address |    
+| uid | Integer? | The unique identifier of the cart |    
+| addressId | Integer? | ID allotted to the selected address |    
 | areaCode | String? | The PIN Code of the destination address, e.g. 400059 |  
 
 Use this API to get shipment details, expected delivery date, items and price breakup of the shipment.
@@ -4223,14 +4223,14 @@ Update the cart meta
 
 ```java
 cart.updateCartMeta(
-  id, body 
+  uid, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? | The unique identifier of the cart |  
+| uid | Integer? | The unique identifier of the cart |  
 
 Use this API to update cart meta like checkout_mode and gstin.
 
@@ -11479,14 +11479,14 @@ Fetch all items added to the cart
 
 ```java
 poscart.getCart(
-  id, i, b, assignCardId
+  uid, i, b, assignCardId
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |    
 | assignCardId | Integer? |  |  
@@ -11500,7 +11500,7 @@ Use this API to get details of all the items added to a cart.
 Success. Returns a Cart object. Check the example shown below or refer `CartResponse` for more details.
 
 
-Schema: `CartDetailResponse`
+Schema: `CartResponse`
 
 
 
@@ -11519,14 +11519,14 @@ Fetch last-modified timestamp
 
 ```java
 poscart.getCartLastModified(
-  id
+  uid
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |  
+| uid | Integer? |  |  
 
 Use this API to fetch Last-Modified timestamp in header metadata.
 
@@ -11566,10 +11566,10 @@ Use this API to add items to the cart.
 
 
 
-Success. Returns a cart object as shown below. Refer `AddRequestCartResponse` for more details.
+Success. Returns a cart object as shown below. Refer `AddCartResponse` for more details.
 
 
-Schema: `AddCartDetailResponse`
+Schema: `AddCartResponse`
 
 
 *Examples:*
@@ -12221,14 +12221,14 @@ Update items in the cart
 
 ```java
 poscart.updateCart(
-  id, i, b, body 
+  uid, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -12238,10 +12238,10 @@ Use this API to update items added to the cart with the help of a request object
 
 
 
-Success. Updates and returns a cart object as shown below. Refer `UpdateRequestCartResponse` for more details.
+Success. Updates and returns a cart object as shown below. Refer `UpdateCartResponse` for more details.
 
 
-Schema: `UpdateCartDetailResponse`
+Schema: `UpdateCartResponse`
 
 
 *Examples:*
@@ -12622,14 +12622,14 @@ Count items in the cart
 
 ```java
 poscart.getItemCount(
-  id
+  uid
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? | The unique identifier of the cart. |  
+| uid | Integer? | The unique identifier of the cart. |  
 
 Use this API to get the total number of items present in cart.
 
@@ -12659,14 +12659,14 @@ Fetch Coupon
 
 ```java
 poscart.getCoupons(
-  id
+  uid
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |  
+| uid | Integer? |  |  
 
 Use this API to get a list of available coupons along with their details.
 
@@ -12696,7 +12696,7 @@ Apply Coupon
 
 ```java
 poscart.applyCoupon(
-  i, b, p, id, body 
+  i, b, p, uid, body 
   );
   //use response
 ```
@@ -12706,7 +12706,7 @@ poscart.applyCoupon(
 | i | Boolean? |  |    
 | b | Boolean? |  |    
 | p | Boolean? |  |    
-| id | String? |  |  
+| uid | Integer? |  |  
 
 Use this API to apply coupons on items in the cart.
 
@@ -12724,14 +12724,14 @@ Remove Coupon Applied
 
 ```java
 poscart.removeCoupon(
-  id
+  uid
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? | The unique identifier of the cart |  
+| uid | Integer? | The unique identifier of the cart |  
 
 Remove Coupon applied on the cart by passing uid in request body.
 
@@ -12742,7 +12742,7 @@ Remove Coupon applied on the cart by passing uid in request body.
 Success. Returns coupons removed from the cart along with item details and price breakup. Refer `CartResponse` for more details.
 
 
-Schema: `CartDetailResponse`
+Schema: `CartResponse`
 
 
 
@@ -12872,14 +12872,14 @@ Apply reward points at cart
 
 ```java
 poscart.applyRewardPoints(
-  id, i, b, body 
+  uid, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -12892,7 +12892,7 @@ Use this API to redeem a fixed no. of reward points by applying it to the cart.
 Success. Returns a Cart object. Check the example shown below or refer `CartResponse` for more details.
 
 
-Schema: `CartDetailResponse`
+Schema: `CartResponse`
 
 
 
@@ -12911,14 +12911,14 @@ Fetch address
 
 ```java
 poscart.getAddresses(
-  cartId, mobileNo, checkoutMode, tags, isDefault
+  uid, mobileNo, checkoutMode, tags, isDefault
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| cartId | String? |  |    
+| uid | Integer? |  |    
 | mobileNo | String? |  |    
 | checkoutMode | String? |  |    
 | tags | String? |  |    
@@ -12988,15 +12988,15 @@ Fetch a single address by its ID
 
 ```java
 poscart.getAddressById(
-  id, cartId, mobileNo, checkoutMode, tags, isDefault
+  id, uid, mobileNo, checkoutMode, tags, isDefault
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
-| cartId | String? |  |    
+| id | Integer? |  |    
+| uid | Integer? |  |    
 | mobileNo | String? |  |    
 | checkoutMode | String? |  |    
 | tags | String? |  |    
@@ -13037,7 +13037,7 @@ poscart.updateAddress(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? | ID allotted to the selected address |  
+| id | Integer? | ID allotted to the selected address |  
 
 Use this API to update an existing address in the account. Request object should contain attributes mentioned in  <font color="blue">Address </font> can be updated. These attributes are:</p> <ul> <li> <font color="monochrome">is_default_address</font></li> <li> <font color="monochrome">landmark</font></li> <li> <font color="monochrome">area</font></li> <li> <font color="monochrome">pincode</font></li> <li> <font color="monochrome">email</font></li> <li> <font color="monochrome">address_type</font></li> <li> <font color="monochrome">name</font></li> <li> <font color="monochrome">address_id</font></li> <li> <font color="monochrome">address</font></li> </ul>
 
@@ -13062,7 +13062,7 @@ poscart.removeAddress(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? | ID allotted to the selected address |  
+| id | Integer? | ID allotted to the selected address |  
 
 Use this API to delete an address by its ID. This will returns an object that will indicate whether the address was deleted successfully or not.
 
@@ -13080,14 +13080,14 @@ Select an address from available addresses
 
 ```java
 poscart.selectAddress(
-  cartId, i, b, body 
+  uid, i, b, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| cartId | String? |  |    
+| uid | Integer? |  |    
 | i | Boolean? |  |    
 | b | Boolean? |  |  
 
@@ -13107,14 +13107,14 @@ Update cart payment
 
 ```java
 poscart.selectPaymentMode(
-  id, body 
+  uid, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |  
+| uid | String? |  |  
 
 Use this API to update cart payment.
 
@@ -13125,7 +13125,7 @@ Use this API to update cart payment.
 Success. Returns a Cart object as shown below. Refer `CartResponse` for more details.
 
 
-Schema: `CartDetailResponse`
+Schema: `CartResponse`
 
 
 
@@ -13144,14 +13144,14 @@ Verify the coupon eligibility against the payment mode
 
 ```java
 poscart.validateCouponForPayment(
-  id, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode
+  uid, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |    
+| uid | String? |  |    
 | addressId | String? |  |    
 | paymentMode | String? |  |    
 | paymentIdentifier | String? |  |    
@@ -13186,7 +13186,7 @@ Get delivery date and options before checkout
 
 ```java
 poscart.getShipments(
-  pickAtStoreUid, orderingStoreId, p, id, addressId, areaCode, orderType
+  pickAtStoreUid, orderingStoreId, p, uid, addressId, areaCode, orderType
   );
   //use response
 ```
@@ -13196,8 +13196,8 @@ poscart.getShipments(
 | pickAtStoreUid | Integer? |  |    
 | orderingStoreId | Integer? |  |    
 | p | Boolean? | This is a boolean value. Select `true` for getting a payment option in response. |    
-| id | String? | The unique identifier of the cart |    
-| addressId | String? | ID allotted to the selected address |    
+| uid | Integer? | The unique identifier of the cart |    
+| addressId | Integer? | ID allotted to the selected address |    
 | areaCode | String? | The PIN Code of the destination address, e.g. 400059 |    
 | orderType | String? | The order type of shipment HomeDelivery - If the customer wants the order home-delivered PickAtStore - If the customer wants the handover of an order at the store itself. |  
 
@@ -13869,7 +13869,7 @@ Update shipment delivery type and quantity before checkout
 
 ```java
 poscart.updateShipments(
-  i, p, id, addressId, orderType, body 
+  i, p, uid, addressId, orderType, body 
   );
   //use response
 ```
@@ -13878,8 +13878,8 @@ poscart.updateShipments(
 | --------- | ----  | --- |  
 | i | Boolean? | This is a boolean value. Select `true` to retrieve all the items added in the cart. |    
 | p | Boolean? | This is a boolean value. Select `true` for getting a payment option in response. |    
-| id | String? | The unique identifier of the cart |    
-| addressId | String? | ID allotted to an address |    
+| uid | Integer? | The unique identifier of the cart |    
+| addressId | Integer? | ID allotted to an address |    
 | orderType | String? | The order type of shipment HomeDelivery - If the customer wants the order home-delivered PickAtStore - If the customer wants the handover of an order at the store itself. |  
 
 Use this API to update the delivery type and quantity as per customer's preference for either store pick-up or home-delivery.
@@ -14551,14 +14551,14 @@ Checkout all items in the cart
 
 ```java
 poscart.checkoutCart(
-  id, body 
+  uid, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? |  |  
+| uid | Integer? |  |  
 
 Use this API to checkout all items in the cart for payment and order generation. For COD, order will be generated directly, whereas for other checkout modes, user will be redirected to a payment gateway.
 
@@ -14965,14 +14965,14 @@ Update the cart meta
 
 ```java
 poscart.updateCartMeta(
-  id, body 
+  uid, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| id | String? | The unique identifier of the cart |  
+| uid | Integer? | The unique identifier of the cart |  
 
 Use this API to update cart meta like checkout_mode and gstin.
 
@@ -15002,7 +15002,7 @@ Get available delivery modes for cart
 
 ```java
 poscart.getAvailableDeliveryModes(
-  areaCode, id
+  areaCode, uid
   );
   //use response
 ```
@@ -15010,7 +15010,7 @@ poscart.getAvailableDeliveryModes(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
 | areaCode | String? |  |    
-| id | String? |  |  
+| uid | Integer? |  |  
 
 Use this API to get the delivery modes (home-delivery/store-pickup) along with a list of pickup stores available for a given cart at a given PIN Code. User can then view the address of a pickup store with the help of store-address API.
 
