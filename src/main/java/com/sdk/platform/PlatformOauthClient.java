@@ -75,7 +75,7 @@ public class PlatformOauthClient {
         var queryString = config.getDomain() + URI + config.getCompanyId() + "/oauth/authorize?" + query;
         Request request = new Request.Builder().url(queryString).method("GET", null).build();
         request = new RequestSigner(request).sign(true);
-        return request.url().query();
+        return request.url().toString();
     }
 
     public void renewAccesstoken() throws IOException {
