@@ -68,12 +68,13 @@ public class PlatformOauthClient {
         if (ObjectUtils.isEmpty(apiKey)) {
             throw new FDKError("API Key missing in config");
         }
-        state = StringUtils.isNotEmpty(state) ? state : getRandomState();
-        String accessMode = isOnline ? "online" : "offline";
-        String query = "client_id=" + apiKey + "&scope=" + String.join(",", scope) + "&redirect_uri=" + redirectUri
-                + "&state=" + state + "&access_mode=" + accessMode + "&response_type=code";
-        var queryString = config.getDomain() + URI + config.getCompanyId() + "/oauth/authorize?" + query;
-        Request request = new Request.Builder().url(queryString).method("GET", null).build();
+        state = StringUtils.isNotEmpty(state)?state:getRandomState();
+        String accessMode = isOnline?"online":"offline";
+        String query = "client_id=" + apiKey + "&scope="+String.join(",", scope)
+                + "&redirect_uri=" + redirectUri + "&state="+state + "&access_mode=" + accessMode + "&response_type=code";
+
+        var queryString = config.getDomain()+URI+config.getCompanyId()+"/oauth/authorize?"+ query;
+        Request request = new Request.Builder().url(queryString).get().build();
         request = new RequestSigner(request).sign(true);
         return request.url().toString();
     }
