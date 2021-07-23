@@ -1,5 +1,6 @@
 package com.sdk.common;
 
+import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.Request.Builder;
 import okio.Buffer;
@@ -44,8 +45,8 @@ public class RequestSigner {
         updatedReq = prepareRequest();
         try {
             if (this.signQuery) {
-                okhttp3.HttpUrl httpUrl = updatedReq.url().newBuilder().addQueryParameter("x-fp-signature", signature())
-                        .addQueryParameter("x-fp-date", getDateTime()).build();
+                HttpUrl httpUrl = updatedReq.url().newBuilder().addQueryParameter("x-fp-signature", signature())
+                .build();
                 updatedReq = updatedReq.newBuilder().url(httpUrl).build();
             } else {
                 updatedReq = updatedReq.newBuilder().header("x-fp-signature", signature()).build();
@@ -59,7 +60,13 @@ public class RequestSigner {
 
     private Request prepareRequest() {
         Builder newReqBuilder = request.newBuilder();
-        newReqBuilder.header("x-fp-date", getDateTime());
+        if (signQuery) {
+            HttpUrl httpUrl =
+                    request.url().newBuilder().addQueryParameter("x-fp-date", getDateTime()).build();
+            newReqBuilder.url(httpUrl);
+        }else {
+            newReqBuilder.header("x-fp-date", getDateTime());
+        }
         newReqBuilder.header("host", request.url().host());
         return newReqBuilder.build();
     }
