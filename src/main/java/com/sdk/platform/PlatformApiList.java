@@ -1100,7 +1100,7 @@ interface InventoryApiList {
     Call<PlatformModels.ResponseEnvelopeString> createJob(@Path("company_id") Integer companyId ,@Body PlatformModels.JobConfigDTO payload);
     
     @GET ("/service/platform/inventory/v1.0/company/{company_id}/jobs/steps/{job_id}")
-    Call<PlatformModels.ResponseEnvelopeListJobStepsDTO> getJobSteps(@Path("company_id") Integer companyId , @Query("job_id") Integer jobId );
+    Call<PlatformModels.ResponseEnvelopeListJobStepsDTO> getJobSteps(@Path("company_id") Integer companyId , @Path("job_id") Integer jobId );
     
     @GET ("/service/platform/inventory/v1.0/company/{company_id}/jobs/integration/{integration_id}")
     Call<PlatformModels.ResponseEnvelopeListJobConfigDTO> getJobByCompanyAndIntegration(@Path("company_id") Integer companyId , @Path("integration_id") String integrationId , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
