@@ -1441,7 +1441,7 @@ Use this API to get details of all the items added to a cart.
 
 
 
-Success. Returns a Cart object. Check the example shown below or refer `CartResponse` for more details.
+Success. Returns a Cart object. Check the example shown below or refer `CartDetailResponse` for more details.
 
 
 Schema: `CartDetailResponse`
@@ -1510,7 +1510,7 @@ Use this API to add items to the cart.
 
 
 
-Success. Returns a cart object as shown below. Refer `AddRequestCartResponse` for more details.
+Success. Returns a cart object as shown below. Refer `AddCartDetailResponse` for more details.
 
 
 Schema: `AddCartDetailResponse`
@@ -2182,7 +2182,7 @@ Use this API to update items added to the cart with the help of a request object
 
 
 
-Success. Updates and returns a cart object as shown below. Refer `UpdateRequestCartResponse` for more details.
+Success. Updates and returns a cart object as shown below. Refer `UpdateCartDetailResponse` for more details.
 
 
 Schema: `UpdateCartDetailResponse`
@@ -2683,7 +2683,7 @@ Remove Coupon applied on the cart by passing uid in request body.
 
 
 
-Success. Returns coupons removed from the cart along with item details and price breakup. Refer `CartResponse` for more details.
+Success. Returns coupons removed from the cart along with item details and price breakup. Refer `CartDetailResponse` for more details.
 
 
 Schema: `CartDetailResponse`
@@ -3066,7 +3066,7 @@ Use this API to update cart payment.
 
 
 
-Success. Returns a Cart object as shown below. Refer `CartResponse` for more details.
+Success. Returns a Cart object as shown below. Refer `CartDetailResponse` for more details.
 
 
 Schema: `CartDetailResponse`
@@ -3824,7 +3824,7 @@ Use this API to checkout all items in the cart for payment and order generation.
 
 
 
-Success. Returns the status of cart checkout. Refer `CartCheckoutResponse` for more details.
+Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema` for more details.
 
 
 Schema: `CartCheckoutResponse`
@@ -11497,7 +11497,7 @@ Use this API to get details of all the items added to a cart.
 
 
 
-Success. Returns a Cart object. Check the example shown below or refer `CartResponse` for more details.
+Success. Returns a Cart object. Check the example shown below or refer `CartDetailResponse` for more details.
 
 
 Schema: `CartDetailResponse`
@@ -11566,7 +11566,7 @@ Use this API to add items to the cart.
 
 
 
-Success. Returns a cart object as shown below. Refer `AddRequestCartResponse` for more details.
+Success. Returns a cart object as shown below. Refer `AddCartDetailResponse` for more details.
 
 
 Schema: `AddCartDetailResponse`
@@ -12238,7 +12238,7 @@ Use this API to update items added to the cart with the help of a request object
 
 
 
-Success. Updates and returns a cart object as shown below. Refer `UpdateRequestCartResponse` for more details.
+Success. Updates and returns a cart object as shown below. Refer `UpdateCartDetailResponse` for more details.
 
 
 Schema: `UpdateCartDetailResponse`
@@ -12739,7 +12739,7 @@ Remove Coupon applied on the cart by passing uid in request body.
 
 
 
-Success. Returns coupons removed from the cart along with item details and price breakup. Refer `CartResponse` for more details.
+Success. Returns coupons removed from the cart along with item details and price breakup. Refer `CartDetailResponse` for more details.
 
 
 Schema: `CartDetailResponse`
@@ -13122,7 +13122,7 @@ Use this API to update cart payment.
 
 
 
-Success. Returns a Cart object as shown below. Refer `CartResponse` for more details.
+Success. Returns a Cart object as shown below. Refer `CartDetailResponse` for more details.
 
 
 Schema: `CartDetailResponse`
