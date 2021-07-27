@@ -2833,7 +2833,7 @@ Use this API to redeem a fixed no. of reward points by applying it to the cart.
 
 
 
-Success. Returns a Cart object. Check the example shown below or refer `CartResponse` for more details.
+Success. Returns a Cart object. Check the example shown below or refer `CartDetailResponse` for more details.
 
 
 Schema: `CartDetailResponse`
@@ -12889,7 +12889,7 @@ Use this API to redeem a fixed no. of reward points by applying it to the cart.
 
 
 
-Success. Returns a Cart object. Check the example shown below or refer `CartResponse` for more details.
+Success. Returns a Cart object. Check the example shown below or refer `CartDetailResponse` for more details.
 
 
 Schema: `CartDetailResponse`
