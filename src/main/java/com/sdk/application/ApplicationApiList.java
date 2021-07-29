@@ -114,7 +114,7 @@ interface CartApiList {
     Call<ApplicationModels.GetCouponResponse> getCoupons(@Query("id") String id );
     
     @POST ("/service/application/cart/v1.0/coupon")
-    Call<Object> applyCoupon(@Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("id") String id ,@Body ApplicationModels.ApplyCouponRequest payload);
+    Call<ApplicationModels.CartDetailResponse> applyCoupon(@Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("id") String id ,@Body ApplicationModels.ApplyCouponRequest payload);
     
     @DELETE ("/service/application/cart/v1.0/coupon")
     Call<ApplicationModels.CartDetailResponse> removeCoupon(@Query("id") String id );
@@ -135,13 +135,13 @@ interface CartApiList {
     Call<ApplicationModels.Address> getAddressById(@Path("id") String id , @Query("cart_id") String cartId , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
     
     @PUT ("/service/application/cart/v1.0/address/{id}")
-    Call<Object> updateAddress(@Path("id") String id ,@Body ApplicationModels.Address payload);
+    Call<ApplicationModels.UpdateAddressResponse> updateAddress(@Path("id") String id ,@Body ApplicationModels.Address payload);
     
     @DELETE ("/service/application/cart/v1.0/address/{id}")
-    Call<Object> removeAddress(@Path("id") String id );
+    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Path("id") String id );
     
     @POST ("/service/application/cart/v1.0/select-address")
-    Call<Object> selectAddress(@Query("cart_id") String cartId , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.SelectCartAddressRequest payload);
+    Call<ApplicationModels.CartDetailResponse> selectAddress(@Query("cart_id") String cartId , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.SelectCartAddressRequest payload);
     
     @PUT ("/service/application/cart/v1.0/payment")
     Call<ApplicationModels.CartDetailResponse> selectPaymentMode(@Query("id") String id ,@Body ApplicationModels.UpdateCartPaymentRequest payload);
@@ -220,16 +220,16 @@ interface ThemeApiList {
 interface UserApiList {
     
     @POST ("/service/application/user/authentication/v1.0/login/facebook-token")
-    Call<ApplicationModels.AuthSuccess> loginWithFacebook(@Body ApplicationModels.OAuthRequestSchema payload);
+    Call<ApplicationModels.AuthSuccess> loginWithFacebook(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
     @POST ("/service/application/user/authentication/v1.0/login/google-token")
-    Call<ApplicationModels.AuthSuccess> loginWithGoogle(@Body ApplicationModels.OAuthRequestSchema payload);
+    Call<ApplicationModels.AuthSuccess> loginWithGoogle(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
     @POST ("/service/application/user/authentication/v1.0/login/google-android")
-    Call<ApplicationModels.AuthSuccess> loginWithGoogleAndroid(@Body ApplicationModels.OAuthRequestSchema payload);
+    Call<ApplicationModels.AuthSuccess> loginWithGoogleAndroid(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
     @POST ("/service/application/user/authentication/v1.0/login/google-ios")
-    Call<ApplicationModels.AuthSuccess> loginWithGoogleIOS(@Body ApplicationModels.OAuthRequestSchema payload);
+    Call<ApplicationModels.AuthSuccess> loginWithGoogleIOS(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
     @POST ("/service/application/user/authentication/v1.0/login/otp")
     Call<ApplicationModels.SendOtpResponse> loginWithOTP(@Query("platform") String platform ,@Body ApplicationModels.SendOtpRequestSchema payload);
@@ -353,7 +353,7 @@ interface ContentApiList {
     Call<ApplicationModels.NavigationGetResponse> getNavigations(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
     @GET ("/service/application/content/v1.0/pages/{slug}")
-    Call<ApplicationModels.CustomPageSchema> getPage(@Path("slug") String slug , @Query("root_id") String rootId );
+    Call<ApplicationModels.PageSchema> getPage(@Path("slug") String slug , @Query("root_id") String rootId );
     
     @GET ("/service/application/content/v1.0/pages/")
     Call<ApplicationModels.PageGetResponse> getPages(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
@@ -686,7 +686,7 @@ interface PosCartApiList {
     Call<ApplicationModels.GetCouponResponse> getCoupons(@Query("id") String id );
     
     @POST ("/service/application/pos/cart/v1.0/coupon")
-    Call<Object> applyCoupon(@Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("id") String id ,@Body ApplicationModels.ApplyCouponRequest payload);
+    Call<ApplicationModels.CartDetailResponse> applyCoupon(@Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("id") String id ,@Body ApplicationModels.ApplyCouponRequest payload);
     
     @DELETE ("/service/application/pos/cart/v1.0/coupon")
     Call<ApplicationModels.CartDetailResponse> removeCoupon(@Query("id") String id );
@@ -707,13 +707,13 @@ interface PosCartApiList {
     Call<ApplicationModels.Address> getAddressById(@Path("id") String id , @Query("cart_id") String cartId , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
     
     @PUT ("/service/application/pos/cart/v1.0/address/{id}")
-    Call<Object> updateAddress(@Path("id") String id ,@Body ApplicationModels.Address payload);
+    Call<ApplicationModels.UpdateAddressResponse> updateAddress(@Path("id") String id ,@Body ApplicationModels.Address payload);
     
     @DELETE ("/service/application/pos/cart/v1.0/address/{id}")
-    Call<Object> removeAddress(@Path("id") String id );
+    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Path("id") String id );
     
     @POST ("/service/application/pos/cart/v1.0/select-address")
-    Call<Object> selectAddress(@Query("cart_id") String cartId , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.SelectCartAddressRequest payload);
+    Call<ApplicationModels.CartDetailResponse> selectAddress(@Query("cart_id") String cartId , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.SelectCartAddressRequest payload);
     
     @PUT ("/service/application/pos/cart/v1.0/payment")
     Call<ApplicationModels.CartDetailResponse> selectPaymentMode(@Query("id") String id ,@Body ApplicationModels.UpdateCartPaymentRequest payload);

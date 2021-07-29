@@ -1115,9 +1115,9 @@ public class ApplicationService {
     
     
     
-    public Object applyCoupon(Boolean i , Boolean b , Boolean p , String id ,ApplicationModels.ApplyCouponRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id ,ApplicationModels.ApplyCouponRequest body) throws IOException {
     
-        Response<Object> response = cartApiList.applyCoupon(i, b, p, id, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.applyCoupon(i, b, p, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1213,9 +1213,9 @@ public class ApplicationService {
     
     
     
-    public Object updateAddress(String id ,ApplicationModels.Address body) throws IOException {
+    public ApplicationModels.UpdateAddressResponse updateAddress(String id ,ApplicationModels.Address body) throws IOException {
     
-        Response<Object> response = cartApiList.updateAddress(id, body).execute();
+        Response<ApplicationModels.UpdateAddressResponse> response = cartApiList.updateAddress(id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1227,9 +1227,9 @@ public class ApplicationService {
     
     
     
-    public Object removeAddress(String id ) throws IOException {
+    public ApplicationModels.DeleteAddressResponse removeAddress(String id ) throws IOException {
     
-        Response<Object> response = cartApiList.removeAddress(id).execute();
+        Response<ApplicationModels.DeleteAddressResponse> response = cartApiList.removeAddress(id).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1241,9 +1241,9 @@ public class ApplicationService {
     
     
     
-    public Object selectAddress(String cartId , Boolean i , Boolean b ,ApplicationModels.SelectCartAddressRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse selectAddress(String cartId , Boolean i , Boolean b ,ApplicationModels.SelectCartAddressRequest body) throws IOException {
     
-        Response<Object> response = cartApiList.selectAddress(cartId, i, b, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.selectAddress(cartId, i, b, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1651,9 +1651,9 @@ public class ApplicationService {
 
     
     
-    public ApplicationModels.AuthSuccess loginWithFacebook(ApplicationModels.OAuthRequestSchema body) throws IOException {
+    public ApplicationModels.AuthSuccess loginWithFacebook(String platform ,ApplicationModels.OAuthRequestSchema body) throws IOException {
     
-        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithFacebook( body).execute();
+        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithFacebook(platform, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1665,9 +1665,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.AuthSuccess loginWithGoogle(ApplicationModels.OAuthRequestSchema body) throws IOException {
+    public ApplicationModels.AuthSuccess loginWithGoogle(String platform ,ApplicationModels.OAuthRequestSchema body) throws IOException {
     
-        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithGoogle( body).execute();
+        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithGoogle(platform, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1679,9 +1679,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.AuthSuccess loginWithGoogleAndroid(ApplicationModels.OAuthRequestSchema body) throws IOException {
+    public ApplicationModels.AuthSuccess loginWithGoogleAndroid(String platform ,ApplicationModels.OAuthRequestSchema body) throws IOException {
     
-        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithGoogleAndroid( body).execute();
+        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithGoogleAndroid(platform, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1693,9 +1693,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.AuthSuccess loginWithGoogleIOS(ApplicationModels.OAuthRequestSchema body) throws IOException {
+    public ApplicationModels.AuthSuccess loginWithGoogleIOS(String platform ,ApplicationModels.OAuthRequestSchema body) throws IOException {
     
-        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithGoogleIOS( body).execute();
+        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithGoogleIOS(platform, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -2378,9 +2378,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.CustomPageSchema getPage(String slug , String rootId ) throws IOException {
+    public ApplicationModels.PageSchema getPage(String slug , String rootId ) throws IOException {
     
-        Response<ApplicationModels.CustomPageSchema> response = contentApiList.getPage(slug, rootId).execute();
+        Response<ApplicationModels.PageSchema> response = contentApiList.getPage(slug, rootId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4803,9 +4803,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public Object applyCoupon(Boolean i , Boolean b , Boolean p , String id ,ApplicationModels.ApplyCouponRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id ,ApplicationModels.ApplyCouponRequest body) throws IOException {
     
-        Response<Object> response = poscartApiList.applyCoupon(i, b, p, id, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.applyCoupon(i, b, p, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4901,9 +4901,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public Object updateAddress(String id ,ApplicationModels.Address body) throws IOException {
+    public ApplicationModels.UpdateAddressResponse updateAddress(String id ,ApplicationModels.Address body) throws IOException {
     
-        Response<Object> response = poscartApiList.updateAddress(id, body).execute();
+        Response<ApplicationModels.UpdateAddressResponse> response = poscartApiList.updateAddress(id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4915,9 +4915,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public Object removeAddress(String id ) throws IOException {
+    public ApplicationModels.DeleteAddressResponse removeAddress(String id ) throws IOException {
     
-        Response<Object> response = poscartApiList.removeAddress(id).execute();
+        Response<ApplicationModels.DeleteAddressResponse> response = poscartApiList.removeAddress(id).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4929,9 +4929,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public Object selectAddress(String cartId , Boolean i , Boolean b ,ApplicationModels.SelectCartAddressRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse selectAddress(String cartId , Boolean i , Boolean b ,ApplicationModels.SelectCartAddressRequest body) throws IOException {
     
-        Response<Object> response = poscartApiList.selectAddress(cartId, i, b, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.selectAddress(cartId, i, b, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

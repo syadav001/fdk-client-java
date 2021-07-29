@@ -2658,6 +2658,18 @@ Use this API to apply coupons on items in the cart.
 
 
 
+Success. Returns coupons applied to the cart along with item details and price breakup. Refer `CartDetailResponse` for more details.
+
+
+Schema: `CartDetailResponse`
+
+
+
+
+
+
+
+
 
 ---
 
@@ -2989,6 +3001,18 @@ Use this API to update an existing address in the account. Request object should
 
 
 
+Success. Returns the address ID and a message indicating a successful address updation.
+
+
+Schema: `UpdateAddressResponse`
+
+
+
+
+
+
+
+
 
 ---
 
@@ -3011,6 +3035,18 @@ cart.removeAddress(
 Use this API to delete an address by its ID. This will returns an object that will indicate whether the address was deleted successfully or not.
 
 *Success Response:*
+
+
+
+Returns a Status object indicating the success or failure of address deletion.
+
+
+Schema: `DeleteAddressResponse`
+
+
+
+
+
 
 
 
@@ -3038,6 +3074,18 @@ cart.selectAddress(
 <p>Select Address from all addresses associated with the account in order to ship the cart items to that address, otherwise default address will be selected implicitly. See `SelectCartAddressRequest` in schema of request body for the list of attributes needed to select Address from account. On successful request, this API returns a Cart object. Below address attributes are required. <ul> <li> <font color="monochrome">address_id</font></li> <li> <font color="monochrome">billing_address_id</font></li> <li> <font color="monochrome">uid</font></li> </ul>
 
 *Success Response:*
+
+
+
+Success. Returns a Cart object as shown below. Refer `CartDetailResponse` for more details.  .
+
+
+Schema: `CartDetailResponse`
+
+
+
+
+
 
 
 
@@ -5921,13 +5969,14 @@ Login or Register using Facebook
 
 ```java
 user.loginWithFacebook(
-  body 
+  platform, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
-| --------- | ----  | --- |
+| --------- | ----  | --- |  
+| platform | String? | ID of the application |  
 
 Use this API to login or register using Facebook credentials.
 
@@ -5968,13 +6017,14 @@ Login or Register using Google
 
 ```java
 user.loginWithGoogle(
-  body 
+  platform, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
-| --------- | ----  | --- |
+| --------- | ----  | --- |  
+| platform | String? | ID of the application |  
 
 Use this API to login or register using Google Account credentials.
 
@@ -6015,13 +6065,14 @@ Login or Register using Google on Android
 
 ```java
 user.loginWithGoogleAndroid(
-  body 
+  platform, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
-| --------- | ----  | --- |
+| --------- | ----  | --- |  
+| platform | String? | ID of the application |  
 
 Use this API to login or register in Android app using Google Account credentials.
 
@@ -6062,13 +6113,14 @@ Login or Register using Google on iOS
 
 ```java
 user.loginWithGoogleIOS(
-  body 
+  platform, body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
-| --------- | ----  | --- |
+| --------- | ----  | --- |  
+| platform | String? | ID of the application |  
 
 Use this API to login or register in iOS app using Google Account credentials.
 
@@ -7825,7 +7877,7 @@ Use this API to get the details of a page using its slug. Details include the ti
 Success. Returns a JSON object with page details. Check the example shown below or refer `CustomPageSchema` for more details.
 
 
-Schema: `CustomPageSchema`
+Schema: `PageSchema`
 
 
 *Examples:*
@@ -12714,6 +12766,18 @@ Use this API to apply coupons on items in the cart.
 
 
 
+Success. Returns coupons applied to the cart along with item details and price breakup. Refer `CartDetailResponse` for more details.
+
+
+Schema: `CartDetailResponse`
+
+
+
+
+
+
+
+
 
 ---
 
@@ -13045,6 +13109,18 @@ Use this API to update an existing address in the account. Request object should
 
 
 
+Success. Returns the address ID and a message indicating a successful address updation.
+
+
+Schema: `UpdateAddressResponse`
+
+
+
+
+
+
+
+
 
 ---
 
@@ -13067,6 +13143,18 @@ poscart.removeAddress(
 Use this API to delete an address by its ID. This will returns an object that will indicate whether the address was deleted successfully or not.
 
 *Success Response:*
+
+
+
+Returns a Status object indicating the success or failure of address deletion.
+
+
+Schema: `DeleteAddressResponse`
+
+
+
+
+
 
 
 
@@ -13094,6 +13182,18 @@ poscart.selectAddress(
 <p>Select Address from all addresses associated with the account in order to ship the cart items to that address, otherwise default address will be selected implicitly. See `SelectCartAddressRequest` in schema of request body for the list of attributes needed to select Address from account. On successful request, this API returns a Cart object. Below address attributes are required. <ul> <li> <font color="monochrome">address_id</font></li> <li> <font color="monochrome">billing_address_id</font></li> <li> <font color="monochrome">uid</font></li> </ul>
 
 *Success Response:*
+
+
+
+Success. Returns a Cart object as shown below. Refer `CartDetailResponse` for more details.  .
+
+
+Schema: `CartDetailResponse`
+
+
+
+
+
 
 
 
