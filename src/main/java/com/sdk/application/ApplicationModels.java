@@ -28697,7 +28697,7 @@ public static class PointsHistory{
     
     
     @JsonProperty("meta")
-    private String meta;
+    private Object meta;
     
     
     
@@ -28774,8 +28774,8 @@ public static class PointsHistoryResponse{
     
     
     
-    @JsonProperty("history")
-    private List<PointsHistory> history;
+    @JsonProperty("items")
+    private List<PointsHistory> items;
     
     
     
