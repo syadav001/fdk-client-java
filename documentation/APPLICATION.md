@@ -1374,7 +1374,7 @@ Get store meta information.
 
 ```java
 catalog.getStores(
-  pageNo, pageSize, q, range, latitude, longitude
+  pageNo, pageSize, q, city, range, latitude, longitude
   );
   //use response
 ```
@@ -1384,6 +1384,7 @@ catalog.getStores(
 | pageNo | Integer? | The page number to navigate through the given set of results. |    
 | pageSize | Integer? | Number of items to retrieve in each page. |    
 | q | String? | Search a store by its name or store_code. |    
+| city | String? | Search stores by the city in which they are situated. |    
 | range | Integer? | Use this to retrieve stores within a particular range in meters, e.g. 10000, to indicate a 10km range |    
 | latitude | Double? | Latitude of the location from where one wants to retreive the nearest stores, e.g. 72.8691788 |    
 | longitude | Double? | Longitude of the location from where one wants to retreive the nearest stores, e.g. 19.1174114 |  
@@ -9543,7 +9544,7 @@ Get applicable payment options
 
 ```java
 payment.getPaymentModeRoutes(
-  amount, cartId, pincode, checkoutMode, refresh, assignCardId, userDetails
+  amount, cartId, pincode, checkoutMode, refresh, cardReference, userDetails
   );
   //use response
 ```
@@ -9555,7 +9556,7 @@ payment.getPaymentModeRoutes(
 | pincode | String? | The PIN Code of the destination address, e.g. 400059 |    
 | checkoutMode | String? | Option to checkout for self or for others. |    
 | refresh | Boolean? | This is a boolean value. Select `true` to remove temporary cache files on payment gateway and replace with the latest one. |    
-| assignCardId | String? | Token of user's debit or credit card. |    
+| cardReference | String? | Card reference id of user's debit or credit card. |    
 | userDetails | String? | URIencoded JSON containing details of an anonymous user. |  
 
 Use this API to get all valid payment options for doing a payment.
@@ -9586,7 +9587,7 @@ Get applicable payment options for Point-of-Sale (POS)
 
 ```java
 payment.getPosPaymentModeRoutes(
-  amount, cartId, pincode, checkoutMode, refresh, assignCardId, orderType, userDetails
+  amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, userDetails
   );
   //use response
 ```
@@ -9598,7 +9599,7 @@ payment.getPosPaymentModeRoutes(
 | pincode | String? | The PIN Code of the destination address, e.g. 400059 |    
 | checkoutMode | String? | Option to checkout for self or for others. |    
 | refresh | Boolean? | This is a boolean value. Select `true` to remove temporary cache files on payment gateway and replace with the latest one. |    
-| assignCardId | String? | Token of user's debit or credit card. |    
+| cardReference | String? | Card reference id of user's debit or credit card. |    
 | orderType | String? | The order type of shipment * HomeDelivery - If the customer wants the order home-delivered * PickAtStore - If the customer wants the handover of an order at the store itself. |    
 | userDetails | String? | URIencoded JSON containing details of an anonymous user. |  
 

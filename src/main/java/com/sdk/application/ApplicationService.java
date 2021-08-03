@@ -916,9 +916,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.StoreListingResponse getStores(Integer pageNo , Integer pageSize , String q , Integer range , Double latitude , Double longitude ) throws IOException {
+    public ApplicationModels.StoreListingResponse getStores(Integer pageNo , Integer pageSize , String q , String city , Integer range , Double latitude , Double longitude ) throws IOException {
     
-        Response<ApplicationModels.StoreListingResponse> response = catalogApiList.getStores(pageNo, pageSize, q, range, latitude, longitude).execute();
+        Response<ApplicationModels.StoreListingResponse> response = catalogApiList.getStores(pageNo, pageSize, q, city, range, latitude, longitude).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -958,6 +958,10 @@ public class ApplicationService {
         
         
         
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getStores
@@ -967,6 +971,7 @@ public class ApplicationService {
         
         Integer pageSize,
         String q,
+        String city,
         Integer range,
         Double latitude,
         Double longitude
@@ -986,6 +991,7 @@ public class ApplicationService {
                  paginator.getPageSize()
                 ,
                  q,
+                 city,
                  range,
                  latitude,
                  longitude
@@ -3251,9 +3257,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PaymentModeRouteResponse getPaymentModeRoutes(Integer amount , String cartId , String pincode , String checkoutMode , Boolean refresh , String assignCardId , String userDetails ) throws IOException {
+    public ApplicationModels.PaymentModeRouteResponse getPaymentModeRoutes(Integer amount , String cartId , String pincode , String checkoutMode , Boolean refresh , String cardReference , String userDetails ) throws IOException {
     
-        Response<ApplicationModels.PaymentModeRouteResponse> response = paymentApiList.getPaymentModeRoutes(amount, cartId, pincode, checkoutMode, refresh, assignCardId, userDetails).execute();
+        Response<ApplicationModels.PaymentModeRouteResponse> response = paymentApiList.getPaymentModeRoutes(amount, cartId, pincode, checkoutMode, refresh, cardReference, userDetails).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3265,9 +3271,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PaymentModeRouteResponse getPosPaymentModeRoutes(Integer amount , String cartId , String pincode , String checkoutMode , Boolean refresh , String assignCardId , String orderType , String userDetails ) throws IOException {
+    public ApplicationModels.PaymentModeRouteResponse getPosPaymentModeRoutes(Integer amount , String cartId , String pincode , String checkoutMode , Boolean refresh , String cardReference , String orderType , String userDetails ) throws IOException {
     
-        Response<ApplicationModels.PaymentModeRouteResponse> response = paymentApiList.getPosPaymentModeRoutes(amount, cartId, pincode, checkoutMode, refresh, assignCardId, orderType, userDetails).execute();
+        Response<ApplicationModels.PaymentModeRouteResponse> response = paymentApiList.getPosPaymentModeRoutes(amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, userDetails).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

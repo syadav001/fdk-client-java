@@ -89,7 +89,7 @@ interface CatalogApiList {
     Call<ApplicationModels.FollowIdsResponse> getFollowIds(@Query("collection_type") String collectionType );
     
     @GET ("/service/application/catalog/v1.0/locations/")
-    Call<ApplicationModels.StoreListingResponse> getStores(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
+    Call<ApplicationModels.StoreListingResponse> getStores(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("city") String city , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
     
 }
 
@@ -496,10 +496,10 @@ interface PaymentApiList {
     Call<ApplicationModels.PaymentStatusUpdateResponse> checkAndUpdatePaymentStatus(@Body ApplicationModels.PaymentStatusUpdateRequest payload);
     
     @GET ("/service/application/payment/v1.0/payment/options")
-    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutes(@Query("amount") Integer amount , @Query("cart_id") String cartId , @Query("pincode") String pincode , @Query("checkout_mode") String checkoutMode , @Query("refresh") Boolean refresh , @Query("assign_card_id") String assignCardId , @Query("user_details") String userDetails );
+    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutes(@Query("amount") Integer amount , @Query("cart_id") String cartId , @Query("pincode") String pincode , @Query("checkout_mode") String checkoutMode , @Query("refresh") Boolean refresh , @Query("card_reference") String cardReference , @Query("user_details") String userDetails );
     
     @GET ("/service/application/payment/v1.0/payment/options/pos")
-    Call<ApplicationModels.PaymentModeRouteResponse> getPosPaymentModeRoutes(@Query("amount") Integer amount , @Query("cart_id") String cartId , @Query("pincode") String pincode , @Query("checkout_mode") String checkoutMode , @Query("refresh") Boolean refresh , @Query("assign_card_id") String assignCardId , @Query("order_type") String orderType , @Query("user_details") String userDetails );
+    Call<ApplicationModels.PaymentModeRouteResponse> getPosPaymentModeRoutes(@Query("amount") Integer amount , @Query("cart_id") String cartId , @Query("pincode") String pincode , @Query("checkout_mode") String checkoutMode , @Query("refresh") Boolean refresh , @Query("card_reference") String cardReference , @Query("order_type") String orderType , @Query("user_details") String userDetails );
     
     @GET ("/service/application/payment/v1.0/rupifi/banner")
     Call<ApplicationModels.RupifiBannerResponse> getRupifiBannerDetails();
