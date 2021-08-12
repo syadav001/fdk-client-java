@@ -556,6 +556,15 @@ interface OrderApiList {
     @GET ("/service/application/order/v1.0/orders/pos-order/{order_id}")
     Call<ApplicationModels.PosOrderById> getPosOrderById(@Path("order_id") String orderId );
     
+    @GET ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details")
+    Call<ApplicationModels.CustomerDetailsByShipmentId> getCustomerDetailsByShipmentId(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
+    
+    @POST ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send/")
+    Call<ApplicationModels.sendOTPApplicationResponse> sendOtpToShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
+    
+    @POST ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify")
+    Call<ApplicationModels.ResponseVerifyOTPShipment> verifyOtpShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId ,@Body ApplicationModels.ReqBodyVerifyOTPShipment payload);
+    
 }
 
 interface RewardsApiList {

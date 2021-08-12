@@ -20,7 +20,9 @@ class PlatformEnums {
         
         medium("medium"), 
         
-        high("high");
+        high("high"), 
+        
+        urgent("urgent");
         
 
         private String priority;

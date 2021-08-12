@@ -3550,6 +3550,48 @@ public class FileStorageService extends FileStorage {
 
     
     
+    
+    
+    public ApplicationModels.CustomerDetailsByShipmentId getCustomerDetailsByShipmentId(String orderId , String shipmentId ) throws IOException {
+    
+        Response<ApplicationModels.CustomerDetailsByShipmentId> response = orderApiList.getCustomerDetailsByShipmentId(orderId, shipmentId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.sendOTPApplicationResponse sendOtpToShipmentCustomer(String orderId , String shipmentId ) throws IOException {
+    
+        Response<ApplicationModels.sendOTPApplicationResponse> response = orderApiList.sendOtpToShipmentCustomer(orderId, shipmentId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ResponseVerifyOTPShipment verifyOtpShipmentCustomer(String orderId , String shipmentId ,ApplicationModels.ReqBodyVerifyOTPShipment body) throws IOException {
+    
+        Response<ApplicationModels.ResponseVerifyOTPShipment> response = orderApiList.verifyOtpShipmentCustomer(orderId, shipmentId, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
       
 }
 
