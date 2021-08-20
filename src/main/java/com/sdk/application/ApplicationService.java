@@ -860,9 +860,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -874,9 +874,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -2990,6 +2990,20 @@ public class FileStorageService extends FileStorage {
     }
     
     
+    public ApplicationModels.OrderingStore getStoreDetailById(Integer storeId ) throws IOException {
+    
+        Response<ApplicationModels.OrderingStore> response = configurationApiList.getStoreDetailById(storeId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.AppFeatureResponse getFeatures() throws IOException {
     
         Response<ApplicationModels.AppFeatureResponse> response = configurationApiList.getFeatures().execute();
@@ -3035,6 +3049,20 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.Currency getCurrencyById(String id ) throws IOException {
     
         Response<ApplicationModels.Currency> response = configurationApiList.getCurrencyById(id).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.AppCurrencyResponse getAppCurrencies() throws IOException {
+    
+        Response<ApplicationModels.AppCurrencyResponse> response = configurationApiList.getAppCurrencies().execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -76,11 +76,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -440,6 +440,9 @@ interface ConfigurationApiList {
     @GET ("/service/application/configuration/v1.0/ordering-store/stores")
     Call<ApplicationModels.OrderingStores> getOrderingStores(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q );
     
+    @GET ("/service/application/configuration/v1.0/ordering-store/stores/{store_id}")
+    Call<ApplicationModels.OrderingStore> getStoreDetailById(@Path("store_id") Integer storeId );
+    
     @GET ("/service/application/configuration/v1.0/feature")
     Call<ApplicationModels.AppFeatureResponse> getFeatures();
     
@@ -451,6 +454,9 @@ interface ConfigurationApiList {
     
     @GET ("/service/application/configuration/v1.0/currency/{id}")
     Call<ApplicationModels.Currency> getCurrencyById(@Path("id") String id );
+    
+    @GET ("/service/application/configuration/v1.0/currency")
+    Call<ApplicationModels.AppCurrencyResponse> getAppCurrencies();
     
     @GET ("/service/application/configuration/v1.0/languages")
     Call<ApplicationModels.LanguageResponse> getLanguages();
