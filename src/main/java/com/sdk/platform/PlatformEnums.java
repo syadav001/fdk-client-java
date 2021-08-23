@@ -132,4 +132,24 @@ class PlatformEnums {
 
 
 
+    /*
+        Enum: SubscriberStatus
+        Used By: Webhook
+    */
+    @Getter
+    public enum SubscriberStatus {
+
+        
+        active("active"), 
+        
+        inactive("inactive");
+        
+
+        private String priority;
+        SubscriberStatus(String priority) {
+            this.priority = priority;
+        }
+    }
+
+
 }

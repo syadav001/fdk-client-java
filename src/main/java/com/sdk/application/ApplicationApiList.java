@@ -440,6 +440,9 @@ interface ConfigurationApiList {
     @GET ("/service/application/configuration/v1.0/ordering-store/stores")
     Call<ApplicationModels.OrderingStores> getOrderingStores(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q );
     
+    @GET ("/service/application/configuration/v1.0/ordering-store/stores/{store_id}")
+    Call<ApplicationModels.OrderingStore> getStoreDetailById(@Path("store_id") Integer storeId );
+    
     @GET ("/service/application/configuration/v1.0/feature")
     Call<ApplicationModels.AppFeatureResponse> getFeatures();
     
@@ -451,6 +454,9 @@ interface ConfigurationApiList {
     
     @GET ("/service/application/configuration/v1.0/currency/{id}")
     Call<ApplicationModels.Currency> getCurrencyById(@Path("id") String id );
+    
+    @GET ("/service/application/configuration/v1.0/currency")
+    Call<ApplicationModels.AppCurrencyResponse> getAppCurrencies();
     
     @GET ("/service/application/configuration/v1.0/languages")
     Call<ApplicationModels.LanguageResponse> getLanguages();
