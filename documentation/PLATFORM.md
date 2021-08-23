@@ -7,7 +7,6 @@
 * [Theme](#Theme) - Responsible for themes 
 * [User](#User) - Authentication Service 
 * [Content](#Content) - Content System 
-* [Assignment](#Assignment) -  
 * [Billing](#Billing) - Handle platform subscription 
 * [Communication](#Communication) - Manages email, sms, push notifications sent to users 
 * [Payment](#Payment) - Collect payment through many payment gateway i.e Stripe, Razorpay, Juspay etc.into Fynd or Self account 
@@ -163,25 +162,6 @@
   * [Content#removeInjectableTag](#contentremoveinjectabletag)
   * [Content#editInjectableTag](#contenteditinjectabletag)
  
-* [Assignment](#Assignment)
-  * [Assignment#createPickupLocation](#assignmentcreatepickuplocation)
-  * [Assignment#getPickupLocation](#assignmentgetpickuplocation)
-  * [Assignment#updatePickupLocation](#assignmentupdatepickuplocation)
-  * [Assignment#getPickupLocationById](#assignmentgetpickuplocationbyid)
-  * [Assignment#createPickupConfiguration](#assignmentcreatepickupconfiguration)
-  * [Assignment#getPickupConfiguration](#assignmentgetpickupconfiguration)
-  * [Assignment#getAllocationConfiguration](#assignmentgetallocationconfiguration)
-  * [Assignment#createAllocationConfiguration](#assignmentcreateallocationconfiguration)
-  * [Assignment#updateAllocationConfiguration](#assignmentupdateallocationconfiguration)
-  * [Assignment#getAllocationLocations](#assignmentgetallocationlocations)
-  * [Assignment#getAllocationLocationById](#assignmentgetallocationlocationbyid)
-  * [Assignment#updateAllocationLocation](#assignmentupdateallocationlocation)
-  * [Assignment#createAllocationLocation](#assignmentcreateallocationlocation)
-  * [Assignment#getDestinationZones](#assignmentgetdestinationzones)
-  * [Assignment#postDestinationZone](#assignmentpostdestinationzone)
-  * [Assignment#getDestinationZoneById](#assignmentgetdestinationzonebyid)
-  * [Assignment#updateDestinationZone](#assignmentupdatedestinationzone)
- 
 * [Billing](#Billing)
   * [Billing#createSubscriptionCharge](#billingcreatesubscriptioncharge)
   * [Billing#getSubscriptionCharge](#billinggetsubscriptioncharge)
@@ -252,6 +232,7 @@
   * [Payment#verifyIfscCode](#paymentverifyifsccode)
   * [Payment#getUserOrderBeneficiaries](#paymentgetuserorderbeneficiaries)
   * [Payment#getUserBeneficiaries](#paymentgetuserbeneficiaries)
+  * [Payment#confirmPayment](#paymentconfirmpayment)
  
 * [Order](#Order)
   * [Order#shipmentStatusUpdate](#ordershipmentstatusupdate)
@@ -277,23 +258,23 @@
  
 * [Catalog](#Catalog)
   * [Catalog#deleteSearchKeywords](#catalogdeletesearchkeywords)
-  * [Catalog#updateSearchKeywords](#catalogupdatesearchkeywords)
   * [Catalog#getSearchKeywords](#cataloggetsearchkeywords)
+  * [Catalog#updateSearchKeywords](#catalogupdatesearchkeywords)
   * [Catalog#createCustomKeyword](#catalogcreatecustomkeyword)
   * [Catalog#getAllSearchKeyword](#cataloggetallsearchkeyword)
   * [Catalog#deleteAutocompleteKeyword](#catalogdeleteautocompletekeyword)
-  * [Catalog#updateAutocompleteKeyword](#catalogupdateautocompletekeyword)
   * [Catalog#getAutocompleteKeywordDetail](#cataloggetautocompletekeyworddetail)
+  * [Catalog#updateAutocompleteKeyword](#catalogupdateautocompletekeyword)
   * [Catalog#createCustomAutocompleteRule](#catalogcreatecustomautocompleterule)
   * [Catalog#getAutocompleteConfig](#cataloggetautocompleteconfig)
   * [Catalog#createProductBundle](#catalogcreateproductbundle)
   * [Catalog#getProductBundle](#cataloggetproductbundle)
-  * [Catalog#updateProductBundle](#catalogupdateproductbundle)
   * [Catalog#getProductBundleDetail](#cataloggetproductbundledetail)
+  * [Catalog#updateProductBundle](#catalogupdateproductbundle)
   * [Catalog#createSizeGuide](#catalogcreatesizeguide)
   * [Catalog#getSizeGuides](#cataloggetsizeguides)
-  * [Catalog#updateSizeGuide](#catalogupdatesizeguide)
   * [Catalog#getSizeGuide](#cataloggetsizeguide)
+  * [Catalog#updateSizeGuide](#catalogupdatesizeguide)
   * [Catalog#getCatalogConfiguration](#cataloggetcatalogconfiguration)
   * [Catalog#createConfigurationProductListing](#catalogcreateconfigurationproductlisting)
   * [Catalog#getConfigurations](#cataloggetconfigurations)
@@ -329,13 +310,13 @@
   * [Catalog#listTemplateBrandTypeValues](#cataloglisttemplatebrandtypevalues)
   * [Catalog#createCategories](#catalogcreatecategories)
   * [Catalog#listCategories](#cataloglistcategories)
-  * [Catalog#updateCategory](#catalogupdatecategory)
   * [Catalog#getCategoryData](#cataloggetcategorydata)
+  * [Catalog#updateCategory](#catalogupdatecategory)
   * [Catalog#createProduct](#catalogcreateproduct)
   * [Catalog#getProducts](#cataloggetproducts)
   * [Catalog#deleteProduct](#catalogdeleteproduct)
-  * [Catalog#editProduct](#catalogeditproduct)
   * [Catalog#getProduct](#cataloggetproduct)
+  * [Catalog#editProduct](#catalogeditproduct)
   * [Catalog#getProductValidation](#cataloggetproductvalidation)
   * [Catalog#getProductSize](#cataloggetproductsize)
   * [Catalog#updateProductAssetsInBulk](#catalogupdateproductassetsinbulk)
@@ -359,18 +340,19 @@
   * [Catalog#exportInventoryConfig](#catalogexportinventoryconfig)
   * [Catalog#createHsnCode](#catalogcreatehsncode)
   * [Catalog#getAllHsnCodes](#cataloggetallhsncodes)
-  * [Catalog#updateHsnCode](#catalogupdatehsncode)
   * [Catalog#getHsnCode](#cataloggethsncode)
+  * [Catalog#updateHsnCode](#catalogupdatehsncode)
   * [Catalog#bulkHsnCode](#catalogbulkhsncode)
   * [Catalog#getApplicationBrands](#cataloggetapplicationbrands)
   * [Catalog#getDepartments](#cataloggetdepartments)
   * [Catalog#getCategories](#cataloggetcategories)
   * [Catalog#getAppicationProducts](#cataloggetappicationproducts)
   * [Catalog#getProductDetailBySlug](#cataloggetproductdetailbyslug)
+  * [Catalog#getAppProducts](#cataloggetappproducts)
  
 * [CompanyProfile](#CompanyProfile)
-  * [CompanyProfile#updateCompany](#companyprofileupdatecompany)
   * [CompanyProfile#cbsOnboardGet](#companyprofilecbsonboardget)
+  * [CompanyProfile#updateCompany](#companyprofileupdatecompany)
   * [CompanyProfile#getCompanyMetrics](#companyprofilegetcompanymetrics)
   * [CompanyProfile#getBrand](#companyprofilegetbrand)
   * [CompanyProfile#editBrand](#companyprofileeditbrand)
@@ -405,7 +387,9 @@
   * [Inventory#getJobsByCompany](#inventorygetjobsbycompany)
   * [Inventory#updateJob](#inventoryupdatejob)
   * [Inventory#createJob](#inventorycreatejob)
+  * [Inventory#getJobSteps](#inventorygetjobsteps)
   * [Inventory#getJobByCompanyAndIntegration](#inventorygetjobbycompanyandintegration)
+  * [Inventory#disable](#inventorydisable)
   * [Inventory#getJobConfigDefaults](#inventorygetjobconfigdefaults)
   * [Inventory#getJobByCode](#inventorygetjobbycode)
   * [Inventory#getJobCodeMetrics](#inventorygetjobcodemetrics)
@@ -461,6 +445,9 @@
   * [Cart#getCouponById](#cartgetcouponbyid)
   * [Cart#updateCoupon](#cartupdatecoupon)
   * [Cart#updateCouponPartially](#cartupdatecouponpartially)
+  * [Cart#fetchAndvalidateCartItems](#cartfetchandvalidatecartitems)
+  * [Cart#checkCartServiceability](#cartcheckcartserviceability)
+  * [Cart#checkoutCart](#cartcheckoutcart)
  
 * [Rewards](#Rewards)
   * [Rewards#getGiveaways](#rewardsgetgiveaways)
@@ -533,7 +520,7 @@ common.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| locationType | String? | Provide location type to query on |   
+| locationType | String? | Provide location type to query on. Possible values : country, state, city |   
 | id | String? | Field is optional when location_type is country. If querying for state, provide id of country. If querying for city, provide id of state. |  
 
 
@@ -4234,7 +4221,9 @@ content.(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
 | companyId | String? | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String? | Numeric ID allotted to an application created within a business account. |  
+| applicationId | String? | Numeric ID allotted to an application created within a business account. |   
+| pageType | String? | Fetch meta by page type. Acceptable values are: system, custom and all |   
+| cartPages | Boolean? | Pass this param value as `true` to fetch meta with cart pages |  
 
 
 
@@ -5113,700 +5102,6 @@ Success.
 
 
 Schema: `TagsSchema`
-
-
-
-
-
-
----
-
-
-
----
----
-
-
-## Assignment
-
-
-#### createPickupLocation
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-Create a new Pickup point for an application.
-
-
-*Success Response*
-
-
-
-Success Response - Store Updated
-
-
-Schema: `Success`
-
-
-
-
-
-
----
-
-
-#### getPickupLocation
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| q | String? | Search query |   
-| pageNo | Integer? | Request a page number |   
-| pageSize | Integer? | Request a page size |   
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-Update list of pickup points for an application.
-
-
-*Success Response*
-
-
-
-Success Response
-
-
-Schema: `PickupPointResponse`
-
-
-
-
-
-
----
-
-
-#### updatePickupLocation
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| id | Double? | Pickup Point ID |   
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-Update Pickup Point for an application. Pickup Point once created
-can be updated using this API. 'x-application-id'm and request body are required to trigger
-a successful update.
-
-
-*Success Response*
-
-
-
-Success Response - Store Updated
-
-
-Schema: `Success`
-
-
-
-
-
-
----
-
-
-#### getPickupLocationById
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| id | Double? | Pickup Point Id |   
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-This API returns Pickup point data for an id. Returns not found if no data exists for the
-store id passed.
-
-
-*Success Response*
-
-
-
-Success Response
-
-
-Schema: `PickupPointSchema`
-
-
-
-
-
-
----
-
-
-#### createPickupConfiguration
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-Create a new pickup configuration for an application id. Only one configuration can be
-created per application id.
-
-
-*Success Response*
-
-
-
-Success Response - Store Updated
-
-
-Schema: `Success`
-
-
-
-
-
-
----
-
-
-#### getPickupConfiguration
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-Let pickup configuration for an application. z-application-id is required in
-the header to fetch the data.
-
-
-*Success Response*
-
-
-
-Success Response
-
-
-Schema: `PickupResponse`
-
-
-
-
-
-
----
-
-
-#### getAllocationConfiguration
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-Get Shipping configuration for an application. Returns the global shipping configuration
-including shipping priority and default strategy, etc. Every application can have one set of
-configuration each. The endpoint requires an application id to get the data.
-
-
-*Success Response*
-
-
-
-Success Response
-
-
-Schema: `ShippingResponse`
-
-
-
-
-
-
----
-
-
-#### createAllocationConfiguration
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-Create a new Shipping configuration for an application The configuration is for
-all the stores under an application. There can be only one configuration for an
-application i.e, for an application configuration can be created only once.
-
-
-*Success Response*
-
-
-
-Success Response - Store Updated
-
-
-Schema: `Success`
-
-
-
-
-
-
----
-
-
-#### updateAllocationConfiguration
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-Update Shipping configuration for an application. Application configuration once created
-can be updated using this API. 'x-application-id'm and request body are required to trigger
-a successful update.
-
-
-*Success Response*
-
-
-
-Success Response - Store Updated
-
-
-Schema: `Success`
-
-
-
-
-
-
----
-
-
-#### getAllocationLocations
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| q | String? | Search query |   
-| pageNo | Integer? | Request a page number |   
-| pageSize | Integer? | Request a page size |   
-| type | String? | Type can be 'standard' or 'advanced' |   
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-List Stores of an application. Two types of stores are listed,
-some having allocation types as standard and others, advanced.
-API has support for pagination, filter by type and search by name.
-
-
-*Success Response*
-
-
-
-Success Response
-
-
-Schema: `StoreListResponse`
-
-
-
-
-
-
----
-
-
-#### getAllocationLocationById
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| id | Double? | Store Id |   
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-This API returns store data for an id. Returns not found if no data exists for the
-store id passed. The data is returned from sixspeed database which includes only the
-shipping configuration of the stores including store id and app id.
-
-
-*Success Response*
-
-
-
-Success Response
-
-
-Schema: `StoreResponse`
-
-
-
-
-
-
----
-
-
-#### updateAllocationLocation
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| id | Double? | Store Id |   
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-A store configuration once created can be updated via this API. Store id in request params
-and udpated request body are required to successfully update the store data.
-
-
-*Success Response*
-
-
-
-Success Response - Store Updated
-
-
-Schema: `Success`
-
-
-
-
-
-
----
-
-
-#### createAllocationLocation
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-Create a new store shipping configuratiion. The configuration is stored into the
-sixspeed database. One one store data can be created for one store id. Ther can be one
-default configuration and multiple non-default ones. The default is not binded with product
-tags while others are required to be.
-
-
-*Success Response*
-
-
-
-Success Response - Store Updated
-
-
-Schema: `Success`
-
-
-
-
-
-
----
-
-
-#### getDestinationZones
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| q | String? | Search query |   
-| pageNo | Integer? | Request a page number |   
-| pageSize | Integer? | Request a page size |   
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-Get a list of zones created, where every zone has a unique name and id. They can be
-of three different types, radius, pincode and country.
-
-
-*Success Response*
-
-
-
-Success Response
-
-
-Schema: `ZoneListResponse`
-
-
-
-
-
-
----
-
-
-#### postDestinationZone
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-This API lets you create a zone which can be used further be mapped with store
-configuration rules to defined a shipping rule. Either of the three details need to
-be passed, zone_detail, pincode and region.
-
-
-*Success Response*
-
-
-
-Success Response - Zone Created
-
-
-Schema: `Success`
-
-
-
-
-
-
----
-
-
-#### getDestinationZoneById
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| id | Double? | Store Id |   
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-Returns zone data for the specified zone id. Id is the required parameter and returns
-not found if no data is found for the passed zone id.
-
-
-*Success Response*
-
-
-
-Success Response
-
-
-Schema: `ZoneSchema`
-
-
-
-
-
-
----
-
-
-#### updateDestinationZone
-
-
-
-```java
-assignment.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| id | Double? | Store Id |   
-| companyId | Integer? | Company Id |   
-| applicationId | String? | Application Id |  
-
-
-
-Zone once created can be updated using this API. Zone id and request body are the required
-data to update a zone.
-
-
-*Success Response*
-
-
-
-Success Response - Zone Updated
-
-
-Schema: `Success`
 
 
 
@@ -8295,6 +7590,43 @@ Schema: `OrderBeneficiaryResponse`
 ---
 
 
+#### confirmPayment
+Confirm payment after successful payment from payment gateway
+
+
+```java
+payment.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | Integer? | Company Id |   
+| applicationId | String? | Application id |  
+
+
+
+Use this API to confirm payment after payment gateway accepted payment.
+
+*Success Response*
+
+
+
+Success. Returns the status of payment. Check the example shown below or refer `PaymentConfirmationResponseSchema` for more details.
+
+
+Schema: `PaymentConfirmationResponse`
+
+
+
+
+
+
+---
+
+
 
 ---
 ---
@@ -9130,44 +8462,6 @@ Schema: `DeleteResponse`
 ---
 
 
-#### updateSearchKeywords
-Update Search Keyword
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
-| id | String? | A `id` is a unique identifier for a particular detail. Pass the `id` of the keywords which you want to delete. |  
-
-
-
-Update Search Keyword by its id. On successful request, returns the updated collection
-
-*Success Response*
-
-
-
-The Collection object. See example below or refer `GetSearchWordsDataSchema` for details.
-
-
-Schema: `GetSearchWordsData`
-
-
-
-
-
-
----
-
-
 #### getSearchKeywords
 Get a Search Keywords Details
 
@@ -9197,6 +8491,44 @@ The Collection object. See example below or refer `GetSearchWordsDetailResponseS
 
 
 Schema: `GetSearchWordsDetailResponse`
+
+
+
+
+
+
+---
+
+
+#### updateSearchKeywords
+Update Search Keyword
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
+| id | String? | A `id` is a unique identifier for a particular detail. Pass the `id` of the keywords which you want to delete. |  
+
+
+
+Update Search Keyword by its id. On successful request, returns the updated collection
+
+*Success Response*
+
+
+
+The Collection object. See example below or refer `GetSearchWordsDataSchema` for details.
+
+
+Schema: `GetSearchWordsData`
 
 
 
@@ -9318,44 +8650,6 @@ Schema: `DeleteResponse`
 ---
 
 
-#### updateAutocompleteKeyword
-Create & Update Autocomplete Keyword
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
-| id | String? | A `id` is a unique identifier for a particular detail. Pass the `id` of the keywords which you want to delete. |  
-
-
-
-Update a mapping by it's id. On successful request, returns the updated Keyword mapping
-
-*Success Response*
-
-
-
-The Mapping object. See example below or refer `GetAutocompleteWordsResponseSchema` for details.
-
-
-Schema: `GetAutocompleteWordsResponse`
-
-
-
-
-
-
----
-
-
 #### getAutocompleteKeywordDetail
 Get a Autocomplete Keywords Details
 
@@ -9382,6 +8676,44 @@ Get the details of a words by its `id`. If successful, returns a keywords resour
 
 
 The mapping object. See example below or refer `GetAutocompleteWordsResponseSchema` for details
+
+
+Schema: `GetAutocompleteWordsResponse`
+
+
+
+
+
+
+---
+
+
+#### updateAutocompleteKeyword
+Create & Update Autocomplete Keyword
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
+| id | String? | A `id` is a unique identifier for a particular detail. Pass the `id` of the keywords which you want to delete. |  
+
+
+
+Update a mapping by it's id. On successful request, returns the updated Keyword mapping
+
+*Success Response*
+
+
+
+The Mapping object. See example below or refer `GetAutocompleteWordsResponseSchema` for details.
 
 
 Schema: `GetAutocompleteWordsResponse`
@@ -9541,43 +8873,6 @@ Schema: `GetProductBundleListingResponse`
 ---
 
 
-#### updateProductBundle
-Update a Product Bundle
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| id | String? | A `id` is a unique identifier for a particular detail. Pass the `id` of the keywords which you want to delete. |  
-
-
-
-Update a Product Bundle by its id. On successful request, returns the updated product bundle
-
-*Success Response*
-
-
-
-The Collection object. See example below or refer `GetProductBundleCreateResponse` for details.
-
-
-Schema: `GetProductBundleCreateResponse`
-
-
-
-
-
-
----
-
-
 #### getProductBundleDetail
 Get a particular Product Bundle details
 
@@ -9606,6 +8901,43 @@ The Collection object. See example below or refer `GetProductBundleResponse` for
 
 
 Schema: `GetProductBundleResponse`
+
+
+
+
+
+
+---
+
+
+#### updateProductBundle
+Update a Product Bundle
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| id | String? | A `id` is a unique identifier for a particular detail. Pass the `id` of the keywords which you want to delete. |  
+
+
+
+Update a Product Bundle by its id. On successful request, returns the updated product bundle
+
+*Success Response*
+
+
+
+The Collection object. See example below or refer `GetProductBundleCreateResponse` for details.
+
+
+Schema: `GetProductBundleCreateResponse`
 
 
 
@@ -9692,43 +9024,6 @@ Schema: `ListSizeGuide`
 ---
 
 
-#### updateSizeGuide
-Edit a size guide.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | Id of the company. |   
-| id | String? | Mongo id of the size guide to be edited |  
-
-
-
-This API allows to edit a size guide.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
-
-
-
-
-
-
----
-
-
 #### getSizeGuide
 Get a single size guide.
 
@@ -9757,6 +9052,43 @@ Brand object. See example below or refer `SizeGuideResponseSchema` for details
 
 
 Schema: `SizeGuideResponse`
+
+
+
+
+
+
+---
+
+
+#### updateSizeGuide
+Edit a size guide.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Id of the company. |   
+| id | String? | Mongo id of the size guide to be edited |  
+
+
+
+This API allows to edit a size guide.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
 
 
 
@@ -11081,43 +10413,6 @@ Schema: `CategoryResponse`
 ---
 
 
-#### updateCategory
-Update product categories
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
-| uid | String? | Category unique id |  
-
-
-
-Update a product category using this apu
-
-*Success Response*
-
-
-
-Category Meta. See example below or refer `CategoryUpdateResponse` for details
-
-
-Schema: `CategoryUpdateResponse`
-
-
-
-
-
-
----
-
-
 #### getCategoryData
 Get product category by uid
 
@@ -11146,6 +10441,43 @@ Get Data for one category. See example below or refer `CategoryResponse` for det
 
 
 Schema: `SingleCategoryResponse`
+
+
+
+
+
+
+---
+
+
+#### updateCategory
+Update product categories
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| uid | String? | Category unique id |  
+
+
+
+Update a product category using this apu
+
+*Success Response*
+
+
+
+Category Meta. See example below or refer `CategoryUpdateResponse` for details
+
+
+Schema: `CategoryUpdateResponse`
 
 
 
@@ -11272,43 +10604,6 @@ Schema: `SuccessResponse`
 ---
 
 
-#### editProduct
-Edit a product.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | Id of the company associated to product that is to be viewed. |   
-| itemId | Integer? | Id of the product to be updated. |  
-
-
-
-This API allows to edit product.
-
-*Success Response*
-
-
-
-Returns a success response
-
-
-Schema: `SuccessResponse`
-
-
-
-
-
-
----
-
-
 #### getProduct
 Get a single product.
 
@@ -11340,6 +10635,43 @@ Product object. See example below or refer `product.utils.format_product_respons
 
 
 Schema: `Product`
+
+
+
+
+
+
+---
+
+
+#### editProduct
+Edit a product.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Id of the company associated to product that is to be viewed. |   
+| itemId | Integer? | Id of the product to be updated. |  
+
+
+
+This API allows to edit product.
+
+*Success Response*
+
+
+
+Returns a success response
+
+
+Schema: `SuccessResponse`
 
 
 
@@ -12213,43 +11545,6 @@ Schema: `HsnCodesListingResponse`
 ---
 
 
-#### updateHsnCode
-Update Hsn Code.
-
-
-```java
-catalog.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | company id |   
-| id | String? | Unique id |  
-
-
-
-Update Hsn Code.
-
-*Success Response*
-
-
-
-See example below for details
-
-
-Schema: `HsnCode`
-
-
-
-
-
-
----
-
-
 #### getHsnCode
 Fetch Hsn Code.
 
@@ -12275,6 +11570,43 @@ Fetch Hsn Code.
 
 
 See example below details
+
+
+Schema: `HsnCode`
+
+
+
+
+
+
+---
+
+
+#### updateHsnCode
+Update Hsn Code.
+
+
+```java
+catalog.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | company id |   
+| id | String? | Unique id |  
+
+
+
+Update Hsn Code.
+
+*Success Response*
+
+
+
+See example below for details
 
 
 Schema: `HsnCode`
@@ -12521,20 +11853,12 @@ Schema: `ProductDetail`
 ---
 
 
-
----
----
-
-
-## CompanyProfile
-
-
-#### updateCompany
-Edit company profile
+#### getAppProducts
+Get applicationwise products
 
 
 ```java
-companyprofile.(
+catalog.(
   
   );
   //use response
@@ -12542,20 +11866,26 @@ companyprofile.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |  
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String? | A `application_id` is a unique identifier for a particular sale channel. |   
+| brandIds | List<Integer>? | Get multiple products filtered by Brand Ids |   
+| categoryIds | List<Integer>? | Get multiple products filtered by Category Ids |   
+| departmentIds | List<Integer>? | Get multiple products filtered by Department Ids |   
+| pageNo | Integer? | The page number to navigate through the given set of results |   
+| pageSize | Integer? | Number of items to retrieve in each page. Default is 10. |  
 
 
 
-This API allows to edit the company profile of the seller account.
+Products are the core resource of an application. Products can be associated by categories, collections, brands and more. If successful, returns a Product resource in the response body specified in `ApplicationProductListingResponseDatabasePowered`
 
 *Success Response*
 
 
 
-Returns a success message
+The Product object. See example below or refer `ApplicationProductListingResponseDatabasePowered` for details.
 
 
-Schema: `SuccessResponse`
+Schema: `ProductListingResponse`
 
 
 
@@ -12563,6 +11893,14 @@ Schema: `SuccessResponse`
 
 
 ---
+
+
+
+---
+---
+
+
+## CompanyProfile
 
 
 #### cbsOnboardGet
@@ -12592,6 +11930,42 @@ Company profile object. See example below or refer `GetCompanyProfileSerializerR
 
 
 Schema: `GetCompanyProfileSerializerResponse`
+
+
+
+
+
+
+---
+
+
+#### updateCompany
+Edit company profile
+
+
+```java
+companyprofile.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |  
+
+
+
+This API allows to edit the company profile of the seller account.
+
+*Success Response*
+
+
+
+Returns a success message
+
+
+Schema: `SuccessResponse`
 
 
 
@@ -12798,7 +12172,8 @@ companyprofile.(
 | --------- | ----  | --- | 
 | companyId | String? | Id of the company. |   
 | pageNo | Integer? | The page number to navigate through the given set of results |   
-| pageSize | Integer? | Number of items to retrieve in each page. Default is 10. |  
+| pageSize | Integer? | Number of items to retrieve in each page. Default is 10. |   
+| q | String? | Search term for name. |  
 
 
 
@@ -13744,6 +13119,43 @@ Schema: `ResponseEnvelopeString`
 ---
 
 
+#### getJobSteps
+Get Job Code Steps
+
+
+```java
+inventory.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | Integer? | Company Id |   
+| jobId | Integer? | Job Id |  
+
+
+
+REST Endpoint that returns Inventory Job Steps
+
+*Success Response*
+
+
+
+Successful operation
+
+
+Schema: `ResponseEnvelopeListJobStepsDTO`
+
+
+
+
+
+
+---
+
+
 #### getJobByCompanyAndIntegration
 Get Job Configs By Company And Integration
 
@@ -13774,6 +13186,43 @@ Successful operation
 
 
 Schema: `ResponseEnvelopeListJobConfigDTO`
+
+
+
+
+
+
+---
+
+
+#### disable
+Disable Job Config
+
+
+```java
+inventory.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | Integer? | Company Id |   
+| integrationId | String? | IntegrationId |  
+
+
+
+REST Endpoint that disables Inventory Job Config
+
+*Success Response*
+
+
+
+Successful operation
+
+
+Schema: `ResponseEnvelopeString`
 
 
 
@@ -13872,7 +13321,9 @@ inventory.(
 | companyId | Integer? | Company Id |   
 | code | String? | Code |   
 | pageNo | Integer? | Page Number |   
-| pageSize | Integer? | Page Size |  
+| pageSize | Integer? | Page Size |   
+| status | String? | Status |   
+| date | String? | From Date |  
 
 
 
@@ -15714,6 +15165,117 @@ Coupon updated successfully
 
 
 Schema: `SuccessMessage`
+
+
+
+
+
+
+---
+
+
+#### fetchAndvalidateCartItems
+Fetch Cart Details
+
+
+```java
+cart.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Current company id |   
+| applicationId | String? | Current Application _id |  
+
+
+
+Get all the details of cart for a list of provided `cart_items`
+
+*Success Response*
+
+
+
+Cart details with breakup
+
+
+Schema: `OpenapiCartDetailsResponse`
+
+
+
+
+
+
+---
+
+
+#### checkCartServiceability
+Check Pincode Serviceability
+
+
+```java
+cart.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Current company id |   
+| applicationId | String? | Current Application _id |  
+
+
+
+Check Pincode serviceability for cart items provided in `cart_items` and address pincode in `shipping_address`
+
+*Success Response*
+
+
+
+Cart details with pincode validity information at item level
+
+
+Schema: `OpenApiCartServiceabilityResponse`
+
+
+
+
+
+
+---
+
+
+#### checkoutCart
+Create Fynd order with cart details
+
+
+```java
+cart.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | Current company id |   
+| applicationId | String? | Current Application _id |  
+
+
+
+Generate Fynd order for cart details send with provided `cart_items`
+
+*Success Response*
+
+
+
+Checkout cart and create Fynd order id
+
+
+Schema: `OpenApiCheckoutResponse`
 
 
 

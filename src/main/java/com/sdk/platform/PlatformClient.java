@@ -22,8 +22,6 @@ public class PlatformClient extends PlatformEnums{
     
     public PlatformService.ContentService content;
     
-    public PlatformService.AssignmentService assignment;
-    
     public PlatformService.BillingService billing;
     
     public PlatformService.CommunicationService communication;
@@ -72,8 +70,6 @@ public class PlatformClient extends PlatformEnums{
         this.user = new PlatformService.UserService(config);
         
         this.content = new PlatformService.ContentService(config);
-        
-        this.assignment = new PlatformService.AssignmentService(config);
         
         this.billing = new PlatformService.BillingService(config);
         
@@ -129,8 +125,6 @@ public class PlatformClient extends PlatformEnums{
         
         public PlatformService.ContentService.ApplicationClient content;
         
-        public PlatformService.AssignmentService.ApplicationClient assignment;
-        
         public PlatformService.BillingService.ApplicationClient billing;
         
         public PlatformService.CommunicationService.ApplicationClient communication;
@@ -177,8 +171,6 @@ public class PlatformClient extends PlatformEnums{
             this.user = new PlatformService.UserService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.content = new PlatformService.ContentService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.assignment = new PlatformService.AssignmentService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.billing = new PlatformService.BillingService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             

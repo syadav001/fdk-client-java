@@ -198,10 +198,12 @@
     * [getBasicDetails](#getbasicdetails)
     * [getIntegrationTokens](#getintegrationtokens)
     * [getOrderingStores](#getorderingstores)
+    * [getStoreDetailById](#getstoredetailbyid)
     * [getFeatures](#getfeatures)
     * [getContactInfo](#getcontactinfo)
     * [getCurrencies](#getcurrencies)
     * [getCurrencyById](#getcurrencybyid)
+    * [getAppCurrencies](#getappcurrencies)
     * [getLanguages](#getlanguages)
     * [getOrderingStoreCookie](#getorderingstorecookie)
     * [removeOrderingStoreCookie](#removeorderingstorecookie)
@@ -229,6 +231,7 @@
     * [getOrderBeneficiariesDetail](#getorderbeneficiariesdetail)
     * [verifyOtpAndAddBeneficiaryForBank](#verifyotpandaddbeneficiaryforbank)
     * [addBeneficiaryDetails](#addbeneficiarydetails)
+    * [addRefundBankAccountUsingOTP](#addrefundbankaccountusingotp)
     * [verifyOtpAndAddBeneficiaryForWallet](#verifyotpandaddbeneficiaryforwallet)
     * [updateDefaultBeneficiary](#updatedefaultbeneficiary)
     
@@ -242,6 +245,9 @@
     * [updateShipmentStatus](#updateshipmentstatus)
     * [trackShipment](#trackshipment)
     * [getPosOrderById](#getposorderbyid)
+    * [getCustomerDetailsByShipmentId](#getcustomerdetailsbyshipmentid)
+    * [sendOtpToShipmentCustomer](#sendotptoshipmentcustomer)
+    * [verifyOtpShipmentCustomer](#verifyotpshipmentcustomer)
     
 
 * [Rewards](#Rewards)
@@ -4734,7 +4740,7 @@ common.getLocations(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| locationType | String? | Provide location type to query on |    
+| locationType | String? | Provide location type to query on. Possible values : country, state, city |    
 | id | String? | Field is optional when location_type is country. If querying for state, provide id of country. If querying for city, provide id of state. |  
 
 
@@ -5970,14 +5976,13 @@ Login or Register using Facebook
 
 ```java
 user.loginWithFacebook(
-  platform, body 
+  body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
-| --------- | ----  | --- |  
-| platform | String? | ID of the application |  
+| --------- | ----  | --- |
 
 Use this API to login or register using Facebook credentials.
 
@@ -6018,14 +6023,13 @@ Login or Register using Google
 
 ```java
 user.loginWithGoogle(
-  platform, body 
+  body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
-| --------- | ----  | --- |  
-| platform | String? | ID of the application |  
+| --------- | ----  | --- |
 
 Use this API to login or register using Google Account credentials.
 
@@ -6066,14 +6070,13 @@ Login or Register using Google on Android
 
 ```java
 user.loginWithGoogleAndroid(
-  platform, body 
+  body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
-| --------- | ----  | --- |  
-| platform | String? | ID of the application |  
+| --------- | ----  | --- |
 
 Use this API to login or register in Android app using Google Account credentials.
 
@@ -6114,14 +6117,13 @@ Login or Register using Google on iOS
 
 ```java
 user.loginWithGoogleIOS(
-  platform, body 
+  body 
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
-| --------- | ----  | --- |  
-| platform | String? | ID of the application |  
+| --------- | ----  | --- |
 
 Use this API to login or register in iOS app using Google Account credentials.
 
@@ -8348,7 +8350,7 @@ reset
 
 
 #### getApplicationQRCode
-Create QR Code of an app
+Create application QR Code
 
 
 ```java
@@ -8361,13 +8363,13 @@ share.getApplicationQRCode(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |
 
-Use this API to create a QR code of an app for sharing it with users who want to use the app.
+Create application QR Code
 
 *Success Response:*
 
 
 
-Success. Check the example shown below or refer `QRCodeResp` for more details.
+Success
 
 
 Schema: `QRCodeResp`
@@ -8384,7 +8386,7 @@ Schema: `QRCodeResp`
 
 
 #### getProductQRCodeBySlug
-Create QR Code of a product
+Create product QR Code
 
 
 ```java
@@ -8396,15 +8398,15 @@ share.getProductQRCodeBySlug(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| slug | String? | A short, human-readable, URL-friendly identifier of a product. You can get slug value from the endpoint. |  
+| slug | String? | The unique identifier of a product |  
 
-Use this API to create a QR code of a product for sharing it with users who want to view/purchase the product.
+Create product QR Code
 
 *Success Response:*
 
 
 
-Success. Check the example shown below or refer `QRCodeResp` for more details.
+Success
 
 
 Schema: `QRCodeResp`
@@ -8421,7 +8423,7 @@ Schema: `QRCodeResp`
 
 
 #### getCollectionQRCodeBySlug
-Create QR Code of a collection
+Create collection QR Code
 
 
 ```java
@@ -8433,15 +8435,15 @@ share.getCollectionQRCodeBySlug(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| slug | String? | A short, human-readable, URL-friendly identifier of a collection. You can get slug value from the endpoint. |  
+| slug | String? | The unique identifier of a collection |  
 
-Use this API to create a QR code of a collection of products for sharing it with users who want to view/purchase the collection.
+Create collection QR Code
 
 *Success Response:*
 
 
 
-Success. Check the example shown below or refer `QRCodeResp` for more details.
+Success
 
 
 Schema: `QRCodeResp`
@@ -8458,7 +8460,7 @@ Schema: `QRCodeResp`
 
 
 #### getUrlQRCode
-Create QR Code of a URL
+Create url QR Code
 
 
 ```java
@@ -8470,15 +8472,15 @@ share.getUrlQRCode(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| url | String? | A link or a web address |  
+| url | String? | Url |  
 
-Use this API to create a QR code of a URL for sharing it with users who want to visit the link.
+Create url QR Code
 
 *Success Response:*
 
 
 
-Success. Check the example shown below or refer `QRCodeResp` for more details.
+Success
 
 
 Schema: `QRCodeResp`
@@ -8495,7 +8497,7 @@ Schema: `QRCodeResp`
 
 
 #### createShortLink
-Create a short link
+Create short link
 
 
 ```java
@@ -8508,13 +8510,13 @@ share.createShortLink(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |
 
-Use this API to create a short link that is easy to write/share/read as compared to long URLs.
+Create short link
 
 *Success Response:*
 
 
 
-Success. Check the example shown below or refer `ShortLinkRes` for more details.
+Success
 
 
 Schema: `ShortLinkRes`
@@ -8543,15 +8545,15 @@ share.getShortLinkByHash(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| hash | String? | A string value used for converting long URL to short URL and vice-versa. |  
+| hash | String? | Hash of short link |  
 
-Use this API to get a short link by using a hash value.
+Get short link by hash
 
 *Success Response:*
 
 
 
-Success. Check the example shown below or refer `ShortLinkRes` for more details.
+Success
 
 
 Schema: `ShortLinkRes`
@@ -8580,15 +8582,15 @@ share.getOriginalShortLinkByHash(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| hash | String? | A string value used for converting long URL to short URL and vice-versa. |  
+| hash | String? | Hash of short link |  
 
-Use this API to retrieve the original link from a short-link by using a hash value.
+Get original link by hash
 
 *Success Response:*
 
 
 
-Success. Check the example shown below or refer `ShortLinkRes` for more details.
+Success
 
 
 Schema: `ShortLinkRes`
@@ -8911,6 +8913,43 @@ Schema: `OrderingStores`
 ---
 
 
+#### getStoreDetailById
+Get ordering store details
+
+
+```java
+configuration.getStoreDetailById(
+  storeId
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- |  
+| storeId | Integer? | Store uid |  
+
+Use this API to retrieve the details of given stores uid (the selling locations where the application will be utilized for placing orders).
+
+*Success Response:*
+
+
+
+Success. Check the example shown below or refer `OrderingStore` for more details.
+
+
+Schema: `OrderingStore`
+
+
+
+
+
+
+
+
+
+---
+
+
 #### getFeatures
 Get features of application
 
@@ -8984,7 +9023,7 @@ Schema: `ApplicationInformation`
 
 
 #### getCurrencies
-Get currencies enabled in the application
+Get all currencies list
 
 
 ```java
@@ -8997,7 +9036,7 @@ configuration.getCurrencies(
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |
 
-Use this API to get a list of currencies allowed in the current application. Moreover, get the name, code, symbol, and the decimal digits of the currencies.
+Use this API to get a list of currencies available. Moreover, get the name, code, symbol, and the decimal digits of the currencies.
 
 *Success Response:*
 
@@ -9044,6 +9083,42 @@ Success. Check the example shown below or refer `Currency` for more details.
 
 
 Schema: `Currency`
+
+
+
+
+
+
+
+
+
+---
+
+
+#### getAppCurrencies
+Get currencies enabled in the application
+
+
+```java
+configuration.getAppCurrencies(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- |
+
+Use this API to get a list of currencies allowed in the current application. Moreover, get the name, code, symbol, and the decimal digits of the currencies.
+
+*Success Response:*
+
+
+
+Success. Check the example shown below or refer `AppCurrencyResponse` for more details.
+
+
+Schema: `AppCurrencyResponse`
 
 
 
@@ -9916,6 +9991,42 @@ Schema: `RefundAccountResponse`
 ---
 
 
+#### addRefundBankAccountUsingOTP
+Save bank details for cancelled/returned order
+
+
+```java
+payment.addRefundBankAccountUsingOTP(
+  body 
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- |
+
+Use this API to save bank details for returned/cancelled order to refund amount in his account.
+
+*Success Response:*
+
+
+
+Success. Shows whether the beneficiary details were saved to a returned/cancelled order or not.
+
+
+Schema: `RefundAccountResponse`
+
+
+
+
+
+
+
+
+
+---
+
+
 #### verifyOtpAndAddBeneficiaryForWallet
 Send OTP on adding a wallet beneficiary
 
@@ -10246,6 +10357,120 @@ Success. Check the example shown below or refer `PosOrderById` for more details.
 
 
 Schema: `PosOrderById`
+
+
+
+
+
+
+
+
+
+---
+
+
+#### getCustomerDetailsByShipmentId
+Get Customer Details by Shipment Id
+
+
+```java
+order.getCustomerDetailsByShipmentId(
+  orderId, shipmentId
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- |  
+| orderId | String? | A unique number used for identifying and tracking your orders. |    
+| shipmentId | String? | ID of the shipment. An order may contain multiple items and may get divided into one or more shipment, each having its own ID. |  
+
+Use this API to retrieve customer details such as mobileno using Shipment ID.
+
+*Success Response:*
+
+
+
+Success. Check the example shown below or refer `CustomerDetailsByShipmentId` for more details.
+
+
+Schema: `CustomerDetailsByShipmentId`
+
+
+
+
+
+
+
+
+
+---
+
+
+#### sendOtpToShipmentCustomer
+Send and Resend Otp code to Order-Shipment customer
+
+
+```java
+order.sendOtpToShipmentCustomer(
+  orderId, shipmentId
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- |  
+| orderId | String? | A unique number used for identifying and tracking your orders. |    
+| shipmentId | String? | ID of the shipment. An order may contain multiple items and may get divided into one or more shipment, each having its own ID. |  
+
+Use this API to send OTP to the customer of the mapped Shipment.
+
+*Success Response:*
+
+
+
+Success to acknowledge the service was notified
+
+
+Schema: `sendOTPApplicationResponse`
+
+
+
+
+
+
+
+
+
+---
+
+
+#### verifyOtpShipmentCustomer
+Verify Otp code
+
+
+```java
+order.verifyOtpShipmentCustomer(
+  orderId, shipmentId, body 
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- |  
+| orderId | String? | A unique number used for identifying and tracking your orders. |    
+| shipmentId | String? | ID of the shipment. An order may contain multiple items and may get divided into one or more shipment, each having its own ID. |  
+
+Use this API to verify OTP and create a session token with custom payload.
+
+*Success Response:*
+
+
+
+Success, the code is valid and returns a session token
+
+
+Schema: `ResponseVerifyOTPShipment`
 
 
 
