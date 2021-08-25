@@ -50,11 +50,12 @@
     * [getCollectionItemsBySlug](#getcollectionitemsbyslug)
     * [getCollectionDetailBySlug](#getcollectiondetailbyslug)
     * [getFollowedListing](#getfollowedlisting)
-    * [unfollowById](#unfollowbyid)
     * [followById](#followbyid)
+    * [unfollowById](#unfollowbyid)
     * [getFollowerCountById](#getfollowercountbyid)
     * [getFollowIds](#getfollowids)
     * [getStores](#getstores)
+    * [getAppStores](#getappstores)
     
 
 * [Cart](#Cart)
@@ -1223,12 +1224,12 @@ Schema: `GetFollowListingResponse`
 ---
 
 
-#### unfollowById
-Unfollow an entity (product/brand/collection)
+#### followById
+Follow an entity (product/brand/collection)
 
 
 ```java
-catalog.unfollowById(
+catalog.followById(
   collectionType, collectionId
   );
   //use response
@@ -1239,7 +1240,7 @@ catalog.unfollowById(
 | collectionType | String? | Type of collection followed, i.e. products, brands, or collections. |    
 | collectionId | String? | The ID of the collection type. |  
 
-You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+Follow a particular entity such as product, brand, collection specified by its ID.
 
 *Success Response:*
 
@@ -1261,12 +1262,12 @@ Schema: `FollowPostResponse`
 ---
 
 
-#### followById
-Follow an entity (product/brand/collection)
+#### unfollowById
+Unfollow an entity (product/brand/collection)
 
 
 ```java
-catalog.followById(
+catalog.unfollowById(
   collectionType, collectionId
   );
   //use response
@@ -1277,7 +1278,7 @@ catalog.followById(
 | collectionType | String? | Type of collection followed, i.e. products, brands, or collections. |    
 | collectionId | String? | The ID of the collection type. |  
 
-Follow a particular entity such as product, brand, collection specified by its ID.
+You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
 
 *Success Response:*
 
@@ -1405,6 +1406,49 @@ Success. Returns a list of selling locations. Check the example shown below or r
 
 
 Schema: `StoreListingResponse`
+
+
+
+
+
+
+
+
+
+---
+
+
+#### getAppStores
+Get store meta information.
+
+
+```java
+catalog.getAppStores(
+  pageNo, pageSize, q, city, range, latitude, longitude
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- |  
+| pageNo | Integer? | The page number to navigate through the given set of results. |    
+| pageSize | Integer? | Number of items to retrieve in each page. |    
+| q | String? | Search a store by its name or store_code. |    
+| city | String? | Search stores by the city in which they are situated. |    
+| range | Integer? | Use this to retrieve stores within a particular range in meters, e.g. 10000, to indicate a 10km range |    
+| latitude | Double? | Latitude of the location from where one wants to retreive the nearest stores, e.g. 72.8691788 |    
+| longitude | Double? | Longitude of the location from where one wants to retreive the nearest stores, e.g. 19.1174114 |  
+
+Use this API to get a list of stores in a specific application.
+
+*Success Response:*
+
+
+
+Success. Returns a list of selling locations. Check the example shown below or refer `StoreListingResponse` for more details.
+
+
+Schema: `ApplicationStoreListing`
 
 
 
