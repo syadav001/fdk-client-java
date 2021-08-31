@@ -50,12 +50,13 @@
     * [getCollectionItemsBySlug](#getcollectionitemsbyslug)
     * [getCollectionDetailBySlug](#getcollectiondetailbyslug)
     * [getFollowedListing](#getfollowedlisting)
-    * [followById](#followbyid)
     * [unfollowById](#unfollowbyid)
+    * [followById](#followbyid)
     * [getFollowerCountById](#getfollowercountbyid)
     * [getFollowIds](#getfollowids)
     * [getStores](#getstores)
     * [getInStockLocations](#getinstocklocations)
+    * [getLocationDetailsById](#getlocationdetailsbyid)
     
 
 * [Cart](#Cart)
@@ -1224,12 +1225,12 @@ Schema: `GetFollowListingResponse`
 ---
 
 
-#### followById
-Follow an entity (product/brand/collection)
+#### unfollowById
+Unfollow an entity (product/brand/collection)
 
 
 ```java
-catalog.followById(
+catalog.unfollowById(
   collectionType, collectionId
   );
   //use response
@@ -1240,7 +1241,7 @@ catalog.followById(
 | collectionType | String? | Type of collection followed, i.e. products, brands, or collections. |    
 | collectionId | String? | The ID of the collection type. |  
 
-Follow a particular entity such as product, brand, collection specified by its ID.
+You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
 
 *Success Response:*
 
@@ -1262,12 +1263,12 @@ Schema: `FollowPostResponse`
 ---
 
 
-#### unfollowById
-Unfollow an entity (product/brand/collection)
+#### followById
+Follow an entity (product/brand/collection)
 
 
 ```java
-catalog.unfollowById(
+catalog.followById(
   collectionType, collectionId
   );
   //use response
@@ -1278,7 +1279,7 @@ catalog.unfollowById(
 | collectionType | String? | Type of collection followed, i.e. products, brands, or collections. |    
 | collectionId | String? | The ID of the collection type. |  
 
-You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+Follow a particular entity such as product, brand, collection specified by its ID.
 
 *Success Response:*
 
@@ -1449,6 +1450,43 @@ Success. Returns a list of selling locations. Check the example shown below or r
 
 
 Schema: `ApplicationStoreListing`
+
+
+
+
+
+
+
+
+
+---
+
+
+#### getLocationDetailsById
+Get store meta information.
+
+
+```java
+catalog.getLocationDetailsById(
+  locationId
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- |  
+| locationId | Integer? | Unique Location ID. |  
+
+Use this API to get meta details for a store.
+
+*Success Response:*
+
+
+
+Success. Returns a metadata object. Check the example shown below or refer `StoreDetails` for more details.
+
+
+Schema: `StoreDetails`
 
 
 
