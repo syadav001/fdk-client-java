@@ -1008,9 +1008,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.ApplicationStoreListing getAppStores(Integer pageNo , Integer pageSize , String q , String city , Integer range , Double latitude , Double longitude ) throws IOException {
+    public ApplicationModels.ApplicationStoreListing getInStockLocations(Integer pageNo , Integer pageSize , String q , String city , Integer range , Double latitude , Double longitude ) throws IOException {
     
-        Response<ApplicationModels.ApplicationStoreListing> response = catalogApiList.getAppStores(pageNo, pageSize, q, city, range, latitude, longitude).execute();
+        Response<ApplicationModels.ApplicationStoreListing> response = catalogApiList.getInStockLocations(pageNo, pageSize, q, city, range, latitude, longitude).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1056,10 +1056,10 @@ public class ApplicationService {
         
 
     /**
-    * Summary: get paginator for getAppStores
+    * Summary: get paginator for getInStockLocations
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<ApplicationModels.ApplicationStoreListing> getAppStoresPagination(
+    public Paginator<ApplicationModels.ApplicationStoreListing> getInStockLocationsPagination(
         
         Integer pageSize,
         String q,
@@ -1076,7 +1076,7 @@ public class ApplicationService {
 
     paginator.setCallback(()-> {
         try {
-            ApplicationModels.ApplicationStoreListing callback = this.getAppStores(
+            ApplicationModels.ApplicationStoreListing callback = this.getInStockLocations(
                 
                  paginator.getPageNo()
                 ,

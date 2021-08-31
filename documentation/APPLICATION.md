@@ -55,7 +55,7 @@
     * [getFollowerCountById](#getfollowercountbyid)
     * [getFollowIds](#getfollowids)
     * [getStores](#getstores)
-    * [getAppStores](#getappstores)
+    * [getInStockLocations](#getinstocklocations)
     
 
 * [Cart](#Cart)
@@ -1418,12 +1418,12 @@ Schema: `StoreListingResponse`
 ---
 
 
-#### getAppStores
+#### getInStockLocations
 Get store meta information.
 
 
 ```java
-catalog.getAppStores(
+catalog.getInStockLocations(
   pageNo, pageSize, q, city, range, latitude, longitude
   );
   //use response
