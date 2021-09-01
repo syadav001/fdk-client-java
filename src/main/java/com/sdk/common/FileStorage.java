@@ -24,12 +24,12 @@ public class FileStorage {
 
     private ApplicationService.FileStorageService fileStorageService;
 
-    public ApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size, String namespace, File file, ApplicationService.FileStorageService fileStorageService) {
+    public ApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size, String namespace, File file, ApplicationService.FileStorageService fileStorageService, HashMap<String,Object> params) {
         this.retrofitServiceFactory = new RetrofitServiceFactory();
         this.fileStorageService = fileStorageService;
         AwsApiList awsApiList = generateAwsApiList();
         if(StringUtils.isNotEmpty(fileName) && StringUtils.isNotEmpty(contentType) && StringUtils.isNotEmpty(namespace)) {
-            ApplicationModels.StartRequest startRequest = new ApplicationModels.StartRequest(fileName, contentType, size, List.of(), new HashMap<>());
+            ApplicationModels.StartRequest startRequest = new ApplicationModels.StartRequest(fileName, contentType, size, List.of(), params);
             try {
                 ApplicationModels.StartResponse startResponse = fileStorageService.startUpload(namespace, startRequest);
                 String cdnUrl = startResponse.getCdn().getUrl();
