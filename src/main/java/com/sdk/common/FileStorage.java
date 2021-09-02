@@ -36,7 +36,7 @@ public class FileStorage {
                 String uploadUrl = startResponse.getUpload().getUrl();
                 if(StringUtils.isNotEmpty(cdnUrl) && StringUtils.isNotEmpty(uploadUrl) && Objects.nonNull(file)) {
                     String contentTypeFromResponse = StringUtils.isNotEmpty(startResponse.getContentType()) ? startResponse.getContentType():"";
-                    awsApiList.updateAWSMedia(contentTypeFromResponse, uploadUrl, RequestBody.create(MediaType.parse(contentTypeFromResponse), file));
+                    awsApiList.updateAWSMedia(contentTypeFromResponse, uploadUrl, RequestBody.create(MediaType.parse(contentTypeFromResponse), file)).execute();
                     return fileStorageService.completeUpload(namespace, startResponse);
                 }
             }catch (Exception e) {
