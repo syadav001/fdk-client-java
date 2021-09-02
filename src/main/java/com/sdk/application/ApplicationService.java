@@ -2802,8 +2802,8 @@ public class FileStorageService extends FileStorage {
     }
 
     
-    public ApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size, String namespace, File file) {
-        return super.uploadMedia(fileName, contentType, size, namespace, file, this);
+    public ApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size, String namespace, File file, HashMap<String,Object> params) {
+        return super.uploadMedia(fileName, contentType, size, namespace, file, this, params);
     }
     
 
@@ -2990,6 +2990,20 @@ public class FileStorageService extends FileStorage {
     }
     
     
+    public ApplicationModels.OrderingStore getStoreDetailById(Integer storeId ) throws IOException {
+    
+        Response<ApplicationModels.OrderingStore> response = configurationApiList.getStoreDetailById(storeId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.AppFeatureResponse getFeatures() throws IOException {
     
         Response<ApplicationModels.AppFeatureResponse> response = configurationApiList.getFeatures().execute();
@@ -3035,6 +3049,20 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.Currency getCurrencyById(String id ) throws IOException {
     
         Response<ApplicationModels.Currency> response = configurationApiList.getCurrencyById(id).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.AppCurrencyResponse getAppCurrencies() throws IOException {
+    
+        Response<ApplicationModels.AppCurrencyResponse> response = configurationApiList.getAppCurrencies().execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3397,6 +3425,20 @@ public class FileStorageService extends FileStorage {
     
     
     
+    public ApplicationModels.RefundAccountResponse addRefundBankAccountUsingOTP(ApplicationModels.AddBeneficiaryDetailsOTPRequest body) throws IOException {
+    
+        Response<ApplicationModels.RefundAccountResponse> response = paymentApiList.addRefundBankAccountUsingOTP( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.WalletOtpResponse verifyOtpAndAddBeneficiaryForWallet(ApplicationModels.WalletOtpRequest body) throws IOException {
     
         Response<ApplicationModels.WalletOtpResponse> response = paymentApiList.verifyOtpAndAddBeneficiaryForWallet( body).execute();
@@ -3541,6 +3583,48 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.PosOrderById getPosOrderById(String orderId ) throws IOException {
     
         Response<ApplicationModels.PosOrderById> response = orderApiList.getPosOrderById(orderId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CustomerDetailsByShipmentId getCustomerDetailsByShipmentId(String orderId , String shipmentId ) throws IOException {
+    
+        Response<ApplicationModels.CustomerDetailsByShipmentId> response = orderApiList.getCustomerDetailsByShipmentId(orderId, shipmentId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.sendOTPApplicationResponse sendOtpToShipmentCustomer(String orderId , String shipmentId ) throws IOException {
+    
+        Response<ApplicationModels.sendOTPApplicationResponse> response = orderApiList.sendOtpToShipmentCustomer(orderId, shipmentId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ResponseVerifyOTPShipment verifyOtpShipmentCustomer(String orderId , String shipmentId ,ApplicationModels.ReqBodyVerifyOTPShipment body) throws IOException {
+    
+        Response<ApplicationModels.ResponseVerifyOTPShipment> response = orderApiList.verifyOtpShipmentCustomer(orderId, shipmentId, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

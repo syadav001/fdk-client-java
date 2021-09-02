@@ -24,19 +24,19 @@ public class FileStorage {
 
     private ApplicationService.FileStorageService fileStorageService;
 
-    public ApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size, String namespace, File file, ApplicationService.FileStorageService fileStorageService) {
+    public ApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size, String namespace, File file, ApplicationService.FileStorageService fileStorageService, HashMap<String,Object> params) {
         this.retrofitServiceFactory = new RetrofitServiceFactory();
         this.fileStorageService = fileStorageService;
         AwsApiList awsApiList = generateAwsApiList();
         if(StringUtils.isNotEmpty(fileName) && StringUtils.isNotEmpty(contentType) && StringUtils.isNotEmpty(namespace)) {
-            ApplicationModels.StartRequest startRequest = new ApplicationModels.StartRequest(fileName, contentType, size, List.of(), new HashMap<>());
+            ApplicationModels.StartRequest startRequest = new ApplicationModels.StartRequest(fileName, contentType, size, List.of(), params);
             try {
                 ApplicationModels.StartResponse startResponse = fileStorageService.startUpload(namespace, startRequest);
                 String cdnUrl = startResponse.getCdn().getUrl();
                 String uploadUrl = startResponse.getUpload().getUrl();
                 if(StringUtils.isNotEmpty(cdnUrl) && StringUtils.isNotEmpty(uploadUrl) && Objects.nonNull(file)) {
                     String contentTypeFromResponse = StringUtils.isNotEmpty(startResponse.getContentType()) ? startResponse.getContentType():"";
-                    awsApiList.updateAWSMedia(contentTypeFromResponse, uploadUrl, RequestBody.create(MediaType.parse(contentTypeFromResponse), file));
+                    awsApiList.updateAWSMedia(contentTypeFromResponse, uploadUrl, RequestBody.create(MediaType.parse(contentTypeFromResponse), file)).execute();
                     return fileStorageService.completeUpload(namespace, startResponse);
                 }
             }catch (Exception e) {

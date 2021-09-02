@@ -20,7 +20,9 @@ class PlatformEnums {
         
         medium("medium"), 
         
-        high("high");
+        high("high"), 
+        
+        urgent("urgent");
         
 
         private String priority;
@@ -128,6 +130,26 @@ class PlatformEnums {
 
 
 
+
+
+    /*
+        Enum: SubscriberStatus
+        Used By: Webhook
+    */
+    @Getter
+    public enum SubscriberStatus {
+
+        
+        active("active"), 
+        
+        inactive("inactive");
+        
+
+        private String priority;
+        SubscriberStatus(String priority) {
+            this.priority = priority;
+        }
+    }
 
 
 }

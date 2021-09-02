@@ -440,6 +440,9 @@ interface ConfigurationApiList {
     @GET ("/service/application/configuration/v1.0/ordering-store/stores")
     Call<ApplicationModels.OrderingStores> getOrderingStores(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q );
     
+    @GET ("/service/application/configuration/v1.0/ordering-store/stores/{store_id}")
+    Call<ApplicationModels.OrderingStore> getStoreDetailById(@Path("store_id") Integer storeId );
+    
     @GET ("/service/application/configuration/v1.0/feature")
     Call<ApplicationModels.AppFeatureResponse> getFeatures();
     
@@ -451,6 +454,9 @@ interface ConfigurationApiList {
     
     @GET ("/service/application/configuration/v1.0/currency/{id}")
     Call<ApplicationModels.Currency> getCurrencyById(@Path("id") String id );
+    
+    @GET ("/service/application/configuration/v1.0/currency")
+    Call<ApplicationModels.AppCurrencyResponse> getAppCurrencies();
     
     @GET ("/service/application/configuration/v1.0/languages")
     Call<ApplicationModels.LanguageResponse> getLanguages();
@@ -525,6 +531,9 @@ interface PaymentApiList {
     @POST ("/service/application/payment/v1.0/refund/account")
     Call<ApplicationModels.RefundAccountResponse> addBeneficiaryDetails(@Body ApplicationModels.AddBeneficiaryDetailsRequest payload);
     
+    @POST ("/service/application/payment/v1.0/refund/account/otp")
+    Call<ApplicationModels.RefundAccountResponse> addRefundBankAccountUsingOTP(@Body ApplicationModels.AddBeneficiaryDetailsOTPRequest payload);
+    
     @POST ("/service/application/payment/v1.0/refund/verification/wallet")
     Call<ApplicationModels.WalletOtpResponse> verifyOtpAndAddBeneficiaryForWallet(@Body ApplicationModels.WalletOtpRequest payload);
     
@@ -555,6 +564,15 @@ interface OrderApiList {
     
     @GET ("/service/application/order/v1.0/orders/pos-order/{order_id}")
     Call<ApplicationModels.PosOrderById> getPosOrderById(@Path("order_id") String orderId );
+    
+    @GET ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details")
+    Call<ApplicationModels.CustomerDetailsByShipmentId> getCustomerDetailsByShipmentId(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
+    
+    @POST ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send/")
+    Call<ApplicationModels.sendOTPApplicationResponse> sendOtpToShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
+    
+    @POST ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify")
+    Call<ApplicationModels.ResponseVerifyOTPShipment> verifyOtpShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId ,@Body ApplicationModels.ReqBodyVerifyOTPShipment payload);
     
 }
 
