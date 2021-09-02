@@ -2802,8 +2802,8 @@ public class FileStorageService extends FileStorage {
     }
 
     
-    public ApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size, String namespace, File file) {
-        return super.uploadMedia(fileName, contentType, size, namespace, file, this);
+    public ApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size, String namespace, File file, HashMap<String,Object> params) {
+        return super.uploadMedia(fileName, contentType, size, namespace, file, this, params);
     }
     
 
