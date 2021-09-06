@@ -1351,6 +1351,9 @@ interface WebhookApiList {
     @PUT ("/service/platform/webhook/v1.0/company/{company_id}/subscriber")
     Call<PlatformModels.SubscriberConfig> updateSubscriberConfig(@Path("company_id") Integer companyId ,@Body PlatformModels.SubscriberConfig payload);
     
+    @GET ("/service/platform/webhook/v1.0/company/{company_id}/extension/{extension_id}/subscriber")
+    Call<PlatformModels.SubscriberResponse> getSubscribersByExtensionId(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Path("company_id") Integer companyId , @Path("extension_id") String extensionId );
+    
     @GET ("/service/platform/webhook/v1.0/company/{company_id}/subscriber/{subscriber_id}")
     Call<PlatformModels.SubscriberResponse> getSubscriberById(@Path("company_id") Integer companyId , @Path("subscriber_id") Integer subscriberId );
     

@@ -493,6 +493,7 @@
   * [Webhook#getSubscribersByCompany](#webhookgetsubscribersbycompany)
   * [Webhook#registerSubscriberToEvent](#webhookregistersubscribertoevent)
   * [Webhook#updateSubscriberConfig](#webhookupdatesubscriberconfig)
+  * [Webhook#getSubscribersByExtensionId](#webhookgetsubscribersbyextensionid)
   * [Webhook#getSubscriberById](#webhookgetsubscriberbyid)
   * [Webhook#fetchAllEventConfigurations](#webhookfetchalleventconfigurations)
  
@@ -16646,6 +16647,45 @@ Success
 
 
 Schema: `SubscriberConfig`
+
+
+
+
+
+
+---
+
+
+#### getSubscribersByExtensionId
+Get Subscribers By Extension ID
+
+
+```java
+webhook.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| pageNo | Integer? | Page Number |   
+| pageSize | Integer? | Page Size |   
+| companyId | Integer? | Company ID of the application |   
+| extensionId | String? | Extension ID |  
+
+
+
+Get Subscribers By ExtensionID
+
+*Success Response*
+
+
+
+Success
+
+
+Schema: `SubscriberResponse`
 
 
 

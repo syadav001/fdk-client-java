@@ -12034,6 +12034,23 @@ public static class WebhookService {
     
     
     
+    public PlatformModels.SubscriberResponse getSubscribersByExtensionId(Integer pageNo , Integer pageSize , Integer companyId , String extensionId ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.SubscriberResponse> response = webhookApiList.getSubscribersByExtensionId(pageNo, pageSize, companyId, extensionId).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
     public PlatformModels.SubscriberResponse getSubscriberById(Integer companyId , Integer subscriberId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriberResponse> response = webhookApiList.getSubscriberById(companyId, subscriberId).execute();
@@ -12078,6 +12095,8 @@ public class ApplicationClient {
         this.applicationId = applicationId;
     }
 
+    
+    
     
     
     
