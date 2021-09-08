@@ -1006,6 +1006,112 @@ public class ApplicationService {
     });
     return paginator ;
     }
+    
+    
+    public ApplicationModels.ApplicationStoreListing getInStockLocations(Integer pageNo , Integer pageSize , String q , String city , Integer range , Double latitude , Double longitude ) throws IOException {
+    
+        Response<ApplicationModels.ApplicationStoreListing> response = catalogApiList.getInStockLocations(pageNo, pageSize, q, city, range, latitude, longitude).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getInStockLocations
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.ApplicationStoreListing> getInStockLocationsPagination(
+        
+        Integer pageSize,
+        String q,
+        String city,
+        Integer range,
+        Double latitude,
+        Double longitude
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.ApplicationStoreListing> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.ApplicationStoreListing callback = this.getInStockLocations(
+                
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q,
+                 city,
+                 range,
+                 latitude,
+                 longitude
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.StoreDetails getLocationDetailsById(Integer locationId ) throws IOException {
+    
+        Response<ApplicationModels.StoreDetails> response = catalogApiList.getLocationDetailsById(locationId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
       
 }
 

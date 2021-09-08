@@ -55,6 +55,8 @@
     * [getFollowerCountById](#getfollowercountbyid)
     * [getFollowIds](#getfollowids)
     * [getStores](#getstores)
+    * [getInStockLocations](#getinstocklocations)
+    * [getLocationDetailsById](#getlocationdetailsbyid)
     
 
 * [Cart](#Cart)
@@ -1405,6 +1407,86 @@ Success. Returns a list of selling locations. Check the example shown below or r
 
 
 Schema: `StoreListingResponse`
+
+
+
+
+
+
+
+
+
+---
+
+
+#### getInStockLocations
+Get store meta information.
+
+
+```java
+catalog.getInStockLocations(
+  pageNo, pageSize, q, city, range, latitude, longitude
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- |  
+| pageNo | Integer? | The page number to navigate through the given set of results. |    
+| pageSize | Integer? | Number of items to retrieve in each page. |    
+| q | String? | Search a store by its name or store_code. |    
+| city | String? | Search stores by the city in which they are situated. |    
+| range | Integer? | Use this to retrieve stores within a particular range in meters, e.g. 10000, to indicate a 10km range |    
+| latitude | Double? | Latitude of the location from where one wants to retreive the nearest stores, e.g. 72.8691788 |    
+| longitude | Double? | Longitude of the location from where one wants to retreive the nearest stores, e.g. 19.1174114 |  
+
+Use this API to get a list of stores in a specific application.
+
+*Success Response:*
+
+
+
+Success. Returns a list of selling locations. Check the example shown below or refer `StoreListingResponse` for more details.
+
+
+Schema: `ApplicationStoreListing`
+
+
+
+
+
+
+
+
+
+---
+
+
+#### getLocationDetailsById
+Get store meta information.
+
+
+```java
+catalog.getLocationDetailsById(
+  locationId
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- |  
+| locationId | Integer? | Unique Location ID. |  
+
+Use this API to get meta details for a store.
+
+*Success Response:*
+
+
+
+Success. Returns a metadata object. Check the example shown below or refer `StoreDetails` for more details.
+
+
+Schema: `StoreDetails`
 
 
 
