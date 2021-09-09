@@ -94,7 +94,7 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/in-stock/locations/")
     Call<ApplicationModels.ApplicationStoreListing> getInStockLocations(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("city") String city , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
     
-    @GET ("/service/application/catalog/v1.0/in-stock/locations/{location_id}/")
+    @GET ("/service/application/catalog/v1.0/locations/{location_id}/")
     Call<ApplicationModels.StoreDetails> getLocationDetailsById(@Path("location_id") Integer locationId );
     
 }
