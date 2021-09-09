@@ -323,7 +323,7 @@
   * [Catalog#updateProductAssetsInBulk](#catalogupdateproductassetsinbulk)
   * [Catalog#createProductsInBulk](#catalogcreateproductsinbulk)
   * [Catalog#deleteProductBulkJob](#catalogdeleteproductbulkjob)
-  * [Catalog#getCompanyTags](#cataloggetcompanytags)
+  * [Catalog#getProductTags](#cataloggetproducttags)
   * [Catalog#getProductAssetsInBulk](#cataloggetproductassetsinbulk)
   * [Catalog#createProductAssetsInBulk](#catalogcreateproductassetsinbulk)
   * [Catalog#deleteSize](#catalogdeletesize)
@@ -351,8 +351,8 @@
   * [Catalog#getAppProducts](#cataloggetappproducts)
  
 * [CompanyProfile](#CompanyProfile)
-  * [CompanyProfile#updateCompany](#companyprofileupdatecompany)
   * [CompanyProfile#cbsOnboardGet](#companyprofilecbsonboardget)
+  * [CompanyProfile#updateCompany](#companyprofileupdatecompany)
   * [CompanyProfile#getCompanyMetrics](#companyprofilegetcompanymetrics)
   * [CompanyProfile#editBrand](#companyprofileeditbrand)
   * [CompanyProfile#getBrand](#companyprofilegetbrand)
@@ -10906,7 +10906,7 @@ Schema: `SuccessResponse`
 ---
 
 
-#### getCompanyTags
+#### getProductTags
 Get a list of all tags associated with company.
 
 
@@ -10919,11 +10919,11 @@ catalog.(
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- | 
-| companyId | Integer? | Company Id of the product size. |  
+| companyId | Integer? | Company Id for which tags to be fetched. |  
 
 
 
-This API helps to get tags data associated to a particular copmpany.
+This API helps to get tags data associated to a particular company.
 
 *Success Response*
 
@@ -11793,7 +11793,8 @@ catalog.(
 | pageId | String? | Each response will contain **page_id** param, which should be sent back to make pagination work. |   
 | pageSize | Integer? | Number of items to retrieve in each page. Default is 12. |   
 | pageNo | Integer? | If page_type is number then pass it to fetch page items. Default is 1. |   
-| pageType | String? | For pagination type should be cursor or number. Default is cursor. |  
+| pageType | String? | For pagination type should be cursor or number. Default is cursor. |   
+| itemIds | List<String>? | Item Ids of product |  
 
 
 
@@ -11872,6 +11873,7 @@ catalog.(
 | brandIds | List<Integer>? | Get multiple products filtered by Brand Ids |   
 | categoryIds | List<Integer>? | Get multiple products filtered by Category Ids |   
 | departmentIds | List<Integer>? | Get multiple products filtered by Department Ids |   
+| tags | List<String>? | Get multiple products filtered by Department Ids |   
 | pageNo | Integer? | The page number to navigate through the given set of results |   
 | pageSize | Integer? | Number of items to retrieve in each page. Default is 10. |   
 | q | String? | Search with Item Code, Name, Slug or Identifier. |  
@@ -11905,42 +11907,6 @@ Schema: `ProductListingResponse`
 ## CompanyProfile
 
 
-#### updateCompany
-Edit company profile
-
-
-```java
-companyprofile.(
-  
-  );
-  //use response
-```
-
-| Argument  |  Type  | Description |
-| --------- | ----  | --- | 
-| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |  
-
-
-
-This API allows to edit the company profile of the seller account.
-
-*Success Response*
-
-
-
-Returns a success message
-
-
-Schema: `SuccessResponse`
-
-
-
-
-
-
----
-
-
 #### cbsOnboardGet
 Get company profile
 
@@ -11968,6 +11934,42 @@ Company profile object. See example below or refer `GetCompanyProfileSerializerR
 
 
 Schema: `GetCompanyProfileSerializerResponse`
+
+
+
+
+
+
+---
+
+
+#### updateCompany
+Edit company profile
+
+
+```java
+companyprofile.(
+  
+  );
+  //use response
+```
+
+| Argument  |  Type  | Description |
+| --------- | ----  | --- | 
+| companyId | String? | A `company_id` is a unique identifier for a particular seller account. |  
+
+
+
+This API allows to edit the company profile of the seller account.
+
+*Success Response*
+
+
+
+Returns a success message
+
+
+Schema: `SuccessResponse`
 
 
 

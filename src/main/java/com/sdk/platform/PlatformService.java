@@ -6811,9 +6811,9 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ProductTagsViewResponse getCompanyTags(Integer companyId ) throws IOException {
+    public PlatformModels.ProductTagsViewResponse getProductTags(Integer companyId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ProductTagsViewResponse> response = catalogApiList.getCompanyTags(companyId).execute();
+            Response<PlatformModels.ProductTagsViewResponse> response = catalogApiList.getProductTags(companyId).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -7851,9 +7851,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ApplicationProductListingResponse getAppicationProducts(String companyId , String applicationId , String q , String f , Boolean filters , String sortOn , String pageId , Integer pageSize , Integer pageNo , String pageType ) throws IOException {
+    public PlatformModels.ApplicationProductListingResponse getAppicationProducts(String companyId , String applicationId , String q , String f , Boolean filters , String sortOn , String pageId , Integer pageSize , Integer pageNo , String pageType , List<String> itemIds ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ApplicationProductListingResponse> response = catalogApiList.getAppicationProducts(companyId, applicationId, q, f, filters, sortOn, pageId, pageSize, pageNo, pageType).execute();
+            Response<PlatformModels.ApplicationProductListingResponse> response = catalogApiList.getAppicationProducts(companyId, applicationId, q, f, filters, sortOn, pageId, pageSize, pageNo, pageType, itemIds).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -7866,6 +7866,10 @@ public class ApplicationClient {
 
     
     
+        
+        
+        
+        
         
         
         
@@ -7923,7 +7927,8 @@ public class ApplicationClient {
         String f,
         Boolean filters,
         String sortOn,
-        Integer pageSize
+        Integer pageSize,
+        List<String> itemIds
         
         ){ 
     
@@ -7948,7 +7953,8 @@ public class ApplicationClient {
                  paginator.getPageNo()
                 ,
                  paginator.getPageType()
-                
+                ,
+                 itemIds
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -7982,9 +7988,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ProductListingResponse getAppProducts(String companyId , String applicationId , List<Integer> brandIds , List<Integer> categoryIds , List<Integer> departmentIds , Integer pageNo , Integer pageSize , String q ) throws IOException {
+    public PlatformModels.ProductListingResponse getAppProducts(String companyId , String applicationId , List<Integer> brandIds , List<Integer> categoryIds , List<Integer> departmentIds , List<String> tags , Integer pageNo , Integer pageSize , String q ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ProductListingResponse> response = catalogApiList.getAppProducts(companyId, applicationId, brandIds, categoryIds, departmentIds, pageNo, pageSize, q).execute();
+            Response<PlatformModels.ProductListingResponse> response = catalogApiList.getAppProducts(companyId, applicationId, brandIds, categoryIds, departmentIds, tags, pageNo, pageSize, q).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8026,9 +8032,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.SuccessResponse updateCompany(String companyId ,PlatformModels.UpdateCompany body) throws IOException {
+    public PlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet(String companyId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateCompany(companyId, body).execute();
+            Response<PlatformModels.GetCompanyProfileSerializerResponse> response = companyprofileApiList.cbsOnboardGet(companyId).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8043,9 +8049,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet(String companyId ) throws IOException {
+    public PlatformModels.SuccessResponse updateCompany(String companyId ,PlatformModels.UpdateCompany body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetCompanyProfileSerializerResponse> response = companyprofileApiList.cbsOnboardGet(companyId).execute();
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateCompany(companyId, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
