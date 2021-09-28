@@ -76,11 +76,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -474,7 +474,7 @@ interface ConfigurationApiList {
     Call<ApplicationModels.SuccessMessageResponse> removeOrderingStoreCookie();
     
     @GET ("/service/application/configuration/v1.0/staff")
-    Call<ApplicationModels.AppStaffResponse> getAppStaffs(@Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
+    Call<ApplicationModels.AppStaffResponse> getAppStaffs(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user , @Query("permission") String permission );
     
 }
 

@@ -50,8 +50,8 @@
     * [getCollectionItemsBySlug](#getcollectionitemsbyslug)
     * [getCollectionDetailBySlug](#getcollectiondetailbyslug)
     * [getFollowedListing](#getfollowedlisting)
-    * [unfollowById](#unfollowbyid)
     * [followById](#followbyid)
+    * [unfollowById](#unfollowbyid)
     * [getFollowerCountById](#getfollowercountbyid)
     * [getFollowIds](#getfollowids)
     * [getStores](#getstores)
@@ -1225,12 +1225,12 @@ Schema: `GetFollowListingResponse`
 ---
 
 
-#### unfollowById
-Unfollow an entity (product/brand/collection)
+#### followById
+Follow an entity (product/brand/collection)
 
 
 ```java
-catalog.unfollowById(
+catalog.followById(
   collectionType, collectionId
   );
   //use response
@@ -1241,7 +1241,7 @@ catalog.unfollowById(
 | collectionType | String? | Type of collection followed, i.e. products, brands, or collections. |    
 | collectionId | String? | The ID of the collection type. |  
 
-You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+Follow a particular entity such as product, brand, collection specified by its ID.
 
 *Success Response:*
 
@@ -1263,12 +1263,12 @@ Schema: `FollowPostResponse`
 ---
 
 
-#### followById
-Follow an entity (product/brand/collection)
+#### unfollowById
+Unfollow an entity (product/brand/collection)
 
 
 ```java
-catalog.followById(
+catalog.unfollowById(
   collectionType, collectionId
   );
   //use response
@@ -1279,7 +1279,7 @@ catalog.followById(
 | collectionType | String? | Type of collection followed, i.e. products, brands, or collections. |    
 | collectionId | String? | The ID of the collection type. |  
 
-Follow a particular entity such as product, brand, collection specified by its ID.
+You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
 
 *Success Response:*
 
@@ -9331,16 +9331,19 @@ Get a list of staff.
 
 ```java
 configuration.getAppStaffs(
-  orderIncent, orderingStore, user
+  pageNo, pageSize, orderIncent, orderingStore, user, permission
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
+| pageNo | Integer? | Current page no |    
+| pageSize | Integer? | Current request items count |    
 | orderIncent | Boolean? | This is a boolean value. Select `true` to retrieve the staff members eligible for getting incentives on orders. |    
 | orderingStore | Integer? | ID of the ordering store. Helps in retrieving staff members working at a particular ordering store. |    
-| user | String? | Mongo ID of the staff. Helps in retrieving the details of a particular staff member. |  
+| user | String? | Mongo ID of the staff. Helps in retrieving the details of a particular staff member. |    
+| permission | String? | Get Staff members with specific permissions |  
 
 Use this API to get a list of staff including the names, employee code, incentive status, assigned ordering stores, and title of each staff added to the application.
 
