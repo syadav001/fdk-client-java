@@ -1791,6 +1791,34 @@ public class ApplicationService {
     
     
     
+    public ApplicationModels.AuthSuccess loginWithGoogleOauth(String platform ) throws IOException {
+    
+        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithGoogleOauth(platform).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.AuthSuccess loginWithGoogleAndRedirect(String platform ) throws IOException {
+    
+        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithGoogleAndRedirect(platform).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.AuthSuccess loginWithGoogleAndroid(String platform ,ApplicationModels.OAuthRequestSchema body) throws IOException {
     
         Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithGoogleAndroid(platform, body).execute();

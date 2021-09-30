@@ -22495,8 +22495,8 @@ public static class ApplicationRedirections{
     
     
     
-    @JsonProperty("from")
-    private String from;
+    @JsonProperty("redirect_from")
+    private String redirectFrom;
     
     
     
