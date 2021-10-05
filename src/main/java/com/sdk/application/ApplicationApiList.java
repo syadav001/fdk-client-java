@@ -234,9 +234,6 @@ interface UserApiList {
     @GET ("/service/application/user/authentication/v1.0/login/google")
     Call<ApplicationModels.AuthSuccess> loginWithGoogleOauth(@Query("platform") String platform );
     
-    @GET ("/service/application/user/authentication/v1.0/login/google/callback")
-    Call<ApplicationModels.AuthSuccess> loginWithGoogleAndRedirect(@Query("platform") String platform );
-    
     @POST ("/service/application/user/authentication/v1.0/login/google-android")
     Call<ApplicationModels.AuthSuccess> loginWithGoogleAndroid(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
