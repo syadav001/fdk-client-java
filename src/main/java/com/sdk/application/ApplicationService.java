@@ -1791,9 +1791,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.AuthSuccess loginWithGoogleOauth(String platform ) throws IOException {
+    public ApplicationModels.AuthSuccess loginWithGoogleOauth(String platform , String redirectUrl ) throws IOException {
     
-        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithGoogleOauth(platform).execute();
+        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithGoogleOauth(platform, redirectUrl).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3236,9 +3236,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.AppStaffResponse getAppStaffs(Integer pageNo , Integer pageSize , Boolean orderIncent , Integer orderingStore , String user , String permission ) throws IOException {
+    public ApplicationModels.AppStaffResponse getAppStaffs(Boolean orderIncent , Integer orderingStore , String user ) throws IOException {
     
-        Response<ApplicationModels.AppStaffResponse> response = configurationApiList.getAppStaffs(pageNo, pageSize, orderIncent, orderingStore, user, permission).execute();
+        Response<ApplicationModels.AppStaffResponse> response = configurationApiList.getAppStaffs(orderIncent, orderingStore, user).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3248,78 +3248,6 @@ public class FileStorageService extends FileStorage {
 
     
     
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getAppStaffs
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.AppStaffResponse> getAppStaffsPagination(
-        
-        Integer pageSize,
-        Boolean orderIncent,
-        Integer orderingStore,
-        String user,
-        String permission
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.AppStaffResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.AppStaffResponse callback = this.getAppStaffs(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 orderIncent,
-                 orderingStore,
-                 user,
-                 permission
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
       
 }
 

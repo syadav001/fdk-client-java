@@ -6155,14 +6155,15 @@ Login or Register using Google
 
 ```java
 user.loginWithGoogleOauth(
-  platform
+  platform, redirectUrl
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| platform | String? | ID of the application |  
+| platform | String? | ID of the application |    
+| redirectUrl | String? | Url to redirect after login |  
 
 Use this API to login or register using Google Account credentials.
 
@@ -9380,19 +9381,16 @@ Get a list of staff.
 
 ```java
 configuration.getAppStaffs(
-  pageNo, pageSize, orderIncent, orderingStore, user, permission
+  orderIncent, orderingStore, user
   );
   //use response
 ```
 
 | Argument  |  Type  | Description |
 | --------- | ----  | --- |  
-| pageNo | Integer? | Current page no |    
-| pageSize | Integer? | Current request items count |    
 | orderIncent | Boolean? | This is a boolean value. Select `true` to retrieve the staff members eligible for getting incentives on orders. |    
 | orderingStore | Integer? | ID of the ordering store. Helps in retrieving staff members working at a particular ordering store. |    
-| user | String? | Mongo ID of the staff. Helps in retrieving the details of a particular staff member. |    
-| permission | String? | Get Staff members with specific permissions |  
+| user | String? | Mongo ID of the staff. Helps in retrieving the details of a particular staff member. |  
 
 Use this API to get a list of staff including the names, employee code, incentive status, assigned ordering stores, and title of each staff added to the application.
 

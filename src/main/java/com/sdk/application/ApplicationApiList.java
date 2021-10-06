@@ -232,7 +232,7 @@ interface UserApiList {
     Call<ApplicationModels.AuthSuccess> loginWithGoogle(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
     @GET ("/service/application/user/authentication/v1.0/login/google")
-    Call<ApplicationModels.AuthSuccess> loginWithGoogleOauth(@Query("platform") String platform );
+    Call<ApplicationModels.AuthSuccess> loginWithGoogleOauth(@Query("platform") String platform , @Query("redirect_url") String redirectUrl );
     
     @POST ("/service/application/user/authentication/v1.0/login/google-android")
     Call<ApplicationModels.AuthSuccess> loginWithGoogleAndroid(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
@@ -477,7 +477,7 @@ interface ConfigurationApiList {
     Call<ApplicationModels.SuccessMessageResponse> removeOrderingStoreCookie();
     
     @GET ("/service/application/configuration/v1.0/staff")
-    Call<ApplicationModels.AppStaffResponse> getAppStaffs(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user , @Query("permission") String permission );
+    Call<ApplicationModels.AppStaffResponse> getAppStaffs(@Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
     
 }
 
