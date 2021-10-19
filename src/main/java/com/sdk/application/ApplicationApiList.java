@@ -76,11 +76,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -90,6 +90,12 @@ interface CatalogApiList {
     
     @GET ("/service/application/catalog/v1.0/locations/")
     Call<ApplicationModels.StoreListingResponse> getStores(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("city") String city , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
+    
+    @GET ("/service/application/catalog/v1.0/in-stock/locations/")
+    Call<ApplicationModels.ApplicationStoreListing> getInStockLocations(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("city") String city , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
+    
+    @GET ("/service/application/catalog/v1.0/locations/{location_id}/")
+    Call<ApplicationModels.StoreDetails> getLocationDetailsById(@Path("location_id") Integer locationId );
     
 }
 
@@ -220,16 +226,16 @@ interface ThemeApiList {
 interface UserApiList {
     
     @POST ("/service/application/user/authentication/v1.0/login/facebook-token")
-    Call<ApplicationModels.AuthSuccess> loginWithFacebook(@Body ApplicationModels.OAuthRequestSchema payload);
+    Call<ApplicationModels.AuthSuccess> loginWithFacebook(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
     @POST ("/service/application/user/authentication/v1.0/login/google-token")
-    Call<ApplicationModels.AuthSuccess> loginWithGoogle(@Body ApplicationModels.OAuthRequestSchema payload);
+    Call<ApplicationModels.AuthSuccess> loginWithGoogle(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
     @POST ("/service/application/user/authentication/v1.0/login/google-android")
-    Call<ApplicationModels.AuthSuccess> loginWithGoogleAndroid(@Body ApplicationModels.OAuthRequestSchema payload);
+    Call<ApplicationModels.AuthSuccess> loginWithGoogleAndroid(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
     @POST ("/service/application/user/authentication/v1.0/login/google-ios")
-    Call<ApplicationModels.AuthSuccess> loginWithGoogleIOS(@Body ApplicationModels.OAuthRequestSchema payload);
+    Call<ApplicationModels.AuthSuccess> loginWithGoogleIOS(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
     @POST ("/service/application/user/authentication/v1.0/login/otp")
     Call<ApplicationModels.SendOtpResponse> loginWithOTP(@Query("platform") String platform ,@Body ApplicationModels.SendOtpRequestSchema payload);
