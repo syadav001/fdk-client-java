@@ -2479,7 +2479,7 @@ Get page meta
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getPageMeta()
+client.application("<APPLICATION_ID>").content.getPageMeta( pageType,  cartPages)
 {
 
 
@@ -2492,7 +2492,9 @@ client.application("<APPLICATION_ID>").content.getPageMeta()
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |  
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
+| pageType | String? | no | Fetch meta by page type. Acceptable values are: system, custom and all |   
+| cartPages | Boolean? | no | Pass this param value as `true` to fetch meta with cart pages |  
 
 
 

@@ -26,6 +26,7 @@ Application configuration apis
 * [updateAppCurrencyConfig](#updateappcurrencyconfig)
 * [getOrderingStoresByFilter](#getorderingstoresbyfilter)
 * [updateOrderingStoreConfig](#updateorderingstoreconfig)
+* [getStaffOrderingStores](#getstafforderingstores)
 * [getDomains](#getdomains)
 * [addDomain](#adddomain)
 * [removeDomainById](#removedomainbyid)
@@ -41,7 +42,9 @@ Application configuration apis
 * [getSelectedOptIns](#getselectedoptins)
 * [getIntegrationLevelConfig](#getintegrationlevelconfig)
 * [getIntegrationByLevelId](#getintegrationbylevelid)
+* [updateLevelUidIntegration](#updateleveluidintegration)
 * [getLevelActiveIntegrations](#getlevelactiveintegrations)
+* [updateLevelIntegration](#updatelevelintegration)
 * [getBrandsByCompany](#getbrandsbycompany)
 * [getCompanyByBrands](#getcompanybybrands)
 * [getStoreByBrands](#getstorebybrands)
@@ -2633,6 +2636,66 @@ Success
 ---
 
 
+### getStaffOrderingStores
+Get deployment stores
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").configuration.getStaffOrderingStores( pageNo,  pageSize,  q)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Current company id |   
+| applicationId | String | yes | Current application id |   
+| pageNo | Integer? | no | The page number to navigate through the given set of results. Default value is 1. |   
+| pageSize | Integer? | no | The number of items to retrieve in each page. Default value is 10. |   
+| q | String? | no | Store code or name of the ordering store. |  
+
+
+
+Use this API to retrieve the details of all stores access given to the staff member (the selling locations where the application will be utilized for placing orders).
+
+*Returned Response:*
+
+
+
+
+[OrderingStoresResponse](#OrderingStoresResponse)
+
+Success. Check the example shown below or refer `OrderingStoresResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getDomains
 Get attached domain list
 
@@ -3967,6 +4030,82 @@ Success
 ---
 
 
+### updateLevelUidIntegration
+Update a store level opt-in for integration
+
+
+
+
+```java
+client.configuration.updateLevelUidIntegration( id,  level,  uid, body body)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Current company id |   
+| id | String | yes | Integration id |   
+| level | String | yes | Integration level |   
+| uid | Integer | yes | Integration level uid |  
+| body | [IntegrationLevel](#IntegrationLevel) | yes | Request body |
+
+
+Update a store level opt-in for integration
+
+*Returned Response:*
+
+
+
+
+[IntegrationLevel](#IntegrationLevel)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "opted": false,
+  "permissions": [],
+  "last_patch": [],
+  "_id": "5ec377f2848a0073feacb31b",
+  "integration": "5ec376ce848a005189acb312",
+  "level": "store",
+  "uid": 1,
+  "meta": [],
+  "token": "1RuGX0Fyp",
+  "created_at": "2020-05-19T06:08:50.199Z",
+  "modified_at": "2020-08-17T07:54:01.809Z",
+  "__v": 14,
+  "data": {
+    "location_id": "09876",
+    "ip_address": "1.2.3.4"
+  }
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getLevelActiveIntegrations
 Check store has active integration
 
@@ -4001,6 +4140,81 @@ API checks if a store is already opted in any other integrations
 
 
 [OptedStoreIntegration](#OptedStoreIntegration)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "opted": false,
+  "permissions": [],
+  "last_patch": [],
+  "_id": "5ec377f2848a0073feacb31b",
+  "integration": "5ec376ce848a005189acb312",
+  "level": "store",
+  "uid": 1,
+  "meta": [],
+  "token": "1RuGX0Fyp",
+  "created_at": "2020-05-19T06:08:50.199Z",
+  "modified_at": "2020-08-17T07:54:01.809Z",
+  "__v": 14,
+  "data": {
+    "location_id": "09876",
+    "ip_address": "1.2.3.4"
+  }
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateLevelIntegration
+Update a store level opt-in for integration
+
+
+
+
+```java
+client.configuration.updateLevelIntegration( id,  level, body body)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Current company id |   
+| id | String | yes | Integration id |   
+| level | String | yes | Integration level |  
+| body | [IntegrationLevel](#IntegrationLevel) | yes | Request body |
+
+
+Update a store level opt-in for integration
+
+*Returned Response:*
+
+
+
+
+[IntegrationLevel](#IntegrationLevel)
 
 Success
 
@@ -5337,7 +5551,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [IntegrationOptIn](#IntegrationOptIn)? |  yes  |  |
+ | items | ArrayList<[IntegrationOptIn](#IntegrationOptIn)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
 
 ---
@@ -5491,7 +5705,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [IntegrationLevel](#IntegrationLevel)? |  yes  |  |
+ | items | ArrayList<[IntegrationLevel](#IntegrationLevel)>? |  yes  |  |
 
 ---
 
@@ -7042,6 +7256,18 @@ Success
  | id | String? |  yes  |  |
  | app | String? |  yes  |  |
  | v | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderingStoresResponse](#OrderingStoresResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[OrderingStore](#OrderingStore)>? |  yes  |  |
 
 ---
 

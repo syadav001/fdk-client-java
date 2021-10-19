@@ -2797,4 +2797,16 @@ Success. Check the example shown below or refer `AppStaffResponse` for more deta
 ---
 
 
+ 
+ 
+ #### [OrderingStoresResponse](#OrderingStoresResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[OrderingStore](#OrderingStore)>? |  yes  |  |
+
+---
+
+
 
