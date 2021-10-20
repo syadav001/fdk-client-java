@@ -4204,7 +4204,7 @@ client.configuration.updateLevelIntegration( id,  level, body body)
 | companyId | String | yes | Current company id |   
 | id | String | yes | Integration id |   
 | level | String | yes | Integration level |  
-| body | [IntegrationLevel](#IntegrationLevel) | yes | Request body |
+| body | [UpdateIntegrationLevelRequest](#UpdateIntegrationLevelRequest) | yes | Request body |
 
 
 Update a store level opt-in for integration
@@ -5729,6 +5729,17 @@ Success
  | updatedAt | String? |  yes  |  |
  | v | Integer? |  yes  |  |
  | data | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateIntegrationLevelRequest](#UpdateIntegrationLevelRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<[IntegrationLevel](#IntegrationLevel)>? |  yes  |  |
 
 ---
 
