@@ -1196,7 +1196,7 @@ interface ConfigurationApiList {
     Call<PlatformModels.OptedStoreIntegration> getLevelActiveIntegrations(@Path("company_id") String companyId , @Path("id") String id , @Path("level") String level , @Path("uid") Integer uid );
     
     @PUT ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/configuration/{id}/{level}")
-    Call<PlatformModels.IntegrationLevel> updateLevelIntegration(@Path("company_id") String companyId , @Path("id") String id , @Path("level") String level ,@Body PlatformModels.IntegrationLevel payload);
+    Call<PlatformModels.IntegrationLevel> updateLevelIntegration(@Path("company_id") String companyId , @Path("id") String id , @Path("level") String level ,@Body PlatformModels.UpdateIntegrationLevelRequest payload);
     
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/inventory/brands-by-companies")
     Call<PlatformModels.BrandsByCompanyResponse> getBrandsByCompany(@Path("company_id") String companyId , @Query("q") String q );

@@ -9711,7 +9711,7 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.IntegrationLevel updateLevelIntegration(String companyId , String id , String level ,PlatformModels.IntegrationLevel body) throws IOException {
+    public PlatformModels.IntegrationLevel updateLevelIntegration(String companyId , String id , String level ,PlatformModels.UpdateIntegrationLevelRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.IntegrationLevel> response = configurationApiList.updateLevelIntegration(companyId, id, level, body).execute();
             if (!response.isSuccessful()) {

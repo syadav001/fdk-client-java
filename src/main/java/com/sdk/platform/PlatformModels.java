@@ -51557,6 +51557,29 @@ public static class IntegrationLevel {
 }
 
 /*
+    Model: UpdateIntegrationLevelRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class UpdateIntegrationLevelRequest {
+    
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<IntegrationLevel> items;
+    
+    
+    
+    
+}
+
+/*
     Model: OptedStoreIntegration
 */
 @AllArgsConstructor
