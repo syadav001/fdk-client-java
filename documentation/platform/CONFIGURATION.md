@@ -5626,7 +5626,7 @@ Success
  | support | ArrayList<String>? |  yes  |  |
  | id | String? |  yes  |  |
  | name | String? |  yes  |  |
- | meta | [IntegrationMeta](#IntegrationMeta)? |  yes  |  |
+ | meta | ArrayList<[IntegrationMeta](#IntegrationMeta)>? |  yes  |  |
  | icon | String? |  yes  |  |
  | owner | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
@@ -5662,7 +5662,7 @@ Success
  | integration | String? |  yes  |  |
  | level | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
- | meta | ArrayList<Object>? |  yes  |  |
+ | meta | ArrayList<[IntegrationMeta](#IntegrationMeta)>? |  yes  |  |
  | token | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |

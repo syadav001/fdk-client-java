@@ -51384,7 +51384,7 @@ public static class Integration {
     
     
     @JsonProperty("meta")
-    private IntegrationMeta meta;
+    private List<IntegrationMeta> meta;
     
     
     
@@ -51528,7 +51528,7 @@ public static class IntegrationLevel {
     
     
     @JsonProperty("meta")
-    private List<Object> meta;
+    private List<IntegrationMeta> meta;
     
     
     
