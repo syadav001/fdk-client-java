@@ -5542,7 +5542,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | jsonSchema | [JsonSchema](#JsonSchema)? |  yes  |  |
+ | jsonSchema | ArrayList<[JsonSchema](#JsonSchema)>? |  yes  |  |
  | browserScript | String? |  yes  |  |
 
 ---
