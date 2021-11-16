@@ -385,6 +385,12 @@ interface ContentApiList {
     @GET ("/service/application/content/v1.0/tags")
     Call<ApplicationModels.TagsSchema> getTags();
     
+    @GET ("/service/application/content/v2.0/pages/{slug}")
+    Call<ApplicationModels.PageSchema> getPageV2(@Path("slug") String slug , @Query("root_id") String rootId );
+    
+    @GET ("/service/application/content/v2.0/pages/")
+    Call<ApplicationModels.PageGetResponse> getPagesV2(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    
 }
 
 interface CommunicationApiList {

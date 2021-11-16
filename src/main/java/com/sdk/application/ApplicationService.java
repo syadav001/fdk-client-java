@@ -2710,6 +2710,82 @@ public class ApplicationService {
 
     
     
+    
+    
+    public ApplicationModels.PageSchema getPageV2(String slug , String rootId ) throws IOException {
+    
+        Response<ApplicationModels.PageSchema> response = contentApiList.getPageV2(slug, rootId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PageGetResponse getPagesV2(Integer pageNo , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.PageGetResponse> response = contentApiList.getPagesV2(pageNo, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getPagesV2
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.PageGetResponse> getPagesV2Pagination(
+        
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.PageGetResponse callback = this.getPagesV2(
+                
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
       
 }
 
