@@ -6677,26 +6677,9 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.Product getProduct(String itemCode , Integer companyId , Integer itemId , Integer brandUid , Integer uid ) throws IOException {
+    public PlatformModels.Product getProduct(String itemCode , Integer companyId , Integer itemId , Integer brandUid ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.Product> response = catalogApiList.getProduct(itemCode, companyId, itemId, brandUid, uid).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    public PlatformModels.SuccessResponse deleteProduct(String companyId , Integer itemId ) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = catalogApiList.deleteProduct(companyId, itemId).execute();
+            Response<PlatformModels.Product> response = catalogApiList.getProduct(itemCode, companyId, itemId, brandUid).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -6714,6 +6697,23 @@ public static class CatalogService {
     public PlatformModels.SuccessResponse editProduct(String companyId , Integer itemId ,PlatformModels.ProductCreateUpdate body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = catalogApiList.editProduct(companyId, itemId, body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    public PlatformModels.SuccessResponse deleteProduct(String companyId , Integer itemId ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.SuccessResponse> response = catalogApiList.deleteProduct(companyId, itemId).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -6796,9 +6796,9 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse deleteProductBulkJob(String companyId , Integer batchId ) throws IOException {
+    public PlatformModels.SuccessResponse createProductsInBulk(Integer companyId , String batchId ,PlatformModels.BulkProductRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = catalogApiList.deleteProductBulkJob(companyId, batchId).execute();
+            Response<PlatformModels.SuccessResponse> response = catalogApiList.createProductsInBulk(companyId, batchId, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -6813,9 +6813,9 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse createProductsInBulk(Integer companyId , String batchId ,PlatformModels.BulkProductRequest body) throws IOException {
+    public PlatformModels.SuccessResponse deleteProductBulkJob(String companyId , Integer batchId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = catalogApiList.createProductsInBulk(companyId, batchId, body).execute();
+            Response<PlatformModels.SuccessResponse> response = catalogApiList.deleteProductBulkJob(companyId, batchId).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -6898,9 +6898,9 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.InventoryResponse getInventoryBySize(String companyId , String itemId , String size , Integer pageNo , Integer pageSize , String q ) throws IOException {
+    public PlatformModels.InventoryResponse getInventoryBySize(String companyId , String itemId , String size , Integer pageNo , Integer pageSize , String q , Boolean sellable ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.InventoryResponse> response = catalogApiList.getInventoryBySize(companyId, itemId, size, pageNo, pageSize, q).execute();
+            Response<PlatformModels.InventoryResponse> response = catalogApiList.getInventoryBySize(companyId, itemId, size, pageNo, pageSize, q, sellable).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -7000,9 +7000,9 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse deleteBulkInventoryJob(String companyId , String batchId ) throws IOException {
+    public PlatformModels.SuccessResponse createBulkInventory(Integer companyId , String batchId ,PlatformModels.InventoryBulkRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = catalogApiList.deleteBulkInventoryJob(companyId, batchId).execute();
+            Response<PlatformModels.SuccessResponse> response = catalogApiList.createBulkInventory(companyId, batchId, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -7017,9 +7017,9 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse createBulkInventory(Integer companyId , String batchId ,PlatformModels.InventoryBulkRequest body) throws IOException {
+    public PlatformModels.SuccessResponse deleteBulkInventoryJob(String companyId , String batchId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = catalogApiList.createBulkInventory(companyId, batchId, body).execute();
+            Response<PlatformModels.SuccessResponse> response = catalogApiList.deleteBulkInventoryJob(companyId, batchId).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -7230,9 +7230,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DeleteResponse deleteSearchKeywords(String companyId , String applicationId , String id ) throws IOException {
+    public PlatformModels.GetSearchWordsData updateSearchKeywords(String companyId , String applicationId , String id ,PlatformModels.CreateSearchKeyword body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.DeleteResponse> response = catalogApiList.deleteSearchKeywords(companyId, applicationId, id).execute();
+            Response<PlatformModels.GetSearchWordsData> response = catalogApiList.updateSearchKeywords(companyId, applicationId, id, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -7248,9 +7248,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetSearchWordsData updateSearchKeywords(String companyId , String applicationId , String id ,PlatformModels.CreateSearchKeyword body) throws IOException {
+    public PlatformModels.DeleteResponse deleteSearchKeywords(String companyId , String applicationId , String id ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetSearchWordsData> response = catalogApiList.updateSearchKeywords(companyId, applicationId, id, body).execute();
+            Response<PlatformModels.DeleteResponse> response = catalogApiList.deleteSearchKeywords(companyId, applicationId, id).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -7320,9 +7320,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DeleteResponse deleteAutocompleteKeyword(String companyId , String applicationId , String id ) throws IOException {
+    public PlatformModels.GetAutocompleteWordsResponse updateAutocompleteKeyword(String companyId , String applicationId , String id ,PlatformModels.CreateAutocompleteKeyword body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.DeleteResponse> response = catalogApiList.deleteAutocompleteKeyword(companyId, applicationId, id).execute();
+            Response<PlatformModels.GetAutocompleteWordsResponse> response = catalogApiList.updateAutocompleteKeyword(companyId, applicationId, id, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -7338,9 +7338,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetAutocompleteWordsResponse updateAutocompleteKeyword(String companyId , String applicationId , String id ,PlatformModels.CreateAutocompleteKeyword body) throws IOException {
+    public PlatformModels.DeleteResponse deleteAutocompleteKeyword(String companyId , String applicationId , String id ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetAutocompleteWordsResponse> response = catalogApiList.updateAutocompleteKeyword(companyId, applicationId, id, body).execute();
+            Response<PlatformModels.DeleteResponse> response = catalogApiList.deleteAutocompleteKeyword(companyId, applicationId, id).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -7570,9 +7570,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DeleteResponse deleteCollection(String companyId , String applicationId , String id ) throws IOException {
+    public PlatformModels.UpdateCollection updateCollection(String companyId , String applicationId , String id ,PlatformModels.UpdateCollection body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.DeleteResponse> response = catalogApiList.deleteCollection(companyId, applicationId, id).execute();
+            Response<PlatformModels.UpdateCollection> response = catalogApiList.updateCollection(companyId, applicationId, id, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -7588,9 +7588,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.UpdateCollection updateCollection(String companyId , String applicationId , String id ,PlatformModels.UpdateCollection body) throws IOException {
+    public PlatformModels.DeleteResponse deleteCollection(String companyId , String applicationId , String id ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.UpdateCollection> response = catalogApiList.updateCollection(companyId, applicationId, id, body).execute();
+            Response<PlatformModels.DeleteResponse> response = catalogApiList.deleteCollection(companyId, applicationId, id).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8121,9 +8121,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetBrandResponseSerializer getBrand(String companyId , String brandId ) throws IOException {
+    public PlatformModels.SuccessResponse editBrand(String companyId , String brandId ,PlatformModels.CreateUpdateBrandRequestSerializer body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetBrandResponseSerializer> response = companyprofileApiList.getBrand(companyId, brandId).execute();
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.editBrand(companyId, brandId, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8138,9 +8138,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.SuccessResponse editBrand(String companyId , String brandId ,PlatformModels.CreateUpdateBrandRequestSerializer body) throws IOException {
+    public PlatformModels.GetBrandResponseSerializer getBrand(String companyId , String brandId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.editBrand(companyId, brandId, body).execute();
+            Response<PlatformModels.GetBrandResponseSerializer> response = companyprofileApiList.getBrand(companyId, brandId).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8370,9 +8370,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetLocationSerializer getLocationDetail(String companyId , String locationId ) throws IOException {
+    public PlatformModels.SuccessResponse updateLocation(String companyId , String locationId ,PlatformModels.LocationSerializer body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetLocationSerializer> response = companyprofileApiList.getLocationDetail(companyId, locationId).execute();
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateLocation(companyId, locationId, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8387,9 +8387,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.SuccessResponse updateLocation(String companyId , String locationId ,PlatformModels.LocationSerializer body) throws IOException {
+    public PlatformModels.GetLocationSerializer getLocationDetail(String companyId , String locationId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateLocation(companyId, locationId, body).execute();
+            Response<PlatformModels.GetLocationSerializer> response = companyprofileApiList.getLocationDetail(companyId, locationId).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -9266,6 +9266,10 @@ public static class ConfigurationService {
     
     
     
+    
+    
+    
+    
     public PlatformModels.CreateAppResponse createApplication(String companyId ,PlatformModels.CreateApplicationRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateAppResponse> response = configurationApiList.createApplication(companyId, body).execute();
@@ -9581,9 +9585,43 @@ public static class ConfigurationService {
     
     
     
+    public PlatformModels.IntegrationLevel updateLevelIntegration(String companyId , String id , String level ,PlatformModels.UpdateIntegrationLevelRequest body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.IntegrationLevel> response = configurationApiList.updateLevelIntegration(companyId, id, level, body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
     public PlatformModels.IntegrationLevel getIntegrationByLevelId(String companyId , String id , String level , Integer uid ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.IntegrationLevel> response = configurationApiList.getIntegrationByLevelId(companyId, id, level, uid).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    public PlatformModels.IntegrationLevel updateLevelUidIntegration(String companyId , String id , String level , Integer uid ,PlatformModels.IntegrationLevel body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.IntegrationLevel> response = configurationApiList.updateLevelUidIntegration(companyId, id, level, uid, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -10331,6 +10369,24 @@ public class ApplicationClient {
     
     
     
+    public PlatformModels.AppCurrencyResponse getAppSupportedCurrency(String companyId , String applicationId ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.AppCurrencyResponse> response = configurationApiList.getAppSupportedCurrency(companyId, applicationId).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
     public PlatformModels.OrderingStores getOrderingStoresByFilter(String companyId , String applicationId , Integer pageNo , Integer pageSize ,PlatformModels.FilterOrderingStoreRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OrderingStores> response = configurationApiList.getOrderingStoresByFilter(companyId, applicationId, pageNo, pageSize, body).execute();
@@ -10421,6 +10477,89 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+    
+    
+    
+    public PlatformModels.OrderingStoresResponse getStaffOrderingStores(String companyId , String applicationId , Integer pageNo , Integer pageSize , String q ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.OrderingStoresResponse> response = configurationApiList.getStaffOrderingStores(companyId, applicationId, pageNo, pageSize, q).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getStaffOrderingStores
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<PlatformModels.OrderingStoresResponse> getStaffOrderingStoresPagination(
+        String companyId,
+        String applicationId,
+        Integer pageSize,
+        String q
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<PlatformModels.OrderingStoresResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            PlatformModels.OrderingStoresResponse callback = this.getStaffOrderingStores(
+                
+                 companyId,
+                 applicationId,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
     
     
     
@@ -10533,6 +10672,10 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+    
+    
     
     
     

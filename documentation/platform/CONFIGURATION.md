@@ -24,8 +24,10 @@ Application configuration apis
 * [partiallyUpdateInventoryConfig](#partiallyupdateinventoryconfig)
 * [getAppCurrencyConfig](#getappcurrencyconfig)
 * [updateAppCurrencyConfig](#updateappcurrencyconfig)
+* [getAppSupportedCurrency](#getappsupportedcurrency)
 * [getOrderingStoresByFilter](#getorderingstoresbyfilter)
 * [updateOrderingStoreConfig](#updateorderingstoreconfig)
+* [getStaffOrderingStores](#getstafforderingstores)
 * [getDomains](#getdomains)
 * [addDomain](#adddomain)
 * [removeDomainById](#removedomainbyid)
@@ -40,7 +42,9 @@ Application configuration apis
 * [getAvailableOptIns](#getavailableoptins)
 * [getSelectedOptIns](#getselectedoptins)
 * [getIntegrationLevelConfig](#getintegrationlevelconfig)
+* [updateLevelIntegration](#updatelevelintegration)
 * [getIntegrationByLevelId](#getintegrationbylevelid)
+* [updateLevelUidIntegration](#updateleveluidintegration)
 * [getLevelActiveIntegrations](#getlevelactiveintegrations)
 * [getBrandsByCompany](#getbrandsbycompany)
 * [getCompanyByBrands](#getcompanybybrands)
@@ -2422,6 +2426,81 @@ Success
 ---
 
 
+### getAppSupportedCurrency
+Get currencies enabled in the application
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").configuration.getAppSupportedCurrency()
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Current company id |   
+| applicationId | String | yes | Current application id |  
+
+
+
+Use this API to get a list of currencies allowed in the current application. Moreover, get the name, code, symbol, and the decimal digits of the currencies.
+
+*Returned Response:*
+
+
+
+
+[AppCurrencyResponse](#AppCurrencyResponse)
+
+Success. Check the example shown below or refer `AppCurrencyResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "application": "000000000000000000000001",
+  "default_currency": {
+    "ref": "5ecf6122d953d4242c044907",
+    "code": "INR"
+  },
+  "supported_currency": [
+    {
+      "_id": "5ecf6122d953d4242c044907",
+      "is_active": true,
+      "name": "Indian Rupee",
+      "code": "INR",
+      "decimal_digits": 2,
+      "symbol": "₹",
+      "created_at": "2020-05-28T06:58:42.532Z",
+      "modified_at": "2021-04-05T16:44:14.358Z"
+    }
+  ]
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getOrderingStoresByFilter
 Get ordering store by filter
 
@@ -2619,6 +2698,66 @@ Success
   "app": "000000000000000000000004",
   "__v": 6
 }
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getStaffOrderingStores
+Get deployment stores
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").configuration.getStaffOrderingStores( pageNo,  pageSize,  q)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Current company id |   
+| applicationId | String | yes | Current application id |   
+| pageNo | Integer? | no | The page number to navigate through the given set of results. Default value is 1. |   
+| pageSize | Integer? | no | The number of items to retrieve in each page. Default value is 10. |   
+| q | String? | no | Store code or name of the ordering store. |  
+
+
+
+Use this API to retrieve the details of all stores access given to the staff member (the selling locations where the application will be utilized for placing orders).
+
+*Returned Response:*
+
+
+
+
+[OrderingStoresResponse](#OrderingStoresResponse)
+
+Success. Check the example shown below or refer `OrderingStoresResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
 ```
 </details>
 
@@ -3891,6 +4030,81 @@ Success
 ---
 
 
+### updateLevelIntegration
+Update a store level opt-in for integration
+
+
+
+
+```java
+client.configuration.updateLevelIntegration( id,  level, body body)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Current company id |   
+| id | String | yes | Integration id |   
+| level | String | yes | Integration level |  
+| body | [UpdateIntegrationLevelRequest](#UpdateIntegrationLevelRequest) | yes | Request body |
+
+
+Update a store level opt-in for integration
+
+*Returned Response:*
+
+
+
+
+[IntegrationLevel](#IntegrationLevel)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "opted": false,
+  "permissions": [],
+  "last_patch": [],
+  "_id": "5ec377f2848a0073feacb31b",
+  "integration": "5ec376ce848a005189acb312",
+  "level": "store",
+  "uid": 1,
+  "meta": [],
+  "token": "1RuGX0Fyp",
+  "created_at": "2020-05-19T06:08:50.199Z",
+  "modified_at": "2020-08-17T07:54:01.809Z",
+  "__v": 14,
+  "data": {
+    "location_id": "09876",
+    "ip_address": "1.2.3.4"
+  }
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getIntegrationByLevelId
 Get level data for integration
 
@@ -3918,6 +4132,82 @@ client.configuration.getIntegrationByLevelId( id,  level,  uid)
 
 
 Get level data for integration
+
+*Returned Response:*
+
+
+
+
+[IntegrationLevel](#IntegrationLevel)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "opted": false,
+  "permissions": [],
+  "last_patch": [],
+  "_id": "5ec377f2848a0073feacb31b",
+  "integration": "5ec376ce848a005189acb312",
+  "level": "store",
+  "uid": 1,
+  "meta": [],
+  "token": "1RuGX0Fyp",
+  "created_at": "2020-05-19T06:08:50.199Z",
+  "modified_at": "2020-08-17T07:54:01.809Z",
+  "__v": 14,
+  "data": {
+    "location_id": "09876",
+    "ip_address": "1.2.3.4"
+  }
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateLevelUidIntegration
+Update a store level opt-in for integration
+
+
+
+
+```java
+client.configuration.updateLevelUidIntegration( id,  level,  uid, body body)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Current company id |   
+| id | String | yes | Integration id |   
+| level | String | yes | Integration level |   
+| uid | Integer | yes | Integration level uid |  
+| body | [IntegrationLevel](#IntegrationLevel) | yes | Request body |
+
+
+Update a store level opt-in for integration
 
 *Returned Response:*
 
@@ -5337,7 +5627,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [IntegrationOptIn](#IntegrationOptIn)? |  yes  |  |
+ | items | ArrayList<[IntegrationOptIn](#IntegrationOptIn)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
 
 ---
@@ -5357,7 +5647,7 @@ Success
  | support | ArrayList<String>? |  yes  |  |
  | id | String? |  yes  |  |
  | name | String? |  yes  |  |
- | meta | [IntegrationMeta](#IntegrationMeta)? |  yes  |  |
+ | meta | ArrayList<[IntegrationMeta](#IntegrationMeta)>? |  yes  |  |
  | icon | String? |  yes  |  |
  | owner | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
@@ -5389,7 +5679,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | jsonSchema | [JsonSchema](#JsonSchema)? |  yes  |  |
+ | jsonSchema | ArrayList<[JsonSchema](#JsonSchema)>? |  yes  |  |
  | browserScript | String? |  yes  |  |
 
 ---
@@ -5473,7 +5763,7 @@ Success
  | support | ArrayList<String>? |  yes  |  |
  | id | String? |  yes  |  |
  | name | String? |  yes  |  |
- | meta | [IntegrationMeta](#IntegrationMeta)? |  yes  |  |
+ | meta | ArrayList<[IntegrationMeta](#IntegrationMeta)>? |  yes  |  |
  | icon | String? |  yes  |  |
  | owner | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
@@ -5491,7 +5781,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [IntegrationLevel](#IntegrationLevel)? |  yes  |  |
+ | items | ArrayList<[IntegrationLevel](#IntegrationLevel)>? |  yes  |  |
 
 ---
 
@@ -5504,17 +5794,28 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | opted | Boolean? |  yes  |  |
  | permissions | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | lastPatch | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | lastPatch | ArrayList<[LastPatch](#LastPatch)>? |  yes  |  |
  | id | String? |  yes  |  |
  | integration | String? |  yes  |  |
  | level | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
- | meta | ArrayList<Object>? |  yes  |  |
+ | meta | ArrayList<[IntegrationMeta](#IntegrationMeta)>? |  yes  |  |
  | token | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | v | Integer? |  yes  |  |
  | data | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateIntegrationLevelRequest](#UpdateIntegrationLevelRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<[IntegrationLevel](#IntegrationLevel)>? |  yes  |  |
 
 ---
 
@@ -5540,7 +5841,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | opted | Boolean? |  yes  |  |
  | permissions | ArrayList<String>? |  yes  |  |
- | lastPatch | [LastPatch](#LastPatch)? |  yes  |  |
+ | lastPatch | ArrayList<[LastPatch](#LastPatch)>? |  yes  |  |
  | id | String? |  yes  |  |
  | integration | String? |  yes  |  |
  | level | String? |  yes  |  |
@@ -7042,6 +7343,18 @@ Success
  | id | String? |  yes  |  |
  | app | String? |  yes  |  |
  | v | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderingStoresResponse](#OrderingStoresResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[OrderingStore](#OrderingStore)>? |  yes  |  |
 
 ---
 
