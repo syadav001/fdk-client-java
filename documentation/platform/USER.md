@@ -108,7 +108,7 @@ client.application("<APPLICATION_ID>").user.searchUsers( q)
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| q | String? | no | The search query. Mobile number or email ID of a customer. |  
+| q | Object? | no | The search query. Mobile number or email ID of a customer. |  
 
 
 

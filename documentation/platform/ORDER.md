@@ -323,7 +323,7 @@ Get Orders for company based on Company Id
 
 
 ```java
-client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  dp,  shortenUrls,  filterType)
+client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  deploymentStores,  status,  dp,  shortenUrls,  filterType)
 {
 
 
@@ -345,6 +345,7 @@ client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  s
 | salesChannels | String? | no | Selected Sales Channel |   
 | orderId | String? | no | Order Id |   
 | stores | String? | no | Selected Stores |   
+| deploymentStores | String? | no | Selected Deployment Stores |   
 | status | String? | no | Status of order |   
 | dp | String? | no | Delivery Partners |   
 | shortenUrls | Boolean? | no | Shorten URL option |   
@@ -2548,6 +2549,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | stage | String? |  yes  |  |
  | stores | ArrayList<String>? |  yes  |  |
+ | deploymentStores | ArrayList<String>? |  yes  |  |
  | dp | ArrayList<Integer>? |  yes  |  |
  | fromDate | String? |  yes  |  |
  | toDate | String? |  yes  |  |
