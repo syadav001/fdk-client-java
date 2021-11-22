@@ -1544,6 +1544,7 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | accountKit | Boolean? |  yes  |  |
  | facebook | Boolean? |  yes  |  |
  | google | Boolean? |  yes  |  |
+ | apple | Boolean? |  yes  |  |
 
 ---
 
