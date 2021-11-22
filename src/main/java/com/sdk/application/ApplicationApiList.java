@@ -76,11 +76,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -236,6 +236,9 @@ interface UserApiList {
     
     @POST ("/service/application/user/authentication/v1.0/login/google-ios")
     Call<ApplicationModels.AuthSuccess> loginWithGoogleIOS(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
+    
+    @POST ("/service/application/user/authentication/v1.0/login/apple-ios")
+    Call<ApplicationModels.AuthSuccess> loginWithAppleIOS(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestAppleSchema payload);
     
     @POST ("/service/application/user/authentication/v1.0/login/otp")
     Call<ApplicationModels.SendOtpResponse> loginWithOTP(@Query("platform") String platform ,@Body ApplicationModels.SendOtpRequestSchema payload);
