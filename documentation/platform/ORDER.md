@@ -323,7 +323,7 @@ Get Orders for company based on Company Id
 
 
 ```java
-client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  deploymentStores,  status,  dp,  shortenUrls,  filterType)
+client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPrioritySort,  lockStatus,  q,  stage,  salesChannels,  orderId,  stores,  deploymentStores,  status,  dp,  shortenUrls,  filterType)
 {
 
 
@@ -340,6 +340,8 @@ client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  s
 | pageSize | String? | no | Page limit |   
 | fromDate | String? | no | From Date |   
 | toDate | String? | no | To Date |   
+| isPrioritySort | Boolean? | no | Sorting Order |   
+| lockStatus | Boolean? | no | Hide Lock Status |   
 | q | String? | no | Keyword for Search |   
 | stage | String? | no | Specefic Order Stage |   
 | salesChannels | String? | no | Selected Sales Channel |   
@@ -2334,6 +2336,9 @@ Success
  | id | String? |  yes  |  |
  | gst | [ShipmentGst](#ShipmentGst)? |  yes  |  |
  | breakupValues | [ShipmentBreakupValues](#ShipmentBreakupValues)? |  yes  |  |
+ | priority | Double? |  yes  |  |
+ | priorityText | String? |  yes  |  |
+ | lockStatus | Boolean? |  yes  |  |
  | totalShipmentBags | Integer? |  yes  |  |
 
 ---
@@ -2649,6 +2654,8 @@ Success
  | totalShipmentBags | Integer? |  yes  |  |
  | pod | HashMap<String,Object>? |  yes  |  |
  | lockStatus | Boolean? |  yes  |  |
+ | priority | Double? |  yes  |  |
+ | priorityText | String? |  yes  |  |
  | orderingChannel | String? |  yes  |  |
  | creditNoteId | String? |  yes  |  |
  | autoTriggerDpAssignment | Boolean? |  yes  |  |
