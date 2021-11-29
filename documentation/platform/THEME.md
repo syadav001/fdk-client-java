@@ -2002,7 +2002,7 @@ Success. Refer `ThemesSchema` for more details.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | global | HashMap<String,Object>? |  yes  |  |
+ | globalConfig | HashMap<String,Object>? |  yes  |  |
  | page | ArrayList<[ConfigPage](#ConfigPage)>? |  yes  |  |
  | name | String? |  yes  |  |
 

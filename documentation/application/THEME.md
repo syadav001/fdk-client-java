@@ -717,7 +717,7 @@ Success. Returns a JSON object of the theme. Check the example shown below or re
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | global | HashMap<String,Object>? |  yes  |  |
+ | globalConfig | HashMap<String,Object>? |  yes  |  |
  | page | ArrayList<[ConfigPage](#ConfigPage)>? |  yes  |  |
  | name | String? |  yes  |  |
 
