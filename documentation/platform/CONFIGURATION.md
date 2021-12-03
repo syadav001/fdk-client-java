@@ -5991,6 +5991,7 @@ Success
  | allStores | Boolean? |  yes  |  |
  | deployedStores | ArrayList<Integer>? |  yes  |  |
  | q | String? |  yes  |  |
+ | onlyDeployed | Boolean? |  yes  |  |
 
 ---
 
