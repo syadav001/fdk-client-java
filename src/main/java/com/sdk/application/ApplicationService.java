@@ -2955,6 +2955,20 @@ public class FileStorageService extends FileStorage {
 
     
     
+    
+    
+    public ApplicationModels.SignUrlResponse signUrls(Integer companyId ,ApplicationModels.SignUrlRequest body) throws IOException {
+    
+        Response<ApplicationModels.SignUrlResponse> response = filestorageApiList.signUrls(companyId, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
       
 }
 

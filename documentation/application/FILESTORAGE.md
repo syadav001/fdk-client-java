@@ -8,6 +8,7 @@
 File Storage
 * [startUpload](#startupload)
 * [completeUpload](#completeupload)
+* [signUrls](#signurls)
 
 
 
@@ -137,6 +138,62 @@ This operation will return the URL of the uploaded file.
 
 
 [CompleteResponse](#CompleteResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### signUrls
+Explain here
+
+
+
+
+```java
+client.filestorage.signUrls(body body)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | company_id |  
+| body | [SignUrlRequest](#SignUrlRequest) | yes | Request body |
+
+
+Describe here
+
+*Returned Response:*
+
+
+
+
+[SignUrlResponse](#SignUrlResponse)
 
 Success
 

@@ -430,6 +430,9 @@ interface FileStorageApiList {
     @POST ("/service/application/assets/v1.0/namespaces/{namespace}/upload/complete/")
     Call<ApplicationModels.CompleteResponse> completeUpload(@Path("namespace") String namespace ,@Body ApplicationModels.StartResponse payload);
     
+    @POST ("/service/application/assets/v1.0/company/{company_id}/sign-urls/")
+    Call<ApplicationModels.SignUrlResponse> signUrls(@Path("company_id") Integer companyId ,@Body ApplicationModels.SignUrlRequest payload);
+    
 }
 
 interface ConfigurationApiList {

@@ -1022,6 +1022,7 @@ Success, the code is valid and returns a session token
  | id | Integer? |  yes  |  |
  | name | String? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | companyName | String? |  yes  |  |
 
 ---
 
