@@ -6856,9 +6856,9 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse createProductsInBulk(Integer companyId , String batchId ,PlatformModels.BulkProductRequest body) throws IOException {
+    public PlatformModels.SuccessResponse deleteProductBulkJob(String companyId , Integer batchId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = catalogApiList.createProductsInBulk(companyId, batchId, body).execute();
+            Response<PlatformModels.SuccessResponse> response = catalogApiList.deleteProductBulkJob(companyId, batchId).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -6873,9 +6873,9 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse deleteProductBulkJob(String companyId , Integer batchId ) throws IOException {
+    public PlatformModels.SuccessResponse createProductsInBulk(Integer companyId , String batchId ,PlatformModels.BulkProductRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = catalogApiList.deleteProductBulkJob(companyId, batchId).execute();
+            Response<PlatformModels.SuccessResponse> response = catalogApiList.createProductsInBulk(companyId, batchId, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -7060,9 +7060,9 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse createBulkInventory(Integer companyId , String batchId ,PlatformModels.InventoryBulkRequest body) throws IOException {
+    public PlatformModels.SuccessResponse deleteBulkInventoryJob(String companyId , String batchId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = catalogApiList.createBulkInventory(companyId, batchId, body).execute();
+            Response<PlatformModels.SuccessResponse> response = catalogApiList.deleteBulkInventoryJob(companyId, batchId).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -7077,9 +7077,9 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse deleteBulkInventoryJob(String companyId , String batchId ) throws IOException {
+    public PlatformModels.SuccessResponse createBulkInventory(Integer companyId , String batchId ,PlatformModels.InventoryBulkRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = catalogApiList.deleteBulkInventoryJob(companyId, batchId).execute();
+            Response<PlatformModels.SuccessResponse> response = catalogApiList.createBulkInventory(companyId, batchId, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8130,9 +8130,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet(String companyId ) throws IOException {
+    public PlatformModels.SuccessResponse updateCompany(String companyId ,PlatformModels.UpdateCompany body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetCompanyProfileSerializerResponse> response = companyprofileApiList.cbsOnboardGet(companyId).execute();
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateCompany(companyId, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8147,9 +8147,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.SuccessResponse updateCompany(String companyId ,PlatformModels.UpdateCompany body) throws IOException {
+    public PlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet(String companyId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateCompany(companyId, body).execute();
+            Response<PlatformModels.GetCompanyProfileSerializerResponse> response = companyprofileApiList.cbsOnboardGet(companyId).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8181,9 +8181,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetBrandResponseSerializer getBrand(String companyId , String brandId ) throws IOException {
+    public PlatformModels.SuccessResponse editBrand(String companyId , String brandId ,PlatformModels.CreateUpdateBrandRequestSerializer body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetBrandResponseSerializer> response = companyprofileApiList.getBrand(companyId, brandId).execute();
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.editBrand(companyId, brandId, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8198,9 +8198,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.SuccessResponse editBrand(String companyId , String brandId ,PlatformModels.CreateUpdateBrandRequestSerializer body) throws IOException {
+    public PlatformModels.GetBrandResponseSerializer getBrand(String companyId , String brandId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.editBrand(companyId, brandId, body).execute();
+            Response<PlatformModels.GetBrandResponseSerializer> response = companyprofileApiList.getBrand(companyId, brandId).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8430,9 +8430,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetLocationSerializer getLocationDetail(String companyId , String locationId ) throws IOException {
+    public PlatformModels.SuccessResponse updateLocation(String companyId , String locationId ,PlatformModels.LocationSerializer body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetLocationSerializer> response = companyprofileApiList.getLocationDetail(companyId, locationId).execute();
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateLocation(companyId, locationId, body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8447,9 +8447,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.SuccessResponse updateLocation(String companyId , String locationId ,PlatformModels.LocationSerializer body) throws IOException {
+    public PlatformModels.GetLocationSerializer getLocationDetail(String companyId , String locationId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateLocation(companyId, locationId, body).execute();
+            Response<PlatformModels.GetLocationSerializer> response = companyprofileApiList.getLocationDetail(companyId, locationId).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
