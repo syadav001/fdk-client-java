@@ -860,9 +860,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -874,9 +874,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -2504,82 +2504,6 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.PageSchema getPage(String slug , String rootId ) throws IOException {
-    
-        Response<ApplicationModels.PageSchema> response = contentApiList.getPage(slug, rootId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PageGetResponse getPages(Integer pageNo , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.PageGetResponse> response = contentApiList.getPages(pageNo, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getPages
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.PageGetResponse> getPagesPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.PageGetResponse callback = this.getPages(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     public ApplicationModels.SeoComponent getSEOConfiguration() throws IOException {
     
         Response<ApplicationModels.SeoComponent> response = contentApiList.getSEOConfiguration().execute();
@@ -2696,6 +2620,82 @@ public class ApplicationService {
 
     
     
+    
+    
+    public ApplicationModels.PageSchema getPage(String slug , String rootId ) throws IOException {
+    
+        Response<ApplicationModels.PageSchema> response = contentApiList.getPage(slug, rootId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PageGetResponse getPages(Integer pageNo , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.PageGetResponse> response = contentApiList.getPages(pageNo, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getPages
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.PageGetResponse> getPagesPagination(
+        
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.PageGetResponse callback = this.getPages(
+                
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
       
 }
 
