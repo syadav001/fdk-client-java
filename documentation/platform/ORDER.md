@@ -14,6 +14,7 @@ Handles Platform websites OMS
 * [getOrdersByCompanyId](#getordersbycompanyid)
 * [getOrderLanesCountByCompanyId](#getorderlanescountbycompanyid)
 * [getOrderDetails](#getorderdetails)
+* [getOrderDetails](#getorderdetails)
 * [getPicklistOrdersByCompanyId](#getpicklistordersbycompanyid)
 * [trackShipmentPlatform](#trackshipmentplatform)
 * [trackOrder](#trackorder)
@@ -476,6 +477,66 @@ client.order.getOrderDetails( orderId,  next,  previous)
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Company Id |   
+| orderId | String? | no | Order Id |   
+| next | String? | no | Next |   
+| previous | String? | no | Previous |  
+
+
+
+Get Orders
+
+*Returned Response:*
+
+
+
+
+[OrderDetails](#OrderDetails)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getOrderDetails
+Get Order Details for company based on Company Id and Order Id
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").order.getOrderDetails( orderId,  next,  previous)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company Id |   
+| applicationId | String | yes | Application Id |   
 | orderId | String? | no | Order Id |   
 | next | String? | no | Next |   
 | previous | String? | no | Previous |  
