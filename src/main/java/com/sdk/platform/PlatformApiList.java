@@ -914,32 +914,32 @@ interface CompanyProfileApiList {
     @GET ("/service/platform/company-profile/v1.0/company/{company_id}/metrics")
     Call<PlatformModels.MetricsSerializer> getCompanyMetrics(@Path("company_id") String companyId );
     
-    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
-    Call<PlatformModels.GetBrandResponseSerializer> getBrand(@Path("company_id") String companyId , @Path("brand_id") String brandId );
-    
     @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
     Call<PlatformModels.SuccessResponse> editBrand(@Path("company_id") String companyId , @Path("brand_id") String brandId ,@Body PlatformModels.CreateUpdateBrandRequestSerializer payload);
+    
+    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
+    Call<PlatformModels.GetBrandResponseSerializer> getBrand(@Path("company_id") String companyId , @Path("brand_id") String brandId );
     
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/brand")
     Call<PlatformModels.SuccessResponse> createBrand(@Path("company_id") String companyId ,@Body PlatformModels.CreateUpdateBrandRequestSerializer payload);
     
-    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/company-brand")
-    Call<PlatformModels.CompanyBrandListSerializer> getBrands(@Path("company_id") String companyId , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q );
-    
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/company-brand")
     Call<PlatformModels.SuccessResponse> createCompanyBrandMapping(@Path("company_id") String companyId ,@Body PlatformModels.CompanyBrandPostRequestSerializer payload);
     
-    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/location")
-    Call<PlatformModels.LocationListSerializer> getLocations(@Path("company_id") String companyId , @Query("store_type") String storeType , @Query("q") String q , @Query("stage") String stage , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/company-brand")
+    Call<PlatformModels.CompanyBrandListSerializer> getBrands(@Path("company_id") String companyId , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q );
     
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location")
     Call<PlatformModels.SuccessResponse> createLocation(@Path("company_id") String companyId ,@Body PlatformModels.LocationSerializer payload);
     
-    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
-    Call<PlatformModels.GetLocationSerializer> getLocationDetail(@Path("company_id") String companyId , @Path("location_id") String locationId );
+    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/location")
+    Call<PlatformModels.LocationListSerializer> getLocations(@Path("company_id") String companyId , @Query("store_type") String storeType , @Query("q") String q , @Query("stage") String stage , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
     @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
     Call<PlatformModels.SuccessResponse> updateLocation(@Path("company_id") String companyId , @Path("location_id") String locationId ,@Body PlatformModels.LocationSerializer payload);
+    
+    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
+    Call<PlatformModels.GetLocationSerializer> getLocationDetail(@Path("company_id") String companyId , @Path("location_id") String locationId );
     
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location/bulk")
     Call<PlatformModels.SuccessResponse> createLocationBulk(@Path("company_id") String companyId ,@Body PlatformModels.BulkLocationSerializer payload);
@@ -1275,6 +1275,42 @@ interface AnalyticsApiList {
 }
 
 interface DiscountApiList {
+    
+    @GET ("/service/platform/discount/v1.0/company/{company_id}/job/")
+    Call<PlatformModels.ListOrCalender> getDiscounts(@Path("company_id") Integer companyId , @Query("view") String view , @Query("q") String q , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("archived") Boolean archived , @Query("month") Integer month , @Query("year") Integer year , @Query("type") String type , @Query("app_ids") List<String> appIds );
+    
+    @POST ("/service/platform/discount/v1.0/company/{company_id}/job/")
+    Call<PlatformModels.DiscountJob> createDiscount(@Path("company_id") Integer companyId ,@Body PlatformModels.CreateUpdateDiscount payload);
+    
+    @GET ("/service/platform/discount/v1.0/company/{company_id}/job/{id}/")
+    Call<PlatformModels.DiscountJob> getDiscount(@Path("company_id") Integer companyId , @Path("id") String id );
+    
+    @PUT ("/service/platform/discount/v1.0/company/{company_id}/job/{id}/")
+    Call<PlatformModels.DiscountJob> updateDiscount(@Path("company_id") Integer companyId , @Path("id") String id ,@Body PlatformModels.CreateUpdateDiscount payload);
+    
+    @GET ("/service/platform/discount/v1.0/company/{company_id}/application/{application_id}/job/")
+    Call<PlatformModels.ListOrCalender> fetchDiscountJobs(@Path("company_id") Integer companyId , @Path("application_id") String applicationId );
+    
+    @POST ("/service/platform/discount/v1.0/company/{company_id}/application/{application_id}/discount/")
+    Call<PlatformModels.DiscountList> getDiscountDetails(@Path("company_id") Integer companyId , @Path("application_id") String applicationId ,@Body PlatformModels.InternalDiscountQuery payload);
+    
+    @POST ("/service/platform/discount/v1.0/company/{company_id}/file/validation/")
+    Call<PlatformModels.FileJobResponse> validateDiscountFile(@Path("company_id") Integer companyId , @Query("discount") String discount ,@Body PlatformModels.DiscountJob payload);
+    
+    @POST ("/service/platform/discount/v1.0/company/{company_id}/file/{type}/download/")
+    Call<PlatformModels.FileJobResponse> downloadDiscountFile(@Path("company_id") Integer companyId , @Path("type") String type ,@Body PlatformModels.DownloadFileJob payload);
+    
+    @GET ("/service/platform/discount/v1.0/company/{company_id}/file/validation/{id}/")
+    Call<PlatformModels.FileJobResponse> getValidationJob(@Path("company_id") Integer companyId , @Path("id") String id );
+    
+    @DELETE ("/service/platform/discount/v1.0/company/{company_id}/file/validation/{id}/")
+    Call<PlatformModels.CancelJobResponse> cancelValidationJob(@Path("company_id") Integer companyId , @Path("id") String id );
+    
+    @GET ("/service/platform/discount/v1.0/company/{company_id}/file/download/{id}/")
+    Call<PlatformModels.FileJobResponse> getDownloadJob(@Path("company_id") Integer companyId , @Path("id") String id );
+    
+    @DELETE ("/service/platform/discount/v1.0/company/{company_id}/file/download/{id}/")
+    Call<PlatformModels.CancelJobResponse> cancelDownloadJob(@Path("company_id") Integer companyId , @Path("id") String id );
     
 }
 
