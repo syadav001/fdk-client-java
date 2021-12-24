@@ -9,9 +9,7 @@
 * [getJobsByCompany](#getjobsbycompany)
 * [updateJob](#updatejob)
 * [createJob](#createjob)
-* [getJobSteps](#getjobsteps)
 * [getJobByCompanyAndIntegration](#getjobbycompanyandintegration)
-* [disable](#disable)
 * [getJobConfigDefaults](#getjobconfigdefaults)
 * [getJobByCode](#getjobbycode)
 * [getJobCodeMetrics](#getjobcodemetrics)
@@ -192,63 +190,6 @@ Job Config Created Successfully
 ---
 
 
-### getJobSteps
-Get Job Code Steps
-
-
-
-
-```java
-client.inventory.getJobSteps( jobId)
-{
-
-
-  //use response
-  }
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company Id |   
-| jobId | Integer | yes | Job Id |  
-
-
-
-REST Endpoint that returns Inventory Job Steps
-
-*Returned Response:*
-
-
-
-
-[ResponseEnvelopeListJobStepsDTO](#ResponseEnvelopeListJobStepsDTO)
-
-Successful operation
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### getJobByCompanyAndIntegration
 Get Job Configs By Company And Integration
 
@@ -283,63 +224,6 @@ REST Endpoint that returns all job configs by company And integration
 
 
 [ResponseEnvelopeListJobConfigDTO](#ResponseEnvelopeListJobConfigDTO)
-
-Successful operation
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### disable
-Disable Job Config
-
-
-
-
-```java
-client.inventory.disable( integrationId)
-{
-
-
-  //use response
-  }
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company Id |   
-| integrationId | String | yes | IntegrationId |  
-
-
-
-REST Endpoint that disables Inventory Job Config
-
-*Returned Response:*
-
-
-
-
-[ResponseEnvelopeString](#ResponseEnvelopeString)
 
 Successful operation
 
@@ -485,7 +369,7 @@ Get Job Metrics
 
 
 ```java
-client.inventory.getJobCodeMetrics( code,  pageNo,  pageSize,  status,  date)
+client.inventory.getJobCodeMetrics( code,  pageNo,  pageSize)
 {
 
 
@@ -500,9 +384,7 @@ client.inventory.getJobCodeMetrics( code,  pageNo,  pageSize,  status,  date)
 | companyId | Integer | yes | Company Id |   
 | code | String | yes | Code |   
 | pageNo | Integer? | no | Page Number |   
-| pageSize | Integer? | no | Page Size |   
-| status | String? | no | Status |   
-| date | String? | no | From Date |  
+| pageSize | Integer? | no | Page Size |  
 
 
 
@@ -1299,45 +1181,6 @@ Successful operation
 
  
  
- #### [JobStepsDTO](#JobStepsDTO)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | stepName | String? |  yes  |  |
- | type | String? |  yes  |  |
- | stepExecutionTime | Integer? |  yes  |  |
- | startCount | Integer? |  yes  |  |
- | endCount | Integer? |  yes  |  |
- | deletedCount | Integer? |  yes  |  |
- | processedStartTime | String? |  yes  |  |
- | processedAt | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ResponseEnvelopeListJobStepsDTO](#ResponseEnvelopeListJobStepsDTO)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | timestamp | String? |  yes  |  |
- | status | Integer? |  yes  |  |
- | error | String? |  yes  |  |
- | exception | String? |  yes  |  |
- | message | String? |  yes  |  |
- | totalTimeTakenInMillis | Integer? |  yes  |  |
- | httpStatus | String? |  yes  |  |
- | items | ArrayList<[JobStepsDTO](#JobStepsDTO)>? |  yes  |  |
- | payload | ArrayList<[JobStepsDTO](#JobStepsDTO)>? |  yes  |  |
- | traceId | String? |  yes  |  |
- | page | [Page](#Page)? |  yes  |  |
-
----
-
-
- 
- 
  #### [ResponseEnvelopeListJobConfigDTO](#ResponseEnvelopeListJobConfigDTO)
 
  | Properties | Type | Nullable | Description |
@@ -1387,14 +1230,11 @@ Successful operation
  | totalAddedCount | Integer? |  yes  |  |
  | totalUpdatedCount | Integer? |  yes  |  |
  | totalSuppressedCount | Integer? |  yes  |  |
- | totalInitialCount | Integer? |  yes  |  |
  | jobId | Integer? |  yes  |  |
  | status | String? |  yes  |  |
  | jobCode | String? |  yes  |  |
  | processedOn | String? |  yes  |  |
  | filename | ArrayList<String>? |  yes  |  |
- | errorType | String? |  yes  |  |
- | message | String? |  yes  |  |
 
 ---
 

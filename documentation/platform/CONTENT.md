@@ -41,13 +41,9 @@ Content System
 * [deleteNavigation](#deletenavigation)
 * [getPageMeta](#getpagemeta)
 * [getPageSpec](#getpagespec)
-* [createPage](#createpage)
-* [getPages](#getpages)
 * [createPagePreview](#createpagepreview)
 * [updatePagePreview](#updatepagepreview)
-* [updatePage](#updatepage)
 * [deletePage](#deletepage)
-* [getPageBySlug](#getpagebyslug)
 * [updatePathRedirectionRules](#updatepathredirectionrules)
 * [getPathRedirectionRules](#getpathredirectionrules)
 * [getSEOConfiguration](#getseoconfiguration)
@@ -65,6 +61,10 @@ Content System
 * [addInjectableTag](#addinjectabletag)
 * [removeInjectableTag](#removeinjectabletag)
 * [editInjectableTag](#editinjectabletag)
+* [createPage](#createpage)
+* [getPages](#getpages)
+* [updatePage](#updatepage)
+* [getPageBySlug](#getpagebyslug)
 
 
 
@@ -2479,7 +2479,7 @@ Get page meta
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getPageMeta( pageType,  cartPages)
+client.application("<APPLICATION_ID>").content.getPageMeta()
 {
 
 
@@ -2492,9 +2492,7 @@ client.application("<APPLICATION_ID>").content.getPageMeta( pageType,  cartPages
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
-| pageType | String? | no | Fetch meta by page type. Acceptable values are: system, custom and all |   
-| cartPages | Boolean? | no | Pass this param value as `true` to fetch meta with cart pages |  
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |  
 
 
 
@@ -2613,138 +2611,6 @@ Success. Refer `PageSpec` for more details.
       }
     ]
   }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### createPage
-Create a page
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").content.createPage(body body)
-{
-
-
-  //use response
-  }
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |  
-| body | [PageRequest](#PageRequest) | yes | Request body |
-
-
-Use this API to create a custom page using a title, seo, publish status, feature image, tags, meta, etc.
-
-*Returned Response:*
-
-
-
-
-[PageSchema](#PageSchema)
-
-Success. Refer `PageSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "$ref": "#/components/examples/PageResponse"
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getPages
-Get a list of pages
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").content.getPages( pageNo,  pageSize)
-{
-
-
-  //use response
-  }
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
-| pageNo | Integer? | no | The page number to navigate through the given set of results. Default value is 1. |   
-| pageSize | Integer? | no | The number of items to retrieve in each page. Default value is 10. |  
-
-
-
-Use this API to retrieve a list of pages.
-
-*Returned Response:*
-
-
-
-
-[PageGetResponse](#PageGetResponse)
-
-Success. Refer `PageGetResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "$ref": "#/components/examples/PageGetResponse"
 }
 ```
 </details>
@@ -2893,72 +2759,6 @@ Success.
 ---
 
 
-### updatePage
-Update a page
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").content.updatePage( id, body body)
-{
-
-
-  //use response
-  }
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
-| id | String | yes | ID allotted to the page. |  
-| body | [PageSchema](#PageSchema) | yes | Request body |
-
-
-Use this API to edit the details of an existing page, such as its title, seo, publish status, feature image, tags, schedule, etc.
-
-*Returned Response:*
-
-
-
-
-[PageSchema](#PageSchema)
-
-Success. Refer `PageSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "$ref": "#/components/examples/PageResponse"
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### deletePage
 Delete a page
 
@@ -2994,72 +2794,6 @@ Use this API to delete an existing page.
 [PageSchema](#PageSchema)
 
 Success.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "$ref": "#/components/examples/PageResponse"
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getPageBySlug
-Get pages by component Id
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").content.getPageBySlug( slug)
-{
-
-
-  //use response
-  }
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
-| slug | String | yes | A short, human-readable, URL-friendly identifier of a page. You can get slug value of a page from `getPages` API. |  
-
-
-
-Use this API to retrieve the components of a page, such as its title, seo, publish status, feature image, tags, schedule, etc.
-
-*Returned Response:*
-
-
-
-
-[PageSchema](#PageSchema)
-
-Success. Returns a JSON object of components. Refer `PageSchema` for more details.
 
 
 
@@ -4313,6 +4047,270 @@ Success.
 ---
 
 
+### createPage
+Create a page
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").content.createPage(body body)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |  
+| body | [PageRequest](#PageRequest) | yes | Request body |
+
+
+Use this API to create a custom page using a title, seo, publish status, feature image, tags, meta, etc.
+
+*Returned Response:*
+
+
+
+
+[PageSchema](#PageSchema)
+
+Success. Refer `PageSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/PageResponse"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getPages
+Get a list of pages
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").content.getPages( pageNo,  pageSize)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
+| pageNo | Integer? | no | The page number to navigate through the given set of results. Default value is 1. |   
+| pageSize | Integer? | no | The number of items to retrieve in each page. Default value is 10. |  
+
+
+
+Use this API to retrieve a list of pages.
+
+*Returned Response:*
+
+
+
+
+[PageGetResponse](#PageGetResponse)
+
+Success. Refer `PageGetResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/PageGetResponse"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updatePage
+Update a page
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").content.updatePage( id, body body)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
+| id | String | yes | ID allotted to the page. |  
+| body | [PageSchema](#PageSchema) | yes | Request body |
+
+
+Use this API to edit the details of an existing page, such as its title, seo, publish status, feature image, tags, schedule, etc.
+
+*Returned Response:*
+
+
+
+
+[PageSchema](#PageSchema)
+
+Success. Refer `PageSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/PageResponse"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getPageBySlug
+Get pages by component Id
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").content.getPageBySlug( slug)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
+| slug | String | yes | A short, human-readable, URL-friendly identifier of a page. You can get slug value of a page from `getPages` API. |  
+
+
+
+Use this API to retrieve the components of a page, such as its title, seo, publish status, feature image, tags, schedule, etc.
+
+*Returned Response:*
+
+
+
+
+[PageSchema](#PageSchema)
+
+Success. Returns a JSON object of components. Refer `PageSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/PageResponse"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
 
@@ -5377,6 +5375,7 @@ Success.
  | application | String? |  yes  |  |
  | componentIds | ArrayList<String>? |  yes  | Components can be used to store multiple components |
  | content | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | contentPath | String? |  yes  |  |
  | createdBy | [CreatedBySchema](#CreatedBySchema)? |  yes  |  |
  | dateMeta | [DateMeta](#DateMeta)? |  yes  |  |
  | description | String? |  yes  |  |

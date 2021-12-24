@@ -1819,6 +1819,20 @@ public class ApplicationService {
     
     
     
+    public ApplicationModels.AuthSuccess loginWithAppleIOS(String platform ,ApplicationModels.OAuthRequestAppleSchema body) throws IOException {
+    
+        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithAppleIOS(platform, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.SendOtpResponse loginWithOTP(String platform ,ApplicationModels.SendOtpRequestSchema body) throws IOException {
     
         Response<ApplicationModels.SendOtpResponse> response = userApiList.loginWithOTP(platform, body).execute();
@@ -2490,82 +2504,6 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.PageSchema getPage(String slug , String rootId ) throws IOException {
-    
-        Response<ApplicationModels.PageSchema> response = contentApiList.getPage(slug, rootId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PageGetResponse getPages(Integer pageNo , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.PageGetResponse> response = contentApiList.getPages(pageNo, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getPages
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.PageGetResponse> getPagesPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.PageGetResponse callback = this.getPages(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     public ApplicationModels.SeoComponent getSEOConfiguration() throws IOException {
     
         Response<ApplicationModels.SeoComponent> response = contentApiList.getSEOConfiguration().execute();
@@ -2682,6 +2620,82 @@ public class ApplicationService {
 
     
     
+    
+    
+    public ApplicationModels.PageSchema getPage(String slug , String rootId ) throws IOException {
+    
+        Response<ApplicationModels.PageSchema> response = contentApiList.getPage(slug, rootId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PageGetResponse getPages(Integer pageNo , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.PageGetResponse> response = contentApiList.getPages(pageNo, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getPages
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.PageGetResponse> getPagesPagination(
+        
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.PageGetResponse callback = this.getPages(
+                
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
       
 }
 
@@ -2932,6 +2946,20 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.CompleteResponse completeUpload(String namespace ,ApplicationModels.StartResponse body) throws IOException {
     
         Response<ApplicationModels.CompleteResponse> response = filestorageApiList.completeUpload(namespace, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.SignUrlResponse signUrls(Integer companyId ,ApplicationModels.SignUrlRequest body) throws IOException {
+    
+        Response<ApplicationModels.SignUrlResponse> response = filestorageApiList.signUrls(companyId, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

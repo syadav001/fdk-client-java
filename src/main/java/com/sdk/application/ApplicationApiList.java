@@ -237,6 +237,9 @@ interface UserApiList {
     @POST ("/service/application/user/authentication/v1.0/login/google-ios")
     Call<ApplicationModels.AuthSuccess> loginWithGoogleIOS(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
+    @POST ("/service/application/user/authentication/v1.0/login/apple-ios")
+    Call<ApplicationModels.AuthSuccess> loginWithAppleIOS(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestAppleSchema payload);
+    
     @POST ("/service/application/user/authentication/v1.0/login/otp")
     Call<ApplicationModels.SendOtpResponse> loginWithOTP(@Query("platform") String platform ,@Body ApplicationModels.SendOtpRequestSchema payload);
     
@@ -358,12 +361,6 @@ interface ContentApiList {
     @GET ("/service/application/content/v1.0/navigations/")
     Call<ApplicationModels.NavigationGetResponse> getNavigations(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
-    @GET ("/service/application/content/v1.0/pages/{slug}")
-    Call<ApplicationModels.PageSchema> getPage(@Path("slug") String slug , @Query("root_id") String rootId );
-    
-    @GET ("/service/application/content/v1.0/pages/")
-    Call<ApplicationModels.PageGetResponse> getPages(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
-    
     @GET ("/service/application/content/v1.0/seo")
     Call<ApplicationModels.SeoComponent> getSEOConfiguration();
     
@@ -378,6 +375,12 @@ interface ContentApiList {
     
     @GET ("/service/application/content/v1.0/tags")
     Call<ApplicationModels.TagsSchema> getTags();
+    
+    @GET ("/service/application/content/v2.0/pages/{slug}")
+    Call<ApplicationModels.PageSchema> getPage(@Path("slug") String slug , @Query("root_id") String rootId );
+    
+    @GET ("/service/application/content/v2.0/pages/")
+    Call<ApplicationModels.PageGetResponse> getPages(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
 }
 
@@ -426,6 +429,9 @@ interface FileStorageApiList {
     
     @POST ("/service/application/assets/v1.0/namespaces/{namespace}/upload/complete/")
     Call<ApplicationModels.CompleteResponse> completeUpload(@Path("namespace") String namespace ,@Body ApplicationModels.StartResponse payload);
+    
+    @POST ("/service/application/assets/v1.0/company/{company_id}/sign-urls/")
+    Call<ApplicationModels.SignUrlResponse> signUrls(@Path("company_id") Integer companyId ,@Body ApplicationModels.SignUrlRequest payload);
     
 }
 

@@ -10,6 +10,8 @@ Discount
 * [createDiscount](#creatediscount)
 * [getDiscount](#getdiscount)
 * [updateDiscount](#updatediscount)
+* [fetchDiscountJobs](#fetchdiscountjobs)
+* [getDiscountDetails](#getdiscountdetails)
 * [validateDiscountFile](#validatediscountfile)
 * [downloadDiscountFile](#downloaddiscountfile)
 * [getValidationJob](#getvalidationjob)
@@ -232,6 +234,120 @@ Create Discount.
 
 
 [DiscountJob](#DiscountJob)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### fetchDiscountJobs
+Fetch Discount Jobs.
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").discount.fetchDiscountJobs()
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | company_id |   
+| applicationId | String | yes | application id |  
+
+
+
+Fetch Discount Jobs.
+
+*Returned Response:*
+
+
+
+
+[ListOrCalender](#ListOrCalender)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getDiscountDetails
+Get Discounts.
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").discount.getDiscountDetails(body body)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | company_id |   
+| applicationId | String | yes | application id |  
+| body | [InternalDiscountQuery](#InternalDiscountQuery) | yes | Request body |
+
+
+Get Discounts.
+
+*Returned Response:*
+
+
+
+
+[DiscountList](#DiscountList)
 
 Success
 
@@ -624,6 +740,7 @@ Success
  | companyId | Integer |  no  |  |
  | isActive | Boolean |  no  |  |
  | appIds | ArrayList<String> |  no  |  |
+ | extensionIds | ArrayList<String> |  no  |  |
  | jobType | String |  no  |  |
  | discountType | String |  no  |  |
  | discountLevel | String |  no  |  |
@@ -671,6 +788,67 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | items | ArrayList<[DiscountJob](#DiscountJob)> |  no  |  |
+ | page | [Page](#Page) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [InternalDiscountQuery](#InternalDiscountQuery)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | jobIds | ArrayList<String> |  no  |  |
+ | itemIds | ArrayList<Integer>? |  yes  |  |
+ | sellerIdentifiers | ArrayList<String>? |  yes  |  |
+ | brandIds | ArrayList<Integer>? |  yes  |  |
+ | storeIds | ArrayList<Integer>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DiscountValueObject](#DiscountValueObject)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | minItems | Integer |  no  |  |
+ | value | Integer |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DiscountDetail](#DiscountDetail)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
+ | jobId | String |  no  |  |
+ | companyId | Integer |  no  |  |
+ | appIds | ArrayList<String>? |  yes  |  |
+ | discountType | String? |  yes  |  |
+ | discount | ArrayList<[DiscountValueObject](#DiscountValueObject)>? |  yes  |  |
+ | brandIds | ArrayList<Integer>? |  yes  |  |
+ | storeIds | ArrayList<Integer>? |  yes  |  |
+ | itemId | Integer? |  yes  |  |
+ | sellerIdentifier | String? |  yes  |  |
+ | createdOn | String |  no  |  |
+ | modifiedOn | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DiscountList](#DiscountList)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<[DiscountDetail](#DiscountDetail)> |  no  |  |
  | page | [Page](#Page) |  no  |  |
 
 ---
