@@ -57,11 +57,11 @@ class PlatformEnums {
 
 
     /*
-        Enum: TicketAssetType
+        Enum: TicketAssetTypeEnum
         Used By: Lead
     */
     @Getter
-    public enum TicketAssetType {
+    public enum TicketAssetTypeEnum {
 
         
         image("image"), 
@@ -84,7 +84,7 @@ class PlatformEnums {
         
 
         private String priority;
-        TicketAssetType(String priority) {
+        TicketAssetTypeEnum(String priority) {
             this.priority = priority;
         }
     }
