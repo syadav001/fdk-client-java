@@ -91,6 +91,12 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/locations/")
     Call<ApplicationModels.StoreListingResponse> getStores(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("city") String city , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
     
+    @GET ("/service/application/catalog/v1.0/in-stock/locations/")
+    Call<ApplicationModels.ApplicationStoreListing> getInStockLocations(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("city") String city , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
+    
+    @GET ("/service/application/catalog/v1.0/locations/{location_id}/")
+    Call<ApplicationModels.StoreDetails> getLocationDetailsById(@Path("location_id") Integer locationId );
+    
 }
 
 interface CartApiList {
@@ -181,8 +187,8 @@ interface LeadApiList {
     @GET ("/service/application/lead/v1.0/ticket/{id}")
     Call<ApplicationModels.Ticket> getTicket(@Path("id") String id );
     
-    @POST ("/service/application/lead/v1.0/ticket/{id}/history")
-    Call<ApplicationModels.TicketHistory> createHistory(@Path("id") String id ,@Body ApplicationModels.TicketHistoryPayload payload);
+    @POST ("/service/application/lead/v1.0/ticket/{ticket_id}/history")
+    Call<ApplicationModels.TicketHistory> createHistory(@Path("ticket_id") String ticketId ,@Body ApplicationModels.TicketHistoryPayload payload);
     
     @POST ("/service/application/lead/v1.0/ticket/")
     Call<ApplicationModels.Ticket> createTicket(@Body ApplicationModels.AddTicketPayload payload);
@@ -230,6 +236,9 @@ interface UserApiList {
     
     @POST ("/service/application/user/authentication/v1.0/login/google-ios")
     Call<ApplicationModels.AuthSuccess> loginWithGoogleIOS(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
+    
+    @POST ("/service/application/user/authentication/v1.0/login/apple-ios")
+    Call<ApplicationModels.AuthSuccess> loginWithAppleIOS(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestAppleSchema payload);
     
     @POST ("/service/application/user/authentication/v1.0/login/otp")
     Call<ApplicationModels.SendOtpResponse> loginWithOTP(@Query("platform") String platform ,@Body ApplicationModels.SendOtpRequestSchema payload);
@@ -328,6 +337,9 @@ interface ContentApiList {
     @GET ("/service/application/content/v1.0/blogs/")
     Call<ApplicationModels.BlogGetResponse> getBlogs(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
+    @GET ("/service/application/content/v1.0/data-loader")
+    Call<ApplicationModels.DataLoaderSchema> getDataLoaders();
+    
     @GET ("/service/application/content/v1.0/faq")
     Call<ApplicationModels.FaqResponseSchema> getFaqs();
     
@@ -352,12 +364,6 @@ interface ContentApiList {
     @GET ("/service/application/content/v1.0/navigations/")
     Call<ApplicationModels.NavigationGetResponse> getNavigations(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
-    @GET ("/service/application/content/v1.0/pages/{slug}")
-    Call<ApplicationModels.PageSchema> getPage(@Path("slug") String slug , @Query("root_id") String rootId );
-    
-    @GET ("/service/application/content/v1.0/pages/")
-    Call<ApplicationModels.PageGetResponse> getPages(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
-    
     @GET ("/service/application/content/v1.0/seo")
     Call<ApplicationModels.SeoComponent> getSEOConfiguration();
     
@@ -372,6 +378,12 @@ interface ContentApiList {
     
     @GET ("/service/application/content/v1.0/tags")
     Call<ApplicationModels.TagsSchema> getTags();
+    
+    @GET ("/service/application/content/v2.0/pages/{slug}")
+    Call<ApplicationModels.PageSchema> getPage(@Path("slug") String slug , @Query("root_id") String rootId );
+    
+    @GET ("/service/application/content/v2.0/pages/")
+    Call<ApplicationModels.PageGetResponse> getPages(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
 }
 
@@ -420,6 +432,9 @@ interface FileStorageApiList {
     
     @POST ("/service/application/assets/v1.0/namespaces/{namespace}/upload/complete/")
     Call<ApplicationModels.CompleteResponse> completeUpload(@Path("namespace") String namespace ,@Body ApplicationModels.StartResponse payload);
+    
+    @POST ("/service/application/assets/v1.0/sign-urls/")
+    Call<ApplicationModels.SignUrlResponse> signUrls(@Body ApplicationModels.SignUrlRequest payload);
     
 }
 
@@ -576,46 +591,21 @@ interface OrderApiList {
     
 }
 
-interface RewardsApiList {
-    
-    @POST ("/service/application/rewards/v1.0/catalogue/offer/order/")
-    Call<ApplicationModels.CatalogueOrderResponse> getPointsOnProduct(@Body ApplicationModels.CatalogueOrderRequest payload);
-    
-    @GET ("/service/application/rewards/v1.0/offers/{name}/")
-    Call<ApplicationModels.Offer> getOfferByName(@Path("name") String name );
-    
-    @POST ("/service/application/rewards/v1.0/user/offers/order-discount/")
-    Call<ApplicationModels.OrderDiscountResponse> getOrderDiscount(@Body ApplicationModels.OrderDiscountRequest payload);
-    
-    @GET ("/service/application/rewards/v1.0/user/points/")
-    Call<ApplicationModels.PointsResponse> getUserPoints();
-    
-    @GET ("/service/application/rewards/v1.0/user/points/history/")
-    Call<ApplicationModels.PointsHistoryResponse> getUserPointsHistory(@Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/rewards/v1.0/user/referral/")
-    Call<ApplicationModels.ReferralDetailsResponse> getUserReferralDetails();
-    
-    @POST ("/service/application/rewards/v1.0/user/referral/redeem/")
-    Call<ApplicationModels.RedeemReferralCodeResponse> redeemReferralCode(@Body ApplicationModels.RedeemReferralCodeRequest payload);
-    
-}
-
 interface FeedbackApiList {
     
-    @POST ("/service/application/feedback/v1.0/abuse/")
+    @POST ("/service/application/feedback/v1.0/abuse")
     Call<ApplicationModels.InsertResponse> createAbuseReport(@Body ApplicationModels.ReportAbuseRequest payload);
     
-    @PUT ("/service/application/feedback/v1.0/abuse/")
+    @PUT ("/service/application/feedback/v1.0/abuse")
     Call<ApplicationModels.UpdateResponse> updateAbuseReport(@Body ApplicationModels.UpdateAbuseStatusRequest payload);
     
     @GET ("/service/application/feedback/v1.0/abuse/entity/{entity_type}/entity-id/{entity_id}")
     Call<ApplicationModels.ReportAbuseGetResponse> getAbuseReports(@Path("entity_id") String entityId , @Path("entity_type") String entityType , @Query("id") String id , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @GET ("/service/application/feedback/v1.0/attributes/")
+    @GET ("/service/application/feedback/v1.0/attributes")
     Call<ApplicationModels.AttributeResponse> getAttributes(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/feedback/v1.0/attributes/")
+    @POST ("/service/application/feedback/v1.0/attributes")
     Call<ApplicationModels.InsertResponse> createAttribute(@Body ApplicationModels.SaveAttributeRequest payload);
     
     @GET ("/service/application/feedback/v1.0/attributes/{slug}")
@@ -624,10 +614,10 @@ interface FeedbackApiList {
     @PUT ("/service/application/feedback/v1.0/attributes/{slug}")
     Call<ApplicationModels.UpdateResponse> updateAttribute(@Path("slug") String slug ,@Body ApplicationModels.UpdateAttributeRequest payload);
     
-    @POST ("/service/application/feedback/v1.0/comment/")
+    @POST ("/service/application/feedback/v1.0/comment")
     Call<ApplicationModels.InsertResponse> createComment(@Body ApplicationModels.CommentRequest payload);
     
-    @PUT ("/service/application/feedback/v1.0/comment/")
+    @PUT ("/service/application/feedback/v1.0/comment")
     Call<ApplicationModels.UpdateResponse> updateComment(@Body ApplicationModels.UpdateCommentRequest payload);
     
     @GET ("/service/application/feedback/v1.0/comment/entity/{entity_type}")
@@ -637,7 +627,7 @@ interface FeedbackApiList {
     Call<ApplicationModels.CheckEligibilityResponse> checkEligibility(@Path("entity_type") String entityType , @Path("entity_id") String entityId );
     
     @DELETE ("/service/application/feedback/v1.0/media/")
-    Call<ApplicationModels.UpdateResponse> deleteMedia(@Query("ids") List<String> ids );
+    Call<ApplicationModels.UpdateResponse> deleteMedia();
     
     @POST ("/service/application/feedback/v1.0/media/")
     Call<ApplicationModels.InsertResponse> createMedia(@Body ApplicationModels.AddMediaListRequest payload);

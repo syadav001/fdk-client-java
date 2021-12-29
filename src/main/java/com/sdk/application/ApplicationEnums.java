@@ -10,111 +10,107 @@ class ApplicationEnums {
 
 
 
-    /*
-        Enum: PriorityEnum
-        Used By: Lead
-    */
-    @Getter
-    public enum PriorityEnum {
-
-        
-        low("low"), 
-        
-        medium("medium"), 
-        
-        high("high"), 
-        
-        urgent("urgent");
-        
-
-        private String priority;
-        PriorityEnum(String priority) {
-            this.priority = priority;
-        }
-    }
 
 
 
     /*
-        Enum: HistoryTypeEnum
-        Used By: Lead
+        Enum: PageType
+        Used By: Content
     */
     @Getter
-    public enum HistoryTypeEnum {
+    public enum PageType {
 
         
-        rating("rating"), 
+        aboutUs("about-us"), 
         
-        log("log"), 
+        addresses("addresses"), 
         
-        comment("comment");
+        blog("blog"), 
         
-
-        private String priority;
-        HistoryTypeEnum(String priority) {
-            this.priority = priority;
-        }
-    }
-
-
-
-    /*
-        Enum: TicketAssetType
-        Used By: Lead
-    */
-    @Getter
-    public enum TicketAssetType {
-
+        brands("brands"), 
         
-        image("image"), 
+        cards("cards"), 
         
-        video("video"), 
+        cart("cart"), 
         
-        file("file"), 
-        
-        youtube("youtube"), 
-        
-        product("product"), 
-        
-        collection("collection"), 
+        categories("categories"), 
         
         brand("brand"), 
         
-        shipment("shipment"), 
+        category("category"), 
         
-        order("order");
+        collection("collection"), 
+        
+        collections("collections"), 
+        
+        contactUs("contact-us"), 
+        
+        externalLink("external"), 
+        
+        faq("faq"), 
+        
+        freshchat("freshchat"), 
+        
+        home("home"), 
+        
+        notificationSettings("notification-settings"), 
+        
+        orders("orders"), 
+        
+        page("page"), 
+        
+        policy("policy"), 
+        
+        product("product"), 
+        
+        productReviews("product-reviews"), 
+        
+        addProductReview("add-product-review"), 
+        
+        productRequest("product-request"), 
+        
+        products("products"), 
+        
+        profile("profile"), 
+        
+        profileBasic("profile-basic"), 
+        
+        profileCompany("profile-company"), 
+        
+        profileEmails("profile-emails"), 
+        
+        profilePhones("profile-phones"), 
+        
+        rateUs("rate-us"), 
+        
+        referEarn("refer-earn"), 
+        
+        settings("settings"), 
+        
+        sharedCart("shared-cart"), 
+        
+        tnc("tnc"), 
+        
+        trackOrder("track-order"), 
+        
+        wishlist("wishlist"), 
+        
+        sections("sections"), 
+        
+        form("form"), 
+        
+        cartDelivery("cart-delivery"), 
+        
+        cartPayment("cart-payment"), 
+        
+        cartReview("cart-review");
         
 
         private String priority;
-        TicketAssetType(String priority) {
+        PageType(String priority) {
             this.priority = priority;
         }
     }
-
-
-
-    /*
-        Enum: TicketSourceEnum
-        Used By: Lead
-    */
-    @Getter
-    public enum TicketSourceEnum {
-
-        
-        platformPanel("platform_panel"), 
-        
-        salesChannel("sales_channel");
-        
-
-        private String priority;
-        TicketSourceEnum(String priority) {
-            this.priority = priority;
-        }
-    }
-
-
-
-
 
 
 

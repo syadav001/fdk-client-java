@@ -38,15 +38,9 @@ public class PlatformClient extends PlatformEnums{
     
     public PlatformService.ShareService share;
     
-    public PlatformService.InventoryService inventory;
-    
     public PlatformService.ConfigurationService configuration;
     
     public PlatformService.CartService cart;
-    
-    public PlatformService.RewardsService rewards;
-    
-    public PlatformService.AnalyticsService analytics;
     
     public PlatformService.DiscountService discount;
     
@@ -87,15 +81,9 @@ public class PlatformClient extends PlatformEnums{
         
         this.share = new PlatformService.ShareService(config);
         
-        this.inventory = new PlatformService.InventoryService(config);
-        
         this.configuration = new PlatformService.ConfigurationService(config);
         
         this.cart = new PlatformService.CartService(config);
-        
-        this.rewards = new PlatformService.RewardsService(config);
-        
-        this.analytics = new PlatformService.AnalyticsService(config);
         
         this.discount = new PlatformService.DiscountService(config);
         
@@ -141,15 +129,9 @@ public class PlatformClient extends PlatformEnums{
         
         public PlatformService.ShareService.ApplicationClient share;
         
-        public PlatformService.InventoryService.ApplicationClient inventory;
-        
         public PlatformService.ConfigurationService.ApplicationClient configuration;
         
         public PlatformService.CartService.ApplicationClient cart;
-        
-        public PlatformService.RewardsService.ApplicationClient rewards;
-        
-        public PlatformService.AnalyticsService.ApplicationClient analytics;
         
         public PlatformService.DiscountService.ApplicationClient discount;
         
@@ -188,15 +170,9 @@ public class PlatformClient extends PlatformEnums{
             
             this.share = new PlatformService.ShareService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.inventory = new PlatformService.InventoryService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
             this.configuration = new PlatformService.ConfigurationService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.cart = new PlatformService.CartService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.rewards = new PlatformService.RewardsService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.analytics = new PlatformService.AnalyticsService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.discount = new PlatformService.DiscountService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             

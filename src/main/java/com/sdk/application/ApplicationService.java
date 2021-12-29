@@ -1006,6 +1006,112 @@ public class ApplicationService {
     });
     return paginator ;
     }
+    
+    
+    public ApplicationModels.ApplicationStoreListing getInStockLocations(Integer pageNo , Integer pageSize , String q , String city , Integer range , Double latitude , Double longitude ) throws IOException {
+    
+        Response<ApplicationModels.ApplicationStoreListing> response = catalogApiList.getInStockLocations(pageNo, pageSize, q, city, range, latitude, longitude).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getInStockLocations
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.ApplicationStoreListing> getInStockLocationsPagination(
+        
+        Integer pageSize,
+        String q,
+        String city,
+        Integer range,
+        Double latitude,
+        Double longitude
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.ApplicationStoreListing> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.ApplicationStoreListing callback = this.getInStockLocations(
+                
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q,
+                 city,
+                 range,
+                 latitude,
+                 longitude
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.StoreDetails getLocationDetailsById(Integer locationId ) throws IOException {
+    
+        Response<ApplicationModels.StoreDetails> response = catalogApiList.getLocationDetailsById(locationId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
       
 }
 
@@ -1459,9 +1565,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.TicketHistory createHistory(String id ,ApplicationModels.TicketHistoryPayload body) throws IOException {
+    public ApplicationModels.TicketHistory createHistory(String ticketId ,ApplicationModels.TicketHistoryPayload body) throws IOException {
     
-        Response<ApplicationModels.TicketHistory> response = leadApiList.createHistory(id, body).execute();
+        Response<ApplicationModels.TicketHistory> response = leadApiList.createHistory(ticketId, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1702,6 +1808,20 @@ public class ApplicationService {
     public ApplicationModels.AuthSuccess loginWithGoogleIOS(String platform ,ApplicationModels.OAuthRequestSchema body) throws IOException {
     
         Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithGoogleIOS(platform, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.AuthSuccess loginWithAppleIOS(String platform ,ApplicationModels.OAuthRequestAppleSchema body) throws IOException {
+    
+        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithAppleIOS(platform, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -2224,6 +2344,20 @@ public class ApplicationService {
     }
     
     
+    public ApplicationModels.DataLoaderSchema getDataLoaders() throws IOException {
+    
+        Response<ApplicationModels.DataLoaderSchema> response = contentApiList.getDataLoaders().execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.FaqResponseSchema getFaqs() throws IOException {
     
         Response<ApplicationModels.FaqResponseSchema> response = contentApiList.getFaqs().execute();
@@ -2384,82 +2518,6 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.PageSchema getPage(String slug , String rootId ) throws IOException {
-    
-        Response<ApplicationModels.PageSchema> response = contentApiList.getPage(slug, rootId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PageGetResponse getPages(Integer pageNo , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.PageGetResponse> response = contentApiList.getPages(pageNo, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getPages
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.PageGetResponse> getPagesPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.PageGetResponse callback = this.getPages(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     public ApplicationModels.SeoComponent getSEOConfiguration() throws IOException {
     
         Response<ApplicationModels.SeoComponent> response = contentApiList.getSEOConfiguration().execute();
@@ -2576,6 +2634,82 @@ public class ApplicationService {
 
     
     
+    
+    
+    public ApplicationModels.PageSchema getPage(String slug , String rootId ) throws IOException {
+    
+        Response<ApplicationModels.PageSchema> response = contentApiList.getPage(slug, rootId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PageGetResponse getPages(Integer pageNo , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.PageGetResponse> response = contentApiList.getPages(pageNo, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getPages
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.PageGetResponse> getPagesPagination(
+        
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.PageGetResponse callback = this.getPages(
+                
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
       
 }
 
@@ -2826,6 +2960,20 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.CompleteResponse completeUpload(String namespace ,ApplicationModels.StartResponse body) throws IOException {
     
         Response<ApplicationModels.CompleteResponse> response = filestorageApiList.completeUpload(namespace, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.SignUrlResponse signUrls(ApplicationModels.SignUrlRequest body) throws IOException {
+    
+        Response<ApplicationModels.SignUrlResponse> response = filestorageApiList.signUrls( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3640,181 +3788,6 @@ public class FileStorageService extends FileStorage {
 
 
 @Getter
- public class RewardsService { 
-
-    private ApplicationConfig applicationConfig;
-
-    private RetrofitServiceFactory retrofitServiceFactory;
-
-    private RewardsApiList rewardsApiList;
-
-    RewardsService(ApplicationConfig applicationConfig) {
-        this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.rewardsApiList = generateRewardsApiList(this.applicationConfig.getPersistentCookieStore());
-    }
-
-    private RewardsApiList generateRewardsApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),RewardsApiList.class, interceptorList, cookieStore);
-    }
-
-    
-
-    
-    
-    public ApplicationModels.CatalogueOrderResponse getPointsOnProduct(ApplicationModels.CatalogueOrderRequest body) throws IOException {
-    
-        Response<ApplicationModels.CatalogueOrderResponse> response = rewardsApiList.getPointsOnProduct( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.Offer getOfferByName(String name ) throws IOException {
-    
-        Response<ApplicationModels.Offer> response = rewardsApiList.getOfferByName(name).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.OrderDiscountResponse getOrderDiscount(ApplicationModels.OrderDiscountRequest body) throws IOException {
-    
-        Response<ApplicationModels.OrderDiscountResponse> response = rewardsApiList.getOrderDiscount( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PointsResponse getUserPoints() throws IOException {
-    
-        Response<ApplicationModels.PointsResponse> response = rewardsApiList.getUserPoints().execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.PointsHistoryResponse> response = rewardsApiList.getUserPointsHistory(pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getUserPointsHistory
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.PointsHistoryResponse> getUserPointsHistoryPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.PointsHistoryResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.PointsHistoryResponse callback = this.getUserPointsHistory(
-                
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.ReferralDetailsResponse getUserReferralDetails() throws IOException {
-    
-        Response<ApplicationModels.ReferralDetailsResponse> response = rewardsApiList.getUserReferralDetails().execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.RedeemReferralCodeResponse redeemReferralCode(ApplicationModels.RedeemReferralCodeRequest body) throws IOException {
-    
-        Response<ApplicationModels.RedeemReferralCodeResponse> response = rewardsApiList.redeemReferralCode( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-      
-}
-
-
-
-@Getter
  public class FeedbackService { 
 
     private ApplicationConfig applicationConfig;
@@ -4180,9 +4153,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.UpdateResponse deleteMedia(List<String> ids ) throws IOException {
+    public ApplicationModels.UpdateResponse deleteMedia() throws IOException {
     
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.deleteMedia(ids).execute();
+        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.deleteMedia().execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

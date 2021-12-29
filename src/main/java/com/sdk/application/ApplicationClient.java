@@ -34,8 +34,6 @@ public class ApplicationClient extends ApplicationEnums {
     
     public ApplicationService.OrderService order;
     
-    public ApplicationService.RewardsService rewards;
-    
     public ApplicationService.FeedbackService feedback;
     
     public ApplicationService.PosCartService posCart;
@@ -70,8 +68,6 @@ public class ApplicationClient extends ApplicationEnums {
         this.payment = new ApplicationService().new PaymentService(applicationConfig);
         
         this.order = new ApplicationService().new OrderService(applicationConfig);
-        
-        this.rewards = new ApplicationService().new RewardsService(applicationConfig);
         
         this.feedback = new ApplicationService().new FeedbackService(applicationConfig);
         
