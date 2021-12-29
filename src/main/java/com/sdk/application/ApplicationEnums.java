@@ -59,11 +59,11 @@ class ApplicationEnums {
 
 
     /*
-        Enum: TicketAssetType
+        Enum: TicketAssetTypeEnum
         Used By: Lead
     */
     @Getter
-    public enum TicketAssetType {
+    public enum TicketAssetTypeEnum {
 
         
         image("image"), 
@@ -86,7 +86,7 @@ class ApplicationEnums {
         
 
         private String priority;
-        TicketAssetType(String priority) {
+        TicketAssetTypeEnum(String priority) {
             this.priority = priority;
         }
     }
