@@ -26532,6 +26532,13 @@ public static class PlatformShipmentDetails {
     
     
     
+    @JsonProperty("payment_methods")
+    private Object paymentMethods;
+    
+    
+    
+    
+    
     @JsonProperty("invoice")
     private ShipmentInvoice invoice;
     

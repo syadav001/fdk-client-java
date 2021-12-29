@@ -2698,6 +2698,7 @@ Success
  | breakupValues | [ShipmentBreakupValues](#ShipmentBreakupValues)? |  yes  |  |
  | id | String? |  yes  |  |
  | dpDetails | [DpDetails](#DpDetails)? |  yes  |  |
+ | paymentMethods | HashMap<String,Object>? |  yes  |  |
  | invoice | [ShipmentInvoice](#ShipmentInvoice)? |  yes  |  |
  | fulfillingStore | [PlatformFulfillingStore](#PlatformFulfillingStore)? |  yes  |  |
  | payments | [Payments](#Payments)? |  yes  |  |
