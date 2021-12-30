@@ -97,6 +97,12 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/locations/{location_id}/")
     Call<ApplicationModels.StoreDetails> getLocationDetailsById(@Path("location_id") Integer locationId );
     
+    @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/price/")
+    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlugV2(@Path("slug") String slug , @Path("size") String size , @Query("store_id") Integer storeId , @Query("pincode") String pincode );
+    
+    @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/")
+    Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlugV2(@Path("slug") String slug , @Path("size") String size , @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    
 }
 
 interface CartApiList {
@@ -295,7 +301,7 @@ interface UserApiList {
     Call<ApplicationModels.SessionListSuccess> getListOfActiveSessions();
     
     @POST ("/service/application/user/authentication/v1.0/user_store/freshchat-restore-id")
-    Call<ApplicationModels.UserStoreSchema> getFreshchatRestoreId(@Body ApplicationModels.FreshchatRestoreIdRequestSchema payload);
+    Call<ApplicationModels.UserStoreSchema> setFreshchatRestoreId(@Body ApplicationModels.FreshchatRestoreIdRequestSchema payload);
     
     @GET ("/service/application/user/authentication/v1.0/user_store/store")
     Call<ApplicationModels.UserStoreSchema> getUserStore();

@@ -1112,6 +1112,106 @@ public class ApplicationService {
 
     
     
+    
+    
+    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlugV2(String slug , String size , Integer storeId , String pincode ) throws IOException {
+    
+        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlugV2(slug, size, storeId, pincode).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ProductSizeSellersResponseV2 getProductSellersBySlugV2(String slug , String size , String pincode , String strategy , Integer pageNo , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.ProductSizeSellersResponseV2> response = catalogApiList.getProductSellersBySlugV2(slug, size, pincode, strategy, pageNo, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getProductSellersBySlugV2
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlugV2Pagination(
+        
+        String slug,
+        String size,
+        String pincode,
+        String strategy,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.ProductSizeSellersResponseV2> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.ProductSizeSellersResponseV2 callback = this.getProductSellersBySlugV2(
+                
+                 slug,
+                 size,
+                 pincode,
+                 strategy,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
       
 }
 
@@ -2085,9 +2185,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.UserStoreSchema getFreshchatRestoreId(ApplicationModels.FreshchatRestoreIdRequestSchema body) throws IOException {
+    public ApplicationModels.UserStoreSchema setFreshchatRestoreId(ApplicationModels.FreshchatRestoreIdRequestSchema body) throws IOException {
     
-        Response<ApplicationModels.UserStoreSchema> response = userApiList.getFreshchatRestoreId( body).execute();
+        Response<ApplicationModels.UserStoreSchema> response = userApiList.setFreshchatRestoreId( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
