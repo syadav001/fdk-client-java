@@ -76,11 +76,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -294,6 +294,12 @@ interface UserApiList {
     @GET ("/service/application/user/authentication/v1.0/sessions")
     Call<ApplicationModels.SessionListSuccess> getListOfActiveSessions();
     
+    @POST ("/service/application/user/authentication/v1.0/user_store/freshchat-restore-id")
+    Call<ApplicationModels.UserStoreSchema> getFreshchatRestoreId(@Body ApplicationModels.FreshchatRestoreIdRequestSchema payload);
+    
+    @GET ("/service/application/user/authentication/v1.0/user_store/store")
+    Call<ApplicationModels.UserStoreSchema> getUserStore();
+    
     @GET ("/service/application/user/platform/v1.0/config")
     Call<ApplicationModels.PlatformSchema> getPlatformConfig(@Query("name") String name );
     
@@ -336,9 +342,6 @@ interface ContentApiList {
     
     @GET ("/service/application/content/v1.0/blogs/")
     Call<ApplicationModels.BlogGetResponse> getBlogs(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/content/v1.0/data-loader")
-    Call<ApplicationModels.DataLoaderSchema> getDataLoaders();
     
     @GET ("/service/application/content/v1.0/faq")
     Call<ApplicationModels.FaqResponseSchema> getFaqs();
@@ -433,8 +436,8 @@ interface FileStorageApiList {
     @POST ("/service/application/assets/v1.0/namespaces/{namespace}/upload/complete/")
     Call<ApplicationModels.CompleteResponse> completeUpload(@Path("namespace") String namespace ,@Body ApplicationModels.StartResponse payload);
     
-    @POST ("/service/application/assets/v1.0/company/{company_id}/sign-urls/")
-    Call<ApplicationModels.SignUrlResponse> signUrls(@Path("company_id") Integer companyId ,@Body ApplicationModels.SignUrlRequest payload);
+    @POST ("/service/application/assets/v1.0/sign-urls/")
+    Call<ApplicationModels.SignUrlResponse> signUrls(@Body ApplicationModels.SignUrlRequest payload);
     
 }
 

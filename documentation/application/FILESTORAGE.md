@@ -170,7 +170,7 @@ Explain here
 
 
 ```java
-client.filestorage.signUrls(body body)
+filestorage.signUrls(body body)
 {
 
 
@@ -181,8 +181,7 @@ client.filestorage.signUrls(body body)
 
 
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | company_id |  
+| --------- | -----  | -------- | ----------- |
 | body | [SignUrlRequest](#SignUrlRequest) | yes | Request body |
 
 

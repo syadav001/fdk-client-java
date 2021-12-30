@@ -830,6 +830,17 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
 
  
  
+ #### [FreshchatRestoreIdRequestSchema](#FreshchatRestoreIdRequestSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | freshchatRestoreId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [UpdatePasswordRequestSchema](#UpdatePasswordRequestSchema)
 
  | Properties | Type | Nullable | Description |
@@ -1691,6 +1702,21 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | lastName | String? |  yes  |  |
  | gender | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserStoreSchema](#UserStoreSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
+ | id | String? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
 
 ---
 
