@@ -349,6 +349,9 @@ interface ContentApiList {
     @GET ("/service/application/content/v1.0/blogs/")
     Call<ApplicationModels.BlogGetResponse> getBlogs(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
+    @GET ("/service/application/content/v1.0/data-loader")
+    Call<ApplicationModels.DataLoaderSchema> getDataLoaders();
+    
     @GET ("/service/application/content/v1.0/faq")
     Call<ApplicationModels.FaqResponseSchema> getFaqs();
     

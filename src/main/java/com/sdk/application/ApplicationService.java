@@ -2472,6 +2472,20 @@ public class ApplicationService {
     }
     
     
+    public ApplicationModels.DataLoaderSchema getDataLoaders() throws IOException {
+    
+        Response<ApplicationModels.DataLoaderSchema> response = contentApiList.getDataLoaders().execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.FaqResponseSchema getFaqs() throws IOException {
     
         Response<ApplicationModels.FaqResponseSchema> response = contentApiList.getFaqs().execute();
