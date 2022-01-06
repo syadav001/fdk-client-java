@@ -1115,6 +1115,8 @@ Success, the code is valid and returns a session token
  | breakupValues | ArrayList<[BreakupValues](#BreakupValues)>? |  yes  |  |
  | trackUrl | String? |  yes  |  |
  | trakingNo | String? |  yes  |  |
+ | awbNo | String? |  yes  |  |
+ | dpName | String? |  yes  |  |
  | trackingDetails | ArrayList<[TrackingDetails](#TrackingDetails)>? |  yes  |  |
  | beneficiaryDetails | Boolean? |  yes  |  |
  | canReturn | Boolean? |  yes  |  |
