@@ -21,6 +21,7 @@ Content System
 * [getDataLoaders](#getdataloaders)
 * [deleteDataLoader](#deletedataloader)
 * [editDataLoader](#editdataloader)
+* [getDataLoadersByService](#getdataloadersbyservice)
 * [selectDataLoader](#selectdataloader)
 * [resetDataLoader](#resetdataloader)
 * [getFaqCategories](#getfaqcategories)
@@ -1074,6 +1075,95 @@ Success.
   "application": "000000000000000000000001",
   "__v": 0
 }
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getDataLoadersByService
+Get all the data loaders in an application by service name
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").content.getDataLoadersByService( serviceName)
+{
+
+
+  //use response
+  }
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| serviceName | String | yes | Service name of the data loader. |  
+
+
+
+Use this to get all data loaders of an application by service name
+
+*Returned Response:*
+
+
+
+
+[List<DataLoaderResponseSchema>](#List<DataLoaderResponseSchema>)
+
+Success. Refer `DataLoaderResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+[
+  {
+    "name": "Algolia",
+    "is_selected": false,
+    "type": "url",
+    "_id": "61bc4523a7ffc7504f4de4a5",
+    "service": "catalog",
+    "operation_id": "fetchSuggestions",
+    "url": "www.dddd.ddd",
+    "__source": {
+      "type": "extension",
+      "id": "000000000000000000000003"
+    },
+    "application": "100000000000000000000001",
+    "__v": 0
+  },
+  {
+    "name": "Algolia v3",
+    "is_selected": false,
+    "type": "url",
+    "_id": "61bc452da7ffc7504f4de4a7",
+    "service": "catalog",
+    "operation_id": "fetchSuggestions",
+    "url": "www.dddd.ddd",
+    "__source": {
+      "type": "extension",
+      "id": "000000000000000000000003"
+    },
+    "application": "100000000000000000000001",
+    "__v": 0
+  }
+]
 ```
 </details>
 
