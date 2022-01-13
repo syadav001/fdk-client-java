@@ -37,12 +37,9 @@ Get All Brand Payment Gateway Config Secret
 
 
 ```java
-client.application("<APPLICATION_ID>").payment.getBrandPaymentGatewayConfig()
-{
-
-
+client.application("<APPLICATION_ID>").payment.getBrandPaymentGatewayConfig() {
   //use response
-  }
+}
 ```
 
 
@@ -211,12 +208,9 @@ Save Config Secret For Brand Payment Gateway
 
 
 ```java
-client.application("<APPLICATION_ID>").payment.saveBrandPaymentGatewayConfig(body body)
-{
-
-
+client.application("<APPLICATION_ID>").payment.saveBrandPaymentGatewayConfig(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -273,12 +267,9 @@ Save Config Secret For Brand Payment Gateway
 
 
 ```java
-client.application("<APPLICATION_ID>").payment.updateBrandPaymentGatewayConfig(body body)
-{
-
-
+client.application("<APPLICATION_ID>").payment.updateBrandPaymentGatewayConfig(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -335,12 +326,9 @@ Get All Valid Payment Options
 
 
 ```java
-client.application("<APPLICATION_ID>").payment.getPaymentModeRoutes( refresh,  requestType)
-{
-
-
+client.application("<APPLICATION_ID>").payment.getPaymentModeRoutes( refresh,  requestType) {
   //use response
-  }
+}
 ```
 
 
@@ -1521,12 +1509,9 @@ Get All Payouts
 
 
 ```java
-client.payment.getAllPayouts( uniqueExternalId)
-{
-
-
+client.payment.getAllPayouts( uniqueExternalId) {
   //use response
-  }
+}
 ```
 
 
@@ -1641,12 +1626,9 @@ Save Payout
 
 
 ```java
-client.payment.savePayout(body body)
-{
-
-
+client.payment.savePayout(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1725,12 +1707,9 @@ Update Payout
 
 
 ```java
-client.payment.updatePayout( uniqueTransferNo, body body)
-{
-
-
+client.payment.updatePayout( uniqueTransferNo, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1786,12 +1765,9 @@ Partial Update Payout
 
 
 ```java
-client.payment.activateAndDectivatePayout( uniqueTransferNo, body body)
-{
-
-
+client.payment.activateAndDectivatePayout( uniqueTransferNo, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1847,12 +1823,9 @@ Delete Payout
 
 
 ```java
-client.payment.deletePayout( uniqueTransferNo)
-{
-
-
+client.payment.deletePayout( uniqueTransferNo) {
   //use response
-  }
+}
 ```
 
 
@@ -1906,12 +1879,9 @@ List Subscription Payment Method
 
 
 ```java
-client.payment.getSubscriptionPaymentMethod( uniqueExternalId)
-{
-
-
+client.payment.getSubscriptionPaymentMethod( uniqueExternalId) {
   //use response
-  }
+}
 ```
 
 
@@ -2091,12 +2061,9 @@ Delete Subscription Payment Method
 
 
 ```java
-client.payment.deleteSubscriptionPaymentMethod( uniqueExternalId,  paymentMethodId)
-{
-
-
+client.payment.deleteSubscriptionPaymentMethod( uniqueExternalId,  paymentMethodId) {
   //use response
-  }
+}
 ```
 
 
@@ -2151,12 +2118,9 @@ List Subscription Config
 
 
 ```java
-client.payment.getSubscriptionConfig()
-{
-
-
+client.payment.getSubscriptionConfig() {
   //use response
-  }
+}
 ```
 
 
@@ -2213,12 +2177,9 @@ Save Subscription Setup Intent
 
 
 ```java
-client.payment.saveSubscriptionSetupIntent(body body)
-{
-
-
+client.payment.saveSubscriptionSetupIntent(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2278,12 +2239,9 @@ Save bank details for cancelled/returned order
 
 
 ```java
-client.application("<APPLICATION_ID>").payment.addBeneficiaryDetails(body body)
-{
-
-
+client.application("<APPLICATION_ID>").payment.addBeneficiaryDetails(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2340,12 +2298,9 @@ Ifsc Code Verification
 
 
 ```java
-client.payment.verifyIfscCode( ifscCode)
-{
-
-
+client.payment.verifyIfscCode( ifscCode) {
   //use response
-  }
+}
 ```
 
 
@@ -2417,12 +2372,9 @@ List Order Beneficiary
 
 
 ```java
-client.application("<APPLICATION_ID>").payment.getUserOrderBeneficiaries( orderId)
-{
-
-
+client.application("<APPLICATION_ID>").payment.getUserOrderBeneficiaries( orderId) {
   //use response
-  }
+}
 ```
 
 
@@ -2499,12 +2451,9 @@ List User Beneficiary
 
 
 ```java
-client.application("<APPLICATION_ID>").payment.getUserBeneficiaries( orderId)
-{
-
-
+client.application("<APPLICATION_ID>").payment.getUserBeneficiaries( orderId) {
   //use response
-  }
+}
 ```
 
 
@@ -2582,12 +2531,9 @@ Confirm payment after successful payment from payment gateway
 
 
 ```java
-client.application("<APPLICATION_ID>").payment.confirmPayment(body body)
-{
-
-
+client.application("<APPLICATION_ID>").payment.confirmPayment(body body) {
   //use response
-  }
+}
 ```
 
 

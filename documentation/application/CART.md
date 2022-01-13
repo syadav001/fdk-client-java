@@ -43,12 +43,9 @@ Fetch all items added to the cart
 
 
 ```java
-cart.getCart( id,  i,  b,  assignCardId)
-{
-
-
+cart.getCart( id,  i,  b,  assignCardId) {
   //use response
-  }
+}
 ```
 
 
@@ -268,12 +265,9 @@ Fetch last-modified timestamp
 
 
 ```java
-cart.getCartLastModified( id)
-{
-
-
+cart.getCartLastModified( id) {
   //use response
-  }
+}
 ```
 
 
@@ -305,12 +299,9 @@ Add items to cart
 
 
 ```java
-cart.addItems( i,  b, body body)
-{
-
-
+cart.addItems( i,  b, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -995,12 +986,9 @@ Update items in the cart
 
 
 ```java
-cart.updateCart( id,  i,  b, body body)
-{
-
-
+cart.updateCart( id,  i,  b, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1415,12 +1403,9 @@ Count items in the cart
 
 
 ```java
-cart.getItemCount( id)
-{
-
-
+cart.getItemCount( id) {
   //use response
-  }
+}
 ```
 
 
@@ -1473,12 +1458,9 @@ Fetch Coupon
 
 
 ```java
-cart.getCoupons( id)
-{
-
-
+cart.getCoupons( id) {
   //use response
-  }
+}
 ```
 
 
@@ -1565,12 +1547,9 @@ Apply Coupon
 
 
 ```java
-cart.applyCoupon( i,  b,  p,  id, body body)
-{
-
-
+cart.applyCoupon( i,  b,  p,  id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2160,12 +2139,9 @@ Remove Coupon Applied
 
 
 ```java
-cart.removeCoupon( id)
-{
-
-
+cart.removeCoupon( id) {
   //use response
-  }
+}
 ```
 
 
@@ -2373,12 +2349,9 @@ Get discount offers based on quantity
 
 
 ```java
-cart.getBulkDiscountOffers( itemId,  articleId,  uid,  slug)
-{
-
-
+cart.getBulkDiscountOffers( itemId,  articleId,  uid,  slug) {
   //use response
-  }
+}
 ```
 
 
@@ -2503,12 +2476,9 @@ Apply reward points at cart
 
 
 ```java
-cart.applyRewardPoints( id,  i,  b, body body)
-{
-
-
+cart.applyRewardPoints( id,  i,  b, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2727,12 +2697,9 @@ Fetch address
 
 
 ```java
-cart.getAddresses( cartId,  mobileNo,  checkoutMode,  tags,  isDefault)
-{
-
-
+cart.getAddresses( cartId,  mobileNo,  checkoutMode,  tags,  isDefault) {
   //use response
-  }
+}
 ```
 
 
@@ -2817,12 +2784,9 @@ Add address to an account
 
 
 ```java
-cart.addAddress(body body)
-{
-
-
+cart.addAddress(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2876,12 +2840,9 @@ Fetch a single address by its ID
 
 
 ```java
-cart.getAddressById( id,  cartId,  mobileNo,  checkoutMode,  tags,  isDefault)
-{
-
-
+cart.getAddressById( id,  cartId,  mobileNo,  checkoutMode,  tags,  isDefault) {
   //use response
-  }
+}
 ```
 
 
@@ -2964,12 +2925,9 @@ Update address added to an account
 
 
 ```java
-cart.updateAddress( id, body body)
-{
-
-
+cart.updateAddress( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3025,12 +2983,9 @@ Remove address associated with an account
 
 
 ```java
-cart.removeAddress( id)
-{
-
-
+cart.removeAddress( id) {
   //use response
-  }
+}
 ```
 
 
@@ -3084,12 +3039,9 @@ Select an address from available addresses
 
 
 ```java
-cart.selectAddress( cartId,  i,  b, body body)
-{
-
-
+cart.selectAddress( cartId,  i,  b, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3397,12 +3349,9 @@ Update cart payment
 
 
 ```java
-cart.selectPaymentMode( id, body body)
-{
-
-
+cart.selectPaymentMode( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3720,12 +3669,9 @@ Verify the coupon eligibility against the payment mode
 
 
 ```java
-cart.validateCouponForPayment( id,  addressId,  paymentMode,  paymentIdentifier,  aggregatorName,  merchantCode)
-{
-
-
+cart.validateCouponForPayment( id,  addressId,  paymentMode,  paymentIdentifier,  aggregatorName,  merchantCode) {
   //use response
-  }
+}
 ```
 
 
@@ -3791,12 +3737,9 @@ Get delivery date and options before checkout
 
 
 ```java
-cart.getShipments( p,  id,  addressId,  areaCode)
-{
-
-
+cart.getShipments( p,  id,  addressId,  areaCode) {
   //use response
-  }
+}
 ```
 
 
@@ -4490,12 +4433,9 @@ Checkout all items in the cart
 
 
 ```java
-cart.checkoutCart(body body)
-{
-
-
+cart.checkoutCart(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -4925,12 +4865,9 @@ Update the cart meta
 
 
 ```java
-cart.updateCartMeta( id, body body)
-{
-
-
+cart.updateCartMeta( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -4983,12 +4920,9 @@ Generate token for sharing the cart
 
 
 ```java
-cart.getCartShareLink(body body)
-{
-
-
+cart.getCartShareLink(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -5049,12 +4983,9 @@ Get details of a shared cart
 
 
 ```java
-cart.getCartSharedItems( token)
-{
-
-
+cart.getCartSharedItems( token) {
   //use response
-  }
+}
 ```
 
 
@@ -5381,12 +5312,9 @@ Merge or replace existing cart
 
 
 ```java
-cart.updateCartWithSharedItems( token,  action)
-{
-
-
+cart.updateCartWithSharedItems( token,  action) {
   //use response
-  }
+}
 ```
 
 

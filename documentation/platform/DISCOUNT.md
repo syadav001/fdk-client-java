@@ -29,12 +29,9 @@ Fetch discount list.
 
 
 ```java
-client.discount.getDiscounts( view,  q,  pageNo,  pageSize,  archived,  month,  year,  type,  appIds)
-{
-
-
+client.discount.getDiscounts( view,  q,  pageNo,  pageSize,  archived,  month,  year,  type,  appIds) {
   //use response
-  }
+}
 ```
 
 
@@ -94,12 +91,9 @@ Create Discount.
 
 
 ```java
-client.discount.createDiscount(body body)
-{
-
-
+client.discount.createDiscount(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -150,12 +144,9 @@ Fetch discount.
 
 
 ```java
-client.discount.getDiscount( id)
-{
-
-
+client.discount.getDiscount( id) {
   //use response
-  }
+}
 ```
 
 
@@ -207,12 +198,9 @@ Create Discount.
 
 
 ```java
-client.discount.updateDiscount( id, body body)
-{
-
-
+client.discount.updateDiscount( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -264,12 +252,9 @@ Validate File.
 
 
 ```java
-client.discount.validateDiscountFile( discount, body body)
-{
-
-
+client.discount.validateDiscountFile( discount, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -321,12 +306,9 @@ Validate File.
 
 
 ```java
-client.discount.downloadDiscountFile( type, body body)
-{
-
-
+client.discount.downloadDiscountFile( type, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -378,12 +360,9 @@ Validate File Job.
 
 
 ```java
-client.discount.getValidationJob( id)
-{
-
-
+client.discount.getValidationJob( id) {
   //use response
-  }
+}
 ```
 
 
@@ -435,12 +414,9 @@ Cancel Validation Job.
 
 
 ```java
-client.discount.cancelValidationJob( id)
-{
-
-
+client.discount.cancelValidationJob( id) {
   //use response
-  }
+}
 ```
 
 
@@ -492,12 +468,9 @@ Download File Job.
 
 
 ```java
-client.discount.getDownloadJob( id)
-{
-
-
+client.discount.getDownloadJob( id) {
   //use response
-  }
+}
 ```
 
 
@@ -549,12 +522,9 @@ Cancel Download Job.
 
 
 ```java
-client.discount.cancelDownloadJob( id)
-{
-
-
+client.discount.cancelDownloadJob( id) {
   //use response
-  }
+}
 ```
 
 

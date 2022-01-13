@@ -28,12 +28,9 @@ Get list of attribute data
 
 
 ```java
-client.application("<APPLICATION_ID>").feedback.getAttributes( pageNo,  pageSize)
-{
-
-
+client.application("<APPLICATION_ID>").feedback.getAttributes( pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -87,12 +84,9 @@ Get list of customer reviews [admin]
 
 
 ```java
-client.application("<APPLICATION_ID>").feedback.getCustomerReviews( id,  entityId,  entityType,  userId,  media,  rating,  attributeRating,  facets,  sort,  next,  start,  limit,  count,  pageId,  pageSize)
-{
-
-
+client.application("<APPLICATION_ID>").feedback.getCustomerReviews( id,  entityId,  entityType,  userId,  media,  rating,  attributeRating,  facets,  sort,  next,  start,  limit,  count,  pageId,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -159,12 +153,9 @@ update approve details
 
 
 ```java
-client.application("<APPLICATION_ID>").feedback.updateApprove( reviewId, body body)
-{
-
-
+client.application("<APPLICATION_ID>").feedback.updateApprove( reviewId, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -217,12 +208,9 @@ get history details
 
 
 ```java
-client.application("<APPLICATION_ID>").feedback.getHistory( reviewId)
-{
-
-
+client.application("<APPLICATION_ID>").feedback.getHistory( reviewId) {
   //use response
-  }
+}
 ```
 
 
@@ -275,12 +263,9 @@ Get list of templates
 
 
 ```java
-client.application("<APPLICATION_ID>").feedback.getApplicationTemplates( pageId,  pageSize)
-{
-
-
+client.application("<APPLICATION_ID>").feedback.getApplicationTemplates( pageId,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -334,12 +319,9 @@ Create a new template
 
 
 ```java
-client.application("<APPLICATION_ID>").feedback.createTemplate(body body)
-{
-
-
+client.application("<APPLICATION_ID>").feedback.createTemplate(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -394,12 +376,9 @@ Get a template by ID
 
 
 ```java
-client.application("<APPLICATION_ID>").feedback.getTemplateById( id)
-{
-
-
+client.application("<APPLICATION_ID>").feedback.getTemplateById( id) {
   //use response
-  }
+}
 ```
 
 
@@ -452,12 +431,9 @@ Update a template's status
 
 
 ```java
-client.application("<APPLICATION_ID>").feedback.updateTemplate( id, body body)
-{
-
-
+client.application("<APPLICATION_ID>").feedback.updateTemplate( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -510,12 +486,9 @@ Update a template's status
 
 
 ```java
-client.application("<APPLICATION_ID>").feedback.updateTemplateStatus( id, body body)
-{
-
-
+client.application("<APPLICATION_ID>").feedback.updateTemplateStatus( id, body body) {
   //use response
-  }
+}
 ```
 
 

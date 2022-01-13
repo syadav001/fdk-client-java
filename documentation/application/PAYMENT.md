@@ -41,12 +41,9 @@ Get payment gateway keys
 
 
 ```java
-payment.getAggregatorsConfig( xApiToken,  refresh)
-{
-
-
+payment.getAggregatorsConfig( xApiToken,  refresh) {
   //use response
-  }
+}
 ```
 
 
@@ -134,12 +131,9 @@ Attach a saved card to customer.
 
 
 ```java
-payment.attachCardToCustomer(body body)
-{
-
-
+payment.attachCardToCustomer(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -218,12 +212,9 @@ Fetch active payment gateway for card payments
 
 
 ```java
-payment.getActiveCardAggregator( refresh)
-{
-
-
+payment.getActiveCardAggregator( refresh) {
   //use response
-  }
+}
 ```
 
 
@@ -282,12 +273,9 @@ Fetch the list of cards saved by the user
 
 
 ```java
-payment.getActiveUserCards( forceRefresh)
-{
-
-
+payment.getActiveUserCards( forceRefresh) {
   //use response
-  }
+}
 ```
 
 
@@ -361,12 +349,9 @@ Delete a card
 
 
 ```java
-payment.deleteUserCard(body body)
-{
-
-
+payment.deleteUserCard(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -418,12 +403,9 @@ Validate customer for payment
 
 
 ```java
-payment.verifyCustomerForPayment(body body)
-{
-
-
+payment.verifyCustomerForPayment(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -485,12 +467,9 @@ Verify and charge payment
 
 
 ```java
-payment.verifyAndChargePayment(body body)
-{
-
-
+payment.verifyAndChargePayment(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -548,12 +527,9 @@ Initialize a payment (server-to-server) for UPI and BharatQR
 
 
 ```java
-payment.initialisePayment(body body)
-{
-
-
+payment.initialisePayment(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -615,12 +591,9 @@ Performs continuous polling to check status of payment on the server
 
 
 ```java
-payment.checkAndUpdatePaymentStatus(body body)
-{
-
-
+payment.checkAndUpdatePaymentStatus(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -674,12 +647,9 @@ Get applicable payment options
 
 
 ```java
-payment.getPaymentModeRoutes( amount,  cartId,  pincode,  checkoutMode,  refresh,  cardReference,  userDetails)
-{
-
-
+payment.getPaymentModeRoutes( amount,  cartId,  pincode,  checkoutMode,  refresh,  cardReference,  userDetails) {
   //use response
-  }
+}
 ```
 
 
@@ -1116,12 +1086,9 @@ Get applicable payment options for Point-of-Sale (POS)
 
 
 ```java
-payment.getPosPaymentModeRoutes( amount,  cartId,  pincode,  checkoutMode,  refresh,  cardReference,  orderType,  userDetails)
-{
-
-
+payment.getPosPaymentModeRoutes( amount,  cartId,  pincode,  checkoutMode,  refresh,  cardReference,  orderType,  userDetails) {
   //use response
-  }
+}
 ```
 
 
@@ -1344,12 +1311,9 @@ Get CreditLine Offer
 
 
 ```java
-payment.getRupifiBannerDetails()
-{
-
-
+payment.getRupifiBannerDetails() {
   //use response
-  }
+}
 ```
 
 
@@ -1401,12 +1365,9 @@ Lists the mode of refund
 
 
 ```java
-payment.getActiveRefundTransferModes()
-{
-
-
+payment.getActiveRefundTransferModes() {
   //use response
-  }
+}
 ```
 
 
@@ -1467,12 +1428,9 @@ Enable/Disable a mode for transferring a refund
 
 
 ```java
-payment.enableOrDisableRefundTransferMode(body body)
-{
-
-
+payment.enableOrDisableRefundTransferMode(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1524,12 +1482,9 @@ Lists the beneficiary of a refund
 
 
 ```java
-payment.getUserBeneficiariesDetail( orderId)
-{
-
-
+payment.getUserBeneficiariesDetail( orderId) {
   //use response
-  }
+}
 ```
 
 
@@ -1605,12 +1560,9 @@ Verify IFSC Code
 
 
 ```java
-payment.verifyIfscCode( ifscCode)
-{
-
-
+payment.verifyIfscCode( ifscCode) {
   //use response
-  }
+}
 ```
 
 
@@ -1681,12 +1633,9 @@ Lists the beneficiary of a refund
 
 
 ```java
-payment.getOrderBeneficiariesDetail( orderId)
-{
-
-
+payment.getOrderBeneficiariesDetail( orderId) {
   //use response
-  }
+}
 ```
 
 
@@ -1761,12 +1710,9 @@ Verify the beneficiary details using OTP
 
 
 ```java
-payment.verifyOtpAndAddBeneficiaryForBank(body body)
-{
-
-
+payment.verifyOtpAndAddBeneficiaryForBank(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1819,12 +1765,9 @@ Save bank details for cancelled/returned order
 
 
 ```java
-payment.addBeneficiaryDetails(body body)
-{
-
-
+payment.addBeneficiaryDetails(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1879,12 +1822,9 @@ Save bank details for cancelled/returned order
 
 
 ```java
-payment.addRefundBankAccountUsingOTP(body body)
-{
-
-
+payment.addRefundBankAccountUsingOTP(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1939,12 +1879,9 @@ Send OTP on adding a wallet beneficiary
 
 
 ```java
-payment.verifyOtpAndAddBeneficiaryForWallet(body body)
-{
-
-
+payment.verifyOtpAndAddBeneficiaryForWallet(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1998,12 +1935,9 @@ Set a default beneficiary for a refund
 
 
 ```java
-payment.updateDefaultBeneficiary(body body)
-{
-
-
+payment.updateDefaultBeneficiary(body body) {
   //use response
-  }
+}
 ```
 
 

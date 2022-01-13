@@ -52,12 +52,9 @@ Get a product
 
 
 ```java
-catalog.getProductDetailBySlug( slug)
-{
-
-
+catalog.getProductDetailBySlug( slug) {
   //use response
-  }
+}
 ```
 
 
@@ -225,12 +222,9 @@ Get the sizes of a product
 
 
 ```java
-catalog.getProductSizesBySlug( slug,  storeId)
-{
-
-
+catalog.getProductSizesBySlug( slug,  storeId) {
   //use response
-  }
+}
 ```
 
 
@@ -314,12 +308,9 @@ Get the price of a product size at a PIN Code
 
 
 ```java
-catalog.getProductPriceBySlug( slug,  size,  pincode,  storeId)
-{
-
-
+catalog.getProductPriceBySlug( slug,  size,  pincode,  storeId) {
   //use response
-  }
+}
 ```
 
 
@@ -449,12 +440,9 @@ Get the sellers of a product size at a PIN Code
 
 
 ```java
-catalog.getProductSellersBySlug( slug,  size,  pincode,  strategy,  pageNo,  pageSize)
-{
-
-
+catalog.getProductSellersBySlug( slug,  size,  pincode,  strategy,  pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -601,12 +589,9 @@ Compare products
 
 
 ```java
-catalog.getProductComparisonBySlugs( slug)
-{
-
-
+catalog.getProductComparisonBySlugs( slug) {
   //use response
-  }
+}
 ```
 
 
@@ -889,12 +874,9 @@ Get comparison between similar products
 
 
 ```java
-catalog.getSimilarComparisonProductBySlug( slug)
-{
-
-
+catalog.getSimilarComparisonProductBySlug( slug) {
   //use response
-  }
+}
 ```
 
 
@@ -945,12 +927,9 @@ Get comparison between frequently compared products with the given product
 
 
 ```java
-catalog.getComparedFrequentlyProductBySlug( slug)
-{
-
-
+catalog.getComparedFrequentlyProductBySlug( slug) {
   //use response
-  }
+}
 ```
 
 
@@ -1226,12 +1205,9 @@ Get similar products
 
 
 ```java
-catalog.getProductSimilarByIdentifier( slug,  similarType)
-{
-
-
+catalog.getProductSimilarByIdentifier( slug,  similarType) {
   //use response
-  }
+}
 ```
 
 
@@ -1397,12 +1373,9 @@ Get variant of a particular product
 
 
 ```java
-catalog.getProductVariantsBySlug( slug)
-{
-
-
+catalog.getProductVariantsBySlug( slug) {
   //use response
-  }
+}
 ```
 
 
@@ -1487,12 +1460,9 @@ Get the stock of a product
 
 
 ```java
-catalog.getProductStockByIds( itemId,  alu,  skuCode,  ean,  upc)
-{
-
-
+catalog.getProductStockByIds( itemId,  alu,  skuCode,  ean,  upc) {
   //use response
-  }
+}
 ```
 
 
@@ -2240,12 +2210,9 @@ Get the stock of a product
 
 
 ```java
-catalog.getProductStockForTimeByIds( timestamp,  pageSize,  pageId)
-{
-
-
+catalog.getProductStockForTimeByIds( timestamp,  pageSize,  pageId) {
   //use response
-  }
+}
 ```
 
 
@@ -2298,12 +2265,9 @@ Get all the products
 
 
 ```java
-catalog.getProducts( q,  f,  filters,  sortOn,  pageId,  pageSize,  pageNo,  pageType)
-{
-
-
+catalog.getProducts( q,  f,  filters,  sortOn,  pageId,  pageSize,  pageNo,  pageType) {
   //use response
-  }
+}
 ```
 
 
@@ -2976,12 +2940,9 @@ Get all the brands
 
 
 ```java
-catalog.getBrands( department,  pageNo,  pageSize)
-{
-
-
+catalog.getBrands( department,  pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -3072,12 +3033,9 @@ Get metadata of a brand
 
 
 ```java
-catalog.getBrandDetailBySlug( slug)
-{
-
-
+catalog.getBrandDetailBySlug( slug) {
   //use response
-  }
+}
 ```
 
 
@@ -3145,12 +3103,9 @@ List all the categories
 
 
 ```java
-catalog.getCategories( department)
-{
-
-
+catalog.getCategories( department) {
   //use response
-  }
+}
 ```
 
 
@@ -3289,12 +3244,9 @@ Get metadata of a category
 
 
 ```java
-catalog.getCategoryDetailBySlug( slug)
-{
-
-
+catalog.getCategoryDetailBySlug( slug) {
   //use response
-  }
+}
 ```
 
 
@@ -3363,12 +3315,9 @@ List the products
 
 
 ```java
-catalog.getHomeProducts( sortOn,  pageId,  pageSize)
-{
-
-
+catalog.getHomeProducts( sortOn,  pageId,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -4560,12 +4509,9 @@ List all the departments
 
 
 ```java
-catalog.getDepartments()
-{
-
-
+catalog.getDepartments() {
   //use response
-  }
+}
 ```
 
 
@@ -4714,12 +4660,9 @@ Get relevant suggestions for a search query
 
 
 ```java
-catalog.getSearchResults( q)
-{
-
-
+catalog.getSearchResults( q) {
   //use response
-  }
+}
 ```
 
 
@@ -4770,12 +4713,9 @@ List all the collections
 
 
 ```java
-catalog.getCollections( pageNo,  pageSize,  tag)
-{
-
-
+catalog.getCollections( pageNo,  pageSize,  tag) {
   //use response
-  }
+}
 ```
 
 
@@ -4951,12 +4891,9 @@ Get the items in a collection
 
 
 ```java
-catalog.getCollectionItemsBySlug( slug,  f,  filters,  sortOn,  pageId,  pageSize)
-{
-
-
+catalog.getCollectionItemsBySlug( slug,  f,  filters,  sortOn,  pageId,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -5341,12 +5278,9 @@ Get a particular collection
 
 
 ```java
-catalog.getCollectionDetailBySlug( slug)
-{
-
-
+catalog.getCollectionDetailBySlug( slug) {
   //use response
-  }
+}
 ```
 
 
@@ -5444,12 +5378,9 @@ Get a list of followed Products, Brands, Collections
 
 
 ```java
-catalog.getFollowedListing( collectionType,  pageId,  pageSize)
-{
-
-
+catalog.getFollowedListing( collectionType,  pageId,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -5818,12 +5749,9 @@ Follow an entity (product/brand/collection)
 
 
 ```java
-catalog.followById( collectionType,  collectionId)
-{
-
-
+catalog.followById( collectionType,  collectionId) {
   //use response
-  }
+}
 ```
 
 
@@ -5878,12 +5806,9 @@ Unfollow an entity (product/brand/collection)
 
 
 ```java
-catalog.unfollowById( collectionType,  collectionId)
-{
-
-
+catalog.unfollowById( collectionType,  collectionId) {
   //use response
-  }
+}
 ```
 
 
@@ -5938,12 +5863,9 @@ Get Follow Count
 
 
 ```java
-catalog.getFollowerCountById( collectionType,  collectionId)
-{
-
-
+catalog.getFollowerCountById( collectionType,  collectionId) {
   //use response
-  }
+}
 ```
 
 
@@ -5997,12 +5919,9 @@ Get the IDs of followed products, brands and collections.
 
 
 ```java
-catalog.getFollowIds( collectionType)
-{
-
-
+catalog.getFollowIds( collectionType) {
   //use response
-  }
+}
 ```
 
 
@@ -6077,12 +5996,9 @@ Get store meta information.
 
 
 ```java
-catalog.getStores( pageNo,  pageSize,  q,  city,  range,  latitude,  longitude)
-{
-
-
+catalog.getStores( pageNo,  pageSize,  q,  city,  range,  latitude,  longitude) {
   //use response
-  }
+}
 ```
 
 
@@ -6168,12 +6084,9 @@ Get store meta information.
 
 
 ```java
-catalog.getInStockLocations( pageNo,  pageSize,  q,  city,  range,  latitude,  longitude)
-{
-
-
+catalog.getInStockLocations( pageNo,  pageSize,  q,  city,  range,  latitude,  longitude) {
   //use response
-  }
+}
 ```
 
 
@@ -6343,12 +6256,9 @@ Get store meta information.
 
 
 ```java
-catalog.getLocationDetailsById( locationId)
-{
-
-
+catalog.getLocationDetailsById( locationId) {
   //use response
-  }
+}
 ```
 
 
@@ -6529,12 +6439,9 @@ Get the price of a product size at a PIN Code
 
 
 ```java
-catalog.getProductPriceBySlugV2( slug,  size,  storeId,  pincode)
-{
-
-
+catalog.getProductPriceBySlugV2( slug,  size,  storeId,  pincode) {
   //use response
-  }
+}
 ```
 
 
@@ -6664,12 +6571,9 @@ Get the sellers of a product size at a PIN Code
 
 
 ```java
-catalog.getProductSellersBySlugV2( slug,  size,  pincode,  strategy,  pageNo,  pageSize)
-{
-
-
+catalog.getProductSellersBySlugV2( slug,  size,  pincode,  strategy,  pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -6816,12 +6720,9 @@ Get product bundles
 
 
 ```java
-catalog.getProductBundlesBySlug( slug,  id)
-{
-
-
+catalog.getProductBundlesBySlug( slug,  id) {
   //use response
-  }
+}
 ```
 
 

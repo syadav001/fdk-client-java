@@ -46,12 +46,9 @@ Fetch all items added to the cart
 
 
 ```java
-poscart.getCart( id,  i,  b,  assignCardId)
-{
-
-
+poscart.getCart( id,  i,  b,  assignCardId) {
   //use response
-  }
+}
 ```
 
 
@@ -271,12 +268,9 @@ Fetch last-modified timestamp
 
 
 ```java
-poscart.getCartLastModified( id)
-{
-
-
+poscart.getCartLastModified( id) {
   //use response
-  }
+}
 ```
 
 
@@ -308,12 +302,9 @@ Add items to cart
 
 
 ```java
-poscart.addItems( i,  b, body body)
-{
-
-
+poscart.addItems( i,  b, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -998,12 +989,9 @@ Update items in the cart
 
 
 ```java
-poscart.updateCart( id,  i,  b, body body)
-{
-
-
+poscart.updateCart( id,  i,  b, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1418,12 +1406,9 @@ Count items in the cart
 
 
 ```java
-poscart.getItemCount( id)
-{
-
-
+poscart.getItemCount( id) {
   //use response
-  }
+}
 ```
 
 
@@ -1476,12 +1461,9 @@ Fetch Coupon
 
 
 ```java
-poscart.getCoupons( id)
-{
-
-
+poscart.getCoupons( id) {
   //use response
-  }
+}
 ```
 
 
@@ -1568,12 +1550,9 @@ Apply Coupon
 
 
 ```java
-poscart.applyCoupon( i,  b,  p,  id, body body)
-{
-
-
+poscart.applyCoupon( i,  b,  p,  id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2163,12 +2142,9 @@ Remove Coupon Applied
 
 
 ```java
-poscart.removeCoupon( id)
-{
-
-
+poscart.removeCoupon( id) {
   //use response
-  }
+}
 ```
 
 
@@ -2376,12 +2352,9 @@ Get discount offers based on quantity
 
 
 ```java
-poscart.getBulkDiscountOffers( itemId,  articleId,  uid,  slug)
-{
-
-
+poscart.getBulkDiscountOffers( itemId,  articleId,  uid,  slug) {
   //use response
-  }
+}
 ```
 
 
@@ -2506,12 +2479,9 @@ Apply reward points at cart
 
 
 ```java
-poscart.applyRewardPoints( id,  i,  b, body body)
-{
-
-
+poscart.applyRewardPoints( id,  i,  b, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2730,12 +2700,9 @@ Fetch address
 
 
 ```java
-poscart.getAddresses( cartId,  mobileNo,  checkoutMode,  tags,  isDefault)
-{
-
-
+poscart.getAddresses( cartId,  mobileNo,  checkoutMode,  tags,  isDefault) {
   //use response
-  }
+}
 ```
 
 
@@ -2820,12 +2787,9 @@ Add address to an account
 
 
 ```java
-poscart.addAddress(body body)
-{
-
-
+poscart.addAddress(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2879,12 +2843,9 @@ Fetch a single address by its ID
 
 
 ```java
-poscart.getAddressById( id,  cartId,  mobileNo,  checkoutMode,  tags,  isDefault)
-{
-
-
+poscart.getAddressById( id,  cartId,  mobileNo,  checkoutMode,  tags,  isDefault) {
   //use response
-  }
+}
 ```
 
 
@@ -2967,12 +2928,9 @@ Update address added to an account
 
 
 ```java
-poscart.updateAddress( id, body body)
-{
-
-
+poscart.updateAddress( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3028,12 +2986,9 @@ Remove address associated with an account
 
 
 ```java
-poscart.removeAddress( id)
-{
-
-
+poscart.removeAddress( id) {
   //use response
-  }
+}
 ```
 
 
@@ -3087,12 +3042,9 @@ Select an address from available addresses
 
 
 ```java
-poscart.selectAddress( cartId,  i,  b, body body)
-{
-
-
+poscart.selectAddress( cartId,  i,  b, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3400,12 +3352,9 @@ Update cart payment
 
 
 ```java
-poscart.selectPaymentMode( id, body body)
-{
-
-
+poscart.selectPaymentMode( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3723,12 +3672,9 @@ Verify the coupon eligibility against the payment mode
 
 
 ```java
-poscart.validateCouponForPayment( id,  addressId,  paymentMode,  paymentIdentifier,  aggregatorName,  merchantCode)
-{
-
-
+poscart.validateCouponForPayment( id,  addressId,  paymentMode,  paymentIdentifier,  aggregatorName,  merchantCode) {
   //use response
-  }
+}
 ```
 
 
@@ -3794,12 +3740,9 @@ Get delivery date and options before checkout
 
 
 ```java
-poscart.getShipments( pickAtStoreUid,  orderingStoreId,  p,  id,  addressId,  areaCode,  orderType)
-{
-
-
+poscart.getShipments( pickAtStoreUid,  orderingStoreId,  p,  id,  addressId,  areaCode,  orderType) {
   //use response
-  }
+}
 ```
 
 
@@ -4496,12 +4439,9 @@ Update shipment delivery type and quantity before checkout
 
 
 ```java
-poscart.updateShipments( i,  p,  id,  addressId,  orderType, body body)
-{
-
-
+poscart.updateShipments( i,  p,  id,  addressId,  orderType, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -5197,12 +5137,9 @@ Checkout all items in the cart
 
 
 ```java
-poscart.checkoutCart( id, body body)
-{
-
-
+poscart.checkoutCart( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -5633,12 +5570,9 @@ Update the cart meta
 
 
 ```java
-poscart.updateCartMeta( id, body body)
-{
-
-
+poscart.updateCartMeta( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -5691,12 +5625,9 @@ Get available delivery modes for cart
 
 
 ```java
-poscart.getAvailableDeliveryModes( areaCode,  id)
-{
-
-
+poscart.getAvailableDeliveryModes( areaCode,  id) {
   //use response
-  }
+}
 ```
 
 
@@ -5756,12 +5687,9 @@ Get list of stores for give uids
 
 
 ```java
-poscart.getStoreAddressByUid( storeUid)
-{
-
-
+poscart.getStoreAddressByUid( storeUid) {
   //use response
-  }
+}
 ```
 
 
@@ -5836,12 +5764,9 @@ Generate token for sharing the cart
 
 
 ```java
-poscart.getCartShareLink(body body)
-{
-
-
+poscart.getCartShareLink(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -5902,12 +5827,9 @@ Get details of a shared cart
 
 
 ```java
-poscart.getCartSharedItems( token)
-{
-
-
+poscart.getCartSharedItems( token) {
   //use response
-  }
+}
 ```
 
 
@@ -6234,12 +6156,9 @@ Merge or replace existing cart
 
 
 ```java
-poscart.updateCartWithSharedItems( token,  action)
-{
-
-
+poscart.updateCartWithSharedItems( token,  action) {
   //use response
-  }
+}
 ```
 
 

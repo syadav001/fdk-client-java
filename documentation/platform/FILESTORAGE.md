@@ -29,12 +29,9 @@ This operation initiates upload and returns storage link which is valid for 30 M
 
 
 ```java
-client.filestorage.startUpload( namespace, body body)
-{
-
-
+client.filestorage.startUpload( namespace, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -104,12 +101,9 @@ This will complete the upload process. After successfully uploading file, you ca
 
 
 ```java
-client.filestorage.completeUpload( namespace, body body)
-{
-
-
+client.filestorage.completeUpload( namespace, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -179,12 +173,9 @@ This operation initiates upload and returns storage link which is valid for 30 M
 
 
 ```java
-client.application("<APPLICATION_ID>").filestorage.appStartUpload( namespace, body body)
-{
-
-
+client.application("<APPLICATION_ID>").filestorage.appStartUpload( namespace, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -255,12 +246,9 @@ This will complete the upload process. After successfully uploading file, you ca
 
 
 ```java
-client.application("<APPLICATION_ID>").filestorage.appCompleteUpload( namespace, body body)
-{
-
-
+client.application("<APPLICATION_ID>").filestorage.appCompleteUpload( namespace, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -331,12 +319,9 @@ Explain here
 
 
 ```java
-client.filestorage.getSignUrls(body body)
-{
-
-
+client.filestorage.getSignUrls(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -387,12 +372,9 @@ Copy Files
 
 
 ```java
-client.filestorage.copyFiles( sync, body body)
-{
-
-
+client.filestorage.copyFiles( sync, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -471,12 +453,9 @@ Copy Files
 
 
 ```java
-client.application("<APPLICATION_ID>").filestorage.appCopyFiles( sync, body body)
-{
-
-
+client.application("<APPLICATION_ID>").filestorage.appCopyFiles( sync, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -556,12 +535,9 @@ Browse Files
 
 
 ```java
-client.filestorage.browse( namespace,  pageNo)
-{
-
-
+client.filestorage.browse( namespace,  pageNo) {
   //use response
-  }
+}
 ```
 
 
@@ -614,12 +590,9 @@ Browse Files
 
 
 ```java
-client.application("<APPLICATION_ID>").filestorage.browse( namespace,  pageNo)
-{
-
-
+client.application("<APPLICATION_ID>").filestorage.browse( namespace,  pageNo) {
   //use response
-  }
+}
 ```
 
 
@@ -673,12 +646,9 @@ Proxy
 
 
 ```java
-client.filestorage.proxy( url)
-{
-
-
+client.filestorage.proxy( url) {
   //use response
-  }
+}
 ```
 
 

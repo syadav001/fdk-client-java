@@ -65,12 +65,9 @@ Get latest build config
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getBuildConfig( platformType)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getBuildConfig( platformType) {
   //use response
-  }
+}
 ```
 
 
@@ -141,12 +138,9 @@ Update build config for next build
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateBuildConfig( platformType, body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.updateBuildConfig( platformType, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -217,12 +211,9 @@ Get previous build versions
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getPreviousVersions( platformType)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getPreviousVersions( platformType) {
   //use response
-  }
+}
 ```
 
 
@@ -290,12 +281,9 @@ Get features of application
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppFeatures()
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getAppFeatures() {
   //use response
-  }
+}
 ```
 
 
@@ -443,12 +431,9 @@ Update features of application
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateAppFeatures(body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.updateAppFeatures(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -584,12 +569,9 @@ Get basic application details
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppBasicDetails()
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getAppBasicDetails() {
   //use response
-  }
+}
 ```
 
 
@@ -681,12 +663,9 @@ Add or update application's basic details
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateAppBasicDetails(body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.updateAppBasicDetails(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -776,12 +755,9 @@ Get application information
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppContactInfo()
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getAppContactInfo() {
   //use response
-  }
+}
 ```
 
 
@@ -948,12 +924,9 @@ Get application information
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateAppContactInfo(body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.updateAppContactInfo(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1113,12 +1086,9 @@ Get social tokens
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppApiTokens()
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getAppApiTokens() {
   //use response
-  }
+}
 ```
 
 
@@ -1248,12 +1218,9 @@ Add social tokens
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateAppApiTokens(body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.updateAppApiTokens(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1383,12 +1350,9 @@ Application inventory enabled companies
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppCompanies( pageNo,  pageSize)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getAppCompanies( pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -1467,12 +1431,9 @@ Application inventory enabled stores
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppStores( pageNo,  pageSize)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getAppStores( pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -1564,12 +1525,9 @@ Get application configuration
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getInventoryConfig()
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getInventoryConfig() {
   //use response
-  }
+}
 ```
 
 
@@ -1806,12 +1764,9 @@ Update application configuration
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateInventoryConfig(body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.updateInventoryConfig(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2048,12 +2003,9 @@ Partially update application configuration
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.partiallyUpdateInventoryConfig(body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.partiallyUpdateInventoryConfig(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2290,12 +2242,9 @@ Get application enabled currency list
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppCurrencyConfig()
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getAppCurrencyConfig() {
   //use response
-  }
+}
 ```
 
 
@@ -2363,12 +2312,9 @@ Add initial application supported currency
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateAppCurrencyConfig(body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.updateAppCurrencyConfig(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2436,12 +2382,9 @@ Get currencies enabled in the application
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppSupportedCurrency()
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getAppSupportedCurrency() {
   //use response
-  }
+}
 ```
 
 
@@ -2511,12 +2454,9 @@ Get ordering store by filter
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getOrderingStoresByFilter( pageNo,  pageSize, body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getOrderingStoresByFilter( pageNo,  pageSize, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2654,12 +2594,9 @@ Add/Update ordering store config
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateOrderingStoreConfig(body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.updateOrderingStoreConfig(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2722,12 +2659,9 @@ Get deployment stores
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getStaffOrderingStores( pageNo,  pageSize,  q)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getStaffOrderingStores( pageNo,  pageSize,  q) {
   //use response
-  }
+}
 ```
 
 
@@ -2782,12 +2716,9 @@ Get attached domain list
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getDomains()
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getDomains() {
   //use response
-  }
+}
 ```
 
 
@@ -2863,12 +2794,9 @@ Add new domain to application
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.addDomain(body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.addDomain(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2928,12 +2856,9 @@ Remove attached domain
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.removeDomainById( id)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.removeDomainById( id) {
   //use response
-  }
+}
 ```
 
 
@@ -2988,12 +2913,9 @@ Change domain type
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.changeDomainType(body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.changeDomainType(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3069,12 +2991,9 @@ Get domain connected status.
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getDomainStatus(body body)
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getDomainStatus(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3142,12 +3061,9 @@ Create application
 
 
 ```java
-client.configuration.createApplication(body body)
-{
-
-
+client.configuration.createApplication(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3198,12 +3114,9 @@ Get list of application under company
 
 
 ```java
-client.configuration.getApplications( pageNo,  pageSize,  q)
-{
-
-
+client.configuration.getApplications( pageNo,  pageSize,  q) {
   //use response
-  }
+}
 ```
 
 
@@ -3257,12 +3170,9 @@ Get application data from id
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getApplicationById()
-{
-
-
+client.application("<APPLICATION_ID>").configuration.getApplicationById() {
   //use response
-  }
+}
 ```
 
 
@@ -3314,12 +3224,9 @@ Get all currencies
 
 
 ```java
-client.configuration.getCurrencies()
-{
-
-
+client.configuration.getCurrencies() {
   //use response
-  }
+}
 ```
 
 
@@ -3383,12 +3290,9 @@ Check domain availibility before linking to application
 
 
 ```java
-client.configuration.getDomainAvailibility(body body)
-{
-
-
+client.configuration.getDomainAvailibility(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3483,12 +3387,9 @@ Get integration data
 
 
 ```java
-client.configuration.getIntegrationById( id)
-{
-
-
+client.configuration.getIntegrationById( id) {
   //use response
-  }
+}
 ```
 
 
@@ -3627,12 +3528,9 @@ Get all available integration opt-ins
 
 
 ```java
-client.configuration.getAvailableOptIns( pageNo,  pageSize)
-{
-
-
+client.configuration.getAvailableOptIns( pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -3792,12 +3690,9 @@ Get company/store level integration opt-ins
 
 
 ```java
-client.configuration.getSelectedOptIns( level,  uid,  pageNo,  pageSize)
-{
-
-
+client.configuration.getSelectedOptIns( level,  uid,  pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -3959,12 +3854,9 @@ Get integration level config
 
 
 ```java
-client.configuration.getIntegrationLevelConfig( id,  level,  opted,  checkPermission)
-{
-
-
+client.configuration.getIntegrationLevelConfig( id,  level,  opted,  checkPermission) {
   //use response
-  }
+}
 ```
 
 
@@ -4040,12 +3932,9 @@ Get level data for integration
 
 
 ```java
-client.configuration.getIntegrationByLevelId( id,  level,  uid)
-{
-
-
+client.configuration.getIntegrationByLevelId( id,  level,  uid) {
   //use response
-  }
+}
 ```
 
 
@@ -4116,12 +4005,9 @@ Update a store level opt-in for integration
 
 
 ```java
-client.configuration.updateLevelUidIntegration( id,  level,  uid, body body)
-{
-
-
+client.configuration.updateLevelUidIntegration( id,  level,  uid, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -4192,12 +4078,9 @@ Check store has active integration
 
 
 ```java
-client.configuration.getLevelActiveIntegrations( id,  level,  uid)
-{
-
-
+client.configuration.getLevelActiveIntegrations( id,  level,  uid) {
   //use response
-  }
+}
 ```
 
 
@@ -4268,12 +4151,9 @@ Update a store level opt-in for integration
 
 
 ```java
-client.configuration.updateLevelIntegration( id,  level, body body)
-{
-
-
+client.configuration.updateLevelIntegration( id,  level, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -4343,12 +4223,9 @@ Get brands by company
 
 
 ```java
-client.configuration.getBrandsByCompany( q)
-{
-
-
+client.configuration.getBrandsByCompany( q) {
   //use response
-  }
+}
 ```
 
 
@@ -4417,12 +4294,9 @@ Get company by brand uids
 
 
 ```java
-client.configuration.getCompanyByBrands( pageNo,  pageSize, body body)
-{
-
-
+client.configuration.getCompanyByBrands( pageNo,  pageSize, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -4497,12 +4371,9 @@ Get stores by brand uids
 
 
 ```java
-client.configuration.getStoreByBrands( pageNo,  pageSize, body body)
-{
-
-
+client.configuration.getStoreByBrands( pageNo,  pageSize, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -4616,12 +4487,9 @@ Get other seller applications
 
 
 ```java
-client.configuration.getOtherSellerApplications( pageNo,  pageSize)
-{
-
-
+client.configuration.getOtherSellerApplications( pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -4717,12 +4585,9 @@ Get other seller applications
 
 
 ```java
-client.configuration.getOtherSellerApplicationById( id)
-{
-
-
+client.configuration.getOtherSellerApplicationById( id) {
   //use response
-  }
+}
 ```
 
 
@@ -4821,12 +4686,9 @@ Opt out company or store from other seller application
 
 
 ```java
-client.configuration.optOutFromApplication( id, body body)
-{
-
-
+client.configuration.optOutFromApplication( id, body body) {
   //use response
-  }
+}
 ```
 
 
