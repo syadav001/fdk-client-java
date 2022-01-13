@@ -22,12 +22,9 @@ Get communication consent
 
 
 ```java
-communication.getCommunicationConsent()
-{
-
-
+communication.getCommunicationConsent() {
   //use response
-  }
+}
 ```
 
 
@@ -56,7 +53,26 @@ Success. Returns all available communication opt-ins along with the consent deta
 
 ```json
 {
-  "$ref": "#/components/examples/CommunicationConsent"
+  "value": {
+    "app_id": "000000000000000000000004",
+    "user_id": "5e56021c4bda3ccab6d9f884",
+    "channels": {
+      "email": {
+        "response": "yes",
+        "display_name": "Email"
+      },
+      "sms": {
+        "response": "yes",
+        "display_name": "SMS"
+      },
+      "whatsapp": {
+        "response": "yes",
+        "display_name": "WhatsApp",
+        "country_code": "91",
+        "phone_number": "9869821300"
+      }
+    }
+  }
 }
 ```
 </details>
@@ -81,12 +97,9 @@ Upsert communication consent
 
 
 ```java
-communication.upsertCommunicationConsent(body body)
-{
-
-
+communication.upsertCommunicationConsent(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -119,7 +132,24 @@ Success. Updates the channels for which user has consented. Check the example sh
 
 ```json
 {
-  "$ref": "#/components/examples/CommunicationConsentRes"
+  "value": {
+    "appId": "000000000000000000000004",
+    "userId": "5e56021c4bda3ccab6d9f884",
+    "channels": {
+      "email": {
+        "response": "yes",
+        "displayName": "Email"
+      },
+      "sms": {
+        "response": "yes",
+        "displayName": "SMS"
+      },
+      "whatsapp": {
+        "response": "noaction",
+        "displayName": "WhatsApp"
+      }
+    }
+  }
 }
 ```
 </details>
@@ -144,12 +174,9 @@ Upsert push token of a user
 
 
 ```java
-communication.upsertAppPushtoken(body body)
-{
-
-
+communication.upsertAppPushtoken(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -182,7 +209,18 @@ Success. Check the example shown below or refer `PushtokenRes` for more details.
 
 ```json
 {
-  "$ref": "#/components/examples/PushtokenResponseCreate"
+  "value": {
+    "_id": "601b6924d8ea9a061570a09f",
+    "bundle_identifier": "000002",
+    "push_token": "45",
+    "unique_device_id": "3",
+    "type": "fynd-platform",
+    "platform": "web",
+    "application_id": "000000000000000000000004",
+    "user_id": "5e56021c4bda3ccab6d9f884",
+    "created_at": "2021-02-04T03:25:24.765Z",
+    "updated_at": "2021-02-04T03:25:51.152Z"
+  }
 }
 ```
 </details>
@@ -192,7 +230,18 @@ Success. Check the example shown below or refer `PushtokenRes` for more details.
 
 ```json
 {
-  "$ref": "#/components/examples/PushtokenResponseUpdate"
+  "value": {
+    "_id": "601b6924d8ea9a061570a09f",
+    "bundle_identifier": "000002",
+    "push_token": "45",
+    "unique_device_id": "3",
+    "type": "fynd-platform",
+    "platform": "web",
+    "application_id": "000000000000000000000004",
+    "user_id": "5e56021c4bda3ccab6d9f884",
+    "created_at": "2021-02-04T03:25:24.765Z",
+    "updated_at": "2021-02-04T03:25:51.152Z"
+  }
 }
 ```
 </details>
@@ -202,7 +251,19 @@ Success. Check the example shown below or refer `PushtokenRes` for more details.
 
 ```json
 {
-  "$ref": "#/components/examples/PushtokenResponseReset"
+  "value": {
+    "_id": "601b6924d8ea9a061570a09f",
+    "bundle_identifier": "000002",
+    "push_token": "45",
+    "unique_device_id": "3",
+    "type": "fynd-platform",
+    "platform": "web",
+    "application_id": "000000000000000000000004",
+    "user_id": "5e56021c4bda3ccab6d9f884",
+    "created_at": "2021-02-04T03:25:24.765Z",
+    "updated_at": "2021-02-04T03:25:51.152Z",
+    "expired_at": "2021-02-05T03:25:51.138Z"
+  }
 }
 ```
 </details>

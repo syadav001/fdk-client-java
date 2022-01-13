@@ -21,12 +21,9 @@ Initiates an upload and returns a storage link that is valid for 30 minutes. You
 
 
 ```java
-filestorage.startUpload( namespace, body body)
-{
-
-
+filestorage.startUpload( namespace, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -95,12 +92,9 @@ Completes the upload process. After successfully uploading a file, call this API
 
 
 ```java
-filestorage.completeUpload( namespace, body body)
-{
-
-
+filestorage.completeUpload( namespace, body body) {
   //use response
-  }
+}
 ```
 
 
