@@ -76,11 +76,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -102,9 +102,6 @@ interface CatalogApiList {
     
     @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/")
     Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlugV2(@Path("slug") String slug , @Path("size") String size , @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/catalog/v1.0/product-grouping/")
-    Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Query("slug") String slug , @Query("id") String id );
     
 }
 
@@ -540,6 +537,9 @@ interface PaymentApiList {
     @GET ("/service/application/payment/v1.0/rupifi/banner")
     Call<ApplicationModels.RupifiBannerResponse> getRupifiBannerDetails();
     
+    @GET ("/service/application/payment/v1.0/epaylater/banner")
+    Call<ApplicationModels.EpaylaterBannerResponse> getEpaylaterBannerDetails();
+    
     @GET ("/service/application/payment/v1.0/refund/transfer-mode")
     Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes();
     
@@ -569,6 +569,18 @@ interface PaymentApiList {
     
     @POST ("/service/application/payment/v1.0/refund/beneficiary/default")
     Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Body ApplicationModels.SetDefaultBeneficiaryRequest payload);
+    
+    @GET ("/service/application/payment/v1.0/payment/credit-summary/")
+    Call<ApplicationModels.CustomerCreditSummaryResponse> CustomerCreditSummary(@Query("aggregator") String aggregator );
+    
+    @GET ("/service/application/payment/v1.0/payment/redirect-to-aggregator/")
+    Call<ApplicationModels.RedirectToAggregatorResponse> RedirectToAggregator(@Query("aggregator") String aggregator );
+    
+    @GET ("/service/application/payment/v1.0/check-credits/")
+    Call<ApplicationModels.CheckCreditResponse> CheckCredit(@Query("aggregator") String aggregator );
+    
+    @POST ("/service/application/payment/v1.0/credit-onboard/")
+    Call<ApplicationModels.CustomerOnboardingResponse> CheckCredit(@Body ApplicationModels.CustomerOnboardingRequest payload);
     
 }
 

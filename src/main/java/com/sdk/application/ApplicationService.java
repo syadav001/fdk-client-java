@@ -860,9 +860,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -874,9 +874,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1212,20 +1212,6 @@ public class ApplicationService {
     });
     return paginator ;
     }
-    
-    
-    public ApplicationModels.ProductBundle getProductBundlesBySlug(String slug , String id ) throws IOException {
-    
-        Response<ApplicationModels.ProductBundle> response = catalogApiList.getProductBundlesBySlug(slug, id).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
       
 }
 
@@ -3617,6 +3603,20 @@ public class FileStorageService extends FileStorage {
     
     
     
+    public ApplicationModels.EpaylaterBannerResponse getEpaylaterBannerDetails() throws IOException {
+    
+        Response<ApplicationModels.EpaylaterBannerResponse> response = paymentApiList.getEpaylaterBannerDetails().execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.TransferModeResponse getActiveRefundTransferModes() throws IOException {
     
         Response<ApplicationModels.TransferModeResponse> response = paymentApiList.getActiveRefundTransferModes().execute();
@@ -3746,6 +3746,62 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.SetDefaultBeneficiaryResponse updateDefaultBeneficiary(ApplicationModels.SetDefaultBeneficiaryRequest body) throws IOException {
     
         Response<ApplicationModels.SetDefaultBeneficiaryResponse> response = paymentApiList.updateDefaultBeneficiary( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CustomerCreditSummaryResponse CustomerCreditSummary(String aggregator ) throws IOException {
+    
+        Response<ApplicationModels.CustomerCreditSummaryResponse> response = paymentApiList.CustomerCreditSummary(aggregator).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.RedirectToAggregatorResponse RedirectToAggregator(String aggregator ) throws IOException {
+    
+        Response<ApplicationModels.RedirectToAggregatorResponse> response = paymentApiList.RedirectToAggregator(aggregator).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CheckCreditResponse CheckCredit(String aggregator ) throws IOException {
+    
+        Response<ApplicationModels.CheckCreditResponse> response = paymentApiList.CheckCredit(aggregator).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CustomerOnboardingResponse CheckCredit(ApplicationModels.CustomerOnboardingRequest body) throws IOException {
+    
+        Response<ApplicationModels.CustomerOnboardingResponse> response = paymentApiList.CheckCredit( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
