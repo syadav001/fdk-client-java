@@ -27,12 +27,9 @@ Get Job Configs For A Company
 
 
 ```java
-client.inventory.getJobsByCompany( pageNo,  pageSize)
-{
-
-
+client.inventory.getJobsByCompany( pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -85,12 +82,9 @@ Updates An Existing Job Config
 
 
 ```java
-client.inventory.updateJob(body body)
-{
-
-
+client.inventory.updateJob(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -141,12 +135,9 @@ Creates A New Job Config
 
 
 ```java
-client.inventory.createJob(body body)
-{
-
-
+client.inventory.createJob(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -197,12 +188,9 @@ Get Job Configs By Company And Integration
 
 
 ```java
-client.inventory.getJobByCompanyAndIntegration( integrationId,  pageNo,  pageSize)
-{
-
-
+client.inventory.getJobByCompanyAndIntegration( integrationId,  pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -256,12 +244,9 @@ Get Job Configs Defaults
 
 
 ```java
-client.inventory.getJobConfigDefaults()
-{
-
-
+client.inventory.getJobConfigDefaults() {
   //use response
-  }
+}
 ```
 
 
@@ -312,12 +297,9 @@ Get Job Config By Code
 
 
 ```java
-client.inventory.getJobByCode( code)
-{
-
-
+client.inventory.getJobByCode( code) {
   //use response
-  }
+}
 ```
 
 
@@ -369,12 +351,9 @@ Get Job Metrics
 
 
 ```java
-client.inventory.getJobCodeMetrics( code,  pageNo,  pageSize)
-{
-
-
+client.inventory.getJobCodeMetrics( code,  pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -428,12 +407,9 @@ Get Job Codes By Company And Integration
 
 
 ```java
-client.inventory.getJobCodesByCompanyAndIntegration( integrationId,  pageNo,  pageSize)
-{
-
-
+client.inventory.getJobCodesByCompanyAndIntegration( integrationId,  pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 

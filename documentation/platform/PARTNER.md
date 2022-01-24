@@ -21,12 +21,9 @@ Add proxy path for external url
 
 
 ```java
-client.application("<APPLICATION_ID>").partner.addProxyPath( extensionId, body body)
-{
-
-
+client.application("<APPLICATION_ID>").partner.addProxyPath( extensionId, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -88,12 +85,9 @@ Remove proxy path for external url
 
 
 ```java
-client.application("<APPLICATION_ID>").partner.removeProxyPath( extensionId,  attachedPath)
-{
-
-
+client.application("<APPLICATION_ID>").partner.removeProxyPath( extensionId,  attachedPath) {
   //use response
-  }
+}
 ```
 
 
@@ -187,12 +181,14 @@ Success
 
  
  
- #### [ApiError](#ApiError)
+ #### [APIError](#APIError)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | code | String? |  yes  |  |
  | message | String? |  yes  |  |
+ | info | String? |  yes  | Error code description link |
+ | requestId | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
 
 ---

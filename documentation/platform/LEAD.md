@@ -42,12 +42,9 @@ Gets the list of company level tickets and/or ticket filters depending on query 
 
 
 ```java
-client.lead.getTickets( items,  filters,  q,  status,  priority,  category,  pageNo,  pageSize)
-{
-
-
+client.lead.getTickets( items,  filters,  q,  status,  priority,  category,  pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -59,7 +56,7 @@ client.lead.getTickets( items,  filters,  q,  status,  priority,  category,  pag
 | filters | Boolean? | no | Decides that the reponse will contain the ticket filters |   
 | q | String? | no | Search through ticket titles and description |   
 | status | String? | no | Filter tickets on status |   
-| priority | undefined.PriorityEnum? | no | Filter tickets on priority |   
+| priority | PriorityEnum? | no | Filter tickets on priority |   
 | category | String? | no | Filter tickets on category |   
 | pageNo | Integer? | no | The page number to navigate through the given set of results. |   
 | pageSize | Integer? | no | Number of items to retrieve in each page. Default is 12. |  
@@ -480,12 +477,9 @@ Creates a company level ticket
 
 
 ```java
-client.lead.createTicket(body body)
-{
-
-
+client.lead.createTicket(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -734,12 +728,9 @@ Gets the list of Application level Tickets and/or ticket filters depending on qu
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.getTickets( items,  filters,  q,  status,  priority,  category)
-{
-
-
+client.application("<APPLICATION_ID>").lead.getTickets( items,  filters,  q,  status,  priority,  category) {
   //use response
-  }
+}
 ```
 
 
@@ -752,7 +743,7 @@ client.application("<APPLICATION_ID>").lead.getTickets( items,  filters,  q,  st
 | filters | Boolean? | no | Decides that the reponse will contain the ticket filters |   
 | q | String? | no | Search through ticket titles and description |   
 | status | String? | no | Filter tickets on status |   
-| priority | undefined.PriorityEnum? | no | Filter tickets on priority |   
+| priority | PriorityEnum? | no | Filter tickets on priority |   
 | category | String? | no | Filter tickets on category |  
 
 
@@ -1171,12 +1162,9 @@ Retreives ticket details of a company level ticket with ticket ID
 
 
 ```java
-client.lead.getTicket( id)
-{
-
-
+client.lead.getTicket( id) {
   //use response
-  }
+}
 ```
 
 
@@ -1426,12 +1414,9 @@ Edits ticket details of a company level ticket
 
 
 ```java
-client.lead.editTicket( id, body body)
-{
-
-
+client.lead.editTicket( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1681,12 +1666,9 @@ Retreives ticket details of a application level ticket
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.getTicket( id)
-{
-
-
+client.application("<APPLICATION_ID>").lead.getTicket( id) {
   //use response
-  }
+}
 ```
 
 
@@ -1938,12 +1920,9 @@ Edits ticket details of a application level ticket
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.editTicket( id, body body)
-{
-
-
+client.application("<APPLICATION_ID>").lead.editTicket( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2195,12 +2174,9 @@ Create history for specific company level ticket
 
 
 ```java
-client.lead.createHistory( id, body body)
-{
-
-
+client.lead.createHistory( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2294,12 +2270,9 @@ Gets history list for specific company level ticket
 
 
 ```java
-client.lead.getTicketHistory( id)
-{
-
-
+client.lead.getTicketHistory( id) {
   //use response
-  }
+}
 ```
 
 
@@ -2497,12 +2470,9 @@ Gets a list of feedback submitted against that ticket
 
 
 ```java
-client.lead.getFeedbacks( id)
-{
-
-
+client.lead.getFeedbacks( id) {
   //use response
-  }
+}
 ```
 
 
@@ -2583,12 +2553,9 @@ Submit a response for feeback form against that ticket
 
 
 ```java
-client.lead.submitFeedback( id, body body)
-{
-
-
+client.lead.submitFeedback( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2665,12 +2632,9 @@ Create history for specific application level ticket
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.createHistory( id, body body)
-{
-
-
+client.application("<APPLICATION_ID>").lead.createHistory( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -2765,12 +2729,9 @@ Gets history list for specific application level ticket
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.getTicketHistory( id)
-{
-
-
+client.application("<APPLICATION_ID>").lead.getTicketHistory( id) {
   //use response
-  }
+}
 ```
 
 
@@ -2969,12 +2930,9 @@ Get specific custom form using it's slug
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.getCustomForm( slug)
-{
-
-
+client.application("<APPLICATION_ID>").lead.getCustomForm( slug) {
   //use response
-  }
+}
 ```
 
 
@@ -3079,12 +3037,9 @@ Edit the given custom form
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.editCustomForm( slug, body body)
-{
-
-
+client.application("<APPLICATION_ID>").lead.editCustomForm( slug, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3199,12 +3154,9 @@ Get list of custom form
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.getCustomForms()
-{
-
-
+client.application("<APPLICATION_ID>").lead.getCustomForms() {
   //use response
-  }
+}
 ```
 
 
@@ -3397,12 +3349,9 @@ Creates a new custom form
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.createCustomForm(body body)
-{
-
-
+client.application("<APPLICATION_ID>").lead.createCustomForm(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3516,12 +3465,9 @@ Get Token to join a specific Video Room using it's unqiue name
 
 
 ```java
-client.lead.getTokenForVideoRoom( uniqueName)
-{
-
-
+client.lead.getTokenForVideoRoom( uniqueName) {
   //use response
-  }
+}
 ```
 
 
@@ -3583,12 +3529,9 @@ Get Token to join a specific Video Room using it's unqiue name
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.getTokenForVideoRoom( uniqueName)
-{
-
-
+client.application("<APPLICATION_ID>").lead.getTokenForVideoRoom( uniqueName) {
   //use response
-  }
+}
 ```
 
 
@@ -3651,12 +3594,9 @@ Get participants of a specific Video Room using it's unique name
 
 
 ```java
-client.lead.getVideoParticipants( uniqueName)
-{
-
-
+client.lead.getVideoParticipants( uniqueName) {
   //use response
-  }
+}
 ```
 
 
@@ -3718,12 +3658,9 @@ Get participants of a specific Video Room using it's unique name
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.getVideoParticipants( uniqueName)
-{
-
-
+client.application("<APPLICATION_ID>").lead.getVideoParticipants( uniqueName) {
   //use response
-  }
+}
 ```
 
 
@@ -3786,12 +3723,9 @@ Open a video room.
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.openVideoRoom(body body)
-{
-
-
+client.application("<APPLICATION_ID>").lead.openVideoRoom(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -3853,12 +3787,9 @@ Close the video room and force all participants to leave.
 
 
 ```java
-client.application("<APPLICATION_ID>").lead.closeVideoRoom( uniqueName)
-{
-
-
+client.application("<APPLICATION_ID>").lead.closeVideoRoom( uniqueName) {
   //use response
-  }
+}
 ```
 
 
@@ -4277,7 +4208,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | display | String? |  yes  | Display text for asset |
  | value | String |  no  | To be used for details |
- | type | Object |  no  | Type of asset |
+ | type | [TicketAssetTypeEnum](#TicketAssetTypeEnum) |  no  | Type of asset |
 
 ---
 
@@ -4561,7 +4492,7 @@ Success
 
 
 
- #### [TicketAssetType](#TicketAssetType)
+ #### [TicketAssetTypeEnum](#TicketAssetTypeEnum)
  Type : string
 
  | Name | Value | Description |

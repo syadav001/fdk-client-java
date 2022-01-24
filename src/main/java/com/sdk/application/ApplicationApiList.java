@@ -76,11 +76,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -96,6 +96,12 @@ interface CatalogApiList {
     
     @GET ("/service/application/catalog/v1.0/locations/{location_id}/")
     Call<ApplicationModels.StoreDetails> getLocationDetailsById(@Path("location_id") Integer locationId );
+    
+    @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/price/")
+    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlugV2(@Path("slug") String slug , @Path("size") String size , @Query("store_id") Integer storeId , @Query("pincode") String pincode );
+    
+    @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/")
+    Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlugV2(@Path("slug") String slug , @Path("size") String size , @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
 }
 
@@ -336,6 +342,9 @@ interface ContentApiList {
     
     @GET ("/service/application/content/v1.0/blogs/")
     Call<ApplicationModels.BlogGetResponse> getBlogs(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    
+    @GET ("/service/application/content/v1.0/data-loader")
+    Call<ApplicationModels.DataLoaderSchema> getDataLoaders();
     
     @GET ("/service/application/content/v1.0/faq")
     Call<ApplicationModels.FaqResponseSchema> getFaqs();

@@ -10,8 +10,6 @@ Discount
 * [createDiscount](#creatediscount)
 * [getDiscount](#getdiscount)
 * [updateDiscount](#updatediscount)
-* [fetchDiscountJobs](#fetchdiscountjobs)
-* [getDiscountDetails](#getdiscountdetails)
 * [validateDiscountFile](#validatediscountfile)
 * [downloadDiscountFile](#downloaddiscountfile)
 * [getValidationJob](#getvalidationjob)
@@ -31,12 +29,9 @@ Fetch discount list.
 
 
 ```java
-client.discount.getDiscounts( view,  q,  pageNo,  pageSize,  archived,  month,  year,  type,  appIds)
-{
-
-
+client.discount.getDiscounts( view,  q,  pageNo,  pageSize,  archived,  month,  year,  type,  appIds) {
   //use response
-  }
+}
 ```
 
 
@@ -96,12 +91,9 @@ Create Discount.
 
 
 ```java
-client.discount.createDiscount(body body)
-{
-
-
+client.discount.createDiscount(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -152,12 +144,9 @@ Fetch discount.
 
 
 ```java
-client.discount.getDiscount( id)
-{
-
-
+client.discount.getDiscount( id) {
   //use response
-  }
+}
 ```
 
 
@@ -209,12 +198,9 @@ Create Discount.
 
 
 ```java
-client.discount.updateDiscount( id, body body)
-{
-
-
+client.discount.updateDiscount( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -259,120 +245,6 @@ Success
 ---
 
 
-### fetchDiscountJobs
-Fetch Discount Jobs.
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").discount.fetchDiscountJobs()
-{
-
-
-  //use response
-  }
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | company_id |   
-| applicationId | String | yes | application id |  
-
-
-
-Fetch Discount Jobs.
-
-*Returned Response:*
-
-
-
-
-[ListOrCalender](#ListOrCalender)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getDiscountDetails
-Get Discounts.
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").discount.getDiscountDetails(body body)
-{
-
-
-  //use response
-  }
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | company_id |   
-| applicationId | String | yes | application id |  
-| body | [InternalDiscountQuery](#InternalDiscountQuery) | yes | Request body |
-
-
-Get Discounts.
-
-*Returned Response:*
-
-
-
-
-[DiscountList](#DiscountList)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### validateDiscountFile
 Validate File.
 
@@ -380,12 +252,9 @@ Validate File.
 
 
 ```java
-client.discount.validateDiscountFile( discount, body body)
-{
-
-
+client.discount.validateDiscountFile( discount, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -437,12 +306,9 @@ Validate File.
 
 
 ```java
-client.discount.downloadDiscountFile( type, body body)
-{
-
-
+client.discount.downloadDiscountFile( type, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -494,12 +360,9 @@ Validate File Job.
 
 
 ```java
-client.discount.getValidationJob( id)
-{
-
-
+client.discount.getValidationJob( id) {
   //use response
-  }
+}
 ```
 
 
@@ -551,12 +414,9 @@ Cancel Validation Job.
 
 
 ```java
-client.discount.cancelValidationJob( id)
-{
-
-
+client.discount.cancelValidationJob( id) {
   //use response
-  }
+}
 ```
 
 
@@ -608,12 +468,9 @@ Download File Job.
 
 
 ```java
-client.discount.getDownloadJob( id)
-{
-
-
+client.discount.getDownloadJob( id) {
   //use response
-  }
+}
 ```
 
 
@@ -665,12 +522,9 @@ Cancel Download Job.
 
 
 ```java
-client.discount.cancelDownloadJob( id)
-{
-
-
+client.discount.cancelDownloadJob( id) {
   //use response
-  }
+}
 ```
 
 
@@ -788,67 +642,6 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | items | ArrayList<[DiscountJob](#DiscountJob)> |  no  |  |
- | page | [Page](#Page) |  no  |  |
-
----
-
-
- 
- 
- #### [InternalDiscountQuery](#InternalDiscountQuery)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | jobIds | ArrayList<String> |  no  |  |
- | itemIds | ArrayList<Integer>? |  yes  |  |
- | sellerIdentifiers | ArrayList<String>? |  yes  |  |
- | brandIds | ArrayList<Integer>? |  yes  |  |
- | storeIds | ArrayList<Integer>? |  yes  |  |
-
----
-
-
- 
- 
- #### [DiscountValueObject](#DiscountValueObject)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | minItems | Integer |  no  |  |
- | value | Integer |  no  |  |
-
----
-
-
- 
- 
- #### [DiscountDetail](#DiscountDetail)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String |  no  |  |
- | jobId | String |  no  |  |
- | companyId | Integer |  no  |  |
- | appIds | ArrayList<String>? |  yes  |  |
- | discountType | String? |  yes  |  |
- | discount | ArrayList<[DiscountValueObject](#DiscountValueObject)>? |  yes  |  |
- | brandIds | ArrayList<Integer>? |  yes  |  |
- | storeIds | ArrayList<Integer>? |  yes  |  |
- | itemId | Integer? |  yes  |  |
- | sellerIdentifier | String? |  yes  |  |
- | createdOn | String |  no  |  |
- | modifiedOn | String |  no  |  |
-
----
-
-
- 
- 
- #### [DiscountList](#DiscountList)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[DiscountDetail](#DiscountDetail)> |  no  |  |
  | page | [Page](#Page) |  no  |  |
 
 ---
