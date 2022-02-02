@@ -1114,6 +1114,20 @@ public class ApplicationService {
     
     
     
+    public ApplicationModels.ProductBundle getProductBundlesBySlug(String slug , String id ) throws IOException {
+    
+        Response<ApplicationModels.ProductBundle> response = catalogApiList.getProductBundlesBySlug(slug, id).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlugV2(String slug , String size , Integer storeId , String pincode ) throws IOException {
     
         Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlugV2(slug, size, storeId, pincode).execute();
