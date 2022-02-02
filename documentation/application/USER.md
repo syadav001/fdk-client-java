@@ -29,8 +29,6 @@ Authentication Service
 * [verifyEmailOTP](#verifyemailotp)
 * [getLoggedInUser](#getloggedinuser)
 * [getListOfActiveSessions](#getlistofactivesessions)
-* [setFreshchatRestoreId](#setfreshchatrestoreid)
-* [getUserStore](#getuserstore)
 * [getPlatformConfig](#getplatformconfig)
 * [updateProfile](#updateprofile)
 * [addMobileNumber](#addmobilenumber)
@@ -1787,106 +1785,6 @@ Success. Returns a JSON object containing an array of sessions. Refer `SessionLi
 ---
 
 
-### setFreshchatRestoreId
-Get freshchat restore ID
-
-
-
-
-```java
-user.setFreshchatRestoreId(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- |
-| body | [FreshchatRestoreIdRequestSchema](#FreshchatRestoreIdRequestSchema) | yes | Request body |
-
-
-Use this API to restore fresh chat of user from the app.
-
-*Returned Response:*
-
-
-
-
-[UserStoreSchema](#UserStoreSchema)
-
-Success. Returns a success message as shown below. Refer `UserStoreSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getUserStore
-Get user store
-
-
-
-
-```java
-user.getUserStore() {
-  //use response
-}
-```
-
-
-
-
-Use this API to get userstore data using users id.
-
-*Returned Response:*
-
-
-
-
-[UserStoreSchema](#UserStoreSchema)
-
-Success. Returns a success message as shown below. Refer `UserStoreSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### getPlatformConfig
 Get platform configurations
 
@@ -3098,17 +2996,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
- #### [FreshchatRestoreIdRequestSchema](#FreshchatRestoreIdRequestSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | freshchatRestoreId | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [UpdatePasswordRequestSchema](#UpdatePasswordRequestSchema)
 
  | Properties | Type | Nullable | Description |
@@ -3971,21 +3858,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | gender | String? |  yes  |  |
  | externalId | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserStoreSchema](#UserStoreSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | userId | String? |  yes  |  |
- | data | HashMap<String,Object>? |  yes  |  |
- | id | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
 
 ---
 

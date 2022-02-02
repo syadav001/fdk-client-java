@@ -76,11 +76,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -181,6 +181,9 @@ interface CartApiList {
     
     @POST ("/service/application/cart/v1.0/share-cart/{token}/{action}")
     Call<ApplicationModels.SharedCartResponse> updateCartWithSharedItems(@Path("token") String token , @Path("action") String action );
+    
+    @GET ("/service/application/cart/v1.0/available-promotions")
+    Call<ApplicationModels.PromotionOffersResponse> getPromotionOffers(@Query("slug") String slug , @Query("page_size") Integer pageSize );
     
 }
 
@@ -302,12 +305,6 @@ interface UserApiList {
     
     @GET ("/service/application/user/authentication/v1.0/sessions")
     Call<ApplicationModels.SessionListSuccess> getListOfActiveSessions();
-    
-    @POST ("/service/application/user/authentication/v1.0/user_store/freshchat-restore-id")
-    Call<ApplicationModels.UserStoreSchema> setFreshchatRestoreId(@Body ApplicationModels.FreshchatRestoreIdRequestSchema payload);
-    
-    @GET ("/service/application/user/authentication/v1.0/user_store/store")
-    Call<ApplicationModels.UserStoreSchema> getUserStore();
     
     @GET ("/service/application/user/platform/v1.0/config")
     Call<ApplicationModels.PlatformSchema> getPlatformConfig(@Query("name") String name );

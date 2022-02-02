@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ApplicationClient extends ApplicationEnums {
+public class ApplicationClient {
 
     
     public ApplicationService.CatalogService catalog;

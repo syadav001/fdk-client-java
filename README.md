@@ -10,16 +10,25 @@ Get started with the Java Development SDK for Fynd Platform
 
 # Usage
 
-1. Add the dependency in your app pom.xml `'com.github.gofynd:fynd-client-java:1.0-SNAPSHOT'` in your app pom.xml
+1. Create Maven project and add the dependency in the pom.xml 
+```
+<dependency>
+    <groupId>com.github.gofynd</groupId>
+    <artifactId>fynd-client-java</artifactId>
+    <version>v0.0.1-RELEASE</version>
+</dependency>
+```
+
 2. Add it in your root pom.xml at the end of repositories:
-   ```
-   <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
-    ```
+```
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
 3. Start integrating
 
 ### Sample Usage - ApplicationClient
@@ -51,9 +60,18 @@ Get started with the Java Development SDK for Fynd Platform
           "API_SECRET",
           "DOMAIN"
           );
+        
         if(Objects.nonNull(platformConfig)) {
-            PlatformClient platformClient = new PlatformClient(platformConfig);
-            return platformClient.catalog.getCompanyDetail("COMPANY_ID");
+            PlatformClient platformClient = new PlatformClient(platformConfig); 
+            
+            // API's without application_id
+            PlatformModels.OptinCompanyDetail companyDetail = platformClient.catalog.getCompanyDetail();
+            System.out.println("Company Name : " + companyDetail.getName() );
+
+            // API's with application_id
+            PlatformClient.ApplicationClient applicationClient = platformClient.application("APPLICATION_ID");
+            PlatformModels.GetCatalogConfigurationMetaData configurationData =  applicationClient.catalog.getCatalogConfiguration();
+            return configurationData.getListing();
         }
     } catch (Exception e) {
         System.out.println(e.getMessage());
