@@ -76,11 +76,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -90,6 +90,21 @@ interface CatalogApiList {
     
     @GET ("/service/application/catalog/v1.0/locations/")
     Call<ApplicationModels.StoreListingResponse> getStores(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("city") String city , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
+    
+    @GET ("/service/application/catalog/v1.0/in-stock/locations/")
+    Call<ApplicationModels.ApplicationStoreListing> getInStockLocations(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("city") String city , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
+    
+    @GET ("/service/application/catalog/v1.0/locations/{location_id}/")
+    Call<ApplicationModels.StoreDetails> getLocationDetailsById(@Path("location_id") Integer locationId );
+    
+    @GET ("/service/application/catalog/v1.0/product-grouping/")
+    Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Query("slug") String slug , @Query("id") String id );
+    
+    @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/price/")
+    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlugV2(@Path("slug") String slug , @Path("size") String size , @Query("store_id") Integer storeId , @Query("pincode") String pincode );
+    
+    @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/")
+    Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlugV2(@Path("slug") String slug , @Path("size") String size , @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
 }
 
@@ -231,6 +246,9 @@ interface UserApiList {
     @POST ("/service/application/user/authentication/v1.0/login/google-ios")
     Call<ApplicationModels.AuthSuccess> loginWithGoogleIOS(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
+    @POST ("/service/application/user/authentication/v1.0/login/apple-ios")
+    Call<ApplicationModels.AuthSuccess> loginWithAppleIOS(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestAppleSchema payload);
+    
     @POST ("/service/application/user/authentication/v1.0/login/otp")
     Call<ApplicationModels.SendOtpResponse> loginWithOTP(@Query("platform") String platform ,@Body ApplicationModels.SendOtpRequestSchema payload);
     
@@ -352,12 +370,6 @@ interface ContentApiList {
     @GET ("/service/application/content/v1.0/navigations/")
     Call<ApplicationModels.NavigationGetResponse> getNavigations(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
-    @GET ("/service/application/content/v1.0/pages/{slug}")
-    Call<ApplicationModels.PageSchema> getPage(@Path("slug") String slug , @Query("root_id") String rootId );
-    
-    @GET ("/service/application/content/v1.0/pages/")
-    Call<ApplicationModels.PageGetResponse> getPages(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
-    
     @GET ("/service/application/content/v1.0/seo")
     Call<ApplicationModels.SeoComponent> getSEOConfiguration();
     
@@ -372,6 +384,12 @@ interface ContentApiList {
     
     @GET ("/service/application/content/v1.0/tags")
     Call<ApplicationModels.TagsSchema> getTags();
+    
+    @GET ("/service/application/content/v2.0/pages/{slug}")
+    Call<ApplicationModels.PageSchema> getPage(@Path("slug") String slug , @Query("root_id") String rootId );
+    
+    @GET ("/service/application/content/v2.0/pages/")
+    Call<ApplicationModels.PageGetResponse> getPages(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
 }
 

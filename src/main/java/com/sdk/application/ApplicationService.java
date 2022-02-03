@@ -860,9 +860,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -874,9 +874,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -995,6 +995,226 @@ public class ApplicationService {
                  range,
                  latitude,
                  longitude
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.ApplicationStoreListing getInStockLocations(Integer pageNo , Integer pageSize , String q , String city , Integer range , Double latitude , Double longitude ) throws IOException {
+    
+        Response<ApplicationModels.ApplicationStoreListing> response = catalogApiList.getInStockLocations(pageNo, pageSize, q, city, range, latitude, longitude).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getInStockLocations
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.ApplicationStoreListing> getInStockLocationsPagination(
+        
+        Integer pageSize,
+        String q,
+        String city,
+        Integer range,
+        Double latitude,
+        Double longitude
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.ApplicationStoreListing> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.ApplicationStoreListing callback = this.getInStockLocations(
+                
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q,
+                 city,
+                 range,
+                 latitude,
+                 longitude
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.StoreDetails getLocationDetailsById(Integer locationId ) throws IOException {
+    
+        Response<ApplicationModels.StoreDetails> response = catalogApiList.getLocationDetailsById(locationId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ProductBundle getProductBundlesBySlug(String slug , String id ) throws IOException {
+    
+        Response<ApplicationModels.ProductBundle> response = catalogApiList.getProductBundlesBySlug(slug, id).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlugV2(String slug , String size , Integer storeId , String pincode ) throws IOException {
+    
+        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlugV2(slug, size, storeId, pincode).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ProductSizeSellersResponseV2 getProductSellersBySlugV2(String slug , String size , String pincode , String strategy , Integer pageNo , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.ProductSizeSellersResponseV2> response = catalogApiList.getProductSellersBySlugV2(slug, size, pincode, strategy, pageNo, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getProductSellersBySlugV2
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlugV2Pagination(
+        
+        String slug,
+        String size,
+        String pincode,
+        String strategy,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.ProductSizeSellersResponseV2> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.ProductSizeSellersResponseV2 callback = this.getProductSellersBySlugV2(
+                
+                 slug,
+                 size,
+                 pincode,
+                 strategy,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
             );
                 
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
@@ -1713,6 +1933,20 @@ public class ApplicationService {
     
     
     
+    public ApplicationModels.AuthSuccess loginWithAppleIOS(String platform ,ApplicationModels.OAuthRequestAppleSchema body) throws IOException {
+    
+        Response<ApplicationModels.AuthSuccess> response = userApiList.loginWithAppleIOS(platform, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.SendOtpResponse loginWithOTP(String platform ,ApplicationModels.SendOtpRequestSchema body) throws IOException {
     
         Response<ApplicationModels.SendOtpResponse> response = userApiList.loginWithOTP(platform, body).execute();
@@ -2384,82 +2618,6 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.PageSchema getPage(String slug , String rootId ) throws IOException {
-    
-        Response<ApplicationModels.PageSchema> response = contentApiList.getPage(slug, rootId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PageGetResponse getPages(Integer pageNo , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.PageGetResponse> response = contentApiList.getPages(pageNo, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getPages
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.PageGetResponse> getPagesPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.PageGetResponse callback = this.getPages(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     public ApplicationModels.SeoComponent getSEOConfiguration() throws IOException {
     
         Response<ApplicationModels.SeoComponent> response = contentApiList.getSEOConfiguration().execute();
@@ -2576,6 +2734,82 @@ public class ApplicationService {
 
     
     
+    
+    
+    public ApplicationModels.PageSchema getPage(String slug , String rootId ) throws IOException {
+    
+        Response<ApplicationModels.PageSchema> response = contentApiList.getPage(slug, rootId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PageGetResponse getPages(Integer pageNo , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.PageGetResponse> response = contentApiList.getPages(pageNo, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getPages
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.PageGetResponse> getPagesPagination(
+        
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.PageGetResponse callback = this.getPages(
+                
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
       
 }
 
