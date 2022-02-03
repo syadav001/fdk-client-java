@@ -6,6 +6,7 @@
 
 ## Billing Methods
 Handle platform subscription
+* [checkCouponValidity](#checkcouponvalidity)
 * [createSubscriptionCharge](#createsubscriptioncharge)
 * [getSubscriptionCharge](#getsubscriptioncharge)
 * [cancelSubscriptionCharge](#cancelsubscriptioncharge)
@@ -21,6 +22,61 @@ Handle platform subscription
 
 
 ## Methods with example and description
+
+
+### checkCouponValidity
+Check coupon validity
+
+
+
+
+```java
+client.billing.checkCouponValidity( plan,  couponCode) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Customer unique id. In case of company it will be company id. |   
+| plan | String | yes | ID of the plan. |   
+| couponCode | String | yes | Coupon code. |  
+
+
+
+Check coupon validity.
+
+*Returned Response:*
+
+
+
+
+[CheckValidityResponse](#CheckValidityResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
 
 
 ### createSubscriptionCharge
@@ -1442,6 +1498,18 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | message | String? |  yes  | Internal server Server error |
  | code | String? |  yes  | Error code |
+
+---
+
+
+ 
+ 
+ #### [CheckValidityResponse](#CheckValidityResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isValid | Boolean? |  yes  |  |
+ | discountAmount | Double? |  yes  |  |
 
 ---
 
