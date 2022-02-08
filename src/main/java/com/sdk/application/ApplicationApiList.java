@@ -185,6 +185,9 @@ interface CartApiList {
     @GET ("/service/application/cart/v1.0/available-promotions")
     Call<ApplicationModels.PromotionOffersResponse> getPromotionOffers(@Query("slug") String slug , @Query("page_size") Integer pageSize );
     
+    @GET ("/service/application/cart/v1.0/available-ladder-prices")
+    Call<ApplicationModels.LadderPriceOffers> getLadderOffers(@Query("slug") String slug , @Query("page_size") Integer pageSize );
+    
 }
 
 interface CommonApiList {

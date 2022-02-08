@@ -1605,6 +1605,20 @@ public class ApplicationService {
 
     
     
+    
+    
+    public ApplicationModels.LadderPriceOffers getLadderOffers(String slug , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.LadderPriceOffers> response = cartApiList.getLadderOffers(slug, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
       
 }
 
