@@ -210,7 +210,7 @@ Get Subscribers By ExtensionID
 
 
 
-[SubscriberResponse](#SubscriberResponse)
+[SubscriberConfigList](#SubscriberConfigList)
 
 Success
 
@@ -317,7 +317,7 @@ Get All Webhook Events
 
 
 
-[EventConfigList](#EventConfigList)
+[EventConfigResponse](#EventConfigResponse)
 
 Success
 
@@ -372,6 +372,17 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | items | ArrayList<[EventConfig](#EventConfig)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EventConfigResponse](#EventConfigResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | eventConfigs | ArrayList<[EventConfig](#EventConfig)>? |  yes  |  |
 
 ---
 
@@ -450,6 +461,7 @@ Success
  | name | String? |  yes  |  |
  | webhookUrl | String? |  yes  |  |
  | association | [Association](#Association)? |  yes  |  |
+ | customHeaders | HashMap<String,Object>? |  yes  |  |
  | status | [SubscriberStatus](#SubscriberStatus)? |  yes  |  |
  | emailId | String? |  yes  |  |
  | authMeta | [AuthMeta](#AuthMeta)? |  yes  |  |
@@ -468,6 +480,7 @@ Success
  | name | String? |  yes  |  |
  | webhookUrl | String? |  yes  |  |
  | association | [Association](#Association)? |  yes  |  |
+ | customHeaders | HashMap<String,Object>? |  yes  |  |
  | emailId | String? |  yes  |  |
  | status | [SubscriberStatus](#SubscriberStatus)? |  yes  |  |
  | authMeta | [AuthMeta](#AuthMeta)? |  yes  |  |
@@ -514,6 +527,20 @@ Success
  | applicationId | ArrayList<String>? |  yes  |  |
  | extensionId | String? |  yes  |  |
  | criteria | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EventConfigBase](#EventConfigBase)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | eventName | String? |  yes  |  |
+ | eventType | String? |  yes  |  |
+ | eventCategory | String? |  yes  |  |
+ | version | String? |  yes  |  |
 
 ---
 
