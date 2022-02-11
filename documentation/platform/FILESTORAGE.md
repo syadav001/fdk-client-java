@@ -14,7 +14,6 @@ File Storage
 * [copyFiles](#copyfiles)
 * [appCopyFiles](#appcopyfiles)
 * [browse](#browse)
-* [browse](#browse)
 * [proxy](#proxy)
 
 
@@ -514,61 +513,6 @@ Success
     "processed_on": 1613534206645
   }
 }
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### browse
-Browse Files
-
-
-
-
-```java
-client.filestorage.browse( namespace,  pageNo) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | bucket name |   
-| companyId | Integer | yes | company_id |   
-| pageNo | Integer? | no | page no |  
-
-
-
-Browse Files
-
-*Returned Response:*
-
-
-
-
-[BrowseResponse](#BrowseResponse)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
 ```
 </details>
 
