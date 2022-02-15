@@ -4778,6 +4778,7 @@ Success
  | price | [InventoryPrice](#InventoryPrice)? |  yes  |  |
  | discount | [InventoryDiscount](#InventoryDiscount)? |  yes  |  |
  | outOfStock | Boolean? |  yes  |  |
+ | onlyVerifiedProducts | Boolean? |  yes  |  |
  | franchiseEnabled | Boolean? |  yes  |  |
  | excludeCategory | ArrayList<Object>? |  yes  |  |
  | image | ArrayList<String>? |  yes  |  |
