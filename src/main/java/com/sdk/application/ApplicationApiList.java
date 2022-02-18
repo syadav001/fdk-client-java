@@ -97,6 +97,15 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/locations/{location_id}/")
     Call<ApplicationModels.StoreDetails> getLocationDetailsById(@Path("location_id") Integer locationId );
     
+    @GET ("/service/application/catalog/v1.0/product-grouping/")
+    Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Query("slug") String slug , @Query("id") String id );
+    
+    @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/price/")
+    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlugV2(@Path("slug") String slug , @Path("size") String size , @Query("store_id") Integer storeId , @Query("pincode") String pincode );
+    
+    @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/")
+    Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlugV2(@Path("slug") String slug , @Path("size") String size , @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    
 }
 
 interface CartApiList {
@@ -172,6 +181,12 @@ interface CartApiList {
     
     @POST ("/service/application/cart/v1.0/share-cart/{token}/{action}")
     Call<ApplicationModels.SharedCartResponse> updateCartWithSharedItems(@Path("token") String token , @Path("action") String action );
+    
+    @GET ("/service/application/cart/v1.0/available-promotions")
+    Call<ApplicationModels.PromotionOffersResponse> getPromotionOffers(@Query("slug") String slug , @Query("page_size") Integer pageSize );
+    
+    @GET ("/service/application/cart/v1.0/available-ladder-prices")
+    Call<ApplicationModels.LadderPriceOffers> getLadderOffers(@Query("slug") String slug , @Query("promotion_id") String promotionId , @Query("page_size") Integer pageSize );
     
 }
 
@@ -525,6 +540,9 @@ interface PaymentApiList {
     @GET ("/service/application/payment/v1.0/rupifi/banner")
     Call<ApplicationModels.RupifiBannerResponse> getRupifiBannerDetails();
     
+    @GET ("/service/application/payment/v1.0/epaylater/banner")
+    Call<ApplicationModels.EpaylaterBannerResponse> getEpaylaterBannerDetails();
+    
     @GET ("/service/application/payment/v1.0/refund/transfer-mode")
     Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes();
     
@@ -554,6 +572,18 @@ interface PaymentApiList {
     
     @POST ("/service/application/payment/v1.0/refund/beneficiary/default")
     Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Body ApplicationModels.SetDefaultBeneficiaryRequest payload);
+    
+    @GET ("/service/application/payment/v1.0/payment/credit-summary/")
+    Call<ApplicationModels.CustomerCreditSummaryResponse> CustomerCreditSummary(@Query("aggregator") String aggregator );
+    
+    @GET ("/service/application/payment/v1.0/payment/redirect-to-aggregator/")
+    Call<ApplicationModels.RedirectToAggregatorResponse> RedirectToAggregator(@Query("aggregator") String aggregator );
+    
+    @GET ("/service/application/payment/v1.0/check-credits/")
+    Call<ApplicationModels.CheckCreditResponse> CheckCredit(@Query("aggregator") String aggregator );
+    
+    @POST ("/service/application/payment/v1.0/credit-onboard/")
+    Call<ApplicationModels.CustomerOnboardingResponse> CustomerOnboard(@Body ApplicationModels.CustomerOnboardingRequest payload);
     
 }
 
@@ -588,6 +618,31 @@ interface OrderApiList {
     
     @POST ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify")
     Call<ApplicationModels.ResponseVerifyOTPShipment> verifyOtpShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId ,@Body ApplicationModels.ReqBodyVerifyOTPShipment payload);
+    
+}
+
+interface RewardsApiList {
+    
+    @POST ("/service/application/rewards/v1.0/catalogue/offer/order/")
+    Call<ApplicationModels.CatalogueOrderResponse> getPointsOnProduct(@Body ApplicationModels.CatalogueOrderRequest payload);
+    
+    @GET ("/service/application/rewards/v1.0/offers/{name}/")
+    Call<ApplicationModels.Offer> getOfferByName(@Path("name") String name );
+    
+    @POST ("/service/application/rewards/v1.0/user/offers/order-discount/")
+    Call<ApplicationModels.OrderDiscountResponse> getOrderDiscount(@Body ApplicationModels.OrderDiscountRequest payload);
+    
+    @GET ("/service/application/rewards/v1.0/user/points/")
+    Call<ApplicationModels.PointsResponse> getUserPoints();
+    
+    @GET ("/service/application/rewards/v1.0/user/points/history/")
+    Call<ApplicationModels.PointsHistoryResponse> getUserPointsHistory(@Query("page_id") String pageId , @Query("page_size") Integer pageSize );
+    
+    @GET ("/service/application/rewards/v1.0/user/referral/")
+    Call<ApplicationModels.ReferralDetailsResponse> getUserReferralDetails();
+    
+    @POST ("/service/application/rewards/v1.0/user/referral/redeem/")
+    Call<ApplicationModels.RedeemReferralCodeResponse> redeemReferralCode(@Body ApplicationModels.RedeemReferralCodeRequest payload);
     
 }
 

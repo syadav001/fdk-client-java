@@ -34,12 +34,9 @@ Get current application details
 
 
 ```java
-configuration.getApplication()
-{
-
-
+configuration.getApplication() {
   //use response
-  }
+}
 ```
 
 
@@ -148,12 +145,9 @@ Get application, owner and seller information
 
 
 ```java
-configuration.getOwnerInfo()
-{
-
-
+configuration.getOwnerInfo() {
   //use response
-  }
+}
 ```
 
 
@@ -300,12 +294,9 @@ Get basic application details
 
 
 ```java
-configuration.getBasicDetails()
-{
-
-
+configuration.getBasicDetails() {
   //use response
-  }
+}
 ```
 
 
@@ -391,12 +382,9 @@ Get integration tokens
 
 
 ```java
-configuration.getIntegrationTokens()
-{
-
-
+configuration.getIntegrationTokens() {
   //use response
-  }
+}
 ```
 
 
@@ -511,12 +499,9 @@ Get deployment stores
 
 
 ```java
-configuration.getOrderingStores( pageNo,  pageSize,  q)
-{
-
-
+configuration.getOrderingStores( pageNo,  pageSize,  q) {
   //use response
-  }
+}
 ```
 
 
@@ -569,12 +554,9 @@ Get ordering store details
 
 
 ```java
-configuration.getStoreDetailById( storeId)
-{
-
-
+configuration.getStoreDetailById( storeId) {
   //use response
-  }
+}
 ```
 
 
@@ -633,12 +615,9 @@ Get features of application
 
 
 ```java
-configuration.getFeatures()
-{
-
-
+configuration.getFeatures() {
   //use response
-  }
+}
 ```
 
 
@@ -779,12 +758,9 @@ Get application information
 
 
 ```java
-configuration.getContactInfo()
-{
-
-
+configuration.getContactInfo() {
   //use response
-  }
+}
 ```
 
 
@@ -945,12 +921,9 @@ Get all currencies list
 
 
 ```java
-configuration.getCurrencies()
-{
-
-
+configuration.getCurrencies() {
   //use response
-  }
+}
 ```
 
 
@@ -1009,12 +982,9 @@ Get currency by its ID
 
 
 ```java
-configuration.getCurrencyById( id)
-{
-
-
+configuration.getCurrencyById( id) {
   //use response
-  }
+}
 ```
 
 
@@ -1074,12 +1044,9 @@ Get currencies enabled in the application
 
 
 ```java
-configuration.getAppCurrencies()
-{
-
-
+configuration.getAppCurrencies() {
   //use response
-  }
+}
 ```
 
 
@@ -1143,12 +1110,9 @@ Get list of languages
 
 
 ```java
-configuration.getLanguages()
-{
-
-
+configuration.getLanguages() {
   //use response
-  }
+}
 ```
 
 
@@ -1209,12 +1173,9 @@ Get an Ordering Store signed cookie on selection of ordering store.
 
 
 ```java
-configuration.getOrderingStoreCookie(body body)
-{
-
-
+configuration.getOrderingStoreCookie(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1264,12 +1225,9 @@ Unset the Ordering Store signed cookie.
 
 
 ```java
-configuration.removeOrderingStoreCookie()
-{
-
-
+configuration.removeOrderingStoreCookie() {
   //use response
-  }
+}
 ```
 
 
@@ -1315,12 +1273,9 @@ Get a list of staff.
 
 
 ```java
-configuration.getAppStaffs( orderIncent,  orderingStore,  user)
-{
-
-
+configuration.getAppStaffs( orderIncent,  orderingStore,  user) {
   //use response
-  }
+}
 ```
 
 

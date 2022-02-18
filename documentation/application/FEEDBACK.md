@@ -45,12 +45,9 @@ Post a new abuse request
 
 
 ```java
-feedback.createAbuseReport(body body)
-{
-
-
+feedback.createAbuseReport(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -100,12 +97,9 @@ Update abuse details
 
 
 ```java
-feedback.updateAbuseReport(body body)
-{
-
-
+feedback.updateAbuseReport(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -155,12 +149,9 @@ Get a list of abuse data
 
 
 ```java
-feedback.getAbuseReports( entityId,  entityType,  id,  pageId,  pageSize)
-{
-
-
+feedback.getAbuseReports( entityId,  entityType,  id,  pageId,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -215,12 +206,9 @@ Get a list of attribute data
 
 
 ```java
-feedback.getAttributes( pageNo,  pageSize)
-{
-
-
+feedback.getAttributes( pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -272,12 +260,9 @@ Add a new attribute request
 
 
 ```java
-feedback.createAttribute(body body)
-{
-
-
+feedback.createAttribute(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -327,12 +312,9 @@ Get data of a single attribute
 
 
 ```java
-feedback.getAttribute( slug)
-{
-
-
+feedback.getAttribute( slug) {
   //use response
-  }
+}
 ```
 
 
@@ -383,12 +365,9 @@ Update details of an attribute
 
 
 ```java
-feedback.updateAttribute( slug, body body)
-{
-
-
+feedback.updateAttribute( slug, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -439,12 +418,9 @@ Post a new comment
 
 
 ```java
-feedback.createComment(body body)
-{
-
-
+feedback.createComment(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -494,12 +470,9 @@ Update the status of a comment
 
 
 ```java
-feedback.updateComment(body body)
-{
-
-
+feedback.updateComment(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -549,12 +522,9 @@ Get a list of comments
 
 
 ```java
-feedback.getComments( entityType,  id,  entityId,  userId,  pageId,  pageSize)
-{
-
-
+feedback.getComments( entityType,  id,  entityId,  userId,  pageId,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -610,12 +580,9 @@ Checks eligibility to rate and review, and shows the cloud media configuration
 
 
 ```java
-feedback.checkEligibility( entityType,  entityId)
-{
-
-
+feedback.checkEligibility( entityType,  entityId) {
   //use response
-  }
+}
 ```
 
 
@@ -667,12 +634,9 @@ Delete Media
 
 
 ```java
-feedback.deleteMedia()
-{
-
-
+feedback.deleteMedia() {
   //use response
-  }
+}
 ```
 
 
@@ -718,12 +682,9 @@ Add Media
 
 
 ```java
-feedback.createMedia(body body)
-{
-
-
+feedback.createMedia(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -773,12 +734,9 @@ Update Media
 
 
 ```java
-feedback.updateMedia(body body)
-{
-
-
+feedback.updateMedia(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -828,12 +786,9 @@ Get Media
 
 
 ```java
-feedback.getMedias( entityType,  entityId,  id,  type,  pageId,  pageSize)
-{
-
-
+feedback.getMedias( entityType,  entityId,  id,  type,  pageId,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -889,12 +844,9 @@ Get a review summary
 
 
 ```java
-feedback.getReviewSummaries( entityType,  entityId,  id,  pageId,  pageSize)
-{
-
-
+feedback.getReviewSummaries( entityType,  entityId,  id,  pageId,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -949,12 +901,9 @@ Add customer reviews
 
 
 ```java
-feedback.createReview(body body)
-{
-
-
+feedback.createReview(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1004,12 +953,9 @@ Update customer reviews
 
 
 ```java
-feedback.updateReview(body body)
-{
-
-
+feedback.updateReview(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1059,12 +1005,9 @@ Get list of customer reviews
 
 
 ```java
-feedback.getReviews( entityType,  entityId,  id,  userId,  media,  rating,  attributeRating,  facets,  sort,  active,  approve,  pageId,  pageSize)
-{
-
-
+feedback.getReviews( entityType,  entityId,  id,  userId,  media,  rating,  attributeRating,  facets,  sort,  active,  approve,  pageId,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -1127,12 +1070,9 @@ Get the feedback templates for a product or l3
 
 
 ```java
-feedback.getTemplates( templateId,  entityId,  entityType)
-{
-
-
+feedback.getTemplates( templateId,  entityId,  entityType) {
   //use response
-  }
+}
 ```
 
 
@@ -1185,12 +1125,9 @@ Create a new question
 
 
 ```java
-feedback.createQuestion(body body)
-{
-
-
+feedback.createQuestion(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1240,12 +1177,9 @@ Update a question
 
 
 ```java
-feedback.updateQuestion(body body)
-{
-
-
+feedback.updateQuestion(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1295,12 +1229,9 @@ Get a list of QnA
 
 
 ```java
-feedback.getQuestionAndAnswers( entityType,  entityId,  id,  userId,  showAnswer,  pageId,  pageSize)
-{
-
-
+feedback.getQuestionAndAnswers( entityType,  entityId,  id,  userId,  showAnswer,  pageId,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -1357,12 +1288,9 @@ Get a list of votes
 
 
 ```java
-feedback.getVotes( id,  refType,  pageNo,  pageSize)
-{
-
-
+feedback.getVotes( id,  refType,  pageNo,  pageSize) {
   //use response
-  }
+}
 ```
 
 
@@ -1416,12 +1344,9 @@ Create a new vote
 
 
 ```java
-feedback.createVote(body body)
-{
-
-
+feedback.createVote(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1471,12 +1396,9 @@ Update a vote
 
 
 ```java
-feedback.updateVote(body body)
-{
-
-
+feedback.updateVote(body body) {
   //use response
-  }
+}
 ```
 
 

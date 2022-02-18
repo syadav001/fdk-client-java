@@ -1112,6 +1112,120 @@ public class ApplicationService {
 
     
     
+    
+    
+    public ApplicationModels.ProductBundle getProductBundlesBySlug(String slug , String id ) throws IOException {
+    
+        Response<ApplicationModels.ProductBundle> response = catalogApiList.getProductBundlesBySlug(slug, id).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlugV2(String slug , String size , Integer storeId , String pincode ) throws IOException {
+    
+        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlugV2(slug, size, storeId, pincode).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ProductSizeSellersResponseV2 getProductSellersBySlugV2(String slug , String size , String pincode , String strategy , Integer pageNo , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.ProductSizeSellersResponseV2> response = catalogApiList.getProductSellersBySlugV2(slug, size, pincode, strategy, pageNo, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getProductSellersBySlugV2
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlugV2Pagination(
+        
+        String slug,
+        String size,
+        String pincode,
+        String strategy,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.ProductSizeSellersResponseV2> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.ProductSizeSellersResponseV2 callback = this.getProductSellersBySlugV2(
+                
+                 slug,
+                 size,
+                 pincode,
+                 strategy,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
       
 }
 
@@ -1468,6 +1582,34 @@ public class ApplicationService {
     public ApplicationModels.SharedCartResponse updateCartWithSharedItems(String token , String action ) throws IOException {
     
         Response<ApplicationModels.SharedCartResponse> response = cartApiList.updateCartWithSharedItems(token, action).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.PromotionOffersResponse> response = cartApiList.getPromotionOffers(slug, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.LadderPriceOffers getLadderOffers(String slug , String promotionId , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.LadderPriceOffers> response = cartApiList.getLadderOffers(slug, promotionId, pageSize).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3475,6 +3617,20 @@ public class FileStorageService extends FileStorage {
     
     
     
+    public ApplicationModels.EpaylaterBannerResponse getEpaylaterBannerDetails() throws IOException {
+    
+        Response<ApplicationModels.EpaylaterBannerResponse> response = paymentApiList.getEpaylaterBannerDetails().execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.TransferModeResponse getActiveRefundTransferModes() throws IOException {
     
         Response<ApplicationModels.TransferModeResponse> response = paymentApiList.getActiveRefundTransferModes().execute();
@@ -3604,6 +3760,62 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.SetDefaultBeneficiaryResponse updateDefaultBeneficiary(ApplicationModels.SetDefaultBeneficiaryRequest body) throws IOException {
     
         Response<ApplicationModels.SetDefaultBeneficiaryResponse> response = paymentApiList.updateDefaultBeneficiary( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CustomerCreditSummaryResponse CustomerCreditSummary(String aggregator ) throws IOException {
+    
+        Response<ApplicationModels.CustomerCreditSummaryResponse> response = paymentApiList.CustomerCreditSummary(aggregator).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.RedirectToAggregatorResponse RedirectToAggregator(String aggregator ) throws IOException {
+    
+        Response<ApplicationModels.RedirectToAggregatorResponse> response = paymentApiList.RedirectToAggregator(aggregator).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CheckCreditResponse CheckCredit(String aggregator ) throws IOException {
+    
+        Response<ApplicationModels.CheckCreditResponse> response = paymentApiList.CheckCredit(aggregator).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CustomerOnboardingResponse CustomerOnboard(ApplicationModels.CustomerOnboardingRequest body) throws IOException {
+    
+        Response<ApplicationModels.CustomerOnboardingResponse> response = paymentApiList.CustomerOnboard( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3773,6 +3985,181 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.ResponseVerifyOTPShipment verifyOtpShipmentCustomer(String orderId , String shipmentId ,ApplicationModels.ReqBodyVerifyOTPShipment body) throws IOException {
     
         Response<ApplicationModels.ResponseVerifyOTPShipment> response = orderApiList.verifyOtpShipmentCustomer(orderId, shipmentId, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+      
+}
+
+
+
+@Getter
+ public class RewardsService { 
+
+    private ApplicationConfig applicationConfig;
+
+    private RetrofitServiceFactory retrofitServiceFactory;
+
+    private RewardsApiList rewardsApiList;
+
+    RewardsService(ApplicationConfig applicationConfig) {
+        this.applicationConfig = applicationConfig;
+        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.rewardsApiList = generateRewardsApiList(this.applicationConfig.getPersistentCookieStore());
+    }
+
+    private RewardsApiList generateRewardsApiList(CookieStore cookieStore) {
+        List<Interceptor> interceptorList = new ArrayList<>();
+        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
+        interceptorList.add(new RequestSignerInterceptor());
+        return retrofitServiceFactory.createService(applicationConfig.getDomain(),RewardsApiList.class, interceptorList, cookieStore);
+    }
+
+    
+
+    
+    
+    public ApplicationModels.CatalogueOrderResponse getPointsOnProduct(ApplicationModels.CatalogueOrderRequest body) throws IOException {
+    
+        Response<ApplicationModels.CatalogueOrderResponse> response = rewardsApiList.getPointsOnProduct( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.Offer getOfferByName(String name ) throws IOException {
+    
+        Response<ApplicationModels.Offer> response = rewardsApiList.getOfferByName(name).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.OrderDiscountResponse getOrderDiscount(ApplicationModels.OrderDiscountRequest body) throws IOException {
+    
+        Response<ApplicationModels.OrderDiscountResponse> response = rewardsApiList.getOrderDiscount( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PointsResponse getUserPoints() throws IOException {
+    
+        Response<ApplicationModels.PointsResponse> response = rewardsApiList.getUserPoints().execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.PointsHistoryResponse> response = rewardsApiList.getUserPointsHistory(pageId, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getUserPointsHistory
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.PointsHistoryResponse> getUserPointsHistoryPagination(
+        
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.PointsHistoryResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.PointsHistoryResponse callback = this.getUserPointsHistory(
+                
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.ReferralDetailsResponse getUserReferralDetails() throws IOException {
+    
+        Response<ApplicationModels.ReferralDetailsResponse> response = rewardsApiList.getUserReferralDetails().execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.RedeemReferralCodeResponse redeemReferralCode(ApplicationModels.RedeemReferralCodeRequest body) throws IOException {
+    
+        Response<ApplicationModels.RedeemReferralCodeResponse> response = rewardsApiList.redeemReferralCode( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

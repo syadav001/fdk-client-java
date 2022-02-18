@@ -14,6 +14,7 @@ Handles Platform websites OMS
 * [getOrdersByCompanyId](#getordersbycompanyid)
 * [getOrderLanesCountByCompanyId](#getorderlanescountbycompanyid)
 * [getOrderDetails](#getorderdetails)
+* [getOrderDetails](#getorderdetails)
 * [getPicklistOrdersByCompanyId](#getpicklistordersbycompanyid)
 * [trackShipmentPlatform](#trackshipmentplatform)
 * [trackOrder](#trackorder)
@@ -24,6 +25,7 @@ Handles Platform websites OMS
 * [getShipmentTrackDetails](#getshipmenttrackdetails)
 * [getShipmentAddress](#getshipmentaddress)
 * [updateShipmentAddress](#updateshipmentaddress)
+* [getOrdersByApplicationId](#getordersbyapplicationid)
 * [getPing](#getping)
 * [voiceCallback](#voicecallback)
 * [voiceClickToCall](#voiceclicktocall)
@@ -40,12 +42,9 @@ Update status of Shipment
 
 
 ```java
-client.order.shipmentStatusUpdate(body body)
-{
-
-
+client.order.shipmentStatusUpdate(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -96,12 +95,9 @@ Get Activity Status
 
 
 ```java
-client.order.activityStatus( bagId)
-{
-
-
+client.order.activityStatus( bagId) {
   //use response
-  }
+}
 ```
 
 
@@ -153,12 +149,9 @@ Update Store Process-Shipment
 
 
 ```java
-client.order.storeProcessShipmentUpdate(body body)
-{
-
-
+client.order.storeProcessShipmentUpdate(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -209,12 +202,9 @@ Check Refund is available or not
 
 
 ```java
-client.order.checkRefund( shipmentId)
-{
-
-
+client.order.checkRefund( shipmentId) {
   //use response
-  }
+}
 ```
 
 
@@ -266,12 +256,9 @@ Decides if Shipment bags can break
 
 
 ```java
-client.order.ShipmentBagsCanBreak(body body)
-{
-
-
+client.order.ShipmentBagsCanBreak(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -322,12 +309,9 @@ Get Orders for company based on Company Id
 
 
 ```java
-client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPrioritySort,  lockStatus,  q,  stage,  salesChannels,  orderId,  stores,  status,  dp,  shortenUrls,  filterType)
-{
-
-
+client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPrioritySort,  lockStatus,  q,  stage,  salesChannels,  orderId,  stores,  deploymentStores,  status,  dp,  shortenUrls,  filterType) {
   //use response
-  }
+}
 ```
 
 
@@ -346,6 +330,7 @@ client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPri
 | salesChannels | String? | no | Selected Sales Channel |   
 | orderId | String? | no | Order Id |   
 | stores | String? | no | Selected Stores |   
+| deploymentStores | String? | no | Selected Deployment Stores |   
 | status | String? | no | Status of order |   
 | dp | String? | no | Delivery Partners |   
 | shortenUrls | Boolean? | no | Shorten URL option |   
@@ -393,12 +378,9 @@ Get Order Lanes Count for company based on Company Id
 
 
 ```java
-client.order.getOrderLanesCountByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  shortenUrls,  filterType)
-{
-
-
+client.order.getOrderLanesCountByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  shortenUrls,  filterType) {
   //use response
-  }
+}
 ```
 
 
@@ -461,12 +443,9 @@ Get Order Details for company based on Company Id and Order Id
 
 
 ```java
-client.order.getOrderDetails( orderId,  next,  previous)
-{
-
-
+client.order.getOrderDetails( orderId,  next,  previous) {
   //use response
-  }
+}
 ```
 
 
@@ -513,6 +492,63 @@ Success
 ---
 
 
+### getOrderDetails
+Get Order Details for company based on Company Id and Order Id
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").order.getOrderDetails( orderId,  next,  previous) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company Id |   
+| applicationId | String | yes | Application Id |   
+| orderId | String? | no | Order Id |   
+| next | String? | no | Next |   
+| previous | String? | no | Previous |  
+
+
+
+Get Orders
+
+*Returned Response:*
+
+
+
+
+[OrderDetails](#OrderDetails)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getPicklistOrdersByCompanyId
 Get Orders for company based on Company Id
 
@@ -520,12 +556,9 @@ Get Orders for company based on Company Id
 
 
 ```java
-client.order.getPicklistOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  shortenUrls,  filterType)
-{
-
-
+client.order.getPicklistOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  shortenUrls,  filterType) {
   //use response
-  }
+}
 ```
 
 
@@ -588,12 +621,9 @@ Track Shipment by shipment id, for application based on application Id
 
 
 ```java
-client.application("<APPLICATION_ID>").order.trackShipmentPlatform( shipmentId)
-{
-
-
+client.application("<APPLICATION_ID>").order.trackShipmentPlatform( shipmentId) {
   //use response
-  }
+}
 ```
 
 
@@ -646,12 +676,9 @@ Track Order by order id, for application based on application Id
 
 
 ```java
-client.application("<APPLICATION_ID>").order.trackOrder( orderId)
-{
-
-
+client.application("<APPLICATION_ID>").order.trackOrder( orderId) {
   //use response
-  }
+}
 ```
 
 
@@ -704,12 +731,9 @@ Get all failed orders application wise
 
 
 ```java
-client.application("<APPLICATION_ID>").order.failedOrders()
-{
-
-
+client.application("<APPLICATION_ID>").order.failedOrders() {
   //use response
-  }
+}
 ```
 
 
@@ -761,12 +785,9 @@ Reprocess order by order id
 
 
 ```java
-client.application("<APPLICATION_ID>").order.reprocessOrder( orderId)
-{
-
-
+client.application("<APPLICATION_ID>").order.reprocessOrder( orderId) {
   //use response
-  }
+}
 ```
 
 
@@ -819,12 +840,9 @@ Use this API to update the shipment using its shipment ID.
 
 
 ```java
-client.application("<APPLICATION_ID>").order.updateShipment( shipmentId, body body)
-{
-
-
+client.application("<APPLICATION_ID>").order.updateShipment( shipmentId, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -877,12 +895,9 @@ Use this API to retrieve the issues that led to the cancellation of bags within 
 
 
 ```java
-client.application("<APPLICATION_ID>").order.getPlatformShipmentReasons( action)
-{
-
-
+client.application("<APPLICATION_ID>").order.getPlatformShipmentReasons( action) {
   //use response
-  }
+}
 ```
 
 
@@ -935,12 +950,9 @@ Use this API to track a shipment using its shipment ID.
 
 
 ```java
-client.application("<APPLICATION_ID>").order.getShipmentTrackDetails( orderId,  shipmentId)
-{
-
-
+client.application("<APPLICATION_ID>").order.getShipmentTrackDetails( orderId,  shipmentId) {
   //use response
-  }
+}
 ```
 
 
@@ -994,12 +1006,9 @@ Use this API to get address of a shipment using its shipment ID and Address Cate
 
 
 ```java
-client.order.getShipmentAddress( shipmentId,  addressCategory)
-{
-
-
+client.order.getShipmentAddress( shipmentId,  addressCategory) {
   //use response
-  }
+}
 ```
 
 
@@ -1052,12 +1061,9 @@ Use this API to update address of a shipment using its shipment ID and Address C
 
 
 ```java
-client.order.updateShipmentAddress( shipmentId,  addressCategory, body body)
-{
-
-
+client.order.updateShipmentAddress( shipmentId,  addressCategory, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1103,6 +1109,73 @@ Success. Check the example shown below or refer `UpdateShipmentAddressResponse` 
 ---
 
 
+### getOrdersByApplicationId
+Get Orders for company based on Company Id
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").order.getOrdersByApplicationId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  dp,  shortenUrls,  filterType) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company Id |   
+| applicationId | String | yes | Application Id |   
+| pageNo | String? | no | Current page number |   
+| pageSize | String? | no | Page limit |   
+| fromDate | String? | no | From Date |   
+| toDate | String? | no | To Date |   
+| q | String? | no | Keyword for Search |   
+| stage | String? | no | Specefic Order Stage |   
+| salesChannels | String? | no | Selected Sales Channel |   
+| orderId | String? | no | Order Id |   
+| stores | String? | no | Selected Stores |   
+| status | String? | no | Status of order |   
+| dp | String? | no | Delivery Partners |   
+| shortenUrls | Boolean? | no | Shorten URL option |   
+| filterType | String? | no | Filters |  
+
+
+
+Get Orders at Application Level
+
+*Returned Response:*
+
+
+
+
+[OrderListing](#OrderListing)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getPing
 Get Ping
 
@@ -1110,12 +1183,9 @@ Get Ping
 
 
 ```java
-client.order.getPing()
-{
-
-
+client.order.getPing() {
   //use response
-  }
+}
 ```
 
 
@@ -1166,12 +1236,9 @@ Get Voice Callback
 
 
 ```java
-client.order.voiceCallback()
-{
-
-
+client.order.voiceCallback() {
   //use response
-  }
+}
 ```
 
 
@@ -1222,12 +1289,9 @@ Get Voice Click to Call
 
 
 ```java
-client.order.voiceClickToCall( caller,  receiver)
-{
-
-
+client.order.voiceClickToCall( caller,  receiver) {
   //use response
-  }
+}
 ```
 
 
@@ -2469,6 +2533,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | stage | String? |  yes  |  |
  | stores | ArrayList<String>? |  yes  |  |
+ | deploymentStores | ArrayList<String>? |  yes  |  |
  | dp | ArrayList<Integer>? |  yes  |  |
  | fromDate | String? |  yes  |  |
  | toDate | String? |  yes  |  |
@@ -2509,6 +2574,7 @@ Success
  | createdAt | String? |  yes  |  |
  | totalShipmentsInOrder | Integer? |  yes  |  |
  | payments | [ItemsPayments](#ItemsPayments)? |  yes  |  |
+ | paymentMethods | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2550,6 +2616,7 @@ Success
  | breakupValues | [ShipmentBreakupValues](#ShipmentBreakupValues)? |  yes  |  |
  | id | String? |  yes  |  |
  | dpDetails | [DpDetails](#DpDetails)? |  yes  |  |
+ | paymentMethods | HashMap<String,Object>? |  yes  |  |
  | invoice | [ShipmentInvoice](#ShipmentInvoice)? |  yes  |  |
  | fulfillingStore | [PlatformFulfillingStore](#PlatformFulfillingStore)? |  yes  |  |
  | payments | [Payments](#Payments)? |  yes  |  |
@@ -2615,6 +2682,9 @@ Success
  | updateTime | Integer? |  yes  |  |
  | currentStatus | [BagCurrentStatus](#BagCurrentStatus)? |  yes  |  |
  | bagStatus | [BagStatus](#BagStatus)? |  yes  |  |
+ | canCancel | Boolean? |  yes  |  |
+ | canReturn | Boolean? |  yes  |  |
+ | paymentMethods | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -3313,6 +3383,7 @@ Success
  | createdAt | String? |  yes  |  |
  | totalShipmentsInOrder | Integer? |  yes  |  |
  | payments | [ItemsPayments](#ItemsPayments)? |  yes  |  |
+ | paymentMethods | HashMap<String,Object>? |  yes  |  |
 
 ---
 

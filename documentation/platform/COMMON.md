@@ -20,12 +20,9 @@ Get countries, states, cities
 
 
 ```java
-common.getLocations( locationType,  id)
-{
-
-
+common.getLocations( locationType,  id) {
   //use response
-  }
+}
 ```
 
 

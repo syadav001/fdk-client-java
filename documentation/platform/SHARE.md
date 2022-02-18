@@ -23,12 +23,9 @@ Create short link
 
 
 ```java
-client.application("<APPLICATION_ID>").share.createShortLink(body body)
-{
-
-
+client.application("<APPLICATION_ID>").share.createShortLink(body body) {
   //use response
-  }
+}
 ```
 
 
@@ -118,12 +115,9 @@ Get short links
 
 
 ```java
-client.application("<APPLICATION_ID>").share.getShortLinks( pageNo,  pageSize,  createdBy,  active,  q)
-{
-
-
+client.application("<APPLICATION_ID>").share.getShortLinks( pageNo,  pageSize,  createdBy,  active,  q) {
   //use response
-  }
+}
 ```
 
 
@@ -229,12 +223,9 @@ Get short link by hash
 
 
 ```java
-client.application("<APPLICATION_ID>").share.getShortLinkByHash( hash)
-{
-
-
+client.application("<APPLICATION_ID>").share.getShortLinkByHash( hash) {
   //use response
-  }
+}
 ```
 
 
@@ -325,12 +316,9 @@ Update short link by id
 
 
 ```java
-client.application("<APPLICATION_ID>").share.updateShortLinkById( id, body body)
-{
-
-
+client.application("<APPLICATION_ID>").share.updateShortLinkById( id, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -497,13 +485,13 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | title | String |  no  |  |
- | url | String |  no  |  |
+ | title | String |  no  | Give a name to the link. |
+ | url | String |  no  | The web address to shorten. |
  | hash | String? |  yes  |  |
  | active | Boolean? |  yes  |  |
  | expireAt | String? |  yes  |  |
  | enableTracking | Boolean? |  yes  |  |
- | personalized | Boolean? |  yes  | To create personalized short links |
+ | personalized | Boolean? |  yes  | To create personalized short links. |
  | campaign | [CampaignShortLink](#CampaignShortLink)? |  yes  |  |
  | redirects | [Redirects](#Redirects)? |  yes  |  |
  | attribution | [Attribution](#Attribution)? |  yes  |  |
@@ -544,6 +532,7 @@ Success
  | application | String? |  yes  |  |
  | userId | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | personalized | Boolean? |  yes  | To create personalized short links |
  | campaign | [CampaignShortLink](#CampaignShortLink)? |  yes  |  |

@@ -29,12 +29,9 @@ Get all orders
 
 
 ```java
-order.getOrders( pageNo,  pageSize,  fromDate,  toDate,  status)
-{
-
-
+order.getOrders( pageNo,  pageSize,  fromDate,  toDate,  status) {
   //use response
-  }
+}
 ```
 
 
@@ -89,12 +86,9 @@ Get details of an order
 
 
 ```java
-order.getOrderById( orderId)
-{
-
-
+order.getOrderById( orderId) {
   //use response
-  }
+}
 ```
 
 
@@ -145,12 +139,9 @@ Get details of a shipment
 
 
 ```java
-order.getShipmentById( shipmentId)
-{
-
-
+order.getShipmentById( shipmentId) {
   //use response
-  }
+}
 ```
 
 
@@ -201,12 +192,9 @@ Get reasons behind full or partial cancellation of a shipment
 
 
 ```java
-order.getShipmentReasons( shipmentId)
-{
-
-
+order.getShipmentReasons( shipmentId) {
   //use response
-  }
+}
 ```
 
 
@@ -257,12 +245,9 @@ Update the shipment status
 
 
 ```java
-order.updateShipmentStatus( shipmentId, body body)
-{
-
-
+order.updateShipmentStatus( shipmentId, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -313,12 +298,9 @@ Track shipment
 
 
 ```java
-order.trackShipment( shipmentId)
-{
-
-
+order.trackShipment( shipmentId) {
   //use response
-  }
+}
 ```
 
 
@@ -369,12 +351,9 @@ Get POS Order
 
 
 ```java
-order.getPosOrderById( orderId)
-{
-
-
+order.getPosOrderById( orderId) {
   //use response
-  }
+}
 ```
 
 
@@ -425,12 +404,9 @@ Get Customer Details by Shipment Id
 
 
 ```java
-order.getCustomerDetailsByShipmentId( orderId,  shipmentId)
-{
-
-
+order.getCustomerDetailsByShipmentId( orderId,  shipmentId) {
   //use response
-  }
+}
 ```
 
 
@@ -482,12 +458,9 @@ Send and Resend Otp code to Order-Shipment customer
 
 
 ```java
-order.sendOtpToShipmentCustomer( orderId,  shipmentId)
-{
-
-
+order.sendOtpToShipmentCustomer( orderId,  shipmentId) {
   //use response
-  }
+}
 ```
 
 
@@ -539,12 +512,9 @@ Verify Otp code
 
 
 ```java
-order.verifyOtpShipmentCustomer( orderId,  shipmentId, body body)
-{
-
-
+order.verifyOtpShipmentCustomer( orderId,  shipmentId, body body) {
   //use response
-  }
+}
 ```
 
 
@@ -1115,6 +1085,8 @@ Success, the code is valid and returns a session token
  | breakupValues | ArrayList<[BreakupValues](#BreakupValues)>? |  yes  |  |
  | trackUrl | String? |  yes  |  |
  | trakingNo | String? |  yes  |  |
+ | awbNo | String? |  yes  |  |
+ | dpName | String? |  yes  |  |
  | trackingDetails | ArrayList<[TrackingDetails](#TrackingDetails)>? |  yes  |  |
  | beneficiaryDetails | Boolean? |  yes  |  |
  | canReturn | Boolean? |  yes  |  |
