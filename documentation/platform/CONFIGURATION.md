@@ -1350,7 +1350,7 @@ Application inventory enabled companies
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppCompanies( pageNo,  pageSize) {
+client.application("<APPLICATION_ID>").configuration.getAppCompanies( uid,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -1361,6 +1361,7 @@ client.application("<APPLICATION_ID>").configuration.getAppCompanies( pageNo,  p
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Current company id |   
 | applicationId | String | yes | Current application id |   
+| uid | Integer? | no | uid of companies to be fetched |   
 | pageNo | Integer? | no | Current page no |   
 | pageSize | Integer? | no | Current request items count |  
 
@@ -4777,6 +4778,7 @@ Success
  | price | [InventoryPrice](#InventoryPrice)? |  yes  |  |
  | discount | [InventoryDiscount](#InventoryDiscount)? |  yes  |  |
  | outOfStock | Boolean? |  yes  |  |
+ | onlyVerifiedProducts | Boolean? |  yes  |  |
  | franchiseEnabled | Boolean? |  yes  |  |
  | excludeCategory | ArrayList<Object>? |  yes  |  |
  | image | ArrayList<String>? |  yes  |  |

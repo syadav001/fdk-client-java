@@ -68,106 +68,6 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizePriceResponse getProductPriceBySlug(String slug , String size , String pincode , Integer storeId ) throws IOException {
-    
-        Response<ApplicationModels.ProductSizePriceResponse> response = catalogApiList.getProductPriceBySlug(slug, size, pincode, storeId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ProductSizeSellersResponse getProductSellersBySlug(String slug , String size , String pincode , String strategy , Integer pageNo , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.ProductSizeSellersResponse> response = catalogApiList.getProductSellersBySlug(slug, size, pincode, strategy, pageNo, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getProductSellersBySlug
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.ProductSizeSellersResponse> getProductSellersBySlugPagination(
-        
-        String slug,
-        String size,
-        String pincode,
-        String strategy,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.ProductSizeSellersResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.ProductSizeSellersResponse callback = this.getProductSellersBySlug(
-                
-                 slug,
-                 size,
-                 pincode,
-                 strategy,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     public ApplicationModels.ProductsComparisonResponse getProductComparisonBySlugs(List<String> slug ) throws IOException {
     
         Response<ApplicationModels.ProductsComparisonResponse> response = catalogApiList.getProductComparisonBySlugs(slug).execute();
@@ -860,9 +760,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -874,9 +774,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1114,9 +1014,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlugV2(String slug , String size , Integer storeId , String pincode ) throws IOException {
+    public ApplicationModels.ProductBundle getProductBundlesBySlug(String slug , String id ) throws IOException {
     
-        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlugV2(slug, size, storeId, pincode).execute();
+        Response<ApplicationModels.ProductBundle> response = catalogApiList.getProductBundlesBySlug(slug, id).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1128,9 +1028,23 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizeSellersResponseV2 getProductSellersBySlugV2(String slug , String size , String pincode , String strategy , Integer pageNo , Integer pageSize ) throws IOException {
+    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode ) throws IOException {
     
-        Response<ApplicationModels.ProductSizeSellersResponseV2> response = catalogApiList.getProductSellersBySlugV2(slug, size, pincode, strategy, pageNo, pageSize).execute();
+        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(slug, size, storeId, pincode).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ProductSizeSellersResponseV2 getProductSellersBySlug(String slug , String size , String pincode , String strategy , Integer pageNo , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.ProductSizeSellersResponseV2> response = catalogApiList.getProductSellersBySlug(slug, size, pincode, strategy, pageNo, pageSize).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1172,10 +1086,10 @@ public class ApplicationService {
         
 
     /**
-    * Summary: get paginator for getProductSellersBySlugV2
+    * Summary: get paginator for getProductSellersBySlug
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlugV2Pagination(
+    public Paginator<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlugPagination(
         
         String slug,
         String size,
@@ -1191,7 +1105,7 @@ public class ApplicationService {
 
     paginator.setCallback(()-> {
         try {
-            ApplicationModels.ProductSizeSellersResponseV2 callback = this.getProductSellersBySlugV2(
+            ApplicationModels.ProductSizeSellersResponseV2 callback = this.getProductSellersBySlug(
                 
                  slug,
                  size,
@@ -1606,6 +1520,20 @@ public class ApplicationService {
 
     
 
+    
+    
+    public ApplicationModels.ApplicationResponse searchApplication(String authorization , String query ) throws IOException {
+    
+        Response<ApplicationModels.ApplicationResponse> response = commonApiList.searchApplication(authorization, query).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
     
     
     public ApplicationModels.Locations getLocations(String locationType , String id ) throws IOException {
@@ -2442,20 +2370,6 @@ public class ApplicationService {
     });
     return paginator ;
     }
-    
-    
-    public ApplicationModels.DataLoaderSchema getDataLoaders() throws IOException {
-    
-        Response<ApplicationModels.DataLoaderSchema> response = contentApiList.getDataLoaders().execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
     
     
     public ApplicationModels.FaqResponseSchema getFaqs() throws IOException {
