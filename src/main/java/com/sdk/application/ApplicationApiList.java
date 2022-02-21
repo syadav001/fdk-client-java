@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -179,6 +179,9 @@ interface CartApiList {
 }
 
 interface CommonApiList {
+    
+    @GET ("/service/common/configuration/v1.0/application/search-application")
+    Call<ApplicationModels.ApplicationResponse> searchApplication(@Header("authorization") String authorization , @Query("query") String query );
     
     @GET ("/service/common/configuration/v1.0/location")
     Call<ApplicationModels.Locations> getLocations(@Query("location_type") String locationType , @Query("id") String id );
@@ -339,6 +342,9 @@ interface ContentApiList {
     
     @GET ("/service/application/content/v1.0/blogs/")
     Call<ApplicationModels.BlogGetResponse> getBlogs(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    
+    @GET ("/service/application/content/v1.0/data-loader")
+    Call<ApplicationModels.DataLoaderSchema> getDataLoaders();
     
     @GET ("/service/application/content/v1.0/faq")
     Call<ApplicationModels.FaqResponseSchema> getFaqs();

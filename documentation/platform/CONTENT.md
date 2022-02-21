@@ -17,6 +17,13 @@ Content System
 * [updateBlog](#updateblog)
 * [deleteBlog](#deleteblog)
 * [getComponentById](#getcomponentbyid)
+* [addDataLoader](#adddataloader)
+* [getDataLoaders](#getdataloaders)
+* [deleteDataLoader](#deletedataloader)
+* [editDataLoader](#editdataloader)
+* [getDataLoadersByService](#getdataloadersbyservice)
+* [selectDataLoader](#selectdataloader)
+* [resetDataLoader](#resetdataloader)
 * [getFaqCategories](#getfaqcategories)
 * [getFaqCategoryBySlugOrId](#getfaqcategorybyslugorid)
 * [createFaqCategory](#createfaqcategory)
@@ -1218,6 +1225,486 @@ Success. Returns a a JSON object with components. Refer `BlogSchema` for more de
 ```
 </details>
 
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### addDataLoader
+Adds a data loader
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").content.addDataLoader(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |  
+| body | [DataLoaderSchema](#DataLoaderSchema) | yes | Request body |
+
+
+Use this API to add data loader. This includes the data loader name, operationId, service name and its type (url/function) with corresponding value.
+
+*Returned Response:*
+
+
+
+
+[DataLoaderResponseSchema](#DataLoaderResponseSchema)
+
+Success.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "_id": "601f77e7aa61066feda44487",
+  "name": "Search API from Algolia",
+  "service": "catalog",
+  "operation_id": "fetchSuggestions",
+  "type": "url",
+  "application": "000000000000000000000001",
+  "__v": 0
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getDataLoaders
+Get all the data loaders in an application
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").content.getDataLoaders() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |  
+
+
+
+Use this to get all data loaders of an application
+
+*Returned Response:*
+
+
+
+
+[List<DataLoaderResponseSchema>](#List<DataLoaderResponseSchema>)
+
+Success. Refer `DataLoaderResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+[
+  {
+    "name": "Algolia",
+    "is_selected": false,
+    "type": "url",
+    "_id": "61bc4523a7ffc7504f4de4a5",
+    "service": "catalog",
+    "operation_id": "fetchSuggestions",
+    "url": "/ext/example/url",
+    "__source": {
+      "type": "extension",
+      "id": "000000000000000000000003"
+    },
+    "application": "100000000000000000000001",
+    "__v": 0
+  },
+  {
+    "name": "Algolia v3",
+    "is_selected": false,
+    "type": "url",
+    "_id": "61bc452da7ffc7504f4de4a7",
+    "service": "catalog",
+    "operation_id": "fetchSuggestions",
+    "url": "/ext/example/url",
+    "__source": {
+      "type": "extension",
+      "id": "000000000000000000000003"
+    },
+    "application": "100000000000000000000001",
+    "__v": 0
+  }
+]
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### deleteDataLoader
+Delete data loader in application
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").content.deleteDataLoader( dataLoaderId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| dataLoaderId | String | yes | ID allotted to the data loader. |  
+
+
+
+Use this API to delete data loader.
+
+*Returned Response:*
+
+
+
+
+[DataLoaderResponseSchema](#DataLoaderResponseSchema)
+
+Success.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "_id": "601f77e7aa61066feda44487",
+  "name": "Search API from Algolia",
+  "service": "catalog",
+  "operation_id": "fetchSuggestions",
+  "type": "url",
+  "application": "000000000000000000000001",
+  "__v": 0
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### editDataLoader
+Edit a data loader by id
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").content.editDataLoader( dataLoaderId, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| dataLoaderId | String | yes | ID allotted to the data loader. |  
+| body | [DataLoaderSchema](#DataLoaderSchema) | yes | Request body |
+
+
+Use this API to edit the details of an existing data loader by its ID.
+
+*Returned Response:*
+
+
+
+
+[DataLoaderResponseSchema](#DataLoaderResponseSchema)
+
+Success.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "_id": "601f77e7aa61066feda44487",
+  "name": "Search API from Algolia",
+  "service": "catalog",
+  "operation_id": "fetchSuggestions",
+  "type": "url",
+  "application": "000000000000000000000001",
+  "__v": 0
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getDataLoadersByService
+Get all the data loaders in an application by service name
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").content.getDataLoadersByService( serviceName) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| serviceName | String | yes | Service name of the data loader. |  
+
+
+
+Use this to get all data loaders of an application by service name
+
+*Returned Response:*
+
+
+
+
+[List<DataLoaderResponseSchema>](#List<DataLoaderResponseSchema>)
+
+Success. Refer `DataLoaderResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+[
+  {
+    "name": "Algolia",
+    "is_selected": false,
+    "type": "url",
+    "_id": "61bc4523a7ffc7504f4de4a5",
+    "service": "catalog",
+    "operation_id": "fetchSuggestions",
+    "url": "/ext/example/url",
+    "__source": {
+      "type": "extension",
+      "id": "000000000000000000000003"
+    },
+    "application": "100000000000000000000001",
+    "__v": 0
+  },
+  {
+    "name": "Algolia v3",
+    "is_selected": false,
+    "type": "url",
+    "_id": "61bc452da7ffc7504f4de4a7",
+    "service": "catalog",
+    "operation_id": "fetchSuggestions",
+    "url": "/ext/example/url",
+    "__source": {
+      "type": "extension",
+      "id": "000000000000000000000003"
+    },
+    "application": "100000000000000000000001",
+    "__v": 0
+  }
+]
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### selectDataLoader
+Select a data loader by id
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").content.selectDataLoader( dataLoaderId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| dataLoaderId | String | yes | ID allotted to the data loader. |  
+
+
+
+Use this API to select a data loader to be used in applications.
+
+*Returned Response:*
+
+
+
+
+[DataLoaderResponseSchema](#DataLoaderResponseSchema)
+
+Success.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "_id": "601f77e7aa61066feda44487",
+  "name": "Search API from Algolia",
+  "service": "catalog",
+  "operation_id": "fetchSuggestions",
+  "type": "url",
+  "application": "000000000000000000000001",
+  "__v": 0
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### resetDataLoader
+Reset a data loader by serive name and operation Id
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").content.resetDataLoader( service,  operationId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| service | String | yes | Name of service. |   
+| operationId | String | yes | Name of operation id of the service. |  
+
+
+
+Use this API to reselect a data loader.
+
+*Returned Response:*
+
+
+
+
+[DataLoaderResetResponseSchema](#DataLoaderResetResponseSchema)
+
+Success.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "reset": true
+}
+```
 </details>
 
 
@@ -7165,6 +7652,37 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
 
  
  
+ #### [DataLoaderResponseSchema](#DataLoaderResponseSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | application | String? |  yes  |  |
+ | company | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | service | String? |  yes  |  |
+ | operationId | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | url | String? |  yes  |  |
+ | content | String? |  yes  |  |
+ | source | [DataLoaderSourceSchema](#DataLoaderSourceSchema)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DataLoaderResetResponseSchema](#DataLoaderResetResponseSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | reset | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [Navigation](#Navigation)
 
  | Properties | Type | Nullable | Description |
@@ -7396,6 +7914,35 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | tags | ArrayList<[CreateTagSchema](#CreateTagSchema)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DataLoaderSchema](#DataLoaderSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String? |  yes  |  |
+ | service | String? |  yes  |  |
+ | operationId | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | url | String? |  yes  |  |
+ | content | String? |  yes  |  |
+ | source | [DataLoaderSourceSchema](#DataLoaderSourceSchema)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DataLoaderSourceSchema](#DataLoaderSourceSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  |  |
+ | id | String? |  yes  |  |
 
 ---
 
