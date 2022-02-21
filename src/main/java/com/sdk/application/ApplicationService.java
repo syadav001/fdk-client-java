@@ -1550,6 +1550,20 @@ public class ApplicationService {
 
     
     
+    public ApplicationModels.ApplicationResponse searchApplication(String authorization , String query ) throws IOException {
+    
+        Response<ApplicationModels.ApplicationResponse> response = commonApiList.searchApplication(authorization, query).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.Locations getLocations(String locationType , String id ) throws IOException {
     
         Response<ApplicationModels.Locations> response = commonApiList.getLocations(locationType, id).execute();

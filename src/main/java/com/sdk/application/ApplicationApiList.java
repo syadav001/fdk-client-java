@@ -186,6 +186,9 @@ interface CartApiList {
 
 interface CommonApiList {
     
+    @GET ("/service/common/configuration/v1.0/application/search-application")
+    Call<ApplicationModels.ApplicationResponse> searchApplication(@Header("authorization") String authorization , @Query("query") String query );
+    
     @GET ("/service/common/configuration/v1.0/location")
     Call<ApplicationModels.Locations> getLocations(@Query("location_type") String locationType , @Query("id") String id );
     
