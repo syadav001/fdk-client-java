@@ -10,7 +10,7 @@ Handles Platform websites OMS
 * [activityStatus](#activitystatus)
 * [storeProcessShipmentUpdate](#storeprocessshipmentupdate)
 * [checkRefund](#checkrefund)
-* [ShipmentBagsCanBreak](#shipmentbagscanbreak)
+* [shipmentBagsCanBreak](#shipmentbagscanbreak)
 * [getOrdersByCompanyId](#getordersbycompanyid)
 * [getOrderLanesCountByCompanyId](#getorderlanescountbycompanyid)
 * [getOrderDetails](#getorderdetails)
@@ -249,14 +249,14 @@ Success
 ---
 
 
-### ShipmentBagsCanBreak
+### shipmentBagsCanBreak
 Decides if Shipment bags can break
 
 
 
 
 ```java
-client.order.ShipmentBagsCanBreak(body body) {
+client.order.shipmentBagsCanBreak(body body) {
   //use response
 }
 ```
