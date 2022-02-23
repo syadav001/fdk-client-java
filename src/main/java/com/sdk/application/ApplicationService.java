@@ -592,9 +592,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -606,9 +606,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3685,9 +3685,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CustomerCreditSummaryResponse CustomerCreditSummary(String aggregator ) throws IOException {
+    public ApplicationModels.CustomerCreditSummaryResponse customerCreditSummary(String aggregator ) throws IOException {
     
-        Response<ApplicationModels.CustomerCreditSummaryResponse> response = paymentApiList.CustomerCreditSummary(aggregator).execute();
+        Response<ApplicationModels.CustomerCreditSummaryResponse> response = paymentApiList.customerCreditSummary(aggregator).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3699,9 +3699,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.RedirectToAggregatorResponse RedirectToAggregator(String source ) throws IOException {
+    public ApplicationModels.RedirectToAggregatorResponse redirectToAggregator(String source ) throws IOException {
     
-        Response<ApplicationModels.RedirectToAggregatorResponse> response = paymentApiList.RedirectToAggregator(source).execute();
+        Response<ApplicationModels.RedirectToAggregatorResponse> response = paymentApiList.redirectToAggregator(source).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3713,9 +3713,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CheckCreditResponse CheckCredit(String aggregator ) throws IOException {
+    public ApplicationModels.CheckCreditResponse checkCredit(String aggregator ) throws IOException {
     
-        Response<ApplicationModels.CheckCreditResponse> response = paymentApiList.CheckCredit(aggregator).execute();
+        Response<ApplicationModels.CheckCreditResponse> response = paymentApiList.checkCredit(aggregator).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3727,9 +3727,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CustomerOnboardingResponse CustomerOnboard(ApplicationModels.CustomerOnboardingRequest body) throws IOException {
+    public ApplicationModels.CustomerOnboardingResponse customerOnboard(ApplicationModels.CustomerOnboardingRequest body) throws IOException {
     
-        Response<ApplicationModels.CustomerOnboardingResponse> response = paymentApiList.CustomerOnboard( body).execute();
+        Response<ApplicationModels.CustomerOnboardingResponse> response = paymentApiList.customerOnboard( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
