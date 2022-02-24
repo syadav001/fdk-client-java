@@ -5774,6 +5774,7 @@ Success
  | image | ArrayList<String>? |  yes  |  |
  | franchiseEnabled | Boolean? |  yes  |  |
  | outOfStock | Boolean? |  yes  |  |
+ | onlyVerifiedProducts | Boolean? |  yes  |  |
  | payment | [InventoryPaymentConfig](#InventoryPaymentConfig)? |  yes  |  |
  | articleAssignment | [InventoryArticleAssignment](#InventoryArticleAssignment)? |  yes  |  |
 
