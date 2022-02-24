@@ -76,11 +76,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -574,16 +574,16 @@ interface PaymentApiList {
     Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Body ApplicationModels.SetDefaultBeneficiaryRequest payload);
     
     @GET ("/service/application/payment/v1.0/payment/credit-summary/")
-    Call<ApplicationModels.CustomerCreditSummaryResponse> CustomerCreditSummary(@Query("aggregator") String aggregator );
+    Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Query("aggregator") String aggregator );
     
     @GET ("/service/application/payment/v1.0/payment/redirect-to-aggregator/")
-    Call<ApplicationModels.RedirectToAggregatorResponse> RedirectToAggregator(@Query("aggregator") String aggregator );
+    Call<ApplicationModels.RedirectToAggregatorResponse> redirectToAggregator(@Query("source") String source );
     
     @GET ("/service/application/payment/v1.0/check-credits/")
-    Call<ApplicationModels.CheckCreditResponse> CheckCredit(@Query("aggregator") String aggregator );
+    Call<ApplicationModels.CheckCreditResponse> checkCredit(@Query("aggregator") String aggregator );
     
     @POST ("/service/application/payment/v1.0/credit-onboard/")
-    Call<ApplicationModels.CustomerOnboardingResponse> CustomerOnboard(@Body ApplicationModels.CustomerOnboardingRequest payload);
+    Call<ApplicationModels.CustomerOnboardingResponse> customerOnboard(@Body ApplicationModels.CustomerOnboardingRequest payload);
     
 }
 
@@ -643,88 +643,6 @@ interface RewardsApiList {
     
     @POST ("/service/application/rewards/v1.0/user/referral/redeem/")
     Call<ApplicationModels.RedeemReferralCodeResponse> redeemReferralCode(@Body ApplicationModels.RedeemReferralCodeRequest payload);
-    
-}
-
-interface FeedbackApiList {
-    
-    @POST ("/service/application/feedback/v1.0/abuse")
-    Call<ApplicationModels.InsertResponse> createAbuseReport(@Body ApplicationModels.ReportAbuseRequest payload);
-    
-    @PUT ("/service/application/feedback/v1.0/abuse")
-    Call<ApplicationModels.UpdateResponse> updateAbuseReport(@Body ApplicationModels.UpdateAbuseStatusRequest payload);
-    
-    @GET ("/service/application/feedback/v1.0/abuse/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.ReportAbuseGetResponse> getAbuseReports(@Path("entity_id") String entityId , @Path("entity_type") String entityType , @Query("id") String id , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/feedback/v1.0/attributes")
-    Call<ApplicationModels.AttributeResponse> getAttributes(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
-    
-    @POST ("/service/application/feedback/v1.0/attributes")
-    Call<ApplicationModels.InsertResponse> createAttribute(@Body ApplicationModels.SaveAttributeRequest payload);
-    
-    @GET ("/service/application/feedback/v1.0/attributes/{slug}")
-    Call<ApplicationModels.Attribute> getAttribute(@Path("slug") String slug );
-    
-    @PUT ("/service/application/feedback/v1.0/attributes/{slug}")
-    Call<ApplicationModels.UpdateResponse> updateAttribute(@Path("slug") String slug ,@Body ApplicationModels.UpdateAttributeRequest payload);
-    
-    @POST ("/service/application/feedback/v1.0/comment")
-    Call<ApplicationModels.InsertResponse> createComment(@Body ApplicationModels.CommentRequest payload);
-    
-    @PUT ("/service/application/feedback/v1.0/comment")
-    Call<ApplicationModels.UpdateResponse> updateComment(@Body ApplicationModels.UpdateCommentRequest payload);
-    
-    @GET ("/service/application/feedback/v1.0/comment/entity/{entity_type}")
-    Call<ApplicationModels.CommentGetResponse> getComments(@Path("entity_type") String entityType , @Query("id") String id , @Query("entity_id") String entityId , @Query("user_id") String userId , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/feedback/v1.0/config/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.CheckEligibilityResponse> checkEligibility(@Path("entity_type") String entityType , @Path("entity_id") String entityId );
-    
-    @DELETE ("/service/application/feedback/v1.0/media/")
-    Call<ApplicationModels.UpdateResponse> deleteMedia();
-    
-    @POST ("/service/application/feedback/v1.0/media/")
-    Call<ApplicationModels.InsertResponse> createMedia(@Body ApplicationModels.AddMediaListRequest payload);
-    
-    @PUT ("/service/application/feedback/v1.0/media/")
-    Call<ApplicationModels.UpdateResponse> updateMedia(@Body ApplicationModels.UpdateMediaListRequest payload);
-    
-    @GET ("/service/application/feedback/v1.0/media/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.MediaGetResponse> getMedias(@Path("entity_type") String entityType , @Path("entity_id") String entityId , @Query("id") String id , @Query("type") String type , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/feedback/v1.0/rating/summary/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.ReviewMetricGetResponse> getReviewSummaries(@Path("entity_type") String entityType , @Path("entity_id") String entityId , @Query("id") String id , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @POST ("/service/application/feedback/v1.0/review/")
-    Call<ApplicationModels.UpdateResponse> createReview(@Body ApplicationModels.UpdateReviewRequest payload);
-    
-    @PUT ("/service/application/feedback/v1.0/review/")
-    Call<ApplicationModels.UpdateResponse> updateReview(@Body ApplicationModels.UpdateReviewRequest payload);
-    
-    @GET ("/service/application/feedback/v1.0/review/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.ReviewGetResponse> getReviews(@Path("entity_type") String entityType , @Path("entity_id") String entityId , @Query("id") String id , @Query("user_id") String userId , @Query("media") String media , @Query("rating") List<Double> rating , @Query("attribute_rating") List<String> attributeRating , @Query("facets") Boolean facets , @Query("sort") String sort , @Query("active") Boolean active , @Query("approve") Boolean approve , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/feedback/v1.0/template/")
-    Call<ApplicationModels.TemplateGetResponse> getTemplates(@Query("template_id") String templateId , @Query("entity_id") String entityId , @Query("entity_type") String entityType );
-    
-    @POST ("/service/application/feedback/v1.0/template/qna/")
-    Call<ApplicationModels.InsertResponse> createQuestion(@Body ApplicationModels.CreateQNARequest payload);
-    
-    @PUT ("/service/application/feedback/v1.0/template/qna/")
-    Call<ApplicationModels.UpdateResponse> updateQuestion(@Body ApplicationModels.UpdateQNARequest payload);
-    
-    @GET ("/service/application/feedback/v1.0/template/qna/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.QNAGetResponse> getQuestionAndAnswers(@Path("entity_type") String entityType , @Path("entity_id") String entityId , @Query("id") String id , @Query("user_id") String userId , @Query("show_answer") Boolean showAnswer , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/feedback/v1.0/vote/")
-    Call<ApplicationModels.VoteResponse> getVotes(@Query("id") String id , @Query("ref_type") String refType , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
-    
-    @POST ("/service/application/feedback/v1.0/vote/")
-    Call<ApplicationModels.InsertResponse> createVote(@Body ApplicationModels.VoteRequest payload);
-    
-    @PUT ("/service/application/feedback/v1.0/vote/")
-    Call<ApplicationModels.UpdateResponse> updateVote(@Body ApplicationModels.UpdateVoteRequest payload);
     
 }
 

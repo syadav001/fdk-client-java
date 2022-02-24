@@ -36,8 +36,6 @@ public class ApplicationClient {
     
     public ApplicationService.RewardsService rewards;
     
-    public ApplicationService.FeedbackService feedback;
-    
     public ApplicationService.PosCartService posCart;
     
     public ApplicationService.LogisticService logistic;
@@ -72,8 +70,6 @@ public class ApplicationClient {
         this.order = new ApplicationService().new OrderService(applicationConfig);
         
         this.rewards = new ApplicationService().new RewardsService(applicationConfig);
-        
-        this.feedback = new ApplicationService().new FeedbackService(applicationConfig);
         
         this.posCart = new ApplicationService().new PosCartService(applicationConfig);
         
