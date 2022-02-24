@@ -4595,23 +4595,6 @@ Success
 
  
  
- #### [DataItems](#DataItems)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | to | String? |  yes  |  |
- | cc | String? |  yes  |  |
- | bcc | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
- | phoneNumber | String? |  yes  |  |
- | refUser | String? |  yes  |  |
- | refApplication | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [PayloadEmailTemplateStructure](#PayloadEmailTemplateStructure)
 
  | Properties | Type | Nullable | Description |
@@ -4686,7 +4669,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | ArrayList<[DataItems](#DataItems)>? |  yes  |  |
+ | data | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | email | [PayloadEmailStructure](#PayloadEmailStructure)? |  yes  |  |
  | sms | [PayloadSmsStructure](#PayloadSmsStructure)? |  yes  |  |
  | application | String? |  yes  |  |
