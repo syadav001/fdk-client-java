@@ -860,9 +860,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -874,9 +874,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1607,9 +1607,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.LadderPriceOffers getLadderOffers(String slug , String promotionId , Integer pageSize ) throws IOException {
+    public ApplicationModels.LadderPriceOffers getLadderOffers(String slug , String storeId , String promotionId , Integer pageSize ) throws IOException {
     
-        Response<ApplicationModels.LadderPriceOffers> response = cartApiList.getLadderOffers(slug, promotionId, pageSize).execute();
+        Response<ApplicationModels.LadderPriceOffers> response = cartApiList.getLadderOffers(slug, storeId, promotionId, pageSize).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
