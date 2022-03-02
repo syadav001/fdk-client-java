@@ -524,174 +524,6 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.GetCollectionListingResponse getCollections(Integer pageNo , Integer pageSize , List<String> tag ) throws IOException {
-    
-        Response<ApplicationModels.GetCollectionListingResponse> response = catalogApiList.getCollections(pageNo, pageSize, tag).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getCollections
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.GetCollectionListingResponse> getCollectionsPagination(
-        
-        Integer pageSize,
-        List<String> tag
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.GetCollectionListingResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.GetCollectionListingResponse callback = this.getCollections(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 tag
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.ProductListingResponse getCollectionItemsBySlug(String slug , String f , Boolean filters , String sortOn , String pageId , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.ProductListingResponse> response = catalogApiList.getCollectionItemsBySlug(slug, f, filters, sortOn, pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getCollectionItemsBySlug
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.ProductListingResponse> getCollectionItemsBySlugPagination(
-        
-        String slug,
-        String f,
-        Boolean filters,
-        String sortOn,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.ProductListingResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.ProductListingResponse callback = this.getCollectionItemsBySlug(
-                
-                 slug,
-                 f,
-                 filters,
-                 sortOn,
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.CollectionDetailResponse getCollectionDetailBySlug(String slug ) throws IOException {
-    
-        Response<ApplicationModels.CollectionDetailResponse> response = catalogApiList.getCollectionDetailBySlug(slug).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
     public ApplicationModels.GetFollowListingResponse getFollowedListing(String collectionType , String pageId , Integer pageSize ) throws IOException {
     
         Response<ApplicationModels.GetFollowListingResponse> response = catalogApiList.getFollowedListing(collectionType, pageId, pageSize).execute();
@@ -1014,20 +846,6 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductBundle getProductBundlesBySlug(String slug , String id ) throws IOException {
-    
-        Response<ApplicationModels.ProductBundle> response = catalogApiList.getProductBundlesBySlug(slug, id).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
     public ApplicationModels.ProductSizePriceResponse getProductPriceBySlug(String slug , String size , Integer storeId , String pincode ) throws IOException {
     
         Response<ApplicationModels.ProductSizePriceResponse> response = catalogApiList.getProductPriceBySlug(slug, size, storeId, pincode).execute();
@@ -1126,6 +944,188 @@ public class ApplicationService {
     });
     return paginator ;
     }
+    
+    
+    public ApplicationModels.GetCollectionListingResponse getCollections(Integer pageNo , Integer pageSize , List<String> tag ) throws IOException {
+    
+        Response<ApplicationModels.GetCollectionListingResponse> response = catalogApiList.getCollections(pageNo, pageSize, tag).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getCollections
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.GetCollectionListingResponse> getCollectionsPagination(
+        
+        Integer pageSize,
+        List<String> tag
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.GetCollectionListingResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.GetCollectionListingResponse callback = this.getCollections(
+                
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 tag
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.ProductListingResponse getCollectionItemsBySlug(String slug , String f , Boolean filters , String sortOn , String pageId , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.ProductListingResponse> response = catalogApiList.getCollectionItemsBySlug(slug, f, filters, sortOn, pageId, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getCollectionItemsBySlug
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.ProductListingResponse> getCollectionItemsBySlugPagination(
+        
+        String slug,
+        String f,
+        Boolean filters,
+        String sortOn,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.ProductListingResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.ProductListingResponse callback = this.getCollectionItemsBySlug(
+                
+                 slug,
+                 f,
+                 filters,
+                 sortOn,
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.CollectionDetailResponse getCollectionDetailBySlug(String slug ) throws IOException {
+    
+        Response<ApplicationModels.CollectionDetailResponse> response = catalogApiList.getCollectionDetailBySlug(slug).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ProductBundle getProductBundlesBySlug(String slug , String id ) throws IOException {
+    
+        Response<ApplicationModels.ProductBundle> response = catalogApiList.getProductBundlesBySlug(slug, id).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
       
 }
 
@@ -3309,6 +3309,20 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.SuccessMessageResponse removeOrderingStoreCookie() throws IOException {
     
         Response<ApplicationModels.SuccessMessageResponse> response = configurationApiList.removeOrderingStoreCookie().execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.AppStaffListResponse getAppStaffList(Integer pageNo , Integer pageSize , Boolean orderIncent , Integer orderingStore , String user ) throws IOException {
+    
+        Response<ApplicationModels.AppStaffListResponse> response = configurationApiList.getAppStaffList(pageNo, pageSize, orderIncent, orderingStore, user).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

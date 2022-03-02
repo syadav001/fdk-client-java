@@ -58,15 +58,6 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/auto-complete/")
     Call<ApplicationModels.AutoCompleteResponse> getSearchResults(@Query("q") String q );
     
-    @GET ("/service/application/catalog/v1.0/collections/")
-    Call<ApplicationModels.GetCollectionListingResponse> getCollections(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("tag") List<String> tag );
-    
-    @GET ("/service/application/catalog/v1.0/collections/{slug}/items/")
-    Call<ApplicationModels.ProductListingResponse> getCollectionItemsBySlug(@Path("slug") String slug , @Query("f") String f , @Query("filters") Boolean filters , @Query("sort_on") String sortOn , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/catalog/v1.0/collections/{slug}/")
-    Call<ApplicationModels.CollectionDetailResponse> getCollectionDetailBySlug(@Path("slug") String slug );
-    
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
@@ -91,14 +82,23 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/locations/{location_id}/")
     Call<ApplicationModels.StoreDetails> getLocationDetailsById(@Path("location_id") Integer locationId );
     
-    @GET ("/service/application/catalog/v1.0/product-grouping/")
-    Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Query("slug") String slug , @Query("id") String id );
-    
     @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/price/")
     Call<ApplicationModels.ProductSizePriceResponse> getProductPriceBySlug(@Path("slug") String slug , @Path("size") String size , @Query("store_id") Integer storeId , @Query("pincode") String pincode );
     
     @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/")
     Call<ApplicationModels.ProductSizeSellersResponse> getProductSellersBySlug(@Path("slug") String slug , @Path("size") String size , @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    
+    @GET ("/service/application/catalog/v2.0/collections/")
+    Call<ApplicationModels.GetCollectionListingResponse> getCollections(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("tag") List<String> tag );
+    
+    @GET ("/service/application/catalog/v2.0/collections/{slug}/items/")
+    Call<ApplicationModels.ProductListingResponse> getCollectionItemsBySlug(@Path("slug") String slug , @Query("f") String f , @Query("filters") Boolean filters , @Query("sort_on") String sortOn , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
+    
+    @GET ("/service/application/catalog/v2.0/collections/{slug}/")
+    Call<ApplicationModels.CollectionDetailResponse> getCollectionDetailBySlug(@Path("slug") String slug );
+    
+    @GET ("/service/application/catalog/v1.0/product-grouping/")
+    Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Query("slug") String slug , @Query("id") String id );
     
 }
 
@@ -493,6 +493,9 @@ interface ConfigurationApiList {
     
     @DELETE ("/service/application/configuration/v1.0/ordering-store/select")
     Call<ApplicationModels.SuccessMessageResponse> removeOrderingStoreCookie();
+    
+    @GET ("/service/application/configuration/v1.0/staff/list")
+    Call<ApplicationModels.AppStaffListResponse> getAppStaffList(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
     
     @GET ("/service/application/configuration/v1.0/staff")
     Call<ApplicationModels.AppStaffResponse> getAppStaffs(@Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
