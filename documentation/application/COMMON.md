@@ -35,7 +35,7 @@ common.searchApplication( authorization,  query) {
 
 
 
-Search Application.
+Provide application name or domain url
 
 *Returned Response:*
 
