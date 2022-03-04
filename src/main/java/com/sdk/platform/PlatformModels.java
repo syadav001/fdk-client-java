@@ -39120,7 +39120,7 @@ public static class LocationListSerializer {
 
 
 /*
-    Model: BusinessCountryInfo
+    Model: ContactDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -39128,19 +39128,19 @@ public static class LocationListSerializer {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.ALWAYS)
-public static class BusinessCountryInfo {
+public static class ContactDetails {
     
     
     
     
-    @JsonProperty("country")
-    private String country;
+    @JsonProperty("emails")
+    private List<String> emails;
     
     
     
     
-    @JsonProperty("country_code")
-    private String countryCode;
+    @JsonProperty("phone")
+    private List<SellerPhoneNumber> phone;
     
     
     
@@ -39192,7 +39192,7 @@ public static class BusinessDetails {
 }
 
 /*
-    Model: ContactDetails
+    Model: CreateUpdateAddressSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -39200,19 +39200,195 @@ public static class BusinessDetails {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.ALWAYS)
-public static class ContactDetails {
+public static class CreateUpdateAddressSerializer {
     
     
     
     
-    @JsonProperty("phone")
-    private List<SellerPhoneNumber> phone;
+    @JsonProperty("address_type")
+    private String addressType;
     
     
     
     
-    @JsonProperty("emails")
-    private List<String> emails;
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("address1")
+    private String address1;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("address2")
+    private String address2;
+    
+    
+    
+    
+    @JsonProperty("longitude")
+    private Double longitude;
+    
+    
+    
+    
+    @JsonProperty("landmark")
+    private String landmark;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private Double latitude;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private Integer pincode;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateCompany
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class UpdateCompany {
+    
+    
+    
+    
+    @JsonProperty("reject_reason")
+    private String rejectReason;
+    
+    
+    
+    
+    @JsonProperty("contact_details")
+    private ContactDetails contactDetails;
+    
+    
+    
+    
+    @JsonProperty("business_details")
+    private BusinessDetails businessDetails;
+    
+    
+    
+    
+    @JsonProperty("franchise_enabled")
+    private Boolean franchiseEnabled;
+    
+    
+    
+    
+    @JsonProperty("business_info")
+    private String businessInfo;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("warnings")
+    private Object warnings;
+    
+    
+    
+    
+    @JsonProperty("addresses")
+    private List<CreateUpdateAddressSerializer> addresses;
+    
+    
+    
+    
+    @JsonProperty("notification_emails")
+    private List<String> notificationEmails;
+    
+    
+    
+    
+    @JsonProperty("company_type")
+    private String companyType;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("documents")
+    private List<Document> documents;
+    
+    
+    
+    
+    @JsonProperty("business_type")
+    private String businessType;
+    
+    
+    
+    
+}
+
+/*
+    Model: BusinessCountryInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class BusinessCountryInfo {
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
     
     
     
@@ -39239,38 +39415,8 @@ public static class GetCompanyProfileSerializerResponse {
     
     
     
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("business_type")
-    private String businessType;
-    
-    
-    
-    
-    @JsonProperty("documents")
-    private List<Document> documents;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("business_info")
-    private String businessInfo;
-    
-    
-    
-    
-    @JsonProperty("business_country_info")
-    private BusinessCountryInfo businessCountryInfo;
+    @JsonProperty("warnings")
+    private Object warnings;
     
     
     
@@ -39281,50 +39427,8 @@ public static class GetCompanyProfileSerializerResponse {
     
     
     
-    @JsonProperty("business_details")
-    private BusinessDetails businessDetails;
-    
-    
-    
-    
-    @JsonProperty("contact_details")
-    private ContactDetails contactDetails;
-    
-    
-    
-    
-    @JsonProperty("mode")
-    private String mode;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserSerializer createdBy;
-    
-    
-    
-    
-    @JsonProperty("franchise_enabled")
-    private Boolean franchiseEnabled;
-    
-    
-    
-    
-    @JsonProperty("notification_emails")
-    private List<String> notificationEmails;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
+    @JsonProperty("company_type")
+    private String companyType;
     
     
     
@@ -39341,142 +39445,14 @@ public static class GetCompanyProfileSerializerResponse {
     
     
     
-    @JsonProperty("warnings")
-    private Object warnings;
-    
-    
-    
-    
-    @JsonProperty("company_type")
-    private String companyType;
-    
-    
-    
-    
-    @JsonProperty("verified_by")
-    private UserSerializer verifiedBy;
-    
-    
-    
-    
-}
-
-/*
-    Model: CreateUpdateAddressSerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.ALWAYS)
-public static class CreateUpdateAddressSerializer {
-    
-    
-    
-    
-    @JsonProperty("landmark")
-    private String landmark;
-    
-    
-    
-    
-    @JsonProperty("address1")
-    private String address1;
-    
-    
-    
-    
-    @JsonProperty("pincode")
-    private Integer pincode;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("address_type")
-    private String addressType;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private Double latitude;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-    
-    @JsonProperty("address2")
-    private String address2;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private Double longitude;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
-}
-
-/*
-    Model: UpdateCompany
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.ALWAYS)
-public static class UpdateCompany {
-    
-    
-    
-    
-    @JsonProperty("business_type")
-    private String businessType;
-    
-    
-    
-    
-    @JsonProperty("reject_reason")
-    private String rejectReason;
-    
-    
-    
-    
     @JsonProperty("business_details")
     private BusinessDetails businessDetails;
     
     
     
     
-    @JsonProperty("documents")
-    private List<Document> documents;
+    @JsonProperty("created_by")
+    private UserSerializer createdBy;
     
     
     
@@ -39487,14 +39463,8 @@ public static class UpdateCompany {
     
     
     
-    @JsonProperty("addresses")
-    private List<CreateUpdateAddressSerializer> addresses;
-    
-    
-    
-    
-    @JsonProperty("notification_emails")
-    private List<String> notificationEmails;
+    @JsonProperty("contact_details")
+    private ContactDetails contactDetails;
     
     
     
@@ -39505,32 +39475,62 @@ public static class UpdateCompany {
     
     
     
-    @JsonProperty("warnings")
-    private Object warnings;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
     
-    @JsonProperty("contact_details")
-    private ContactDetails contactDetails;
+    @JsonProperty("verified_by")
+    private UserSerializer verifiedBy;
     
     
     
     
-    @JsonProperty("_custom_json")
-    private Object customJson;
+    @JsonProperty("notification_emails")
+    private List<String> notificationEmails;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
     
-    @JsonProperty("company_type")
-    private String companyType;
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("business_country_info")
+    private BusinessCountryInfo businessCountryInfo;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("documents")
+    private List<Document> documents;
+    
+    
+    
+    
+    @JsonProperty("business_type")
+    private String businessType;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
     
     
     
@@ -39579,26 +39579,14 @@ public static class MetricsSerializer {
     
     
     
-    @JsonProperty("store")
-    private DocumentsObj store;
-    
-    
-    
-    
-    @JsonProperty("brand")
-    private DocumentsObj brand;
-    
-    
-    
-    
     @JsonProperty("company_documents")
     private DocumentsObj companyDocuments;
     
     
     
     
-    @JsonProperty("stage")
-    private String stage;
+    @JsonProperty("store_documents")
+    private DocumentsObj storeDocuments;
     
     
     
@@ -39609,14 +39597,26 @@ public static class MetricsSerializer {
     
     
     
+    @JsonProperty("store")
+    private DocumentsObj store;
+    
+    
+    
+    
     @JsonProperty("uid")
     private Integer uid;
     
     
     
     
-    @JsonProperty("store_documents")
-    private DocumentsObj storeDocuments;
+    @JsonProperty("brand")
+    private DocumentsObj brand;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
     
     
     
@@ -39652,136 +39652,6 @@ public static class BrandBannerSerializer {
 }
 
 /*
-    Model: GetBrandResponseSerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.ALWAYS)
-public static class GetBrandResponseSerializer {
-    
-    
-    
-    
-    @JsonProperty("synonyms")
-    private List<String> synonyms;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private UserSerializer1 modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("reject_reason")
-    private String rejectReason;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("_locale_language")
-    private Object localeLanguage;
-    
-    
-    
-    
-    @JsonProperty("mode")
-    private String mode;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("slug_key")
-    private String slugKey;
-    
-    
-    
-    
-    @JsonProperty("banner")
-    private BrandBannerSerializer banner;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserSerializer1 createdBy;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
-    
-    
-    
-    
-    @JsonProperty("verified_on")
-    private String verifiedOn;
-    
-    
-    
-    
-    @JsonProperty("warnings")
-    private Object warnings;
-    
-    
-    
-    
-    @JsonProperty("verified_by")
-    private UserSerializer1 verifiedBy;
-    
-    
-    
-    
-}
-
-/*
     Model: CreateUpdateBrandRequestSerializer
 */
 @AllArgsConstructor
@@ -39795,20 +39665,8 @@ public static class CreateUpdateBrandRequestSerializer {
     
     
     
-    @JsonProperty("banner")
-    private BrandBannerSerializer banner;
-    
-    
-    
-    
-    @JsonProperty("synonyms")
-    private List<String> synonyms;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
+    @JsonProperty("brand_tier")
+    private String brandTier;
     
     
     
@@ -39819,8 +39677,26 @@ public static class CreateUpdateBrandRequestSerializer {
     
     
     
-    @JsonProperty("brand_tier")
-    private String brandTier;
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("synonyms")
+    private List<String> synonyms;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
@@ -39831,20 +39707,14 @@ public static class CreateUpdateBrandRequestSerializer {
     
     
     
-    @JsonProperty("company_id")
-    private Integer companyId;
+    @JsonProperty("banner")
+    private BrandBannerSerializer banner;
     
     
     
     
     @JsonProperty("logo")
     private String logo;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
     
     
     
@@ -39858,7 +39728,7 @@ public static class CreateUpdateBrandRequestSerializer {
 }
 
 /*
-    Model: CompanyBrandSerializer
+    Model: GetBrandResponseSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -39866,7 +39736,43 @@ public static class CreateUpdateBrandRequestSerializer {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.ALWAYS)
-public static class CompanyBrandSerializer {
+public static class GetBrandResponseSerializer {
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("synonyms")
+    private List<String> synonyms;
+    
+    
+    
+    
+    @JsonProperty("warnings")
+    private Object warnings;
+    
+    
+    
+    
+    @JsonProperty("_locale_language")
+    private Object localeLanguage;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private UserSerializer1 modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -39883,50 +39789,14 @@ public static class CompanyBrandSerializer {
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
+    @JsonProperty("slug_key")
+    private String slugKey;
     
     
     
     
-    @JsonProperty("warnings")
-    private Object warnings;
-    
-    
-    
-    
-    @JsonProperty("brand")
-    private GetBrandResponseSerializer brand;
-    
-    
-    
-    
-    @JsonProperty("company")
-    private GetCompanySerializer company;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private UserSerializer1 modifiedBy;
+    @JsonProperty("_custom_json")
+    private Object customJson;
     
     
     
@@ -39937,36 +39807,50 @@ public static class CompanyBrandSerializer {
     
     
     
+    @JsonProperty("banner")
+    private BrandBannerSerializer banner;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
     @JsonProperty("verified_by")
     private UserSerializer1 verifiedBy;
     
     
     
     
-}
-
-/*
-    Model: CompanyBrandListSerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.ALWAYS)
-public static class CompanyBrandListSerializer {
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
     
-    @JsonProperty("items")
-    private List<CompanyBrandSerializer> items;
+    @JsonProperty("created_on")
+    private String createdOn;
     
     
     
     
-    @JsonProperty("page")
-    private Page page;
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
     
     
     
@@ -40008,6 +39892,122 @@ public static class CompanyBrandPostRequestSerializer {
 }
 
 /*
+    Model: CompanyBrandSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class CompanyBrandSerializer {
+    
+    
+    
+    
+    @JsonProperty("reject_reason")
+    private String rejectReason;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("warnings")
+    private Object warnings;
+    
+    
+    
+    
+    @JsonProperty("verified_by")
+    private UserSerializer1 verifiedBy;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserSerializer1 createdBy;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private UserSerializer1 modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("brand")
+    private GetBrandResponseSerializer brand;
+    
+    
+    
+    
+    @JsonProperty("company")
+    private GetCompanySerializer company;
+    
+    
+    
+    
+    @JsonProperty("verified_on")
+    private String verifiedOn;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+}
+
+/*
+    Model: CompanyBrandListSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class CompanyBrandListSerializer {
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<CompanyBrandSerializer> items;
+    
+    
+    
+    
+}
+
+/*
     Model: GetAddressSerializer1
 */
 @AllArgsConstructor
@@ -40021,8 +40021,14 @@ public static class GetAddressSerializer1 {
     
     
     
-    @JsonProperty("landmark")
-    private String landmark;
+    @JsonProperty("address_type")
+    private String addressType;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
     
     
     
@@ -40033,26 +40039,8 @@ public static class GetAddressSerializer1 {
     
     
     
-    @JsonProperty("pincode")
-    private Integer pincode;
-    
-    
-    
-    
-    @JsonProperty("address_type")
-    private String addressType;
-    
-    
-    
-    
     @JsonProperty("country_code")
     private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private Double latitude;
     
     
     
@@ -40069,20 +40057,32 @@ public static class GetAddressSerializer1 {
     
     
     
-    @JsonProperty("state")
-    private String state;
-    
-    
-    
-    
     @JsonProperty("longitude")
     private Double longitude;
     
     
     
     
+    @JsonProperty("landmark")
+    private String landmark;
+    
+    
+    
+    
     @JsonProperty("country")
     private String country;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private Double latitude;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private Integer pincode;
     
     
     
@@ -40103,8 +40103,8 @@ public static class LocationSerializer {
     
     
     
-    @JsonProperty("documents")
-    private List<Document> documents;
+    @JsonProperty("timing")
+    private List<LocationDayWiseSerializer> timing;
     
     
     
@@ -40115,14 +40115,8 @@ public static class LocationSerializer {
     
     
     
-    @JsonProperty("store_type")
-    private String storeType;
-    
-    
-    
-    
-    @JsonProperty("notification_emails")
-    private List<String> notificationEmails;
+    @JsonProperty("address")
+    private GetAddressSerializer1 address;
     
     
     
@@ -40133,14 +40127,14 @@ public static class LocationSerializer {
     
     
     
+    @JsonProperty("notification_emails")
+    private List<String> notificationEmails;
+    
+    
+    
+    
     @JsonProperty("gst_credentials")
     private InvoiceDetailsSerializer gstCredentials;
-    
-    
-    
-    
-    @JsonProperty("company")
-    private Integer company;
     
     
     
@@ -40151,26 +40145,8 @@ public static class LocationSerializer {
     
     
     
-    @JsonProperty("manager")
-    private LocationManagerSerializer manager;
-    
-    
-    
-    
-    @JsonProperty("timing")
-    private List<LocationDayWiseSerializer> timing;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("store_type")
+    private String storeType;
     
     
     
@@ -40181,14 +40157,20 @@ public static class LocationSerializer {
     
     
     
-    @JsonProperty("product_return_config")
-    private ProductReturnConfigSerializer productReturnConfig;
+    @JsonProperty("manager")
+    private LocationManagerSerializer manager;
     
     
     
     
-    @JsonProperty("address")
-    private GetAddressSerializer1 address;
+    @JsonProperty("company")
+    private Integer company;
+    
+    
+    
+    
+    @JsonProperty("contact_numbers")
+    private List<SellerPhoneNumber> contactNumbers;
     
     
     
@@ -40199,8 +40181,26 @@ public static class LocationSerializer {
     
     
     
-    @JsonProperty("contact_numbers")
-    private List<SellerPhoneNumber> contactNumbers;
+    @JsonProperty("documents")
+    private List<Document> documents;
+    
+    
+    
+    
+    @JsonProperty("product_return_config")
+    private ProductReturnConfigSerializer productReturnConfig;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
     
     
     
@@ -41445,6 +41445,3139 @@ public static class ErrorRes {
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+}
+
+
+
+
+/*
+    Model: DataTresholdDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class DataTresholdDTO {
+    
+    
+    
+    
+    @JsonProperty("min_price")
+    private Double minPrice;
+    
+    
+    
+    
+    @JsonProperty("safe_stock")
+    private Integer safeStock;
+    
+    
+    
+    
+    @JsonProperty("period_threshold")
+    private Integer periodThreshold;
+    
+    
+    
+    
+    @JsonProperty("period_threshold_type")
+    private String periodThresholdType;
+    
+    
+    
+    
+    @JsonProperty("period_type_list")
+    private List<GenericDTO> periodTypeList;
+    
+    
+    
+    
+}
+
+/*
+    Model: GenericDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class GenericDTO {
+    
+    
+    
+    
+    @JsonProperty("text")
+    private String text;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+    
+}
+
+/*
+    Model: JobConfigDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class JobConfigDTO {
+    
+    
+    
+    
+    @JsonProperty("integration")
+    private String integration;
+    
+    
+    
+    
+    @JsonProperty("integration_data")
+    private HashMap<String,Object> integrationData;
+    
+    
+    
+    
+    @JsonProperty("company_name")
+    private String companyName;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("task_details")
+    private TaskDTO taskDetails;
+    
+    
+    
+    
+    @JsonProperty("threshold_details")
+    private DataTresholdDTO thresholdDetails;
+    
+    
+    
+    
+    @JsonProperty("job_code")
+    private String jobCode;
+    
+    
+    
+    
+    @JsonProperty("alias")
+    private String alias;
+    
+    
+    
+    
+}
+
+/*
+    Model: TaskDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class TaskDTO {
+    
+    
+    
+    
+    @JsonProperty("type")
+    private Integer type;
+    
+    
+    
+    
+    @JsonProperty("group_list")
+    private List<GenericDTO> groupList;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResponseEnvelopeString
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ResponseEnvelopeString {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("total_time_taken_in_millis")
+    private Integer totalTimeTakenInMillis;
+    
+    
+    
+    
+    @JsonProperty("http_status")
+    private String httpStatus;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private String items;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private String payload;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+}
+
+/*
+    Model: AWSS3config
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class AWSS3config {
+    
+    
+    
+    
+    @JsonProperty("bucket")
+    private String bucket;
+    
+    
+    
+    
+    @JsonProperty("region")
+    private String region;
+    
+    
+    
+    
+    @JsonProperty("dir")
+    private String dir;
+    
+    
+    
+    
+    @JsonProperty("access_key")
+    private String accessKey;
+    
+    
+    
+    
+    @JsonProperty("secret_key")
+    private String secretKey;
+    
+    
+    
+    
+    @JsonProperty("local_file_path")
+    private String localFilePath;
+    
+    
+    
+    
+    @JsonProperty("archive_path")
+    private String archivePath;
+    
+    
+    
+    
+    @JsonProperty("archive")
+    private Boolean archive;
+    
+    
+    
+    
+    @JsonProperty("delete")
+    private Boolean delete;
+    
+    
+    
+    
+    @JsonProperty("unzip")
+    private Boolean unzip;
+    
+    
+    
+    
+    @JsonProperty("zip_format")
+    private String zipFormat;
+    
+    
+    
+    
+    @JsonProperty("file_regex")
+    private String fileRegex;
+    
+    
+    
+    
+    @JsonProperty("archive_config")
+    private ArchiveConfig archiveConfig;
+    
+    
+    
+    
+}
+
+/*
+    Model: ArchiveConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ArchiveConfig {
+    
+    
+    
+    
+    @JsonProperty("delete")
+    private Boolean delete;
+    
+    
+    
+    
+    @JsonProperty("archive")
+    private Boolean archive;
+    
+    
+    
+    
+    @JsonProperty("archive_dir")
+    private String archiveDir;
+    
+    
+    
+    
+}
+
+/*
+    Model: Audit
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class Audit {
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private String createdBy;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private String modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+}
+
+/*
+    Model: CatalogMasterConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class CatalogMasterConfig {
+    
+    
+    
+    
+    @JsonProperty("source_slug")
+    private String sourceSlug;
+    
+    
+    
+    
+}
+
+/*
+    Model: CompanyConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class CompanyConfig {
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("exclude_steps")
+    private List<Integer> excludeSteps;
+    
+    
+    
+    
+    @JsonProperty("hidden_closet_keys")
+    private List<String> hiddenClosetKeys;
+    
+    
+    
+    
+    @JsonProperty("open_tags")
+    private HashMap<String,Object> openTags;
+    
+    
+    
+    
+    @JsonProperty("tax_identifiers")
+    private List<String> taxIdentifiers;
+    
+    
+    
+    
+    @JsonProperty("delete_quantity_threshold")
+    private Integer deleteQuantityThreshold;
+    
+    
+    
+    
+}
+
+/*
+    Model: DBConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class DBConfig {
+    
+    
+    
+    
+    @JsonProperty("vendor")
+    private String vendor;
+    
+    
+    
+    
+    @JsonProperty("host")
+    private String host;
+    
+    
+    
+    
+    @JsonProperty("port")
+    private Integer port;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+    
+    @JsonProperty("password")
+    private String password;
+    
+    
+    
+    
+    @JsonProperty("dbname")
+    private String dbname;
+    
+    
+    
+    
+    @JsonProperty("query")
+    private String query;
+    
+    
+    
+    
+    @JsonProperty("procedure")
+    private Boolean procedure;
+    
+    
+    
+    
+    @JsonProperty("driver_class")
+    private String driverClass;
+    
+    
+    
+    
+    @JsonProperty("jdbc_url")
+    private String jdbcUrl;
+    
+    
+    
+    
+    @JsonProperty("optional_properties")
+    private HashMap<String,String> optionalProperties;
+    
+    
+    
+    
+}
+
+/*
+    Model: DBConnectionProfile
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class DBConnectionProfile {
+    
+    
+    
+    
+    @JsonProperty("inventory")
+    private String inventory;
+    
+    
+    
+    
+}
+
+/*
+    Model: DBParamConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class DBParamConfig {
+    
+    
+    
+    
+    @JsonProperty("params")
+    private HashMap<String,Object> params;
+    
+    
+    
+    
+}
+
+/*
+    Model: DefaultHeadersDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class DefaultHeadersDTO {
+    
+    
+    
+    
+    @JsonProperty("store")
+    private PropBeanDTO store;
+    
+    
+    
+    
+    @JsonProperty("intf_article_id")
+    private PropBeanDTO intfArticleId;
+    
+    
+    
+    
+    @JsonProperty("price_effective")
+    private PropBeanDTO priceEffective;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private PropBeanDTO quantity;
+    
+    
+    
+    
+}
+
+/*
+    Model: DocMappingConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class DocMappingConfig {
+    
+    
+    
+    
+    @JsonProperty("properties")
+    private HashMap<String,Object> properties;
+    
+    
+    
+    
+    @JsonProperty("junk_data_threshold_count")
+    private Integer junkDataThresholdCount;
+    
+    
+    
+    
+    @JsonProperty("prop_bean_configs")
+    private List<PropBeanConfig> propBeanConfigs;
+    
+    
+    
+    
+    @JsonProperty("unwind_field")
+    private String unwindField;
+    
+    
+    
+    
+    @JsonProperty("default_headers")
+    private DefaultHeadersDTO defaultHeaders;
+    
+    
+    
+    
+}
+
+/*
+    Model: EmailConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class EmailConfig {
+    
+    
+    
+    
+    @JsonProperty("recepient")
+    private String recepient;
+    
+    
+    
+    
+    @JsonProperty("host")
+    private String host;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+    
+    @JsonProperty("password")
+    private String password;
+    
+    
+    
+    
+    @JsonProperty("unzip")
+    private Boolean unzip;
+    
+    
+    
+    
+    @JsonProperty("read_from_content")
+    private Boolean readFromContent;
+    
+    
+    
+    
+    @JsonProperty("filter_based_on_recepients")
+    private Boolean filterBasedOnRecepients;
+    
+    
+    
+    
+    @JsonProperty("pcol")
+    private String pcol;
+    
+    
+    
+    
+    @JsonProperty("subject_line_regex")
+    private String subjectLineRegex;
+    
+    
+    
+    
+    @JsonProperty("sender_address")
+    private String senderAddress;
+    
+    
+    
+    
+    @JsonProperty("local_dir")
+    private String localDir;
+    
+    
+    
+    
+    @JsonProperty("folder_name_hierarchies")
+    private List<String> folderNameHierarchies;
+    
+    
+    
+    
+    @JsonProperty("attachment_regex")
+    private String attachmentRegex;
+    
+    
+    
+    
+    @JsonProperty("body_content_regex")
+    private String bodyContentRegex;
+    
+    
+    
+    
+    @JsonProperty("password_protected")
+    private Boolean passwordProtected;
+    
+    
+    
+    
+    @JsonProperty("zip_format")
+    private String zipFormat;
+    
+    
+    
+    
+    @JsonProperty("attachment_mandate")
+    private Boolean attachmentMandate;
+    
+    
+    
+    
+    @JsonProperty("filter_files_after_extraction")
+    private Boolean filterFilesAfterExtraction;
+    
+    
+    
+    
+    @JsonProperty("archive_config")
+    private ArchiveConfig archiveConfig;
+    
+    
+    
+    
+    @JsonProperty("read_all_unread_mails")
+    private Boolean readAllUnreadMails;
+    
+    
+    
+    
+    @JsonProperty("content_type")
+    private String contentType;
+    
+    
+    
+    
+    @JsonProperty("downloadable_link")
+    private Boolean downloadableLink;
+    
+    
+    
+    
+    @JsonProperty("properties")
+    private HashMap<String,String> properties;
+    
+    
+    
+    
+}
+
+/*
+    Model: FTPConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class FTPConfig {
+    
+    
+    
+    
+    @JsonProperty("host")
+    private String host;
+    
+    
+    
+    
+    @JsonProperty("port")
+    private Integer port;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+    
+    @JsonProperty("password")
+    private String password;
+    
+    
+    
+    
+    @JsonProperty("unzip")
+    private Boolean unzip;
+    
+    
+    
+    
+    @JsonProperty("retries")
+    private Integer retries;
+    
+    
+    
+    
+    @JsonProperty("interval")
+    private Integer interval;
+    
+    
+    
+    
+    @JsonProperty("local_dir")
+    private String localDir;
+    
+    
+    
+    
+    @JsonProperty("remote_dir")
+    private String remoteDir;
+    
+    
+    
+    
+    @JsonProperty("zip_file_regex")
+    private String zipFileRegex;
+    
+    
+    
+    
+    @JsonProperty("archive_config")
+    private ArchiveConfig archiveConfig;
+    
+    
+    
+    
+    @JsonProperty("file_regex")
+    private String fileRegex;
+    
+    
+    
+    
+    @JsonProperty("zip_format")
+    private String zipFormat;
+    
+    
+    
+    
+    @JsonProperty("read_all_files")
+    private Boolean readAllFiles;
+    
+    
+    
+    
+}
+
+/*
+    Model: FileConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class FileConfig {
+    
+    
+    
+    
+    @JsonProperty("delimiter")
+    private String delimiter;
+    
+    
+    
+    
+    @JsonProperty("charset")
+    private String charset;
+    
+    
+    
+    
+    @JsonProperty("properties")
+    private HashMap<String,Object> properties;
+    
+    
+    
+    
+    @JsonProperty("file_has_header")
+    private Boolean fileHasHeader;
+    
+    
+    
+    
+    @JsonProperty("header_index")
+    private Integer headerIndex;
+    
+    
+    
+    
+    @JsonProperty("header_array")
+    private List<String> headerArray;
+    
+    
+    
+    
+    @JsonProperty("data_start_index")
+    private Integer dataStartIndex;
+    
+    
+    
+    
+    @JsonProperty("prop_bean_configs")
+    private List<PropBeanConfig> propBeanConfigs;
+    
+    
+    
+    
+    @JsonProperty("junk_data_threshold_count")
+    private Integer junkDataThresholdCount;
+    
+    
+    
+    
+    @JsonProperty("file_type")
+    private String fileType;
+    
+    
+    
+    
+    @JsonProperty("line_validity_check")
+    private Boolean lineValidityCheck;
+    
+    
+    
+    
+    @JsonProperty("sheet_names")
+    private List<String> sheetNames;
+    
+    
+    
+    
+    @JsonProperty("read_all_sheets")
+    private Boolean readAllSheets;
+    
+    
+    
+    
+    @JsonProperty("quote_char")
+    private String quoteChar;
+    
+    
+    
+    
+    @JsonProperty("escape_char")
+    private String escapeChar;
+    
+    
+    
+    
+    @JsonProperty("default_headers")
+    private DefaultHeadersDTO defaultHeaders;
+    
+    
+    
+    
+}
+
+/*
+    Model: GoogleSpreadSheetConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class GoogleSpreadSheetConfig {
+    
+    
+    
+    
+    @JsonProperty("range")
+    private String range;
+    
+    
+    
+    
+    @JsonProperty("sheet_id")
+    private String sheetId;
+    
+    
+    
+    
+    @JsonProperty("client_secret_location")
+    private String clientSecretLocation;
+    
+    
+    
+    
+    @JsonProperty("cred_storage_directory")
+    private String credStorageDirectory;
+    
+    
+    
+    
+    @JsonProperty("local_dir")
+    private String localDir;
+    
+    
+    
+    
+    @JsonProperty("archive_config")
+    private ArchiveConfig archiveConfig;
+    
+    
+    
+    
+}
+
+/*
+    Model: HttpConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class HttpConfig {
+    
+    
+    
+    
+    @JsonProperty("hosturl")
+    private String hosturl;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+    
+    @JsonProperty("password")
+    private String password;
+    
+    
+    
+    
+    @JsonProperty("request_params")
+    private HashMap<String,String> requestParams;
+    
+    
+    
+    
+    @JsonProperty("http_method")
+    private String httpMethod;
+    
+    
+    
+    
+    @JsonProperty("request_payload")
+    private String requestPayload;
+    
+    
+    
+    
+    @JsonProperty("local_path")
+    private String localPath;
+    
+    
+    
+    
+    @JsonProperty("archive_config")
+    private ArchiveConfig archiveConfig;
+    
+    
+    
+    
+}
+
+/*
+    Model: JobConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class JobConfig {
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("job_code")
+    private String jobCode;
+    
+    
+    
+    
+    @JsonProperty("task_type")
+    private String taskType;
+    
+    
+    
+    
+    @JsonProperty("sync_delay")
+    private Integer syncDelay;
+    
+    
+    
+    
+    @JsonProperty("cron_expression")
+    private String cronExpression;
+    
+    
+    
+    
+    @JsonProperty("store_filter")
+    private StoreFilter storeFilter;
+    
+    
+    
+    
+    @JsonProperty("process_config")
+    private ProcessConfig processConfig;
+    
+    
+    
+    
+    @JsonProperty("store_config")
+    private List<StoreConfig> storeConfig;
+    
+    
+    
+    
+    @JsonProperty("properties")
+    private HashMap<String,String> properties;
+    
+    
+    
+    
+    @JsonProperty("immediate_first_run")
+    private Boolean immediateFirstRun;
+    
+    
+    
+    
+    @JsonProperty("disable")
+    private Boolean disable;
+    
+    
+    
+    
+    @JsonProperty("dependent_job_codes")
+    private List<String> dependentJobCodes;
+    
+    
+    
+    
+    @JsonProperty("company_config")
+    private List<CompanyConfig> companyConfig;
+    
+    
+    
+    
+    @JsonProperty("company_ids")
+    private List<Integer> companyIds;
+    
+    
+    
+    
+    @JsonProperty("tax_identifiers")
+    private List<String> taxIdentifiers;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private String priority;
+    
+    
+    
+    
+    @JsonProperty("period_threshold")
+    private Integer periodThreshold;
+    
+    
+    
+    
+    @JsonProperty("period_threshold_type")
+    private String periodThresholdType;
+    
+    
+    
+    
+    @JsonProperty("db_connection_profile")
+    private DBConnectionProfile dbConnectionProfile;
+    
+    
+    
+    
+    @JsonProperty("params")
+    private HashMap<String,Object> params;
+    
+    
+    
+    
+    @JsonProperty("open_tags")
+    private HashMap<String,Object> openTags;
+    
+    
+    
+    
+    @JsonProperty("delete_quantity_threshold")
+    private Integer deleteQuantityThreshold;
+    
+    
+    
+    
+    @JsonProperty("catalog_master_config")
+    private CatalogMasterConfig catalogMasterConfig;
+    
+    
+    
+    
+    @JsonProperty("aggregator_types")
+    private List<String> aggregatorTypes;
+    
+    
+    
+    
+    @JsonProperty("integration_type")
+    private String integrationType;
+    
+    
+    
+    
+    @JsonProperty("min_price")
+    private Double minPrice;
+    
+    
+    
+    
+    @JsonProperty("audit")
+    private Audit audit;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private Integer version;
+    
+    
+    
+    
+    @JsonProperty("alias")
+    private String alias;
+    
+    
+    
+    
+}
+
+/*
+    Model: JobConfigRawDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class JobConfigRawDTO {
+    
+    
+    
+    
+    @JsonProperty("integration")
+    private String integration;
+    
+    
+    
+    
+    @JsonProperty("company_name")
+    private String companyName;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private JobConfig data;
+    
+    
+    
+    
+}
+
+/*
+    Model: JsonDocConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class JsonDocConfig {
+    
+    
+    
+    
+    @JsonProperty("prop_bean_configs")
+    private List<PropBeanConfig> propBeanConfigs;
+    
+    
+    
+    
+}
+
+/*
+    Model: LocalFileConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class LocalFileConfig {
+    
+    
+    
+    
+    @JsonProperty("retries")
+    private Integer retries;
+    
+    
+    
+    
+    @JsonProperty("interval")
+    private Integer interval;
+    
+    
+    
+    
+    @JsonProperty("local_dir")
+    private String localDir;
+    
+    
+    
+    
+    @JsonProperty("working_dir")
+    private String workingDir;
+    
+    
+    
+    
+    @JsonProperty("unzip")
+    private Boolean unzip;
+    
+    
+    
+    
+    @JsonProperty("zip_file_regex")
+    private String zipFileRegex;
+    
+    
+    
+    
+    @JsonProperty("file_regex")
+    private String fileRegex;
+    
+    
+    
+    
+    @JsonProperty("zip_format")
+    private String zipFormat;
+    
+    
+    
+    
+    @JsonProperty("archive_config")
+    private ArchiveConfig archiveConfig;
+    
+    
+    
+    
+    @JsonProperty("read_all_files")
+    private Boolean readAllFiles;
+    
+    
+    
+    
+}
+
+/*
+    Model: MongoDocConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class MongoDocConfig {
+    
+    
+    
+    
+    @JsonProperty("collection_name")
+    private String collectionName;
+    
+    
+    
+    
+    @JsonProperty("find_query")
+    private HashMap<String,Object> findQuery;
+    
+    
+    
+    
+    @JsonProperty("projection_query")
+    private HashMap<String,Object> projectionQuery;
+    
+    
+    
+    
+    @JsonProperty("prop_bean_configs")
+    private List<PropBeanConfig> propBeanConfigs;
+    
+    
+    
+    
+    @JsonProperty("aggregate_pipeline")
+    private List<HashMap<String,Object>> aggregatePipeline;
+    
+    
+    
+    
+    @JsonProperty("skip_save")
+    private Boolean skipSave;
+    
+    
+    
+    
+}
+
+/*
+    Model: OAuthConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class OAuthConfig {
+    
+    
+    
+    
+    @JsonProperty("limit")
+    private Integer limit;
+    
+    
+    
+    
+    @JsonProperty("pages")
+    private Integer pages;
+    
+    
+    
+    
+    @JsonProperty("interval")
+    private Integer interval;
+    
+    
+    
+    
+    @JsonProperty("consumer_key")
+    private String consumerKey;
+    
+    
+    
+    
+    @JsonProperty("consumer_secret")
+    private String consumerSecret;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("token_secret")
+    private String tokenSecret;
+    
+    
+    
+    
+    @JsonProperty("rest_url")
+    private String restUrl;
+    
+    
+    
+    
+    @JsonProperty("rest_base_url")
+    private String restBaseUrl;
+    
+    
+    
+    
+    @JsonProperty("function_name")
+    private String functionName;
+    
+    
+    
+    
+}
+
+/*
+    Model: ProcessConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ProcessConfig {
+    
+    
+    
+    
+    @JsonProperty("db_config")
+    private DBConfig dbConfig;
+    
+    
+    
+    
+    @JsonProperty("db_param_config")
+    private DBParamConfig dbParamConfig;
+    
+    
+    
+    
+    @JsonProperty("sftp_config")
+    private SFTPConfig sftpConfig;
+    
+    
+    
+    
+    @JsonProperty("aws_s3_config")
+    private AWSS3config awsS3Config;
+    
+    
+    
+    
+    @JsonProperty("mongo_doc_config")
+    private MongoDocConfig mongoDocConfig;
+    
+    
+    
+    
+    @JsonProperty("ftp_config")
+    private FTPConfig ftpConfig;
+    
+    
+    
+    
+    @JsonProperty("email_config")
+    private EmailConfig emailConfig;
+    
+    
+    
+    
+    @JsonProperty("file_config")
+    private FileConfig fileConfig;
+    
+    
+    
+    
+    @JsonProperty("json_doc_config")
+    private JsonDocConfig jsonDocConfig;
+    
+    
+    
+    
+    @JsonProperty("doc_mapping_config")
+    private DocMappingConfig docMappingConfig;
+    
+    
+    
+    
+    @JsonProperty("task_step_config")
+    private TaskStepConfig taskStepConfig;
+    
+    
+    
+    
+    @JsonProperty("http_config")
+    private HttpConfig httpConfig;
+    
+    
+    
+    
+    @JsonProperty("local_file_config")
+    private LocalFileConfig localFileConfig;
+    
+    
+    
+    
+    @JsonProperty("oauth_config")
+    private OAuthConfig oauthConfig;
+    
+    
+    
+    
+    @JsonProperty("google_spreadsheet_config")
+    private GoogleSpreadSheetConfig googleSpreadsheetConfig;
+    
+    
+    
+    
+}
+
+/*
+    Model: PropBeanConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class PropBeanConfig {
+    
+    
+    
+    
+    @JsonProperty("required")
+    private Boolean required;
+    
+    
+    
+    
+    @JsonProperty("mapping")
+    private HashMap<String,PropBeanConfig> mapping;
+    
+    
+    
+    
+    @JsonProperty("optional")
+    private Boolean optional;
+    
+    
+    
+    
+    @JsonProperty("send")
+    private Send send;
+    
+    
+    
+    
+    @JsonProperty("validations")
+    private List<HashMap<String,Object>> validations;
+    
+    
+    
+    
+    @JsonProperty("values")
+    private List<String> values;
+    
+    
+    
+    
+    @JsonProperty("include")
+    private Boolean include;
+    
+    
+    
+    
+    @JsonProperty("source_field")
+    private String sourceField;
+    
+    
+    
+    
+    @JsonProperty("source_fields")
+    private List<String> sourceFields;
+    
+    
+    
+    
+    @JsonProperty("destination_field")
+    private String destinationField;
+    
+    
+    
+    
+    @JsonProperty("data_type")
+    private String dataType;
+    
+    
+    
+    
+    @JsonProperty("default_value")
+    private Object defaultValue;
+    
+    
+    
+    
+    @JsonProperty("const_value")
+    private Object constValue;
+    
+    
+    
+    
+    @JsonProperty("concat_str")
+    private String concatStr;
+    
+    
+    
+    
+    @JsonProperty("function_name")
+    private String functionName;
+    
+    
+    
+    
+    @JsonProperty("transformer_name")
+    private String transformerName;
+    
+    
+    
+    
+    @JsonProperty("all_param_function_name")
+    private String allParamFunctionName;
+    
+    
+    
+    
+    @JsonProperty("sub_separator")
+    private String subSeparator;
+    
+    
+    
+    
+    @JsonProperty("index_field")
+    private String indexField;
+    
+    
+    
+    
+    @JsonProperty("ignore_if_not_exists")
+    private Boolean ignoreIfNotExists;
+    
+    
+    
+    
+    @JsonProperty("identifier_type")
+    private String identifierType;
+    
+    
+    
+    
+    @JsonProperty("projection_query")
+    private HashMap<String,Object> projectionQuery;
+    
+    
+    
+    
+    @JsonProperty("enrich_from_master")
+    private Boolean enrichFromMaster;
+    
+    
+    
+    
+}
+
+/*
+    Model: PropBeanDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class PropBeanDTO {
+    
+    
+    
+    
+    @JsonProperty("required")
+    private Boolean required;
+    
+    
+    
+    
+    @JsonProperty("optional")
+    private Boolean optional;
+    
+    
+    
+    
+    @JsonProperty("include")
+    private Boolean include;
+    
+    
+    
+    
+    @JsonProperty("source_field")
+    private String sourceField;
+    
+    
+    
+    
+    @JsonProperty("source_fields")
+    private List<String> sourceFields;
+    
+    
+    
+    
+    @JsonProperty("destination_field")
+    private String destinationField;
+    
+    
+    
+    
+    @JsonProperty("data_type")
+    private String dataType;
+    
+    
+    
+    
+    @JsonProperty("default_value")
+    private Object defaultValue;
+    
+    
+    
+    
+    @JsonProperty("const_value")
+    private Object constValue;
+    
+    
+    
+    
+    @JsonProperty("concat_str")
+    private String concatStr;
+    
+    
+    
+    
+    @JsonProperty("function_name")
+    private String functionName;
+    
+    
+    
+    
+    @JsonProperty("transformer_name")
+    private String transformerName;
+    
+    
+    
+    
+    @JsonProperty("all_param_function_name")
+    private String allParamFunctionName;
+    
+    
+    
+    
+    @JsonProperty("sub_separator")
+    private String subSeparator;
+    
+    
+    
+    
+    @JsonProperty("index_field")
+    private String indexField;
+    
+    
+    
+    
+    @JsonProperty("ignore_if_not_exists")
+    private Boolean ignoreIfNotExists;
+    
+    
+    
+    
+    @JsonProperty("identifier_type")
+    private String identifierType;
+    
+    
+    
+    
+    @JsonProperty("projection_query")
+    private HashMap<String,Object> projectionQuery;
+    
+    
+    
+    
+    @JsonProperty("enrich_from_master")
+    private Boolean enrichFromMaster;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResponseEnvelopeListJobConfigRawDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ResponseEnvelopeListJobConfigRawDTO {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("total_time_taken_in_millis")
+    private Integer totalTimeTakenInMillis;
+    
+    
+    
+    
+    @JsonProperty("http_status")
+    private String httpStatus;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<JobConfigRawDTO> items;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private List<JobConfigRawDTO> payload;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+}
+
+/*
+    Model: SFTPConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class SFTPConfig {
+    
+    
+    
+    
+    @JsonProperty("host")
+    private String host;
+    
+    
+    
+    
+    @JsonProperty("port")
+    private Integer port;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+    
+    @JsonProperty("password")
+    private String password;
+    
+    
+    
+    
+    @JsonProperty("unzip")
+    private Boolean unzip;
+    
+    
+    
+    
+    @JsonProperty("retries")
+    private Integer retries;
+    
+    
+    
+    
+    @JsonProperty("interval")
+    private Integer interval;
+    
+    
+    
+    
+    @JsonProperty("private_key_path")
+    private String privateKeyPath;
+    
+    
+    
+    
+    @JsonProperty("strict_host_key_checking")
+    private Boolean strictHostKeyChecking;
+    
+    
+    
+    
+    @JsonProperty("local_dir")
+    private String localDir;
+    
+    
+    
+    
+    @JsonProperty("remote_dir")
+    private String remoteDir;
+    
+    
+    
+    
+    @JsonProperty("password_protected")
+    private Boolean passwordProtected;
+    
+    
+    
+    
+    @JsonProperty("zip_file_regex")
+    private String zipFileRegex;
+    
+    
+    
+    
+    @JsonProperty("file_regex")
+    private String fileRegex;
+    
+    
+    
+    
+    @JsonProperty("zip_format")
+    private String zipFormat;
+    
+    
+    
+    
+    @JsonProperty("archive_config")
+    private ArchiveConfig archiveConfig;
+    
+    
+    
+    
+    @JsonProperty("read_all_files")
+    private Boolean readAllFiles;
+    
+    
+    
+    
+}
+
+/*
+    Model: Send
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class Send {
+    
+    
+    
+    
+    @JsonProperty("raw")
+    private Boolean raw;
+    
+    
+    
+    
+    @JsonProperty("processed")
+    private Boolean processed;
+    
+    
+    
+    
+}
+
+/*
+    Model: StoreConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class StoreConfig {
+    
+    
+    
+    
+    @JsonProperty("job_code")
+    private String jobCode;
+    
+    
+    
+    
+    @JsonProperty("storeid")
+    private String storeid;
+    
+    
+    
+    
+    @JsonProperty("store_alias")
+    private String storeAlias;
+    
+    
+    
+    
+    @JsonProperty("store_file_regex")
+    private String storeFileRegex;
+    
+    
+    
+    
+    @JsonProperty("store_file_name")
+    private String storeFileName;
+    
+    
+    
+    
+    @JsonProperty("process_config")
+    private ProcessConfig processConfig;
+    
+    
+    
+    
+    @JsonProperty("properties")
+    private HashMap<String,String> properties;
+    
+    
+    
+    
+}
+
+/*
+    Model: StoreFilter
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class StoreFilter {
+    
+    
+    
+    
+    @JsonProperty("include_tags")
+    private List<String> includeTags;
+    
+    
+    
+    
+    @JsonProperty("exclude_tags")
+    private List<String> excludeTags;
+    
+    
+    
+    
+    @JsonProperty("query")
+    private HashMap<String,Object> query;
+    
+    
+    
+    
+}
+
+/*
+    Model: TaskConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class TaskConfig {
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("task_config_id")
+    private Integer taskConfigId;
+    
+    
+    
+    
+    @JsonProperty("task_params")
+    private List<TaskParam> taskParams;
+    
+    
+    
+    
+}
+
+/*
+    Model: TaskParam
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class TaskParam {
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+    
+}
+
+/*
+    Model: TaskStepConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class TaskStepConfig {
+    
+    
+    
+    
+    @JsonProperty("task_configs")
+    private List<TaskConfig> taskConfigs;
+    
+    
+    
+    
+    @JsonProperty("task_config_ids")
+    private List<Integer> taskConfigIds;
+    
+    
+    
+    
+    @JsonProperty("task_config_group_ids")
+    private List<Integer> taskConfigGroupIds;
+    
+    
+    
+    
+}
+
+/*
+    Model: JobStepsDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class JobStepsDTO {
+    
+    
+    
+    
+    @JsonProperty("step_name")
+    private String stepName;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("step_execution_time")
+    private Integer stepExecutionTime;
+    
+    
+    
+    
+    @JsonProperty("start_count")
+    private Integer startCount;
+    
+    
+    
+    
+    @JsonProperty("end_count")
+    private Integer endCount;
+    
+    
+    
+    
+    @JsonProperty("deleted_count")
+    private Integer deletedCount;
+    
+    
+    
+    
+    @JsonProperty("processed_start_time")
+    private String processedStartTime;
+    
+    
+    
+    
+    @JsonProperty("processed_at")
+    private String processedAt;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResponseEnvelopeListJobStepsDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ResponseEnvelopeListJobStepsDTO {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("total_time_taken_in_millis")
+    private Integer totalTimeTakenInMillis;
+    
+    
+    
+    
+    @JsonProperty("http_status")
+    private String httpStatus;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<JobStepsDTO> items;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private List<JobStepsDTO> payload;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResponseEnvelopeListJobConfigDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ResponseEnvelopeListJobConfigDTO {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("total_time_taken_in_millis")
+    private Integer totalTimeTakenInMillis;
+    
+    
+    
+    
+    @JsonProperty("http_status")
+    private String httpStatus;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<JobConfigDTO> items;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private List<JobConfigDTO> payload;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResponseEnvelopeJobConfigDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ResponseEnvelopeJobConfigDTO {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("total_time_taken_in_millis")
+    private Integer totalTimeTakenInMillis;
+    
+    
+    
+    
+    @JsonProperty("http_status")
+    private String httpStatus;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private JobConfigDTO items;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private JobConfigDTO payload;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+}
+
+/*
+    Model: JobHistoryDto
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class JobHistoryDto {
+    
+    
+    
+    
+    @JsonProperty("total_added_count")
+    private Integer totalAddedCount;
+    
+    
+    
+    
+    @JsonProperty("total_updated_count")
+    private Integer totalUpdatedCount;
+    
+    
+    
+    
+    @JsonProperty("total_suppressed_count")
+    private Integer totalSuppressedCount;
+    
+    
+    
+    
+    @JsonProperty("total_initial_count")
+    private Integer totalInitialCount;
+    
+    
+    
+    
+    @JsonProperty("job_id")
+    private Integer jobId;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("job_code")
+    private String jobCode;
+    
+    
+    
+    
+    @JsonProperty("processed_on")
+    private String processedOn;
+    
+    
+    
+    
+    @JsonProperty("filename")
+    private List<String> filename;
+    
+    
+    
+    
+    @JsonProperty("error_type")
+    private String errorType;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: JobMetricsDto
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class JobMetricsDto {
+    
+    
+    
+    
+    @JsonProperty("job_code")
+    private String jobCode;
+    
+    
+    
+    
+    @JsonProperty("is_run_more_than_usual")
+    private String isRunMoreThanUsual;
+    
+    
+    
+    
+    @JsonProperty("job_history")
+    private List<JobHistoryDto> jobHistory;
+    
+    
+    
+    
+    @JsonProperty("total_success_count")
+    private Integer totalSuccessCount;
+    
+    
+    
+    
+    @JsonProperty("total_failure_count")
+    private Integer totalFailureCount;
+    
+    
+    
+    
+    @JsonProperty("total_warning_count")
+    private Integer totalWarningCount;
+    
+    
+    
+    
+    @JsonProperty("total_suppressed_count")
+    private Integer totalSuppressedCount;
+    
+    
+    
+    
+    @JsonProperty("total_job_runs")
+    private Integer totalJobRuns;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResponseEnvelopeJobMetricsDto
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ResponseEnvelopeJobMetricsDto {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("total_time_taken_in_millis")
+    private Integer totalTimeTakenInMillis;
+    
+    
+    
+    
+    @JsonProperty("http_status")
+    private String httpStatus;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private JobMetricsDto items;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private JobMetricsDto payload;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+}
+
+/*
+    Model: JobConfigListDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class JobConfigListDTO {
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("alias")
+    private String alias;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private String modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private String createdBy;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResponseEnvelopeListJobConfigListDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ResponseEnvelopeListJobConfigListDTO {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("total_time_taken_in_millis")
+    private Integer totalTimeTakenInMillis;
+    
+    
+    
+    
+    @JsonProperty("http_status")
+    private String httpStatus;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<JobConfigListDTO> items;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private List<JobConfigListDTO> payload;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -52391,6 +55524,1472 @@ public static class OpenApiCheckoutResponse {
     
     @JsonProperty("order_ref_id")
     private String orderRefId;
+    
+    
+    
+    
+}
+
+
+
+
+/*
+    Model: AppUser
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class AppUser {
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("block_reason")
+    private String blockReason;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("updated_by")
+    private String updatedBy;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+}
+
+/*
+    Model: E
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class E {
+    
+    
+    
+    
+    @JsonProperty("code")
+    private Object code;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("info")
+    private String info;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
+    
+    
+    
+    
+    @JsonProperty("stack_trace")
+    private String stackTrace;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+}
+
+/*
+    Model: Giveaway
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class Giveaway {
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("_schedule")
+    private Schedule schedule;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("audience")
+    private RewardsAudience audience;
+    
+    
+    
+    
+    @JsonProperty("banner_image")
+    private Asset bannerImage;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("rule")
+    private RewardsRule rule;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+}
+
+/*
+    Model: GiveawayResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class GiveawayResponse {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<Giveaway> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+}
+
+/*
+    Model: HistoryPretty
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class HistoryPretty {
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("claimed")
+    private Boolean claimed;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("expires_on")
+    private String expiresOn;
+    
+    
+    
+    
+    @JsonProperty("points")
+    private Double points;
+    
+    
+    
+    
+    @JsonProperty("remaining_points")
+    private Double remainingPoints;
+    
+    
+    
+    
+    @JsonProperty("text_1")
+    private String text1;
+    
+    
+    
+    
+    @JsonProperty("text_2")
+    private String text2;
+    
+    
+    
+    
+    @JsonProperty("text_3")
+    private String text3;
+    
+    
+    
+    
+    @JsonProperty("txn_name")
+    private String txnName;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+}
+
+/*
+    Model: HistoryRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class HistoryRes {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<HistoryPretty> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+    @JsonProperty("points")
+    private Double points;
+    
+    
+    
+    
+}
+
+/*
+    Model: Offer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class Offer {
+    
+    
+    
+    
+    @JsonProperty("_schedule")
+    private Schedule schedule;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("banner_image")
+    private Asset bannerImage;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("rule")
+    private Object rule;
+    
+    
+    
+    
+    @JsonProperty("share")
+    private ShareMessages share;
+    
+    
+    
+    
+    @JsonProperty("sub_text")
+    private String subText;
+    
+    
+    
+    
+    @JsonProperty("text")
+    private String text;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("updated_by")
+    private String updatedBy;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+}
+
+/*
+    Model: Points
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class Points {
+    
+    
+    
+    
+    @JsonProperty("available")
+    private Double available;
+    
+    
+    
+    
+}
+
+/*
+    Model: Referral
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class Referral {
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+}
+
+/*
+    Model: RewardUser
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class RewardUser {
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("referral")
+    private Referral referral;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("user_block_reason")
+    private String userBlockReason;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+}
+
+/*
+    Model: RewardsAudience
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class RewardsAudience {
+    
+    
+    
+    
+    @JsonProperty("header_user_id")
+    private String headerUserId;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+}
+
+/*
+    Model: RewardsRule
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class RewardsRule {
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+}
+
+/*
+    Model: ShareMessages
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ShareMessages {
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("facebook")
+    private String facebook;
+    
+    
+    
+    
+    @JsonProperty("fallback")
+    private String fallback;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("messenger")
+    private String messenger;
+    
+    
+    
+    
+    @JsonProperty("sms")
+    private String sms;
+    
+    
+    
+    
+    @JsonProperty("text")
+    private String text;
+    
+    
+    
+    
+    @JsonProperty("twitter")
+    private String twitter;
+    
+    
+    
+    
+    @JsonProperty("whatsapp")
+    private String whatsapp;
+    
+    
+    
+    
+}
+
+/*
+    Model: UserRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class UserRes {
+    
+    
+    
+    
+    @JsonProperty("points")
+    private Points points;
+    
+    
+    
+    
+    @JsonProperty("user")
+    private RewardUser user;
+    
+    
+    
+    
+}
+
+
+
+
+/*
+    Model: StatGroup
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class StatGroup {
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+}
+
+/*
+    Model: StatsGroups
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class StatsGroups {
+    
+    
+    
+    
+    @JsonProperty("groups")
+    private List<StatGroup> groups;
+    
+    
+    
+    
+}
+
+/*
+    Model: StatsGroupComponent
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class StatsGroupComponent {
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private Object filters;
+    
+    
+    
+    
+}
+
+/*
+    Model: StatsGroupComponents
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class StatsGroupComponents {
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("components")
+    private List<StatsGroupComponent> components;
+    
+    
+    
+    
+}
+
+/*
+    Model: StatsRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class StatsRes {
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+}
+
+/*
+    Model: ReceivedAt
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ReceivedAt {
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+}
+
+/*
+    Model: AbandonCartsDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class AbandonCartsDetail {
+    
+    
+    
+    
+    @JsonProperty("properties_cart_id")
+    private String propertiesCartId;
+    
+    
+    
+    
+    @JsonProperty("context_traits_first_name")
+    private String contextTraitsFirstName;
+    
+    
+    
+    
+    @JsonProperty("context_traits_last_name")
+    private String contextTraitsLastName;
+    
+    
+    
+    
+    @JsonProperty("context_traits_phone_number")
+    private String contextTraitsPhoneNumber;
+    
+    
+    
+    
+    @JsonProperty("context_traits_email")
+    private String contextTraitsEmail;
+    
+    
+    
+    
+    @JsonProperty("context_app_application_id")
+    private String contextAppApplicationId;
+    
+    
+    
+    
+    @JsonProperty("properties_breakup_values_raw_total")
+    private String propertiesBreakupValuesRawTotal;
+    
+    
+    
+    
+    @JsonProperty("received_at")
+    private ReceivedAt receivedAt;
+    
+    
+    
+    
+}
+
+/*
+    Model: AbandonCartsList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class AbandonCartsList {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<AbandonCartsDetail> items;
+    
+    
+    
+    
+    @JsonProperty("cart_total")
+    private String cartTotal;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+}
+
+/*
+    Model: AbandonCartDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class AbandonCartDetail {
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("cart_value")
+    private String cartValue;
+    
+    
+    
+    
+    @JsonProperty("articles")
+    private List<Object> articles;
+    
+    
+    
+    
+    @JsonProperty("breakup")
+    private Object breakup;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private Object address;
+    
+    
+    
+    
+}
+
+/*
+    Model: ExportJobReq
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ExportJobReq {
+    
+    
+    
+    
+    @JsonProperty("marketplace_name")
+    private String marketplaceName;
+    
+    
+    
+    
+    @JsonProperty("start_time")
+    private String startTime;
+    
+    
+    
+    
+    @JsonProperty("end_time")
+    private String endTime;
+    
+    
+    
+    
+    @JsonProperty("event_type")
+    private String eventType;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+}
+
+/*
+    Model: ExportJobRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ExportJobRes {
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("job_id")
+    private String jobId;
+    
+    
+    
+    
+}
+
+/*
+    Model: ExportJobStatusRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ExportJobStatusRes {
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("job_id")
+    private String jobId;
+    
+    
+    
+    
+    @JsonProperty("download_url")
+    private String downloadUrl;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetLogsListReq
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class GetLogsListReq {
+    
+    
+    
+    
+    @JsonProperty("marketplace_name")
+    private String marketplaceName;
+    
+    
+    
+    
+    @JsonProperty("start_date")
+    private String startDate;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private String companyId;
+    
+    
+    
+    
+    @JsonProperty("end_date")
+    private String endDate;
+    
+    
+    
+    
+}
+
+/*
+    Model: MkpLogsResp
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class MkpLogsResp {
+    
+    
+    
+    
+    @JsonProperty("start_time_iso")
+    private String startTimeIso;
+    
+    
+    
+    
+    @JsonProperty("end_time_iso")
+    private String endTimeIso;
+    
+    
+    
+    
+    @JsonProperty("event_type")
+    private String eventType;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("count")
+    private String count;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetLogsListRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class GetLogsListRes {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<MkpLogsResp> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+}
+
+/*
+    Model: SearchLogReq
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class SearchLogReq {
+    
+    
+    
+    
+    @JsonProperty("marketplace_name")
+    private String marketplaceName;
+    
+    
+    
+    
+    @JsonProperty("start_date")
+    private String startDate;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private String companyId;
+    
+    
+    
+    
+    @JsonProperty("end_date")
+    private String endDate;
+    
+    
+    
+    
+    @JsonProperty("identifier")
+    private String identifier;
+    
+    
+    
+    
+    @JsonProperty("identifier_value")
+    private String identifierValue;
+    
+    
+    
+    
+}
+
+/*
+    Model: LogInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class LogInfo {
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("event_type")
+    private String eventType;
+    
+    
+    
+    
+    @JsonProperty("marketplace_name")
+    private String marketplaceName;
+    
+    
+    
+    
+    @JsonProperty("event")
+    private String event;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Double companyId;
+    
+    
+    
+    
+    @JsonProperty("brand_id")
+    private Double brandId;
+    
+    
+    
+    
+    @JsonProperty("store_code")
+    private String storeCode;
+    
+    
+    
+    
+    @JsonProperty("store_id")
+    private Double storeId;
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Double itemId;
+    
+    
+    
+    
+    @JsonProperty("article_id")
+    private String articleId;
+    
+    
+    
+    
+    @JsonProperty("seller_identifier")
+    private String sellerIdentifier;
+    
+    
+    
+    
+}
+
+/*
+    Model: SearchLogRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class SearchLogRes {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<LogInfo> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     

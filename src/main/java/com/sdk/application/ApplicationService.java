@@ -4075,6 +4075,975 @@ public class FileStorageService extends FileStorage {
 
 
 @Getter
+ public class FeedbackService { 
+
+    private ApplicationConfig applicationConfig;
+
+    private RetrofitServiceFactory retrofitServiceFactory;
+
+    private FeedbackApiList feedbackApiList;
+
+    FeedbackService(ApplicationConfig applicationConfig) {
+        this.applicationConfig = applicationConfig;
+        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.feedbackApiList = generateFeedbackApiList(this.applicationConfig.getPersistentCookieStore());
+    }
+
+    private FeedbackApiList generateFeedbackApiList(CookieStore cookieStore) {
+        List<Interceptor> interceptorList = new ArrayList<>();
+        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
+        interceptorList.add(new RequestSignerInterceptor());
+        return retrofitServiceFactory.createService(applicationConfig.getDomain(),FeedbackApiList.class, interceptorList, cookieStore);
+    }
+
+    
+
+    
+    
+    public ApplicationModels.InsertResponse createAbuseReport(ApplicationModels.ReportAbuseRequest body) throws IOException {
+    
+        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createAbuseReport( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.UpdateResponse updateAbuseReport(ApplicationModels.UpdateAbuseStatusRequest body) throws IOException {
+    
+        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateAbuseReport( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ReportAbuseGetResponse getAbuseReports(String entityId , String entityType , String id , String pageId , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.ReportAbuseGetResponse> response = feedbackApiList.getAbuseReports(entityId, entityType, id, pageId, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getAbuseReports
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.ReportAbuseGetResponse> getAbuseReportsPagination(
+        
+        String entityId,
+        String entityType,
+        String id,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.ReportAbuseGetResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.ReportAbuseGetResponse callback = this.getAbuseReports(
+                
+                 entityId,
+                 entityType,
+                 id,
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.AttributeResponse getAttributes(Integer pageNo , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.AttributeResponse> response = feedbackApiList.getAttributes(pageNo, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getAttributes
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.AttributeResponse> getAttributesPagination(
+        
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.AttributeResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.AttributeResponse callback = this.getAttributes(
+                
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.InsertResponse createAttribute(ApplicationModels.SaveAttributeRequest body) throws IOException {
+    
+        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createAttribute( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.Attribute getAttribute(String slug ) throws IOException {
+    
+        Response<ApplicationModels.Attribute> response = feedbackApiList.getAttribute(slug).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.UpdateResponse updateAttribute(String slug ,ApplicationModels.UpdateAttributeRequest body) throws IOException {
+    
+        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateAttribute(slug, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.InsertResponse createComment(ApplicationModels.CommentRequest body) throws IOException {
+    
+        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createComment( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.UpdateResponse updateComment(ApplicationModels.UpdateCommentRequest body) throws IOException {
+    
+        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateComment( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CommentGetResponse getComments(String entityType , String id , String entityId , String userId , String pageId , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.CommentGetResponse> response = feedbackApiList.getComments(entityType, id, entityId, userId, pageId, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getComments
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.CommentGetResponse> getCommentsPagination(
+        
+        String entityType,
+        String id,
+        String entityId,
+        String userId,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.CommentGetResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.CommentGetResponse callback = this.getComments(
+                
+                 entityType,
+                 id,
+                 entityId,
+                 userId,
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.CheckEligibilityResponse checkEligibility(String entityType , String entityId ) throws IOException {
+    
+        Response<ApplicationModels.CheckEligibilityResponse> response = feedbackApiList.checkEligibility(entityType, entityId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.UpdateResponse deleteMedia() throws IOException {
+    
+        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.deleteMedia().execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.InsertResponse createMedia(ApplicationModels.AddMediaListRequest body) throws IOException {
+    
+        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createMedia( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.UpdateResponse updateMedia(ApplicationModels.UpdateMediaListRequest body) throws IOException {
+    
+        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateMedia( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.MediaGetResponse getMedias(String entityType , String entityId , String id , String type , String pageId , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.MediaGetResponse> response = feedbackApiList.getMedias(entityType, entityId, id, type, pageId, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getMedias
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.MediaGetResponse> getMediasPagination(
+        
+        String entityType,
+        String entityId,
+        String id,
+        String type,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.MediaGetResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.MediaGetResponse callback = this.getMedias(
+                
+                 entityType,
+                 entityId,
+                 id,
+                 type,
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.ReviewMetricGetResponse getReviewSummaries(String entityType , String entityId , String id , String pageId , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.ReviewMetricGetResponse> response = feedbackApiList.getReviewSummaries(entityType, entityId, id, pageId, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getReviewSummaries
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.ReviewMetricGetResponse> getReviewSummariesPagination(
+        
+        String entityType,
+        String entityId,
+        String id,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.ReviewMetricGetResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.ReviewMetricGetResponse callback = this.getReviewSummaries(
+                
+                 entityType,
+                 entityId,
+                 id,
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.UpdateResponse createReview(ApplicationModels.UpdateReviewRequest body) throws IOException {
+    
+        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.createReview( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.UpdateResponse updateReview(ApplicationModels.UpdateReviewRequest body) throws IOException {
+    
+        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateReview( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ReviewGetResponse getReviews(String entityType , String entityId , String id , String userId , String media , List<Double> rating , List<String> attributeRating , Boolean facets , String sort , Boolean active , Boolean approve , String pageId , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.ReviewGetResponse> response = feedbackApiList.getReviews(entityType, entityId, id, userId, media, rating, attributeRating, facets, sort, active, approve, pageId, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getReviews
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.ReviewGetResponse> getReviewsPagination(
+        
+        String entityType,
+        String entityId,
+        String id,
+        String userId,
+        String media,
+        List<Double> rating,
+        List<String> attributeRating,
+        Boolean facets,
+        String sort,
+        Boolean active,
+        Boolean approve,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.ReviewGetResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.ReviewGetResponse callback = this.getReviews(
+                
+                 entityType,
+                 entityId,
+                 id,
+                 userId,
+                 media,
+                 rating,
+                 attributeRating,
+                 facets,
+                 sort,
+                 active,
+                 approve,
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.TemplateGetResponse getTemplates(String templateId , String entityId , String entityType ) throws IOException {
+    
+        Response<ApplicationModels.TemplateGetResponse> response = feedbackApiList.getTemplates(templateId, entityId, entityType).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.InsertResponse createQuestion(ApplicationModels.CreateQNARequest body) throws IOException {
+    
+        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createQuestion( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.UpdateResponse updateQuestion(ApplicationModels.UpdateQNARequest body) throws IOException {
+    
+        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateQuestion( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.QNAGetResponse getQuestionAndAnswers(String entityType , String entityId , String id , String userId , Boolean showAnswer , String pageId , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.QNAGetResponse> response = feedbackApiList.getQuestionAndAnswers(entityType, entityId, id, userId, showAnswer, pageId, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getQuestionAndAnswers
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.QNAGetResponse> getQuestionAndAnswersPagination(
+        
+        String entityType,
+        String entityId,
+        String id,
+        String userId,
+        Boolean showAnswer,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.QNAGetResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.QNAGetResponse callback = this.getQuestionAndAnswers(
+                
+                 entityType,
+                 entityId,
+                 id,
+                 userId,
+                 showAnswer,
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.VoteResponse getVotes(String id , String refType , Integer pageNo , Integer pageSize ) throws IOException {
+    
+        Response<ApplicationModels.VoteResponse> response = feedbackApiList.getVotes(id, refType, pageNo, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getVotes
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.VoteResponse> getVotesPagination(
+        
+        String id,
+        String refType,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.VoteResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.VoteResponse callback = this.getVotes(
+                
+                 id,
+                 refType,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.InsertResponse createVote(ApplicationModels.VoteRequest body) throws IOException {
+    
+        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createVote( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.UpdateResponse updateVote(ApplicationModels.UpdateVoteRequest body) throws IOException {
+    
+        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateVote( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+      
+}
+
+
+
+@Getter
  public class PosCartService { 
 
     private ApplicationConfig applicationConfig;

@@ -4818,17 +4818,17 @@ interface CompanyProfileApiList {
     
     
     
-    @GET ("/service/platform/company-profile/v1.0/company/{company_id}")
-    Call<PlatformModels.GetCompanyProfileSerializerResponse> cbsOnboardGet(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
     @PATCH ("/service/platform/company-profile/v1.0/company/{company_id}")
     Call<PlatformModels.SuccessResponse> updateCompany(@Path("company_id")  String companyId ,@Body PlatformModels.UpdateCompany payload);
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/company-profile/v1.0/company/{company_id}")
+    Call<PlatformModels.GetCompanyProfileSerializerResponse> cbsOnboardGet(@Path("company_id")  String companyId );
     
     
     
@@ -4848,18 +4848,6 @@ interface CompanyProfileApiList {
     
     
     
-    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
-    Call<PlatformModels.GetBrandResponseSerializer> getBrand(@Path("company_id")  String companyId , @Path("brand_id") String  brandId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
     Call<PlatformModels.SuccessResponse> editBrand(@Path("company_id")  String companyId , @Path("brand_id") String  brandId ,@Body PlatformModels.CreateUpdateBrandRequestSerializer payload);
     
@@ -4869,8 +4857,29 @@ interface CompanyProfileApiList {
     
     
     
+    
+    
+    
+    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
+    Call<PlatformModels.GetBrandResponseSerializer> getBrand(@Path("company_id")  String companyId , @Path("brand_id") String  brandId );
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/brand")
     Call<PlatformModels.SuccessResponse> createBrand(@Path("company_id")  String companyId ,@Body PlatformModels.CreateUpdateBrandRequestSerializer payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/company-brand")
+    Call<PlatformModels.SuccessResponse> createCompanyBrandMapping(@Path("company_id")  String companyId ,@Body PlatformModels.CompanyBrandPostRequestSerializer payload);
     
     
     
@@ -4896,8 +4905,8 @@ interface CompanyProfileApiList {
     
     
     
-    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/company-brand")
-    Call<PlatformModels.SuccessResponse> createCompanyBrandMapping(@Path("company_id")  String companyId ,@Body PlatformModels.CompanyBrandPostRequestSerializer payload);
+    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location")
+    Call<PlatformModels.SuccessResponse> createLocation(@Path("company_id")  String companyId ,@Body PlatformModels.LocationSerializer payload);
     
     
     
@@ -4929,8 +4938,11 @@ interface CompanyProfileApiList {
     
     
     
-    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location")
-    Call<PlatformModels.SuccessResponse> createLocation(@Path("company_id")  String companyId ,@Body PlatformModels.LocationSerializer payload);
+    
+    
+    
+    @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
+    Call<PlatformModels.SuccessResponse> updateLocation(@Path("company_id")  String companyId , @Path("location_id") String  locationId ,@Body PlatformModels.LocationSerializer payload);
     
     
     
@@ -4943,18 +4955,6 @@ interface CompanyProfileApiList {
     
     @GET ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
     Call<PlatformModels.GetLocationSerializer> getLocationDetail(@Path("company_id")  String companyId , @Path("location_id") String  locationId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
-    Call<PlatformModels.SuccessResponse> updateLocation(@Path("company_id")  String companyId , @Path("location_id") String  locationId ,@Body PlatformModels.LocationSerializer payload);
     
     
     
@@ -5176,6 +5176,148 @@ interface ShareApiList {
     
     @PATCH ("/service/platform/share/v1.0/company/{company_id}/application/{application_id}/links/short-link/{id}/")
     Call<PlatformModels.ShortLinkRes> updateShortLinkById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.ShortLinkReq payload);
+    
+}
+
+interface InventoryApiList {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/inventory/v1.0/company/{company_id}/jobs")
+    Call<PlatformModels.ResponseEnvelopeListJobConfigRawDTO> getJobsByCompany(@Path("company_id")  String companyId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/inventory/v1.0/company/{company_id}/jobs")
+    Call<PlatformModels.ResponseEnvelopeString> updateJob(@Path("company_id")  String companyId ,@Body PlatformModels.JobConfigDTO payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/inventory/v1.0/company/{company_id}/jobs")
+    Call<PlatformModels.ResponseEnvelopeString> createJob(@Path("company_id")  String companyId ,@Body PlatformModels.JobConfigDTO payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/inventory/v1.0/company/{company_id}/jobs/steps/{job_id}")
+    Call<PlatformModels.ResponseEnvelopeListJobStepsDTO> getJobSteps(@Path("company_id")  String companyId , @Path("job_id") Integer  jobId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/inventory/v1.0/company/{company_id}/jobs/integration/{integration_id}")
+    Call<PlatformModels.ResponseEnvelopeListJobConfigDTO> getJobByCompanyAndIntegration(@Path("company_id")  String companyId , @Path("integration_id") String  integrationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/inventory/v1.0/company/{company_id}/jobs/disable/integration/{integration_id}")
+    Call<PlatformModels.ResponseEnvelopeString> disable(@Path("company_id")  String companyId , @Path("integration_id") String  integrationId );
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/inventory/v1.0/company/{company_id}/jobs/defaults")
+    Call<PlatformModels.ResponseEnvelopeJobConfigDTO> getJobConfigDefaults(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/inventory/v1.0/company/{company_id}/jobs/code/{code}")
+    Call<PlatformModels.ResponseEnvelopeJobConfigDTO> getJobByCode(@Path("company_id")  String companyId , @Path("code") String  code );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/inventory/v1.0/company/{company_id}/jobs/code/{code}/metrics")
+    Call<PlatformModels.ResponseEnvelopeJobMetricsDto> getJobCodeMetrics(@Path("company_id")  String companyId , @Path("code") String  code , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("status") String  status ,  @Query("date") String  date );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/inventory/v1.0/company/{company_id}/jobs/code/integration/{integration_id}")
+    Call<PlatformModels.ResponseEnvelopeListJobConfigListDTO> getJobCodesByCompanyAndIntegration(@Path("company_id")  String companyId , @Path("integration_id") String  integrationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
     
 }
 
@@ -6048,6 +6190,365 @@ interface CartApiList {
     
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart/checkout")
     Call<PlatformModels.OpenApiCheckoutResponse> checkoutCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.OpenApiPlatformCheckoutReq payload);
+    
+}
+
+interface RewardsApiList {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/")
+    Call<PlatformModels.GiveawayResponse> getGiveaways(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_id") String  pageId ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/")
+    Call<PlatformModels.Giveaway> createGiveaway(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.Giveaway payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/{id}/")
+    Call<PlatformModels.Giveaway> getGiveawayByID(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/{id}/")
+    Call<PlatformModels.Giveaway> updateGiveaway(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.Giveaway payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/offers/")
+    Call<List<PlatformModels.Offer>> getOffers(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/offers/{name}/")
+    Call<PlatformModels.Offer> getOfferByName(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("name") String  name );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/offers/{name}/")
+    Call<PlatformModels.Offer> updateOfferByName(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("name") String  name ,@Body PlatformModels.Offer payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/users/{user_id}/")
+    Call<PlatformModels.UserRes> getUserAvailablePoints(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("user_id") String  userId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/users/{user_id}/")
+    Call<PlatformModels.AppUser> updateUserStatus(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("user_id") String  userId ,@Body PlatformModels.AppUser payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/users/{user_id}/points/history/")
+    Call<PlatformModels.HistoryRes> getUserPointsHistory(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("user_id") String  userId , @Query("page_id") String  pageId ,  @Query("page_limit") Integer  pageLimit ,  @Query("page_size") Integer  pageSize );
+    
+}
+
+interface AnalyticsApiList {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/analytics/v1.0/company/{company_id}/application/{application_id}/stats/group")
+    Call<PlatformModels.StatsGroups> getStatiscticsGroups(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/analytics/v1.0/company/{company_id}/application/{application_id}/stats/group/{group_name}")
+    Call<PlatformModels.StatsGroupComponents> getStatiscticsGroupComponents(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("group_name") String  groupName );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/analytics/v1.0/company/{company_id}/application/{application_id}/stats/component/{component_name}.csv")
+    Call<Object> getComponentStatsCSV(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("component_name") String  componentName );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/analytics/v1.0/company/{company_id}/application/{application_id}/stats/component/{component_name}.pdf")
+    Call<Object> getComponentStatsPDF(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("component_name") String  componentName );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/analytics/v1.0/company/{company_id}/application/{application_id}/stats/component/{component_name}")
+    Call<PlatformModels.StatsRes> getComponentStats(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("component_name") String  componentName );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/analytics/v1.0/company/{company_id}/application/{application_id}/cart/from/{from_date}/to/{to_date}/abandon-cart/")
+    Call<PlatformModels.AbandonCartsList> getAbandonCartList(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("from_date") String  fromDate , @Path("to_date") String  toDate , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/analytics/v1.0/company/{company_id}/application/{application_id}/cart/{from_date}/to/{to_date}/abandon-cart.csv")
+    Call<Object> getAbandonCartsCSV(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("from_date") String  fromDate , @Path("to_date") String  toDate );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/analytics/v1.0/company/{company_id}/application/{application_id}/cart/abandon-cart/{cart_id}")
+    Call<PlatformModels.AbandonCartDetail> getAbandonCartDetail(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("cart_id") String  cartId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/analytics/v1.0/company/{company_id}/export/{export_type}")
+    Call<PlatformModels.ExportJobRes> createExportJob(@Path("company_id")  String companyId , @Path("export_type") String  exportType ,@Body PlatformModels.ExportJobReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/analytics/v1.0/company/{company_id}/export/{export_type}/job/{job_id}")
+    Call<PlatformModels.ExportJobStatusRes> getExportJobStatus(@Path("company_id")  String companyId , @Path("export_type") String  exportType , @Path("job_id") String  jobId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/analytics/v1.0/company/{company_id}/logs/{log_type}")
+    Call<PlatformModels.GetLogsListRes> getLogsList(@Path("company_id")  String companyId , @Path("log_type") String  logType , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,@Body PlatformModels.GetLogsListReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/analytics/v1.0/company/{company_id}/logs/{log_type}/search")
+    Call<PlatformModels.SearchLogRes> searchLogs(@Path("company_id")  String companyId , @Path("log_type") String  logType , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,@Body PlatformModels.SearchLogReq payload);
     
 }
 
