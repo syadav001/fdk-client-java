@@ -3278,6 +3278,20 @@ public class FileStorageService extends FileStorage {
     
     
     
+    public ApplicationModels.AppStaffListResponse getAppStaffList(Integer pageNo , Integer pageSize , Boolean orderIncent , Integer orderingStore , String user ) throws IOException {
+    
+        Response<ApplicationModels.AppStaffListResponse> response = configurationApiList.getAppStaffList(pageNo, pageSize, orderIncent, orderingStore, user).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.AppStaffResponse getAppStaffs(Boolean orderIncent , Integer orderingStore , String user ) throws IOException {
     
         Response<ApplicationModels.AppStaffResponse> response = configurationApiList.getAppStaffs(orderIncent, orderingStore, user).execute();
