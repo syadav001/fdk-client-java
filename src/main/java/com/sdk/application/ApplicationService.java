@@ -3333,6 +3333,72 @@ public class FileStorageService extends FileStorage {
     
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getAppStaffList
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.AppStaffListResponse> getAppStaffListPagination(
+        
+        Integer pageSize,
+        Boolean orderIncent,
+        Integer orderingStore,
+        String user
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.AppStaffListResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.AppStaffListResponse callback = this.getAppStaffList(
+                
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 orderIncent,
+                 orderingStore,
+                 user
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
     
     public ApplicationModels.AppStaffResponse getAppStaffs(Boolean orderIncent , Integer orderingStore , String user ) throws IOException {
     
