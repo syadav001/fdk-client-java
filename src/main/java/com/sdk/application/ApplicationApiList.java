@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -196,8 +196,8 @@ interface LeadApiList {
     @GET ("/service/application/lead/v1.0/ticket/{id}")
     Call<ApplicationModels.Ticket> getTicket(@Path("id") String id );
     
-    @POST ("/service/application/lead/v1.0/ticket/{ticket_id}/history")
-    Call<ApplicationModels.TicketHistory> createHistory(@Path("ticket_id") String ticketId ,@Body ApplicationModels.TicketHistoryPayload payload);
+    @POST ("/service/application/lead/v1.0/ticket/{id}/history")
+    Call<ApplicationModels.TicketHistory> createHistory(@Path("id") String id ,@Body ApplicationModels.TicketHistoryPayload payload);
     
     @POST ("/service/application/lead/v1.0/ticket/")
     Call<ApplicationModels.Ticket> createTicket(@Body ApplicationModels.AddTicketPayload payload);
