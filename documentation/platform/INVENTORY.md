@@ -1522,11 +1522,14 @@ JobCode Metrics entry Created Successfully
  | totalAddedCount | Integer? |  yes  |  |
  | totalUpdatedCount | Integer? |  yes  |  |
  | totalSuppressedCount | Integer? |  yes  |  |
+ | totalInitialCount | Integer? |  yes  |  |
  | jobId | Integer? |  yes  |  |
  | status | String? |  yes  |  |
  | jobCode | String? |  yes  |  |
  | processedOn | String? |  yes  |  |
  | filename | ArrayList<String>? |  yes  |  |
+ | errorType | String? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
