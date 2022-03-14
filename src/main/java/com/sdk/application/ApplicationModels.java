@@ -16867,6 +16867,28 @@ public static class DataLoaderSourceSchema{
 
 
 /*
+    Model: DataLoadersSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class DataLoadersSchema{
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<DataLoaderSchema> items;
+    
+    
+    
+}
+
+
+/*
     Model: TagDeleteSuccessResponse
 */
 @AllArgsConstructor

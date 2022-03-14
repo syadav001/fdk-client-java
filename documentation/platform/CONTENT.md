@@ -1328,7 +1328,7 @@ Use this to get all data loaders of an application
 
 
 
-[List<DataLoaderResponseSchema>](#List<DataLoaderResponseSchema>)
+[DataLoadersSchema](#DataLoadersSchema)
 
 Success. Refer `DataLoaderResponseSchema` for more details.
 
@@ -1339,38 +1339,40 @@ Success. Refer `DataLoaderResponseSchema` for more details.
 <summary><i>&nbsp; Example:</i></summary>
 
 ```json
-[
-  {
-    "name": "Algolia",
-    "is_selected": false,
-    "type": "url",
-    "_id": "61bc4523a7ffc7504f4de4a5",
-    "service": "catalog",
-    "operation_id": "fetchSuggestions",
-    "url": "/ext/example/url",
-    "__source": {
-      "type": "extension",
-      "id": "000000000000000000000003"
+{
+  "items": [
+    {
+      "name": "Algolia",
+      "is_selected": false,
+      "type": "url",
+      "_id": "61bc4523a7ffc7504f4de4a5",
+      "service": "catalog",
+      "operation_id": "fetchSuggestions",
+      "url": "/ext/example/url",
+      "__source": {
+        "type": "extension",
+        "id": "000000000000000000000003"
+      },
+      "application": "100000000000000000000001",
+      "__v": 0
     },
-    "application": "100000000000000000000001",
-    "__v": 0
-  },
-  {
-    "name": "Algolia v3",
-    "is_selected": false,
-    "type": "url",
-    "_id": "61bc452da7ffc7504f4de4a7",
-    "service": "catalog",
-    "operation_id": "fetchSuggestions",
-    "url": "/ext/example/url",
-    "__source": {
-      "type": "extension",
-      "id": "000000000000000000000003"
-    },
-    "application": "100000000000000000000001",
-    "__v": 0
-  }
-]
+    {
+      "name": "Algolia v3",
+      "is_selected": false,
+      "type": "url",
+      "_id": "61bc452da7ffc7504f4de4a7",
+      "service": "catalog",
+      "operation_id": "fetchSuggestions",
+      "url": "/ext/example/url",
+      "__source": {
+        "type": "extension",
+        "id": "000000000000000000000003"
+      },
+      "application": "100000000000000000000001",
+      "__v": 0
+    }
+  ]
+}
 ```
 </details>
 
@@ -1540,7 +1542,7 @@ Use this to get all data loaders of an application by service name
 
 
 
-[List<DataLoaderResponseSchema>](#List<DataLoaderResponseSchema>)
+[DataLoadersSchema](#DataLoadersSchema)
 
 Success. Refer `DataLoaderResponseSchema` for more details.
 
@@ -1551,38 +1553,40 @@ Success. Refer `DataLoaderResponseSchema` for more details.
 <summary><i>&nbsp; Example:</i></summary>
 
 ```json
-[
-  {
-    "name": "Algolia",
-    "is_selected": false,
-    "type": "url",
-    "_id": "61bc4523a7ffc7504f4de4a5",
-    "service": "catalog",
-    "operation_id": "fetchSuggestions",
-    "url": "/ext/example/url",
-    "__source": {
-      "type": "extension",
-      "id": "000000000000000000000003"
+{
+  "items": [
+    {
+      "name": "Algolia",
+      "is_selected": false,
+      "type": "url",
+      "_id": "61bc4523a7ffc7504f4de4a5",
+      "service": "catalog",
+      "operation_id": "fetchSuggestions",
+      "url": "/ext/example/url",
+      "__source": {
+        "type": "extension",
+        "id": "000000000000000000000003"
+      },
+      "application": "100000000000000000000001",
+      "__v": 0
     },
-    "application": "100000000000000000000001",
-    "__v": 0
-  },
-  {
-    "name": "Algolia v3",
-    "is_selected": false,
-    "type": "url",
-    "_id": "61bc452da7ffc7504f4de4a7",
-    "service": "catalog",
-    "operation_id": "fetchSuggestions",
-    "url": "/ext/example/url",
-    "__source": {
-      "type": "extension",
-      "id": "000000000000000000000003"
-    },
-    "application": "100000000000000000000001",
-    "__v": 0
-  }
-]
+    {
+      "name": "Algolia v3",
+      "is_selected": false,
+      "type": "url",
+      "_id": "61bc452da7ffc7504f4de4a7",
+      "service": "catalog",
+      "operation_id": "fetchSuggestions",
+      "url": "/ext/example/url",
+      "__source": {
+        "type": "extension",
+        "id": "000000000000000000000003"
+      },
+      "application": "100000000000000000000001",
+      "__v": 0
+    }
+  ]
+}
 ```
 </details>
 
@@ -4842,7 +4846,7 @@ Get page meta
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getPageMeta() {
+client.application("<APPLICATION_ID>").content.getPageMeta( pageType,  cartPages) {
   //use response
 }
 ```
@@ -4852,7 +4856,9 @@ client.application("<APPLICATION_ID>").content.getPageMeta() {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |  
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
+| pageType | String? | no | Fetch meta by page type. Acceptable values are: system, custom and all |   
+| cartPages | Boolean? | no | Pass this param value as `true` to fetch meta with cart pages |  
 
 
 
@@ -5494,7 +5500,7 @@ Success. Refer `PathMappingSchema` for more details.
 
 ```json
 {
-  "value": {
+  "data": {
     "_id": "615188e9db1e444cb0f40837",
     "application": "000000000000000000000002",
     "redirections": [
@@ -7943,6 +7949,17 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  |  |
  | id | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DataLoadersSchema](#DataLoadersSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<[DataLoaderSchema](#DataLoaderSchema)>? |  yes  |  |
 
 ---
 
