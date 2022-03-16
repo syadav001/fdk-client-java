@@ -2,9 +2,9 @@
 
 
 
-##### [Back to Platform docs](./README.md)
+##### [Back to Public docs](./README.md)
 
-## Common Methods
+## Configuration Methods
 Application configuration apis
 * [searchApplication](#searchapplication)
 * [getLocations](#getlocations)
@@ -21,7 +21,7 @@ Search Application
 
 
 ```java
-common.searchApplication( authorization,  query) {
+configuration.searchApplication( authorization,  query) {
   //use response
 }
 ```
@@ -136,7 +136,7 @@ Get countries, states, cities
 
 
 ```java
-common.getLocations( locationType,  id) {
+configuration.getLocations( locationType,  id) {
   //use response
 }
 ```

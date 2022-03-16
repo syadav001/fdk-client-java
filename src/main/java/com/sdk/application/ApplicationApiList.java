@@ -13,12 +13,6 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/products/{slug}/sizes/")
     Call<ApplicationModels.ProductSizes> getProductSizesBySlug(@Path("slug") String slug , @Query("store_id") Integer storeId );
     
-    @GET ("/service/application/catalog/v1.0/products/{slug}/sizes/{size}/pincode/{pincode}/price/")
-    Call<ApplicationModels.ProductSizePriceResponse> getProductPriceBySlug(@Path("slug") String slug , @Path("size") String size , @Path("pincode") String pincode , @Query("store_id") Integer storeId );
-    
-    @GET ("/service/application/catalog/v1.0/products/{slug}/sizes/{size}/pincode/{pincode}/sellers/")
-    Call<ApplicationModels.ProductSizeSellersResponse> getProductSellersBySlug(@Path("slug") String slug , @Path("size") String size , @Path("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
-    
     @GET ("/service/application/catalog/v1.0/products/compare/")
     Call<ApplicationModels.ProductsComparisonResponse> getProductComparisonBySlugs(@Query("slug") List<String> slug );
     
@@ -76,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -97,14 +91,14 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/locations/{location_id}/")
     Call<ApplicationModels.StoreDetails> getLocationDetailsById(@Path("location_id") Integer locationId );
     
-    @GET ("/service/application/catalog/v1.0/product-grouping/")
-    Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Query("slug") String slug , @Query("id") String id );
-    
     @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/price/")
-    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlugV2(@Path("slug") String slug , @Path("size") String size , @Query("store_id") Integer storeId , @Query("pincode") String pincode );
+    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlug(@Path("slug") String slug , @Path("size") String size , @Query("store_id") Integer storeId , @Query("pincode") String pincode );
     
     @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/")
-    Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlugV2(@Path("slug") String slug , @Path("size") String size , @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlug(@Path("slug") String slug , @Path("size") String size , @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    
+    @GET ("/service/application/catalog/v1.0/product-grouping/")
+    Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Query("slug") String slug , @Query("id") String id );
     
 }
 
@@ -182,9 +176,18 @@ interface CartApiList {
     @POST ("/service/application/cart/v1.0/share-cart/{token}/{action}")
     Call<ApplicationModels.SharedCartResponse> updateCartWithSharedItems(@Path("token") String token , @Path("action") String action );
     
+    @GET ("/service/application/cart/v1.0/available-promotions")
+    Call<ApplicationModels.PromotionOffersResponse> getPromotionOffers(@Query("slug") String slug , @Query("page_size") Integer pageSize );
+    
+    @GET ("/service/application/cart/v1.0/available-ladder-prices")
+    Call<ApplicationModels.LadderPriceOffers> getLadderOffers(@Query("slug") String slug , @Query("promotion_id") String promotionId , @Query("page_size") Integer pageSize );
+    
 }
 
 interface CommonApiList {
+    
+    @GET ("/service/common/configuration/v1.0/application/search-application")
+    Call<ApplicationModels.ApplicationResponse> searchApplication(@Header("authorization") String authorization , @Query("query") String query );
     
     @GET ("/service/common/configuration/v1.0/location")
     Call<ApplicationModels.Locations> getLocations(@Query("location_type") String locationType , @Query("id") String id );
@@ -346,6 +349,9 @@ interface ContentApiList {
     @GET ("/service/application/content/v1.0/blogs/")
     Call<ApplicationModels.BlogGetResponse> getBlogs(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
+    @GET ("/service/application/content/v1.0/data-loader")
+    Call<ApplicationModels.DataLoadersSchema> getDataLoaders();
+    
     @GET ("/service/application/content/v1.0/faq")
     Call<ApplicationModels.FaqResponseSchema> getFaqs();
     
@@ -438,6 +444,9 @@ interface FileStorageApiList {
     
     @POST ("/service/application/assets/v1.0/namespaces/{namespace}/upload/complete/")
     Call<ApplicationModels.CompleteResponse> completeUpload(@Path("namespace") String namespace ,@Body ApplicationModels.StartResponse payload);
+    
+    @POST ("/service/application/assets/v1.0/sign-urls/")
+    Call<ApplicationModels.SignUrlResponse> signUrls(@Body ApplicationModels.SignUrlRequest payload);
     
 }
 
