@@ -3732,9 +3732,9 @@ public class ApplicationClient {
     
     
     
-    public List<PlatformModels.DataLoaderResponseSchema> getDataLoaders() throws IOException {
+    public PlatformModels.DataLoadersSchema getDataLoaders() throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<List<PlatformModels.DataLoaderResponseSchema>> response = contentApiList.getDataLoaders(this.companyId , this.applicationId ).execute();
+            Response<PlatformModels.DataLoadersSchema> response = contentApiList.getDataLoaders(this.companyId , this.applicationId ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3834,9 +3834,9 @@ public class ApplicationClient {
     
     
     
-    public List<PlatformModels.DataLoaderResponseSchema> getDataLoadersByService(String serviceName ) throws IOException {
+    public PlatformModels.DataLoadersSchema getDataLoadersByService(String serviceName ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<List<PlatformModels.DataLoaderResponseSchema>> response = contentApiList.getDataLoadersByService(this.companyId , this.applicationId , serviceName ).execute();
+            Response<PlatformModels.DataLoadersSchema> response = contentApiList.getDataLoadersByService(this.companyId , this.applicationId , serviceName ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

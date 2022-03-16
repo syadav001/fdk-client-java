@@ -1231,7 +1231,7 @@ interface ContentApiList {
     
     
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/data-loader")
-    Call<List<PlatformModels.DataLoaderResponseSchema>> getDataLoaders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    Call<PlatformModels.DataLoadersSchema> getDataLoaders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -1276,7 +1276,7 @@ interface ContentApiList {
     
     
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/data-loader/service/:service_name")
-    Call<List<PlatformModels.DataLoaderResponseSchema>> getDataLoadersByService(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("service_name") String  serviceName );
+    Call<PlatformModels.DataLoadersSchema> getDataLoadersByService(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("service_name") String  serviceName );
     
     
     
