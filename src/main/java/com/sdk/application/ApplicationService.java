@@ -2386,9 +2386,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.DataLoadersSchema getDataLoaders() throws IOException {
+    public ApplicationModels.DataLoaderSchema getDataLoaders() throws IOException {
     
-        Response<ApplicationModels.DataLoadersSchema> response = contentApiList.getDataLoaders().execute();
+        Response<ApplicationModels.DataLoaderSchema> response = contentApiList.getDataLoaders().execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
