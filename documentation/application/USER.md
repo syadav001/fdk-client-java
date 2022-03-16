@@ -609,8 +609,7 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -775,8 +774,7 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -940,8 +938,7 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -1436,8 +1433,7 @@ Success. Returns a JSON object as shown below. Refer `VerifyOtpSuccess` for more
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -1604,8 +1600,7 @@ Success. Returns a JSON object as shown below. Refer `VerifyOtpSuccess` for more
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -1711,8 +1706,7 @@ Success. Returns a JSON object with user details. Refer `UserObjectSchema` for m
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -1994,8 +1988,7 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -2107,8 +2100,7 @@ Success. Check the example shown below or refer `VerifyMobileOTPSuccess` for mor
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -2224,8 +2216,7 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -2335,8 +2326,7 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -2448,8 +2438,7 @@ Success. Check the example shown below or refer `SendMobileVerifyLinkSuccess` fo
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -2561,8 +2550,7 @@ Success. Returns a JSON object with user details. Refer `VerifyEmailOTPSuccess` 
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -2677,8 +2665,7 @@ Success. Returns a JSON object with user details. Refer `LoginSuccess` for more 
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -2788,8 +2775,7 @@ Success. Returns a JSON object with user details. Refer `LoginSuccess` for more 
         }
       ],
       "created_at": "2020-03-11T09:28:41.982Z",
-      "updated_at": "2021-02-04T10:10:44.981Z",
-      "uid": "61"
+      "updated_at": "2021-02-04T10:10:44.981Z"
     }
   }
 }
@@ -3188,7 +3174,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | user | [UserSchema](#UserSchema)? |  yes  |  |
- | resendEmailToken | String? |  yes  |  |
  | registerToken | String? |  yes  |  |
  | userExists | Boolean? |  yes  |  |
  | verifyEmailLink | Boolean? |  yes  |  |
@@ -3431,6 +3416,17 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  
  
  #### [SessionListResponseSchema](#SessionListResponseSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SessionDeleteResponseSchema](#SessionDeleteResponseSchema)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -3904,6 +3900,8 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | applicationId | String? |  yes  |  |
+ | userId | String? |  yes  |  |
  | firstName | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | lastName | String? |  yes  |  |
@@ -3915,7 +3913,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | profilePicUrl | String? |  yes  |  |
  | username | String? |  yes  |  |
  | accountType | String? |  yes  |  |
- | uid | String? |  yes  |  |
  | debug | [Debug](#Debug)? |  yes  |  |
  | hasOldPasswordHash | Boolean? |  yes  |  |
  | id | String? |  yes  |  |
