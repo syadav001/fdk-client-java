@@ -105,8 +105,8 @@ public class RetrofitServiceFactory {
                 builder.cookieJar(cookieJar);
             }
             builder.readTimeout(Duration.ofMinutes(Constants.READ_TIMEOUT).toMinutes(), TimeUnit.MINUTES);
-            builder.connectTimeout(Duration.ofSeconds(Constants.CONNECT_TIMEOUT).getSeconds(), TimeUnit.SECONDS);
-            builder.writeTimeout(Duration.ofSeconds(Constants.WRITE_TIMEOUT).getSeconds(), TimeUnit.SECONDS);
+            builder.connectTimeout(Duration.ofSeconds(Constants.CONNECT_TIMEOUT).getSeconds(), TimeUnit.MINUTES);
+            builder.writeTimeout(Duration.ofSeconds(Constants.WRITE_TIMEOUT).getSeconds(), TimeUnit.MINUTES);
             builder.connectionPool(
                     new ConnectionPool(Constants.IDLE_CONNECTION, Constants.KEEP_ALIVE, TimeUnit.MINUTES));
             return builder.build();
@@ -133,9 +133,9 @@ public class RetrofitServiceFactory {
 
     interface Constants {
         int READ_TIMEOUT = 15;
-        int CONNECT_TIMEOUT = 30;
-        int WRITE_TIMEOUT = 30;
-        int KEEP_ALIVE = 5;
+        int CONNECT_TIMEOUT = 15;
+        int WRITE_TIMEOUT = 15;
+        int KEEP_ALIVE = 10;
         int IDLE_CONNECTION = 0;
     }
 }
