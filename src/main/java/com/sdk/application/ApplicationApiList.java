@@ -537,6 +537,9 @@ interface PaymentApiList {
     @GET ("/service/application/payment/v1.0/epaylater/banner")
     Call<ApplicationModels.EpaylaterBannerResponse> getEpaylaterBannerDetails();
     
+    @POST ("/service/application/payment/v1.0/payment/resend_or_cancel")
+    Call<ApplicationModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Body ApplicationModels.ResendOrCancelPaymentRequest payload);
+    
     @GET ("/service/application/payment/v1.0/refund/transfer-mode")
     Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes();
     
