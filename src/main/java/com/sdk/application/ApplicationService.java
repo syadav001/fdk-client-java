@@ -760,9 +760,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -774,9 +774,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1493,9 +1493,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize ) throws IOException {
+    public ApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize , Integer promotionGroup ) throws IOException {
     
-        Response<ApplicationModels.PromotionOffersResponse> response = cartApiList.getPromotionOffers(slug, pageSize).execute();
+        Response<ApplicationModels.PromotionOffersResponse> response = cartApiList.getPromotionOffers(slug, pageSize, promotionGroup).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
