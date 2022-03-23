@@ -1026,7 +1026,7 @@ interface UserApiList {
     
     
     @DELETE ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/sesions")
-    Call<PlatformModels.SessionListResponseSchema> deleteActiveSessions(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id );
+    Call<PlatformModels.SessionDeleteResponseSchema> deleteActiveSessions(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id );
     
     
     

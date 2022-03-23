@@ -2974,9 +2974,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SessionListResponseSchema deleteActiveSessions(String id ) throws IOException {
+    public PlatformModels.SessionDeleteResponseSchema deleteActiveSessions(String id ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SessionListResponseSchema> response = userApiList.deleteActiveSessions(this.companyId , this.applicationId ,id ).execute();
+            Response<PlatformModels.SessionDeleteResponseSchema> response = userApiList.deleteActiveSessions(this.companyId , this.applicationId ,id ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
