@@ -4869,17 +4869,17 @@ interface CompanyProfileApiList {
     
     
     
-    @GET ("/service/platform/company-profile/v1.0/company/{company_id}")
-    Call<PlatformModels.GetCompanyProfileSerializerResponse> cbsOnboardGet(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
     @PATCH ("/service/platform/company-profile/v1.0/company/{company_id}")
     Call<PlatformModels.SuccessResponse> updateCompany(@Path("company_id")  String companyId ,@Body PlatformModels.UpdateCompany payload);
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/company-profile/v1.0/company/{company_id}")
+    Call<PlatformModels.GetCompanyProfileSerializerResponse> cbsOnboardGet(@Path("company_id")  String companyId );
     
     
     
@@ -6914,8 +6914,8 @@ interface ServiceabilityApiList {
     
     
     
-    @POST ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone/{zone_id}")
-    Call<PlatformModels.ZoneResponse> upsertZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body PlatformModels.ZoneRequest payload);
+    @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<PlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
     
     
     
@@ -6938,8 +6938,8 @@ interface ServiceabilityApiList {
     
     
     
-    @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone/{zone_id}")
-    Call<PlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
+    @POST ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<PlatformModels.ZoneResponse> upsertZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body PlatformModels.ZoneRequest payload);
     
     
     

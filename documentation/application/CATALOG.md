@@ -27,8 +27,8 @@ Catalog API's allows you to access list of products, prices, seller details, sim
 * [getCollectionItemsBySlug](#getcollectionitemsbyslug)
 * [getCollectionDetailBySlug](#getcollectiondetailbyslug)
 * [getFollowedListing](#getfollowedlisting)
-* [unfollowById](#unfollowbyid)
 * [followById](#followbyid)
+* [unfollowById](#unfollowbyid)
 * [getFollowerCountById](#getfollowercountbyid)
 * [getFollowIds](#getfollowids)
 * [getStores](#getstores)
@@ -2027,27 +2027,147 @@ Success. Returns a paginated list of products..Check the example shown below or 
         "display": "Department",
         "name": "department",
         "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/Department.svg"
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/FiQP7BeJbz-Department.png"
       },
       "values": [
         {
-          "display": "Debra Villarreal",
-          "count": 15,
+          "display": "Fashion",
+          "count": 3084,
           "is_selected": false,
-          "value": "Debra-Villarreal",
+          "value": "fashion",
           "logo": {
             "type": "image",
-            "url": "http://cdn4.gofynd.com/media/category_tab_icons/department/Men.png"
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/ziRuAA0EX-https/hdn-1.fynd.com/department/pictures/square-logo/original/jSt0jjI7D-https/hdn-1.fynd.com/department/pictures/square-logo/original/6ouiCBSSn-https/hdn-1.fynd.com/department/pictures/square-logo/original/o2Rti5if7-.jpeg.jpeg.jpeg.jpeg"
           }
         },
         {
-          "display": "Tracey Miller",
-          "count": 15,
+          "display": "Baby Care & Kids Essentials",
+          "count": 33,
           "is_selected": false,
-          "value": "Tracey-Miller",
+          "value": "baby-care-kids-essentials",
           "logo": {
             "type": "image",
-            "url": "http://cdn4.gofynd.com/media/category_tab_icons/department/Men.png"
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/fALHHg1HC-https/hdn-1.addsale.com/x0/department/pictures/square-logo/original/UkMTuMuKR-https/hdn-1.fynd.com/media/category_tab_icons/department/Babycareandkidsessential.png.png.png"
+          }
+        },
+        {
+          "display": "Books",
+          "count": 4,
+          "is_selected": false,
+          "value": "books",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.fynd.com/department/pictures/square-logo/original/E8SWEv1Ye-.jpeg"
+          }
+        },
+        {
+          "display": "Electronics",
+          "count": 4,
+          "is_selected": false,
+          "value": "electronics",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.fynd.com/department/pictures/square-logo/original/6P_Omeumq-https/hdn-1.fynd.com/media/logo/department/original/13239_660c6f5b2b8d458789de4552d241ea1b.jpg.jpeg"
+          }
+        },
+        {
+          "display": "Food & Beverage",
+          "count": 4,
+          "is_selected": false,
+          "value": "food--beverage",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.fynd.com/department/pictures/square-logo/original/VZp9dJC41-https/hdn-1.fynd.com/media/logo/department/original/18882_57d85b0d0e4c4e1593a9f81b2d36b8d3.jpg.jpeg"
+          }
+        },
+        {
+          "display": "Toys & games",
+          "count": 4,
+          "is_selected": false,
+          "value": "toys",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/WU_YDGrIe-https/hdn-1.fynd.com/media/category_tab_icons/department/Toys.png.png"
+          }
+        },
+        {
+          "display": "Home & Living",
+          "count": 3,
+          "is_selected": false,
+          "value": "home--living",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/UlhuahG3o-department.png"
+          }
+        },
+        {
+          "display": "Industrial Supplies",
+          "count": 3,
+          "is_selected": false,
+          "value": "industrial-supplies",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/CiBV2WMJO-https/hdn-1.fynd.com/media/logo/department/original/15483_a8803bf3fc244c748180588166df82da.jpg.jpeg"
+          }
+        },
+        {
+          "display": "Others",
+          "count": 3,
+          "is_selected": false,
+          "value": "others",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/cMmmXGKuv-department.png"
+          }
+        },
+        {
+          "display": "Electricals",
+          "count": 2,
+          "is_selected": false,
+          "value": "electricals",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.fynd.com/department/pictures/square-logo/original/M93qfyuh1-https:hdn-1.fynd.commedialogodepartmentoriginal17588_44516b7413fd4a4a858556857aa0c4c8.jpg.jpeg"
+          }
+        },
+        {
+          "display": "Medicine",
+          "count": 2,
+          "is_selected": false,
+          "value": "medicine",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/cMmmXGKuv-department.png"
+          }
+        },
+        {
+          "display": "AUTOMOBILE",
+          "count": 1,
+          "is_selected": false,
+          "value": "automobile",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/kRhYFHWZ5-.jpeg"
+          }
+        },
+        {
+          "display": "Beauty & Personal Care",
+          "count": 1,
+          "is_selected": false,
+          "value": "beauty-personal-care",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/15LHkT_XZ-department.png"
+          }
+        },
+        {
+          "display": "Office Stationery",
+          "count": 1,
+          "is_selected": false,
+          "value": "office-stationery",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/vyaaFJJVN-department.png"
           }
         }
       ]
@@ -2057,37 +2177,296 @@ Success. Returns a paginated list of products..Check the example shown below or 
         "display": "Category",
         "name": "category",
         "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/Category.svg"
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/YuQYSFD6Tu-Category.png"
       },
       "values": [
         {
-          "display": "Amy Kim DDS",
-          "count": 15,
+          "display": "running-shoes",
+          "count": 3047,
           "is_selected": false,
-          "value": "3",
-          "logo": "http://cdn4.gofynd.com/media/banner/category/original/12063_a5bb91bd5cb44c3c9db98c2a0e6b3d99.jpg"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Gender",
-        "name": "gender",
-        "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/Gender.svg"
-      },
-      "values": [
-        {
-          "display": "Men",
-          "count": 15,
-          "is_selected": false,
-          "value": "men"
+          "value": "running-shoes"
         },
         {
-          "display": "Women",
-          "count": 15,
+          "display": "tricycles",
+          "count": 24,
           "is_selected": false,
-          "value": "women"
+          "value": "tricycles"
+        },
+        {
+          "display": "casual-lace-ups",
+          "count": 12,
+          "is_selected": false,
+          "value": "casual-lace-ups"
+        },
+        {
+          "display": "formal-shirts",
+          "count": 6,
+          "is_selected": false,
+          "value": "formal-shirts"
+        },
+        {
+          "display": "action-figures",
+          "count": 4,
+          "is_selected": false,
+          "value": "action-figures"
+        },
+        {
+          "display": "towel",
+          "count": 4,
+          "is_selected": false,
+          "value": "towel"
+        },
+        {
+          "display": "wallets",
+          "count": 4,
+          "is_selected": false,
+          "value": "wallets"
+        },
+        {
+          "display": "others-level-3",
+          "count": 3,
+          "is_selected": false,
+          "value": "others-level-3"
+        },
+        {
+          "display": "accounting",
+          "count": 2,
+          "is_selected": false,
+          "value": "accounting"
+        },
+        {
+          "display": "apples",
+          "count": 2,
+          "is_selected": false,
+          "value": "apples"
+        },
+        {
+          "display": "boots",
+          "count": 2,
+          "is_selected": false,
+          "value": "boots"
+        },
+        {
+          "display": "human-resources",
+          "count": 2,
+          "is_selected": false,
+          "value": "human-resources"
+        },
+        {
+          "display": "mobile-cases",
+          "count": 2,
+          "is_selected": false,
+          "value": "mobile-cases"
+        },
+        {
+          "display": "3-4ths",
+          "count": 1,
+          "is_selected": false,
+          "value": "3-4ths"
+        },
+        {
+          "display": "3-ply-box",
+          "count": 1,
+          "is_selected": false,
+          "value": "3-ply-box"
+        },
+        {
+          "display": "5-ply-box",
+          "count": 1,
+          "is_selected": false,
+          "value": "5-ply-box"
+        },
+        {
+          "display": "activewear-t-shirts",
+          "count": 1,
+          "is_selected": false,
+          "value": "activewear-t-shirts"
+        },
+        {
+          "display": "air-coolers",
+          "count": 1,
+          "is_selected": false,
+          "value": "air-coolers"
+        },
+        {
+          "display": "air-purifiers",
+          "count": 1,
+          "is_selected": false,
+          "value": "air-purifiers"
+        },
+        {
+          "display": "ampere-meters",
+          "count": 1,
+          "is_selected": false,
+          "value": "ampere-meters"
+        },
+        {
+          "display": "anklets",
+          "count": 1,
+          "is_selected": false,
+          "value": "anklets"
+        },
+        {
+          "display": "automobile3",
+          "count": 1,
+          "is_selected": false,
+          "value": "automobile3"
+        },
+        {
+          "display": "baby-car-seats",
+          "count": 1,
+          "is_selected": false,
+          "value": "baby-car-seats"
+        },
+        {
+          "display": "bagels-bread",
+          "count": 1,
+          "is_selected": false,
+          "value": "bagels-bread"
+        },
+        {
+          "display": "bath-utilities",
+          "count": 1,
+          "is_selected": false,
+          "value": "bath-utilities"
+        },
+        {
+          "display": "battens",
+          "count": 1,
+          "is_selected": false,
+          "value": "battens"
+        },
+        {
+          "display": "best-vico",
+          "count": 1,
+          "is_selected": false,
+          "value": "best-vico"
+        },
+        {
+          "display": "bubble-roll",
+          "count": 1,
+          "is_selected": false,
+          "value": "bubble-roll"
+        },
+        {
+          "display": "camcorders",
+          "count": 1,
+          "is_selected": false,
+          "value": "camcorders"
+        },
+        {
+          "display": "caps",
+          "count": 1,
+          "is_selected": false,
+          "value": "caps"
+        },
+        {
+          "display": "casual-pants",
+          "count": 1,
+          "is_selected": false,
+          "value": "casual-pants"
+        },
+        {
+          "display": "casual-shirts",
+          "count": 1,
+          "is_selected": false,
+          "value": "casual-shirts"
+        },
+        {
+          "display": "chairs",
+          "count": 1,
+          "is_selected": false,
+          "value": "chairs"
+        },
+        {
+          "display": "charging-cables",
+          "count": 1,
+          "is_selected": false,
+          "value": "charging-cables"
+        },
+        {
+          "display": "cooking-oil",
+          "count": 1,
+          "is_selected": false,
+          "value": "cooking-oil"
+        },
+        {
+          "display": "envelopes",
+          "count": 1,
+          "is_selected": false,
+          "value": "envelopes"
+        },
+        {
+          "display": "flip-flops",
+          "count": 1,
+          "is_selected": false,
+          "value": "flip-flops"
+        },
+        {
+          "display": "hiking-shoes",
+          "count": 1,
+          "is_selected": false,
+          "value": "hiking-shoes"
+        },
+        {
+          "display": "lipstick",
+          "count": 1,
+          "is_selected": false,
+          "value": "lipstick"
+        },
+        {
+          "display": "mat",
+          "count": 1,
+          "is_selected": false,
+          "value": "mat"
+        },
+        {
+          "display": "medicine-mg",
+          "count": 1,
+          "is_selected": false,
+          "value": "medicine-mg"
+        },
+        {
+          "display": "outdoor-sports-shoes",
+          "count": 1,
+          "is_selected": false,
+          "value": "outdoor-sports-shoes"
+        },
+        {
+          "display": "sandals",
+          "count": 1,
+          "is_selected": false,
+          "value": "sandals"
+        },
+        {
+          "display": "scarves",
+          "count": 1,
+          "is_selected": false,
+          "value": "scarves"
+        },
+        {
+          "display": "t-shirts",
+          "count": 1,
+          "is_selected": false,
+          "value": "t-shirts"
+        },
+        {
+          "display": "teethers",
+          "count": 1,
+          "is_selected": false,
+          "value": "teethers"
+        },
+        {
+          "display": "tops",
+          "count": 1,
+          "is_selected": false,
+          "value": "tops"
+        },
+        {
+          "display": "travel-kit",
+          "count": 1,
+          "is_selected": false,
+          "value": "travel-kit"
         }
       ]
     },
@@ -2096,14 +2475,254 @@ Success. Returns a paginated list of products..Check the example shown below or 
         "display": "Size",
         "name": "sizes",
         "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/Sizes.svg"
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/M45tOYu45x-Sizes.png"
       },
       "values": [
         {
-          "display": "13",
-          "count": 15,
+          "display": "8",
+          "count": 3022,
           "is_selected": false,
-          "value": "13"
+          "value": "8"
+        },
+        {
+          "display": "OS",
+          "count": 72,
+          "is_selected": false,
+          "value": "OS"
+        },
+        {
+          "display": "3-6Y",
+          "count": 10,
+          "is_selected": false,
+          "value": "3-6Y"
+        },
+        {
+          "display": "3-8Y",
+          "count": 10,
+          "is_selected": false,
+          "value": "3-8Y"
+        },
+        {
+          "display": "3-6M",
+          "count": 8,
+          "is_selected": false,
+          "value": "3-6M"
+        },
+        {
+          "display": "4-4.5Y",
+          "count": 4,
+          "is_selected": false,
+          "value": "4-4.5Y"
+        },
+        {
+          "display": "6-9M",
+          "count": 4,
+          "is_selected": false,
+          "value": "6-9M"
+        },
+        {
+          "display": "0-3M",
+          "count": 3,
+          "is_selected": false,
+          "value": "0-3M"
+        },
+        {
+          "display": "10",
+          "count": 3,
+          "is_selected": false,
+          "value": "10"
+        },
+        {
+          "display": "5.5-6.5Y",
+          "count": 3,
+          "is_selected": false,
+          "value": "5.5-6.5Y"
+        },
+        {
+          "display": "7.5-8Y",
+          "count": 3,
+          "is_selected": false,
+          "value": "7.5-8Y"
+        },
+        {
+          "display": "11",
+          "count": 2,
+          "is_selected": false,
+          "value": "11"
+        },
+        {
+          "display": "2-5Y",
+          "count": 2,
+          "is_selected": false,
+          "value": "2-5Y"
+        },
+        {
+          "display": "2.5-3Y",
+          "count": 2,
+          "is_selected": false,
+          "value": "2.5-3Y"
+        },
+        {
+          "display": "3.5-4Y",
+          "count": 2,
+          "is_selected": false,
+          "value": "3.5-4Y"
+        },
+        {
+          "display": "38",
+          "count": 2,
+          "is_selected": false,
+          "value": "38"
+        },
+        {
+          "display": "4.5-5.5Y",
+          "count": 2,
+          "is_selected": false,
+          "value": "4.5-5.5Y"
+        },
+        {
+          "display": "5-8Y",
+          "count": 2,
+          "is_selected": false,
+          "value": "5-8Y"
+        },
+        {
+          "display": "6.5-7.5Y",
+          "count": 2,
+          "is_selected": false,
+          "value": "6.5-7.5Y"
+        },
+        {
+          "display": "9",
+          "count": 2,
+          "is_selected": false,
+          "value": "9"
+        },
+        {
+          "display": "L",
+          "count": 2,
+          "is_selected": false,
+          "value": "L"
+        },
+        {
+          "display": "TEST",
+          "count": 2,
+          "is_selected": false,
+          "value": "TEST"
+        },
+        {
+          "display": "XXL",
+          "count": 2,
+          "is_selected": false,
+          "value": "XXL"
+        },
+        {
+          "display": "0-12M",
+          "count": 1,
+          "is_selected": false,
+          "value": "0-12M"
+        },
+        {
+          "display": "0-18M",
+          "count": 1,
+          "is_selected": false,
+          "value": "0-18M"
+        },
+        {
+          "display": "1-5Y",
+          "count": 1,
+          "is_selected": false,
+          "value": "1-5Y"
+        },
+        {
+          "display": "1.5-2Y",
+          "count": 1,
+          "is_selected": false,
+          "value": "1.5-2Y"
+        },
+        {
+          "display": "12",
+          "count": 1,
+          "is_selected": false,
+          "value": "12"
+        },
+        {
+          "display": "32 GB",
+          "count": 1,
+          "is_selected": false,
+          "value": "32 GB"
+        },
+        {
+          "display": "40",
+          "count": 1,
+          "is_selected": false,
+          "value": "40"
+        },
+        {
+          "display": "42",
+          "count": 1,
+          "is_selected": false,
+          "value": "42"
+        },
+        {
+          "display": "44",
+          "count": 1,
+          "is_selected": false,
+          "value": "44"
+        },
+        {
+          "display": "7",
+          "count": 1,
+          "is_selected": false,
+          "value": "7"
+        },
+        {
+          "display": "80 L",
+          "count": 1,
+          "is_selected": false,
+          "value": "80 L"
+        },
+        {
+          "display": "9-12M",
+          "count": 1,
+          "is_selected": false,
+          "value": "9-12M"
+        },
+        {
+          "display": "EXTRA EXTRA LARGE",
+          "count": 1,
+          "is_selected": false,
+          "value": "EXTRA EXTRA LARGE"
+        },
+        {
+          "display": "FREE",
+          "count": 1,
+          "is_selected": false,
+          "value": "FREE"
+        },
+        {
+          "display": "R4",
+          "count": 1,
+          "is_selected": false,
+          "value": "R4"
+        },
+        {
+          "display": "S",
+          "count": 1,
+          "is_selected": false,
+          "value": "S"
+        },
+        {
+          "display": "SMALL SIZE",
+          "count": 1,
+          "is_selected": false,
+          "value": "SMALL SIZE"
+        },
+        {
+          "display": "ULTRA LARGE",
+          "count": 1,
+          "is_selected": false,
+          "value": "ULTRA LARGE"
         }
       ]
     },
@@ -2112,31 +2731,86 @@ Success. Returns a paginated list of products..Check the example shown below or 
         "display": "Brand",
         "name": "brand",
         "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/Brand%20ID.svg"
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/m4SDdD279_-Min-price-effective.png"
       },
       "values": [
         {
-          "display": "Barry, Jennings and Larson",
-          "count": 15,
+          "display": "caneworks",
+          "count": 3030,
           "is_selected": false,
-          "value": "1",
-          "logo": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Rating",
-        "name": "rating",
-        "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/Rating.svg"
-      },
-      "values": [
+          "value": "caneworks"
+        },
         {
-          "count": 15,
-          "display": "2 - 3",
-          "value": "[2 TO 3}",
-          "is_selected": false
+          "display": "win-fun",
+          "count": 64,
+          "is_selected": false,
+          "value": "win-fun"
+        },
+        {
+          "display": "jazz",
+          "count": 14,
+          "is_selected": false,
+          "value": "jazz"
+        },
+        {
+          "display": "nexus",
+          "count": 10,
+          "is_selected": false,
+          "value": "nexus"
+        },
+        {
+          "display": "wertyuwq",
+          "count": 8,
+          "is_selected": false,
+          "value": "wertyuwq"
+        },
+        {
+          "display": "being-human",
+          "count": 7,
+          "is_selected": false,
+          "value": "being-human"
+        },
+        {
+          "display": "test",
+          "count": 4,
+          "is_selected": false,
+          "value": "test"
+        },
+        {
+          "display": "pepe-jeans",
+          "count": 3,
+          "is_selected": false,
+          "value": "pepe-jeans"
+        },
+        {
+          "display": "testbrandz",
+          "count": 3,
+          "is_selected": false,
+          "value": "testbrandz"
+        },
+        {
+          "display": "wmm0nn0xgmxfqtew30adl8xjpx9cmou",
+          "count": 3,
+          "is_selected": false,
+          "value": "wmm0nn0xgmxfqtew30adl8xjpx9cmou"
+        },
+        {
+          "display": "autocomplete-brand",
+          "count": 1,
+          "is_selected": false,
+          "value": "autocomplete-brand"
+        },
+        {
+          "display": "brand-new",
+          "count": 1,
+          "is_selected": false,
+          "value": "brand-new"
+        },
+        {
+          "display": "max-clothing",
+          "count": 1,
+          "is_selected": false,
+          "value": "max-clothing"
         }
       ]
     },
@@ -2145,12 +2819,18 @@ Success. Returns a paginated list of products..Check the example shown below or 
         "display": "Image",
         "name": "image_nature",
         "kind": "multivalued",
-        "logo": "https://hdn-1.fynd.com/global/menu-icons/image%20Nature.svg"
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/JcGqgsW9FR-image-Nature.png"
       },
       "values": [
         {
-          "display": "GoodQuality",
-          "count": 15,
+          "display": "No Image",
+          "count": 3071,
+          "is_selected": false,
+          "value": "default"
+        },
+        {
+          "display": "Good Quality",
+          "count": 78,
           "is_selected": false,
           "value": "standard"
         }
@@ -2158,65 +2838,45 @@ Success. Returns a paginated list of products..Check the example shown below or 
     },
     {
       "key": {
-        "display": "Monica Hampton",
-        "name": "material",
-        "kind": "multivalued",
-        "logo": ""
+        "display": "Size Depth",
+        "name": "size_depth",
+        "kind": "range",
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/D6W3aAamqz-Size-Depth.png"
       },
       "values": [
         {
-          "display": "Neoprene",
-          "count": 15,
+          "count": 3149,
+          "min": 1,
+          "max": 6,
           "is_selected": false,
-          "value": "Neoprene"
+          "selected_min": 1,
+          "selected_max": 6,
+          "display_format": "{} - {}",
+          "query_format": "[{} TO {}]",
+          "display": "1 - 6"
         }
       ]
     },
     {
       "key": {
-        "display": "John Mendoza",
-        "name": "weight",
-        "kind": "multivalued",
-        "logo": ""
+        "display": "Price",
+        "name": "min_price_effective",
+        "kind": "range",
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/m4SDdD279_-Min-price-effective.png"
       },
       "values": [
         {
-          "display": "100",
-          "count": 15,
+          "count": 3149,
+          "min": 0,
+          "max": 69999.93,
           "is_selected": false,
-          "value": "100"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Kimberly Mcdaniel",
-        "name": "gender",
-        "kind": "multivalued",
-        "logo": ""
-      },
-      "values": [
-        {
-          "display": "['Men', 'Women']",
-          "count": 15,
-          "is_selected": false,
-          "value": "['Men', 'Women']"
-        }
-      ]
-    },
-    {
-      "key": {
-        "display": "Kimberly Davidson",
-        "name": "color",
-        "kind": "multivalued",
-        "logo": ""
-      },
-      "values": [
-        {
-          "display": "Grey",
-          "count": 15,
-          "is_selected": false,
-          "value": "808080"
+          "selected_min": 0,
+          "selected_max": 69999.93,
+          "display_format": "{} to {}",
+          "currency_code": "INR",
+          "currency_symbol": "₹",
+          "query_format": "[{},INR TO {},INR]",
+          "display": "₹0.0 to ₹69999.93"
         }
       ]
     },
@@ -2229,9 +2889,30 @@ Success. Returns a paginated list of products..Check the example shown below or 
       "values": [
         {
           "display": "Available",
-          "count": 3,
+          "count": 3146,
           "is_selected": false,
           "value": "true"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Discount",
+        "name": "discount",
+        "kind": "range",
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/qsYhcYuntC-Platform-Discount.png"
+      },
+      "values": [
+        {
+          "count": 3149,
+          "min": -100,
+          "max": 100,
+          "is_selected": false,
+          "selected_min": -100,
+          "selected_max": 100,
+          "display_format": "{}% - {}%",
+          "query_format": "[{} TO {}]",
+          "display": "-100% - 100%"
         }
       ]
     }
@@ -2240,53 +2921,32 @@ Success. Returns a paginated list of products..Check the example shown below or 
     {
       "type": "product",
       "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
+        "primary_color_hex": null,
+        "filtercollection": "test",
+        "gender": "men",
+        "marketer-address": "Andheri",
+        "marketer-name": "Puma",
+        "primary_color": null,
+        "primary_material": "Cotton"
       },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
+      "categories": [],
+      "_custom_meta": [],
       "sellable": true,
-      "name": "benchmark collaborative paradigms",
-      "slug": "benchmark-collaborative-paradigms",
-      "uid": 1,
-      "item_type": "set",
+      "name": "Shoe 413 TEST2",
+      "slug": "shoes-413-yeskjstfl6va",
+      "uid": 7502115,
+      "item_code": "SHOE-413",
+      "item_type": "standard",
       "brand": {
         "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
+        "name": "CaneWorks",
+        "logo": {},
         "action": {
           "page": {
             "type": "products",
             "query": {
               "brand": [
-                "Hess-Inc"
+                "caneworks"
               ]
             }
           },
@@ -2297,8 +2957,10 @@ Success. Returns a paginated list of products..Check the example shown below or 
       "action": {
         "page": {
           "type": "product",
-          "query": {
-            "slug": "benchmark-collaborative-paradigms"
+          "params": {
+            "slug": [
+              "shoes-413-yeskjstfl6va"
+            ]
           }
         },
         "type": "page"
@@ -2306,334 +2968,135 @@ Success. Returns a paginated list of products..Check the example shown below or 
       "medias": [
         {
           "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
+          "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/uCrIUYgNs-Neemans-FieryRed-ReLive-Knits-Jogger-FrontRightLogo-Comfortable-Shoes_1024x.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/J87k8IiMW-nike-free-og-royal-blue-running-imported-sport-shoes-500x500.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/UHKXhrzCK-5_1_72f25caf-a641-402e-8f3a-c56604b7f602_765x.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/aUnsm8Z_T-sneaker-index-1587142381.jpg"
         }
       ],
-      "discount": "14% OFF",
+      "discount": "",
       "price": {
         "marked": {
-          "min": 1399,
-          "max": 1499,
+          "min": 1,
+          "max": 2000,
           "currency_code": "INR",
           "currency_symbol": "₹"
         },
         "effective": {
-          "min": 1199,
-          "max": 1399,
+          "min": 1,
+          "max": 1000,
           "currency_code": "INR",
           "currency_symbol": "₹"
         }
       },
       "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "item_code": "ITEM_CODE_1",
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
+      "variants": {
+        "color": {
+          "items": [
+            {
+              "action": {
+                "page": {
+                  "type": "product",
+                  "params": {
+                    "slug": [
+                      "black-shoes"
+                    ]
+                  }
+                },
+                "type": "page"
+              },
+              "uid": 7501235,
+              "slug": "black-shoes",
+              "medias": [
+                {
+                  "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/aUnsm8Z_T-sneaker-index-1587142381.jpg",
+                  "type": "image"
+                }
+              ],
+              "name": "Black Shoe",
+              "is_available": true,
+              "_custom_json": {
+                "demo": "string"
+              },
+              "color": "4A90E2",
+              "display_type": "image"
             },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "architect granular e-business",
-      "slug": "architect-granular-e-business",
-      "uid": 10,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
+            {
+              "action": {
+                "page": {
+                  "type": "product",
+                  "params": {
+                    "slug": [
+                      "shoes-413-yeskjstfl6va"
+                    ]
+                  }
+                },
+                "type": "page"
+              },
+              "uid": 7502115,
+              "slug": "shoes-413-yeskjstfl6va",
+              "color": "D0021B",
+              "medias": [
+                {
+                  "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/uCrIUYgNs-Neemans-FieryRed-ReLive-Knits-Jogger-FrontRightLogo-Comfortable-Shoes_1024x.jpg",
+                  "type": "image"
+                },
+                {
+                  "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/J87k8IiMW-nike-free-og-royal-blue-running-imported-sport-shoes-500x500.jpg",
+                  "type": "image"
+                },
+                {
+                  "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/UHKXhrzCK-5_1_72f25caf-a641-402e-8f3a-c56604b7f602_765x.jpg",
+                  "type": "image"
+                },
+                {
+                  "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/aUnsm8Z_T-sneaker-index-1587142381.jpg",
+                  "type": "image"
+                }
+              ],
+              "name": "Shoe 413 TEST2",
+              "is_available": true,
+              "_custom_json": {},
+              "display_type": "image"
             }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "architect-granular-e-business"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
+          ],
+          "total": 2
         }
+      },
+      "channel": "61260cf5c73632ec6149651c",
+      "_custom_json": {},
+      "highlights": [
+        "great comfort , high flexiblity",
+        "lightweight ",
+        "high quality"
       ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "item_code": "ITEM_CODE_2",
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "facilitate enterprise supply-chains",
-      "slug": "facilitate-enterprise-supply-chains",
-      "uid": 11,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "facilitate-enterprise-supply-chains"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "item_code": "ITEM_CODE_3",
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "optimize web-enabled e-tailers",
-      "slug": "optimize-web-enabled-e-tailers",
-      "uid": 12,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "optimize-web-enabled-e-tailers"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "item_code": "ITEM_CODE_4",
-      "rating": 2.7
+      "country_of_origin": "India"
     }
   ],
   "sort_on": [
     {
-      "display": "Latest Products.",
-      "name": "Latest Products.",
-      "logo": "https://d2zv4gzhlr4ud6.cloudfront.net/media/pictures/tagged_items/360x0/56_MKT02AI060CORAL/1_1567590349681.jpg",
+      "display": "Latest Products",
+      "name": "Latest Products",
+      "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/QEvUfhsfyg-Latest-Products.png",
       "value": "latest",
-      "is_selected": true
+      "is_selected": false
     }
   ],
   "page": {
-    "current": 1,
-    "total": 2,
+    "type": "cursor",
+    "next_id": "AoIIRHlAAD8BNjEyNjBjZjVjNzM2MzJlYzYxNDk2NTFjITc1MDgwODc=",
     "has_previous": false,
     "has_next": true,
-    "item_total": 15,
-    "type": "number"
+    "item_total": 3149
   }
 }
 ```
@@ -3066,57 +3529,932 @@ Success. Returns a paginated list of products. Check the example shown below or 
 
 ```json
 {
+  "filters": [
+    {
+      "key": {
+        "display": "Department",
+        "name": "department",
+        "kind": "multivalued",
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/FiQP7BeJbz-Department.png"
+      },
+      "values": [
+        {
+          "display": "Fashion",
+          "count": 3084,
+          "is_selected": false,
+          "value": "fashion",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/ziRuAA0EX-https/hdn-1.fynd.com/department/pictures/square-logo/original/jSt0jjI7D-https/hdn-1.fynd.com/department/pictures/square-logo/original/6ouiCBSSn-https/hdn-1.fynd.com/department/pictures/square-logo/original/o2Rti5if7-.jpeg.jpeg.jpeg.jpeg"
+          }
+        },
+        {
+          "display": "Baby Care & Kids Essentials",
+          "count": 33,
+          "is_selected": false,
+          "value": "baby-care-kids-essentials",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/fALHHg1HC-https/hdn-1.addsale.com/x0/department/pictures/square-logo/original/UkMTuMuKR-https/hdn-1.fynd.com/media/category_tab_icons/department/Babycareandkidsessential.png.png.png"
+          }
+        },
+        {
+          "display": "Books",
+          "count": 4,
+          "is_selected": false,
+          "value": "books",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.fynd.com/department/pictures/square-logo/original/E8SWEv1Ye-.jpeg"
+          }
+        },
+        {
+          "display": "Electronics",
+          "count": 4,
+          "is_selected": false,
+          "value": "electronics",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.fynd.com/department/pictures/square-logo/original/6P_Omeumq-https/hdn-1.fynd.com/media/logo/department/original/13239_660c6f5b2b8d458789de4552d241ea1b.jpg.jpeg"
+          }
+        },
+        {
+          "display": "Food & Beverage",
+          "count": 4,
+          "is_selected": false,
+          "value": "food--beverage",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.fynd.com/department/pictures/square-logo/original/VZp9dJC41-https/hdn-1.fynd.com/media/logo/department/original/18882_57d85b0d0e4c4e1593a9f81b2d36b8d3.jpg.jpeg"
+          }
+        },
+        {
+          "display": "Toys & games",
+          "count": 4,
+          "is_selected": false,
+          "value": "toys",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/WU_YDGrIe-https/hdn-1.fynd.com/media/category_tab_icons/department/Toys.png.png"
+          }
+        },
+        {
+          "display": "Home & Living",
+          "count": 3,
+          "is_selected": false,
+          "value": "home--living",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/UlhuahG3o-department.png"
+          }
+        },
+        {
+          "display": "Industrial Supplies",
+          "count": 3,
+          "is_selected": false,
+          "value": "industrial-supplies",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/CiBV2WMJO-https/hdn-1.fynd.com/media/logo/department/original/15483_a8803bf3fc244c748180588166df82da.jpg.jpeg"
+          }
+        },
+        {
+          "display": "Others",
+          "count": 3,
+          "is_selected": false,
+          "value": "others",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/cMmmXGKuv-department.png"
+          }
+        },
+        {
+          "display": "Electricals",
+          "count": 2,
+          "is_selected": false,
+          "value": "electricals",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.fynd.com/department/pictures/square-logo/original/M93qfyuh1-https:hdn-1.fynd.commedialogodepartmentoriginal17588_44516b7413fd4a4a858556857aa0c4c8.jpg.jpeg"
+          }
+        },
+        {
+          "display": "Medicine",
+          "count": 2,
+          "is_selected": false,
+          "value": "medicine",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/cMmmXGKuv-department.png"
+          }
+        },
+        {
+          "display": "AUTOMOBILE",
+          "count": 1,
+          "is_selected": false,
+          "value": "automobile",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/kRhYFHWZ5-.jpeg"
+          }
+        },
+        {
+          "display": "Beauty & Personal Care",
+          "count": 1,
+          "is_selected": false,
+          "value": "beauty-personal-care",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/15LHkT_XZ-department.png"
+          }
+        },
+        {
+          "display": "Office Stationery",
+          "count": 1,
+          "is_selected": false,
+          "value": "office-stationery",
+          "logo": {
+            "type": "image",
+            "url": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/vyaaFJJVN-department.png"
+          }
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Category",
+        "name": "category",
+        "kind": "multivalued",
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/YuQYSFD6Tu-Category.png"
+      },
+      "values": [
+        {
+          "display": "running-shoes",
+          "count": 3047,
+          "is_selected": false,
+          "value": "running-shoes"
+        },
+        {
+          "display": "tricycles",
+          "count": 24,
+          "is_selected": false,
+          "value": "tricycles"
+        },
+        {
+          "display": "casual-lace-ups",
+          "count": 12,
+          "is_selected": false,
+          "value": "casual-lace-ups"
+        },
+        {
+          "display": "formal-shirts",
+          "count": 6,
+          "is_selected": false,
+          "value": "formal-shirts"
+        },
+        {
+          "display": "action-figures",
+          "count": 4,
+          "is_selected": false,
+          "value": "action-figures"
+        },
+        {
+          "display": "towel",
+          "count": 4,
+          "is_selected": false,
+          "value": "towel"
+        },
+        {
+          "display": "wallets",
+          "count": 4,
+          "is_selected": false,
+          "value": "wallets"
+        },
+        {
+          "display": "others-level-3",
+          "count": 3,
+          "is_selected": false,
+          "value": "others-level-3"
+        },
+        {
+          "display": "accounting",
+          "count": 2,
+          "is_selected": false,
+          "value": "accounting"
+        },
+        {
+          "display": "apples",
+          "count": 2,
+          "is_selected": false,
+          "value": "apples"
+        },
+        {
+          "display": "boots",
+          "count": 2,
+          "is_selected": false,
+          "value": "boots"
+        },
+        {
+          "display": "human-resources",
+          "count": 2,
+          "is_selected": false,
+          "value": "human-resources"
+        },
+        {
+          "display": "mobile-cases",
+          "count": 2,
+          "is_selected": false,
+          "value": "mobile-cases"
+        },
+        {
+          "display": "3-4ths",
+          "count": 1,
+          "is_selected": false,
+          "value": "3-4ths"
+        },
+        {
+          "display": "3-ply-box",
+          "count": 1,
+          "is_selected": false,
+          "value": "3-ply-box"
+        },
+        {
+          "display": "5-ply-box",
+          "count": 1,
+          "is_selected": false,
+          "value": "5-ply-box"
+        },
+        {
+          "display": "activewear-t-shirts",
+          "count": 1,
+          "is_selected": false,
+          "value": "activewear-t-shirts"
+        },
+        {
+          "display": "air-coolers",
+          "count": 1,
+          "is_selected": false,
+          "value": "air-coolers"
+        },
+        {
+          "display": "air-purifiers",
+          "count": 1,
+          "is_selected": false,
+          "value": "air-purifiers"
+        },
+        {
+          "display": "ampere-meters",
+          "count": 1,
+          "is_selected": false,
+          "value": "ampere-meters"
+        },
+        {
+          "display": "anklets",
+          "count": 1,
+          "is_selected": false,
+          "value": "anklets"
+        },
+        {
+          "display": "automobile3",
+          "count": 1,
+          "is_selected": false,
+          "value": "automobile3"
+        },
+        {
+          "display": "baby-car-seats",
+          "count": 1,
+          "is_selected": false,
+          "value": "baby-car-seats"
+        },
+        {
+          "display": "bagels-bread",
+          "count": 1,
+          "is_selected": false,
+          "value": "bagels-bread"
+        },
+        {
+          "display": "bath-utilities",
+          "count": 1,
+          "is_selected": false,
+          "value": "bath-utilities"
+        },
+        {
+          "display": "battens",
+          "count": 1,
+          "is_selected": false,
+          "value": "battens"
+        },
+        {
+          "display": "best-vico",
+          "count": 1,
+          "is_selected": false,
+          "value": "best-vico"
+        },
+        {
+          "display": "bubble-roll",
+          "count": 1,
+          "is_selected": false,
+          "value": "bubble-roll"
+        },
+        {
+          "display": "camcorders",
+          "count": 1,
+          "is_selected": false,
+          "value": "camcorders"
+        },
+        {
+          "display": "caps",
+          "count": 1,
+          "is_selected": false,
+          "value": "caps"
+        },
+        {
+          "display": "casual-pants",
+          "count": 1,
+          "is_selected": false,
+          "value": "casual-pants"
+        },
+        {
+          "display": "casual-shirts",
+          "count": 1,
+          "is_selected": false,
+          "value": "casual-shirts"
+        },
+        {
+          "display": "chairs",
+          "count": 1,
+          "is_selected": false,
+          "value": "chairs"
+        },
+        {
+          "display": "charging-cables",
+          "count": 1,
+          "is_selected": false,
+          "value": "charging-cables"
+        },
+        {
+          "display": "cooking-oil",
+          "count": 1,
+          "is_selected": false,
+          "value": "cooking-oil"
+        },
+        {
+          "display": "envelopes",
+          "count": 1,
+          "is_selected": false,
+          "value": "envelopes"
+        },
+        {
+          "display": "flip-flops",
+          "count": 1,
+          "is_selected": false,
+          "value": "flip-flops"
+        },
+        {
+          "display": "hiking-shoes",
+          "count": 1,
+          "is_selected": false,
+          "value": "hiking-shoes"
+        },
+        {
+          "display": "lipstick",
+          "count": 1,
+          "is_selected": false,
+          "value": "lipstick"
+        },
+        {
+          "display": "mat",
+          "count": 1,
+          "is_selected": false,
+          "value": "mat"
+        },
+        {
+          "display": "medicine-mg",
+          "count": 1,
+          "is_selected": false,
+          "value": "medicine-mg"
+        },
+        {
+          "display": "outdoor-sports-shoes",
+          "count": 1,
+          "is_selected": false,
+          "value": "outdoor-sports-shoes"
+        },
+        {
+          "display": "sandals",
+          "count": 1,
+          "is_selected": false,
+          "value": "sandals"
+        },
+        {
+          "display": "scarves",
+          "count": 1,
+          "is_selected": false,
+          "value": "scarves"
+        },
+        {
+          "display": "t-shirts",
+          "count": 1,
+          "is_selected": false,
+          "value": "t-shirts"
+        },
+        {
+          "display": "teethers",
+          "count": 1,
+          "is_selected": false,
+          "value": "teethers"
+        },
+        {
+          "display": "tops",
+          "count": 1,
+          "is_selected": false,
+          "value": "tops"
+        },
+        {
+          "display": "travel-kit",
+          "count": 1,
+          "is_selected": false,
+          "value": "travel-kit"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Size",
+        "name": "sizes",
+        "kind": "multivalued",
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/M45tOYu45x-Sizes.png"
+      },
+      "values": [
+        {
+          "display": "8",
+          "count": 3022,
+          "is_selected": false,
+          "value": "8"
+        },
+        {
+          "display": "OS",
+          "count": 72,
+          "is_selected": false,
+          "value": "OS"
+        },
+        {
+          "display": "3-6Y",
+          "count": 10,
+          "is_selected": false,
+          "value": "3-6Y"
+        },
+        {
+          "display": "3-8Y",
+          "count": 10,
+          "is_selected": false,
+          "value": "3-8Y"
+        },
+        {
+          "display": "3-6M",
+          "count": 8,
+          "is_selected": false,
+          "value": "3-6M"
+        },
+        {
+          "display": "4-4.5Y",
+          "count": 4,
+          "is_selected": false,
+          "value": "4-4.5Y"
+        },
+        {
+          "display": "6-9M",
+          "count": 4,
+          "is_selected": false,
+          "value": "6-9M"
+        },
+        {
+          "display": "0-3M",
+          "count": 3,
+          "is_selected": false,
+          "value": "0-3M"
+        },
+        {
+          "display": "10",
+          "count": 3,
+          "is_selected": false,
+          "value": "10"
+        },
+        {
+          "display": "5.5-6.5Y",
+          "count": 3,
+          "is_selected": false,
+          "value": "5.5-6.5Y"
+        },
+        {
+          "display": "7.5-8Y",
+          "count": 3,
+          "is_selected": false,
+          "value": "7.5-8Y"
+        },
+        {
+          "display": "11",
+          "count": 2,
+          "is_selected": false,
+          "value": "11"
+        },
+        {
+          "display": "2-5Y",
+          "count": 2,
+          "is_selected": false,
+          "value": "2-5Y"
+        },
+        {
+          "display": "2.5-3Y",
+          "count": 2,
+          "is_selected": false,
+          "value": "2.5-3Y"
+        },
+        {
+          "display": "3.5-4Y",
+          "count": 2,
+          "is_selected": false,
+          "value": "3.5-4Y"
+        },
+        {
+          "display": "38",
+          "count": 2,
+          "is_selected": false,
+          "value": "38"
+        },
+        {
+          "display": "4.5-5.5Y",
+          "count": 2,
+          "is_selected": false,
+          "value": "4.5-5.5Y"
+        },
+        {
+          "display": "5-8Y",
+          "count": 2,
+          "is_selected": false,
+          "value": "5-8Y"
+        },
+        {
+          "display": "6.5-7.5Y",
+          "count": 2,
+          "is_selected": false,
+          "value": "6.5-7.5Y"
+        },
+        {
+          "display": "9",
+          "count": 2,
+          "is_selected": false,
+          "value": "9"
+        },
+        {
+          "display": "L",
+          "count": 2,
+          "is_selected": false,
+          "value": "L"
+        },
+        {
+          "display": "TEST",
+          "count": 2,
+          "is_selected": false,
+          "value": "TEST"
+        },
+        {
+          "display": "XXL",
+          "count": 2,
+          "is_selected": false,
+          "value": "XXL"
+        },
+        {
+          "display": "0-12M",
+          "count": 1,
+          "is_selected": false,
+          "value": "0-12M"
+        },
+        {
+          "display": "0-18M",
+          "count": 1,
+          "is_selected": false,
+          "value": "0-18M"
+        },
+        {
+          "display": "1-5Y",
+          "count": 1,
+          "is_selected": false,
+          "value": "1-5Y"
+        },
+        {
+          "display": "1.5-2Y",
+          "count": 1,
+          "is_selected": false,
+          "value": "1.5-2Y"
+        },
+        {
+          "display": "12",
+          "count": 1,
+          "is_selected": false,
+          "value": "12"
+        },
+        {
+          "display": "32 GB",
+          "count": 1,
+          "is_selected": false,
+          "value": "32 GB"
+        },
+        {
+          "display": "40",
+          "count": 1,
+          "is_selected": false,
+          "value": "40"
+        },
+        {
+          "display": "42",
+          "count": 1,
+          "is_selected": false,
+          "value": "42"
+        },
+        {
+          "display": "44",
+          "count": 1,
+          "is_selected": false,
+          "value": "44"
+        },
+        {
+          "display": "7",
+          "count": 1,
+          "is_selected": false,
+          "value": "7"
+        },
+        {
+          "display": "80 L",
+          "count": 1,
+          "is_selected": false,
+          "value": "80 L"
+        },
+        {
+          "display": "9-12M",
+          "count": 1,
+          "is_selected": false,
+          "value": "9-12M"
+        },
+        {
+          "display": "EXTRA EXTRA LARGE",
+          "count": 1,
+          "is_selected": false,
+          "value": "EXTRA EXTRA LARGE"
+        },
+        {
+          "display": "FREE",
+          "count": 1,
+          "is_selected": false,
+          "value": "FREE"
+        },
+        {
+          "display": "R4",
+          "count": 1,
+          "is_selected": false,
+          "value": "R4"
+        },
+        {
+          "display": "S",
+          "count": 1,
+          "is_selected": false,
+          "value": "S"
+        },
+        {
+          "display": "SMALL SIZE",
+          "count": 1,
+          "is_selected": false,
+          "value": "SMALL SIZE"
+        },
+        {
+          "display": "ULTRA LARGE",
+          "count": 1,
+          "is_selected": false,
+          "value": "ULTRA LARGE"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Brand",
+        "name": "brand",
+        "kind": "multivalued",
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/m4SDdD279_-Min-price-effective.png"
+      },
+      "values": [
+        {
+          "display": "caneworks",
+          "count": 3030,
+          "is_selected": false,
+          "value": "caneworks"
+        },
+        {
+          "display": "win-fun",
+          "count": 64,
+          "is_selected": false,
+          "value": "win-fun"
+        },
+        {
+          "display": "jazz",
+          "count": 14,
+          "is_selected": false,
+          "value": "jazz"
+        },
+        {
+          "display": "nexus",
+          "count": 10,
+          "is_selected": false,
+          "value": "nexus"
+        },
+        {
+          "display": "wertyuwq",
+          "count": 8,
+          "is_selected": false,
+          "value": "wertyuwq"
+        },
+        {
+          "display": "being-human",
+          "count": 7,
+          "is_selected": false,
+          "value": "being-human"
+        },
+        {
+          "display": "test",
+          "count": 4,
+          "is_selected": false,
+          "value": "test"
+        },
+        {
+          "display": "pepe-jeans",
+          "count": 3,
+          "is_selected": false,
+          "value": "pepe-jeans"
+        },
+        {
+          "display": "testbrandz",
+          "count": 3,
+          "is_selected": false,
+          "value": "testbrandz"
+        },
+        {
+          "display": "wmm0nn0xgmxfqtew30adl8xjpx9cmou",
+          "count": 3,
+          "is_selected": false,
+          "value": "wmm0nn0xgmxfqtew30adl8xjpx9cmou"
+        },
+        {
+          "display": "autocomplete-brand",
+          "count": 1,
+          "is_selected": false,
+          "value": "autocomplete-brand"
+        },
+        {
+          "display": "brand-new",
+          "count": 1,
+          "is_selected": false,
+          "value": "brand-new"
+        },
+        {
+          "display": "max-clothing",
+          "count": 1,
+          "is_selected": false,
+          "value": "max-clothing"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Image",
+        "name": "image_nature",
+        "kind": "multivalued",
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/JcGqgsW9FR-image-Nature.png"
+      },
+      "values": [
+        {
+          "display": "No Image",
+          "count": 3071,
+          "is_selected": false,
+          "value": "default"
+        },
+        {
+          "display": "Good Quality",
+          "count": 78,
+          "is_selected": false,
+          "value": "standard"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Size Depth",
+        "name": "size_depth",
+        "kind": "range",
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/D6W3aAamqz-Size-Depth.png"
+      },
+      "values": [
+        {
+          "count": 3149,
+          "min": 1,
+          "max": 6,
+          "is_selected": false,
+          "selected_min": 1,
+          "selected_max": 6,
+          "display_format": "{} - {}",
+          "query_format": "[{} TO {}]",
+          "display": "1 - 6"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Price",
+        "name": "min_price_effective",
+        "kind": "range",
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/m4SDdD279_-Min-price-effective.png"
+      },
+      "values": [
+        {
+          "count": 3149,
+          "min": 0,
+          "max": 69999.93,
+          "is_selected": false,
+          "selected_min": 0,
+          "selected_max": 69999.93,
+          "display_format": "{} to {}",
+          "currency_code": "INR",
+          "currency_symbol": "₹",
+          "query_format": "[{},INR TO {},INR]",
+          "display": "₹0.0 to ₹69999.93"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Available",
+        "name": "is_available",
+        "kind": "singlevalued"
+      },
+      "values": [
+        {
+          "display": "Available",
+          "count": 3146,
+          "is_selected": false,
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "key": {
+        "display": "Discount",
+        "name": "discount",
+        "kind": "range",
+        "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/qsYhcYuntC-Platform-Discount.png"
+      },
+      "values": [
+        {
+          "count": 3149,
+          "min": -100,
+          "max": 100,
+          "is_selected": false,
+          "selected_min": -100,
+          "selected_max": 100,
+          "display_format": "{}% - {}%",
+          "query_format": "[{} TO {}]",
+          "display": "-100% - 100%"
+        }
+      ]
+    }
+  ],
   "items": [
     {
       "type": "product",
       "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
+        "primary_color_hex": null,
+        "filtercollection": "test",
+        "gender": "men",
+        "marketer-address": "Andheri",
+        "marketer-name": "Puma",
+        "primary_color": null,
+        "primary_material": "Cotton"
       },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
+      "categories": [],
+      "_custom_meta": [],
       "sellable": true,
-      "name": "whiteboard holistic functionalities",
-      "slug": "whiteboard-holistic-functionalities",
-      "uid": 7,
-      "item_type": "set",
+      "name": "Shoe 413 TEST2",
+      "slug": "shoes-413-yeskjstfl6va",
+      "uid": 7502115,
+      "item_code": "SHOE-413",
+      "item_type": "standard",
       "brand": {
         "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
+        "name": "CaneWorks",
+        "logo": {},
         "action": {
           "page": {
             "type": "products",
             "query": {
               "brand": [
-                "Hess-Inc"
+                "caneworks"
               ]
             }
           },
@@ -3127,8 +4465,10 @@ Success. Returns a paginated list of products. Check the example shown below or 
       "action": {
         "page": {
           "type": "product",
-          "query": {
-            "slug": "whiteboard-holistic-functionalities"
+          "params": {
+            "slug": [
+              "shoes-413-yeskjstfl6va"
+            ]
           }
         },
         "type": "page"
@@ -3136,1074 +4476,136 @@ Success. Returns a paginated list of products. Check the example shown below or 
       "medias": [
         {
           "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
+          "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/uCrIUYgNs-Neemans-FieryRed-ReLive-Knits-Jogger-FrontRightLogo-Comfortable-Shoes_1024x.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/J87k8IiMW-nike-free-og-royal-blue-running-imported-sport-shoes-500x500.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/UHKXhrzCK-5_1_72f25caf-a641-402e-8f3a-c56604b7f602_765x.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/aUnsm8Z_T-sneaker-index-1587142381.jpg"
         }
       ],
-      "discount": "14% OFF",
+      "discount": "",
       "price": {
         "marked": {
-          "min": 1399,
-          "max": 1499,
+          "min": 1,
+          "max": 2000,
           "currency_code": "INR",
           "currency_symbol": "₹"
         },
         "effective": {
-          "min": 1199,
-          "max": 1399,
+          "min": 1,
+          "max": 1000,
           "currency_code": "INR",
           "currency_symbol": "₹"
         }
       },
       "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
+      "variants": {
+        "color": {
+          "items": [
+            {
+              "action": {
+                "page": {
+                  "type": "product",
+                  "params": {
+                    "slug": [
+                      "black-shoes"
+                    ]
+                  }
+                },
+                "type": "page"
+              },
+              "uid": 7501235,
+              "slug": "black-shoes",
+              "medias": [
+                {
+                  "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/aUnsm8Z_T-sneaker-index-1587142381.jpg",
+                  "type": "image"
+                }
+              ],
+              "name": "Black Shoe",
+              "is_available": true,
+              "_custom_json": {
+                "demo": "string"
+              },
+              "color": "4A90E2",
+              "display_type": "image"
+            },
+            {
+              "action": {
+                "page": {
+                  "type": "product",
+                  "params": {
+                    "slug": [
+                      "shoes-413-yeskjstfl6va"
+                    ]
+                  }
+                },
+                "type": "page"
+              },
+              "uid": 7502115,
+              "slug": "shoes-413-yeskjstfl6va",
+              "color": "D0021B",
+              "medias": [
+                {
+                  "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/uCrIUYgNs-Neemans-FieryRed-ReLive-Knits-Jogger-FrontRightLogo-Comfortable-Shoes_1024x.jpg",
+                  "type": "image"
+                },
+                {
+                  "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/J87k8IiMW-nike-free-og-royal-blue-running-imported-sport-shoes-500x500.jpg",
+                  "type": "image"
+                },
+                {
+                  "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/UHKXhrzCK-5_1_72f25caf-a641-402e-8f3a-c56604b7f602_765x.jpg",
+                  "type": "image"
+                },
+                {
+                  "url": "https://hdn-1.addsale.com/x0/products/pictures/item/free/original/aUnsm8Z_T-sneaker-index-1587142381.jpg",
+                  "type": "image"
+                }
+              ],
+              "name": "Shoe 413 TEST2",
+              "is_available": true,
+              "_custom_json": {},
+              "display_type": "image"
+            }
+          ],
+          "total": 2
+        }
       },
-      "rating": 2.7
-    },
+      "channel": "61260cf5c73632ec6149651c",
+      "_custom_json": {},
+      "highlights": [
+        "great comfort , high flexiblity",
+        "lightweight ",
+        "high quality"
+      ],
+      "country_of_origin": "India"
+    }
+  ],
+  "sort_on": [
     {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "envisioneer user-centric technologies",
-      "slug": "envisioneer-user-centric-technologies",
-      "uid": 6,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "envisioneer-user-centric-technologies"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "deploy viral systems",
-      "slug": "deploy-viral-systems",
-      "uid": 2,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "deploy-viral-systems"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "syndicate compelling e-commerce",
-      "slug": "syndicate-compelling-e-commerce",
-      "uid": 8,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "syndicate-compelling-e-commerce"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "leverage granular e-commerce",
-      "slug": "leverage-granular-e-commerce",
-      "uid": 3,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "leverage-granular-e-commerce"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "deliver bleeding-edge systems",
-      "slug": "deliver-bleeding-edge-systems",
-      "uid": 13,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "deliver-bleeding-edge-systems"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "optimize web-enabled e-tailers",
-      "slug": "optimize-web-enabled-e-tailers",
-      "uid": 12,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "optimize-web-enabled-e-tailers"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "architect granular e-business",
-      "slug": "architect-granular-e-business",
-      "uid": 10,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "architect-granular-e-business"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "drive scalable applications",
-      "slug": "drive-scalable-applications",
-      "uid": 5,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "drive-scalable-applications"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "cultivate web-enabled e-tailers",
-      "slug": "cultivate-web-enabled-e-tailers",
-      "uid": 4,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "cultivate-web-enabled-e-tailers"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "facilitate enterprise supply-chains",
-      "slug": "facilitate-enterprise-supply-chains",
-      "uid": 11,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "facilitate-enterprise-supply-chains"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "rating": 2.7
-    },
-    {
-      "type": "product",
-      "attributes": {
-        "primary_color_hex": "808080",
-        "weight": "100",
-        "gender": "women",
-        "material": "Neoprene",
-        "primary_color": "DarkGrey"
-      },
-      "categories": [
-        {
-          "id": 3,
-          "uid": 3,
-          "name": "Amy Kim DDS",
-          "logo": {
-            "type": "image",
-            "url": "https://hdn-1.fynd.com/media/banner_portrait/brand/original/540_ecba3a1af141467da8abc20500f983db.jpg"
-          },
-          "action": {
-            "page": {
-              "type": "category",
-              "query": {
-                "category": [
-                  "Amy-Kim-DDS"
-                ]
-              }
-            },
-            "type": "page"
-          },
-          "_custom_json": {}
-        }
-      ],
-      "sellable": true,
-      "name": "benchmark collaborative paradigms",
-      "slug": "benchmark-collaborative-paradigms",
-      "uid": 1,
-      "item_type": "set",
-      "brand": {
-        "type": "brand",
-        "name": "Hess Inc",
-        "logo": {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/logo/brand/original/12391_0d956c6c71a4427895c15e44cba82f88.jpg"
-        },
-        "action": {
-          "page": {
-            "type": "products",
-            "query": {
-              "brand": [
-                "Hess-Inc"
-              ]
-            }
-          },
-          "type": "page"
-        },
-        "_custom_json": {}
-      },
-      "action": {
-        "page": {
-          "type": "product",
-          "query": {
-            "slug": "benchmark-collaborative-paradigms"
-          }
-        },
-        "type": "page"
-      },
-      "medias": [
-        {
-          "type": "image",
-          "url": "https://hdn-1.fynd.com/media/fynd_store_items/l2_category/original/2830_c5bb5fc02f414307a828c4c56483c30a.jpg"
-        }
-      ],
-      "discount": "14% OFF",
-      "price": {
-        "marked": {
-          "min": 1399,
-          "max": 1499,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        },
-        "effective": {
-          "min": 1199,
-          "max": 1399,
-          "currency_code": "INR",
-          "currency_symbol": "₹"
-        }
-      },
-      "is_tryout": false,
-      "promo_meta": {
-        "title": "",
-        "subtitle": ""
-      },
-      "rating": 2.7
+      "display": "Latest Products",
+      "name": "Latest Products",
+      "logo": "https://hdn-1.fynd.com/products/pictures/attribute/logo/original/QEvUfhsfyg-Latest-Products.png",
+      "value": "latest",
+      "is_selected": false
     }
   ],
   "page": {
-    "next_id": "AoJftsmkNiEx",
+    "type": "cursor",
+    "next_id": "AoIIRHlAAD8BNjEyNjBjZjVjNzM2MzJlYzYxNDk2NTFjITc1MDgwODc=",
     "has_previous": false,
     "has_next": true,
-    "item_total": 15,
-    "type": "number"
-  },
-  "sort_on": "random_36547cfbb4c54a1a992c17aa5 asc"
+    "item_total": 3149
+  }
 }
 ```
 </details>
@@ -5459,63 +5861,6 @@ Success. Returns a Followed resource object. Check the example shown below or re
 ---
 
 
-### unfollowById
-Unfollow an entity (product/brand/collection)
-
-
-
-
-```java
-catalog.unfollowById( collectionType,  collectionId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| collectionType | String | yes | Type of collection followed, i.e. products, brands, or collections. |   
-| collectionId | String | yes | The ID of the collection type. |  
-
-
-
-You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
-
-*Returned Response:*
-
-
-
-
-[FollowPostResponse](#FollowPostResponse)
-
-Success. Returns a response object. Check the example shown below or refer `FollowPostResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "message": "Products Removed From Wishlist",
-  "id": "1"
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### followById
 Follow an entity (product/brand/collection)
 
@@ -5557,6 +5902,63 @@ Success. Returns a response object. Check the example shown below or refer `Foll
 ```json
 {
   "message": "Brands Added To Wishlist",
+  "id": "1"
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### unfollowById
+Unfollow an entity (product/brand/collection)
+
+
+
+
+```java
+catalog.unfollowById( collectionType,  collectionId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| collectionType | String | yes | Type of collection followed, i.e. products, brands, or collections. |   
+| collectionId | String | yes | The ID of the collection type. |  
+
+
+
+You can undo a followed product, brand or collection by its ID. This action is referred as _unfollow_.
+
+*Returned Response:*
+
+
+
+
+[FollowPostResponse](#FollowPostResponse)
+
+Success. Returns a response object. Check the example shown below or refer `FollowPostResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "message": "Products Removed From Wishlist",
   "id": "1"
 }
 ```
@@ -6593,9 +6995,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | [Meta](#Meta)? |  yes  |  |
  | url | String? |  yes  |  |
  | type | String? |  yes  |  |
+ | meta | [Meta](#Meta)? |  yes  |  |
 
 ---
 
@@ -6607,8 +7009,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | params | HashMap<String,Object>? |  yes  |  |
- | type | String? |  yes  |  |
  | query | HashMap<String,Object>? |  yes  |  |
+ | type | String? |  yes  |  |
 
 ---
 
@@ -6619,8 +7021,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
  | page | [ProductListingActionPage](#ProductListingActionPage)? |  yes  |  |
+ | type | String? |  yes  |  |
 
 ---
 
@@ -6631,8 +7033,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
  | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
 
@@ -6645,10 +7047,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | min | Double? |  yes  |  |
- | currencyCode | String? |  yes  |  |
  | max | Double? |  yes  |  |
  | currencySymbol | String? |  yes  |  |
+ | min | Double? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
 
 ---
 
@@ -6667,25 +7069,13 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
- #### [MetaFields](#MetaFields)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | key | String |  no  |  |
- | value | String |  no  |  |
-
----
-
-
- 
- 
  #### [ProductDetailAttribute](#ProductDetailAttribute)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | key | String? |  yes  |  |
  | value | String? |  yes  |  |
  | type | String? |  yes  |  |
+ | key | String? |  yes  |  |
 
 ---
 
@@ -6704,37 +7094,49 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
+ #### [MetaFields](#MetaFields)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | value | String |  no  |  |
+ | key | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [ProductDetail](#ProductDetail)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | ratingCount | Integer? |  yes  |  |
- | teaserTag | String? |  yes  |  |
- | hasVariant | Boolean? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | highlights | ArrayList<String>? |  yes  |  |
- | categories | ArrayList<[ProductBrand](#ProductBrand)>? |  yes  |  |
- | imageNature | String? |  yes  |  |
- | discount | String? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | medias | ArrayList<[Media](#Media)>? |  yes  |  |
- | price | [ProductListingPrice](#ProductListingPrice)? |  yes  |  |
- | customMeta | ArrayList<[MetaFields](#MetaFields)>? |  yes  |  |
- | tryouts | ArrayList<String>? |  yes  |  |
- | itemType | String? |  yes  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
- | rating | Double? |  yes  |  |
- | type | String? |  yes  |  |
- | similars | ArrayList<String>? |  yes  |  |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | color | String? |  yes  |  |
- | name | String? |  yes  |  |
- | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
- | productOnlineDate | String? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | description | String? |  yes  |  |
  | slug | String |  no  |  |
+ | discount | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | rating | Double? |  yes  |  |
+ | teaserTag | String? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
+ | imageNature | String? |  yes  |  |
+ | categories | ArrayList<[ProductBrand](#ProductBrand)>? |  yes  |  |
+ | tryouts | ArrayList<String>? |  yes  |  |
+ | hasVariant | Boolean? |  yes  |  |
+ | price | [ProductListingPrice](#ProductListingPrice)? |  yes  |  |
+ | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
+ | type | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
+ | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
+ | ratingCount | Integer? |  yes  |  |
+ | productOnlineDate | String? |  yes  |  |
+ | highlights | ArrayList<String>? |  yes  |  |
+ | color | String? |  yes  |  |
+ | customMeta | ArrayList<[MetaFields](#MetaFields)>? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
+ | itemType | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | medias | ArrayList<[Media](#Media)>? |  yes  |  |
+ | similars | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -6756,71 +7158,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | value | String? |  yes  |  |
- | quantity | Integer? |  yes  |  |
  | display | String? |  yes  |  |
  | isAvailable | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [SizeChartValues](#SizeChartValues)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | col1 | String? |  yes  |  |
- | col2 | String? |  yes  |  |
- | col5 | String? |  yes  |  |
- | col4 | String? |  yes  |  |
- | col6 | String? |  yes  |  |
- | col3 | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ColumnHeader](#ColumnHeader)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
+ | quantity | Integer? |  yes  |  |
  | value | String? |  yes  |  |
- | convertable | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [ColumnHeaders](#ColumnHeaders)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | col1 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
- | col2 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
- | col5 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
- | col4 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
- | col6 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
- | col3 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
-
----
-
-
- 
- 
- #### [SizeChart](#SizeChart)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | unit | String? |  yes  |  |
- | title | String? |  yes  |  |
- | sizes | ArrayList<[SizeChartValues](#SizeChartValues)>? |  yes  |  |
- | description | String? |  yes  |  |
- | sizeTip | String? |  yes  |  |
- | image | String? |  yes  |  |
- | headers | [ColumnHeaders](#ColumnHeaders)? |  yes  |  |
 
 ---
 
@@ -6838,16 +7179,77 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
+ #### [SizeChartValues](#SizeChartValues)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | col4 | String? |  yes  |  |
+ | col1 | String? |  yes  |  |
+ | col2 | String? |  yes  |  |
+ | col5 | String? |  yes  |  |
+ | col6 | String? |  yes  |  |
+ | col3 | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ColumnHeader](#ColumnHeader)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | convertable | Boolean? |  yes  |  |
+ | value | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ColumnHeaders](#ColumnHeaders)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | col4 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
+ | col1 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
+ | col2 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
+ | col5 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
+ | col6 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
+ | col3 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SizeChart](#SizeChart)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | image | String? |  yes  |  |
+ | sizes | ArrayList<[SizeChartValues](#SizeChartValues)>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | headers | [ColumnHeaders](#ColumnHeaders)? |  yes  |  |
+ | unit | String? |  yes  |  |
+ | title | String? |  yes  |  |
+ | sizeTip | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [ProductSizes](#ProductSizes)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sizes | ArrayList<[ProductSize](#ProductSize)>? |  yes  |  |
- | sizeChart | [SizeChart](#SizeChart)? |  yes  |  |
  | discount | String? |  yes  |  |
+ | sizes | ArrayList<[ProductSize](#ProductSize)>? |  yes  |  |
  | price | [ProductListingPrice](#ProductListingPrice)? |  yes  |  |
  | sellable | Boolean? |  yes  |  |
  | stores | [ProductSizeStores](#ProductSizeStores)? |  yes  |  |
+ | sizeChart | [SizeChart](#SizeChart)? |  yes  |  |
 
 ---
 
@@ -6858,10 +7260,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | key | String? |  yes  |  |
- | logo | String? |  yes  |  |
  | display | String? |  yes  |  |
  | description | String? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | key | String? |  yes  |  |
 
 ---
 
@@ -6896,9 +7298,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | attributesMetadata | ArrayList<[AttributeMetadata](#AttributeMetadata)>? |  yes  |  |
  | subtitle | String? |  yes  |  |
  | title | String? |  yes  |  |
+ | attributesMetadata | ArrayList<[AttributeMetadata](#AttributeMetadata)>? |  yes  |  |
  | items | ArrayList<[ProductDetail](#ProductDetail)>? |  yes  |  |
 
 ---
@@ -6945,15 +7347,15 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | color | String? |  yes  |  |
- | name | String? |  yes  |  |
- | isAvailable | Boolean? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | medias | ArrayList<[Media](#Media)>? |  yes  |  |
- | colorName | String? |  yes  |  |
  | slug | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
+ | colorName | String? |  yes  |  |
+ | isAvailable | Boolean? |  yes  |  |
  | value | String? |  yes  |  |
+ | color | String? |  yes  |  |
+ | medias | ArrayList<[Media](#Media)>? |  yes  |  |
 
 ---
 
@@ -6964,10 +7366,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | key | String? |  yes  |  |
  | displayType | String? |  yes  |  |
  | header | String? |  yes  |  |
  | items | ArrayList<[ProductVariantItemResponse](#ProductVariantItemResponse)>? |  yes  |  |
+ | key | String? |  yes  |  |
 
 ---
 
@@ -7003,8 +7405,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | uid | Integer? |  yes  |  |
- | count | Integer? |  yes  |  |
  | name | String? |  yes  |  |
+ | count | Integer? |  yes  |  |
 
 ---
 
@@ -7017,8 +7419,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
  | ---------- | ---- | -------- | ----------- |
  | name | String? |  yes  |  |
  | id | Integer? |  yes  |  |
- | code | String? |  yes  |  |
  | city | String? |  yes  |  |
+ | code | String? |  yes  |  |
 
 ---
 
@@ -7041,15 +7443,15 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | quantity | Integer? |  yes  |  |
+ | size | String? |  yes  |  |
+ | uid | String? |  yes  |  |
  | price | [ProductStockPrice](#ProductStockPrice)? |  yes  |  |
  | seller | [Seller](#Seller)? |  yes  |  |
- | itemId | Integer? |  yes  |  |
- | identifier | HashMap<String,Object>? |  yes  |  |
- | uid | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
  | store | [StoreDetail](#StoreDetail)? |  yes  |  |
- | size | String? |  yes  |  |
+ | identifier | HashMap<String,Object>? |  yes  |  |
  | company | [CompanyDetail](#CompanyDetail)? |  yes  |  |
+ | itemId | Integer? |  yes  |  |
 
 ---
 
@@ -7071,13 +7473,13 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hasPrevious | Boolean? |  yes  |  |
  | nextId | String? |  yes  |  |
- | itemTotal | Integer? |  yes  |  |
- | type | String |  no  |  |
- | hasNext | Boolean? |  yes  |  |
  | size | Integer? |  yes  |  |
  | current | Integer? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+ | type | String |  no  |  |
+ | itemTotal | Integer? |  yes  |  |
 
 ---
 
@@ -7088,8 +7490,94 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[ProductStockStatusItem](#ProductStockStatusItem)>? |  yes  |  |
  | page | [Page](#Page) |  no  |  |
+ | items | ArrayList<[ProductStockStatusItem](#ProductStockStatusItem)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductFiltersValue](#ProductFiltersValue)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isSelected | Boolean |  no  |  |
+ | displayFormat | String? |  yes  |  |
+ | min | Integer? |  yes  |  |
+ | selectedMax | Integer? |  yes  |  |
+ | max | Integer? |  yes  |  |
+ | selectedMin | Integer? |  yes  |  |
+ | display | String |  no  |  |
+ | count | Integer? |  yes  |  |
+ | value | String? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+ | queryFormat | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductFiltersKey](#ProductFiltersKey)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | kind | String? |  yes  |  |
+ | name | String |  no  |  |
+ | display | String |  no  |  |
+ | logo | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductFilters](#ProductFilters)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | values | ArrayList<[ProductFiltersValue](#ProductFiltersValue)> |  no  |  |
+ | key | [ProductFiltersKey](#ProductFiltersKey) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductListingDetail](#ProductListingDetail)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String |  no  |  |
+ | discount | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | rating | Double? |  yes  |  |
+ | teaserTag | String? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
+ | imageNature | String? |  yes  |  |
+ | categories | ArrayList<[ProductBrand](#ProductBrand)>? |  yes  |  |
+ | tryouts | ArrayList<String>? |  yes  |  |
+ | hasVariant | Boolean? |  yes  |  |
+ | price | [ProductListingPrice](#ProductListingPrice)? |  yes  |  |
+ | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
+ | type | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
+ | sellable | Boolean? |  yes  |  |
+ | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
+ | ratingCount | Integer? |  yes  |  |
+ | productOnlineDate | String? |  yes  |  |
+ | highlights | ArrayList<String>? |  yes  |  |
+ | color | String? |  yes  |  |
+ | customMeta | ArrayList<[MetaFields](#MetaFields)>? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
+ | itemType | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | medias | ArrayList<[Media](#Media)>? |  yes  |  |
+ | similars | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -7101,94 +7589,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | name | String? |  yes  |  |
- | value | String? |  yes  |  |
  | isSelected | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductListingDetail](#ProductListingDetail)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | ratingCount | Integer? |  yes  |  |
- | teaserTag | String? |  yes  |  |
- | hasVariant | Boolean? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | highlights | ArrayList<String>? |  yes  |  |
- | categories | ArrayList<[ProductBrand](#ProductBrand)>? |  yes  |  |
- | imageNature | String? |  yes  |  |
- | discount | String? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | medias | ArrayList<[Media](#Media)>? |  yes  |  |
- | price | [ProductListingPrice](#ProductListingPrice)? |  yes  |  |
- | customMeta | ArrayList<[MetaFields](#MetaFields)>? |  yes  |  |
- | tryouts | ArrayList<String>? |  yes  |  |
- | sellable | Boolean? |  yes  |  |
- | itemType | String? |  yes  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
- | rating | Double? |  yes  |  |
- | type | String? |  yes  |  |
- | similars | ArrayList<String>? |  yes  |  |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | color | String? |  yes  |  |
- | name | String? |  yes  |  |
- | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
- | productOnlineDate | String? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | description | String? |  yes  |  |
- | slug | String |  no  |  |
-
----
-
-
- 
- 
- #### [ProductFiltersKey](#ProductFiltersKey)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | display | String |  no  |  |
- | logo | String? |  yes  |  |
- | kind | String? |  yes  |  |
- | name | String |  no  |  |
-
----
-
-
- 
- 
- #### [ProductFiltersValue](#ProductFiltersValue)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | queryFormat | String? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | count | Integer? |  yes  |  |
- | selectedMax | Integer? |  yes  |  |
- | display | String |  no  |  |
- | isSelected | Boolean |  no  |  |
- | displayFormat | String? |  yes  |  |
- | selectedMin | Integer? |  yes  |  |
  | value | String? |  yes  |  |
- | min | Integer? |  yes  |  |
- | max | Integer? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductFilters](#ProductFilters)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | key | [ProductFiltersKey](#ProductFiltersKey) |  no  |  |
- | values | ArrayList<[ProductFiltersValue](#ProductFiltersValue)> |  no  |  |
 
 ---
 
@@ -7199,10 +7601,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sortOn | ArrayList<[ProductSortOn](#ProductSortOn)>? |  yes  |  |
- | items | ArrayList<[ProductListingDetail](#ProductListingDetail)>? |  yes  |  |
- | page | [Page](#Page) |  no  |  |
  | filters | ArrayList<[ProductFilters](#ProductFilters)>? |  yes  |  |
+ | page | [Page](#Page) |  no  |  |
+ | items | ArrayList<[ProductListingDetail](#ProductListingDetail)>? |  yes  |  |
+ | sortOn | ArrayList<[ProductSortOn](#ProductSortOn)>? |  yes  |  |
 
 ---
 
@@ -7225,14 +7627,14 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | name | String? |  yes  |  |
- | logo | [Media](#Media)? |  yes  |  |
  | discount | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | departments | ArrayList<String>? |  yes  |  |
  | slug | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | departments | ArrayList<String>? |  yes  |  |
+ | logo | [Media](#Media)? |  yes  |  |
 
 ---
 
@@ -7243,8 +7645,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[BrandItem](#BrandItem)>? |  yes  |  |
  | page | [Page](#Page) |  no  |  |
+ | items | ArrayList<[BrandItem](#BrandItem)>? |  yes  |  |
 
 ---
 
@@ -7255,10 +7657,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | logo | [Media](#Media)? |  yes  |  |
  | uid | Integer? |  yes  |  |
  | name | String? |  yes  |  |
+ | logo | [Media](#Media)? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
 
 ---
 
@@ -7281,13 +7683,13 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | slug | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
  | childs | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -7298,13 +7700,13 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | slug | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
  | childs | ArrayList<[ThirdLevelChild](#ThirdLevelChild)>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -7315,13 +7717,13 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | slug | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
  | childs | ArrayList<[SecondLevelChild](#SecondLevelChild)>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -7332,10 +7734,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | slug | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
  | childs | ArrayList<[Child](#Child)>? |  yes  |  |
 
@@ -7348,8 +7750,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[CategoryItems](#CategoryItems)>? |  yes  |  |
  | department | String? |  yes  |  |
+ | items | ArrayList<[CategoryItems](#CategoryItems)>? |  yes  |  |
 
 ---
 
@@ -7372,10 +7774,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | logo | [Media](#Media)? |  yes  |  |
  | uid | Integer? |  yes  |  |
  | name | String? |  yes  |  |
+ | logo | [Media](#Media)? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
 
 ---
 
@@ -7386,9 +7788,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
- | items | ArrayList<[ProductListingDetail](#ProductListingDetail)>? |  yes  |  |
  | page | [Page](#Page) |  no  |  |
+ | items | ArrayList<[ProductListingDetail](#ProductListingDetail)>? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -7399,11 +7801,11 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | priorityOrder | Integer? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
  | name | String? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | slug | String? |  yes  |  |
- | priorityOrder | Integer? |  yes  |  |
 
 ---
 
@@ -7425,8 +7827,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | String? |  yes  |  |
  | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
+ | display | String? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
  | type | String? |  yes  |  |
 
@@ -7440,35 +7842,6 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | items | ArrayList<[AutocompleteItem](#AutocompleteItem)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [GetCollectionDetailNest](#GetCollectionDetailNest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
- | query | HashMap<String,Object>? |  yes  |  |
- | cron | HashMap<String,Object>? |  yes  |  |
- | uid | String? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
- | logo | [Media](#Media)? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | badge | HashMap<String,Object>? |  yes  |  |
- | schedule | HashMap<String,Object>? |  yes  |  |
- | appId | String? |  yes  |  |
- | tag | ArrayList<String>? |  yes  |  |
- | type | String? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
- | name | String? |  yes  |  |
- | description | String? |  yes  |  |
- | allowFacets | Boolean? |  yes  |  |
- | slug | String? |  yes  |  |
 
 ---
 
@@ -7513,13 +7886,42 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
+ #### [GetCollectionDetailNest](#GetCollectionDetailNest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | schedule | HashMap<String,Object>? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
+ | logo | [Media](#Media)? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | allowFacets | Boolean? |  yes  |  |
+ | appId | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
+ | badge | HashMap<String,Object>? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | cron | HashMap<String,Object>? |  yes  |  |
+ | tag | ArrayList<String>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | query | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [GetCollectionListingResponse](#GetCollectionListingResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[GetCollectionDetailNest](#GetCollectionDetailNest)>? |  yes  |  |
- | page | [Page](#Page) |  no  |  |
  | filters | [CollectionListingFilter](#CollectionListingFilter)? |  yes  |  |
+ | page | [Page](#Page) |  no  |  |
+ | items | ArrayList<[GetCollectionDetailNest](#GetCollectionDetailNest)>? |  yes  |  |
 
 ---
 
@@ -7530,23 +7932,23 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
- | badge | HashMap<String,Object>? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
- | query | HashMap<String,Object>? |  yes  |  |
  | cron | HashMap<String,Object>? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | allowFacets | Boolean? |  yes  |  |
  | name | String? |  yes  |  |
- | logo | [Media](#Media)? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
- | appId | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
  | tag | ArrayList<String>? |  yes  |  |
  | description | String? |  yes  |  |
- | allowFacets | Boolean? |  yes  |  |
- | type | String? |  yes  |  |
- | slug | String? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
  | schedule | HashMap<String,Object>? |  yes  |  |
+ | badge | HashMap<String,Object>? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | query | HashMap<String,Object>? |  yes  |  |
+ | logo | [Media](#Media)? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | appId | String? |  yes  |  |
 
 ---
 
@@ -7557,8 +7959,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[ProductListingDetail](#ProductListingDetail)> |  no  |  |
  | page | [Page](#Page) |  no  |  |
+ | items | ArrayList<[ProductListingDetail](#ProductListingDetail)> |  no  |  |
 
 ---
 
@@ -7569,8 +7971,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String |  no  |  |
  | id | String |  no  |  |
+ | message | String |  no  |  |
 
 ---
 
@@ -7593,8 +7995,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | products | ArrayList<Integer>? |  yes  |  |
- | brands | ArrayList<Integer>? |  yes  |  |
  | collections | ArrayList<Integer>? |  yes  |  |
+ | brands | ArrayList<Integer>? |  yes  |  |
 
 ---
 
@@ -7616,8 +8018,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | coordinates | ArrayList<Double>? |  yes  |  |
  | type | String? |  yes  |  |
+ | coordinates | ArrayList<Double>? |  yes  |  |
 
 ---
 
@@ -7629,15 +8031,15 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | storeCode | String? |  yes  |  |
- | name | String? |  yes  |  |
- | latLong | [LatLong](#LatLong)? |  yes  |  |
- | city | String? |  yes  |  |
- | address | String? |  yes  |  |
  | country | String? |  yes  |  |
+ | name | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
- | pincode | Integer? |  yes  |  |
  | storeEmail | String? |  yes  |  |
  | state | String? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
+ | city | String? |  yes  |  |
+ | latLong | [LatLong](#LatLong)? |  yes  |  |
+ | address | String? |  yes  |  |
 
 ---
 
@@ -7648,8 +8050,23 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[Store](#Store)> |  no  |  |
  | page | [Page](#Page) |  no  |  |
+ | items | ArrayList<[Store](#Store)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [StoreDepartments](#StoreDepartments)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | priorityOrder | Integer? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | logo | String? |  yes  |  |
 
 ---
 
@@ -7660,8 +8077,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | countryCode | Integer |  no  |  |
  | number | String |  no  |  |
+ | countryCode | Integer |  no  |  |
 
 ---
 
@@ -7681,48 +8098,33 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
+ #### [CompanyStore](#CompanyStore)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | companyType | String? |  yes  |  |
+ | businessType | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [StoreAddressSerializer](#StoreAddressSerializer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | latitude | Double? |  yes  |  |
  | address1 | String? |  yes  |  |
- | address2 | String? |  yes  |  |
- | city | String? |  yes  |  |
  | country | String? |  yes  |  |
  | longitude | Double? |  yes  |  |
- | pincode | Integer? |  yes  |  |
- | landmark | String? |  yes  |  |
  | state | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [StoreDepartments](#StoreDepartments)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | logo | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | slug | String? |  yes  |  |
- | priorityOrder | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [CompanyStore](#CompanyStore)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  |  |
- | companyType | String? |  yes  |  |
- | businessType | String? |  yes  |  |
- | name | String? |  yes  |  |
+ | city | String? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
+ | address2 | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
 
 ---
 
@@ -7733,13 +8135,13 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
- | manager | [StoreManagerSerializer](#StoreManagerSerializer)? |  yes  |  |
- | name | String? |  yes  |  |
- | address | [StoreAddressSerializer](#StoreAddressSerializer)? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
  | departments | ArrayList<[StoreDepartments](#StoreDepartments)>? |  yes  |  |
+ | manager | [StoreManagerSerializer](#StoreManagerSerializer)? |  yes  |  |
  | company | [CompanyStore](#CompanyStore)? |  yes  |  |
+ | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
+ | address | [StoreAddressSerializer](#StoreAddressSerializer)? |  yes  |  |
 
 ---
 
@@ -7750,9 +8152,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[AppStore](#AppStore)>? |  yes  |  |
- | page | [Page](#Page)? |  yes  |  |
  | filters | ArrayList<[StoreDepartments](#StoreDepartments)>? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[AppStore](#AppStore)>? |  yes  |  |
 
 ---
 
@@ -7763,8 +8165,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | minute | Integer? |  yes  |  |
  | hour | Integer? |  yes  |  |
+ | minute | Integer? |  yes  |  |
 
 ---
 
@@ -7775,10 +8177,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | opening | [Time](#Time)? |  yes  |  |
- | weekday | String? |  yes  |  |
  | closing | [Time](#Time)? |  yes  |  |
  | open | Boolean? |  yes  |  |
+ | weekday | String? |  yes  |  |
+ | opening | [Time](#Time)? |  yes  |  |
 
 ---
 
@@ -7789,15 +8191,15 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
- | manager | [StoreManagerSerializer](#StoreManagerSerializer)? |  yes  |  |
- | timing | ArrayList<[StoreTiming](#StoreTiming)>? |  yes  |  |
- | name | String? |  yes  |  |
- | address | [StoreAddressSerializer](#StoreAddressSerializer)? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | departments | ArrayList<[StoreDepartments](#StoreDepartments)>? |  yes  |  |
- | company | [CompanyStore](#CompanyStore)? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | timing | ArrayList<[StoreTiming](#StoreTiming)>? |  yes  |  |
+ | departments | ArrayList<[StoreDepartments](#StoreDepartments)>? |  yes  |  |
+ | manager | [StoreManagerSerializer](#StoreManagerSerializer)? |  yes  |  |
+ | company | [CompanyStore](#CompanyStore)? |  yes  |  |
+ | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
+ | address | [StoreAddressSerializer](#StoreAddressSerializer)? |  yes  |  |
 
 ---
 
@@ -7809,39 +8211,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | display | String? |  yes  |  |
- | value | String? |  yes  |  |
- | quantity | Integer? |  yes  |  |
  | isAvailable | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductDetails](#ProductDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | ratingCount | Integer? |  yes  |  |
- | countryOfOrigin | String? |  yes  |  |
- | hasVariant | Boolean? |  yes  |  |
- | templateTag | String? |  yes  |  |
- | imageNature | String? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | outOfStock | Boolean? |  yes  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | rating | Double? |  yes  |  |
- | media | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
- | images | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | brandUid | Integer? |  yes  |  |
- | name | String? |  yes  |  |
- | groupedAttributes | HashMap<String,Object>? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | hsnCode | Integer? |  yes  |  |
- | identifier | HashMap<String,Object>? |  yes  |  |
- | description | String? |  yes  |  |
- | slug | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | value | String? |  yes  |  |
 
 ---
 
@@ -7852,11 +8224,41 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | minMarked | Double? |  yes  |  |
+ | maxEffective | Double? |  yes  |  |
  | maxMarked | Double? |  yes  |  |
+ | minMarked | Double? |  yes  |  |
  | minEffective | Double? |  yes  |  |
  | currency | String? |  yes  |  |
- | maxEffective | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductDetails](#ProductDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
+ | rating | Double? |  yes  |  |
+ | hsnCode | Integer? |  yes  |  |
+ | countryOfOrigin | String? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
+ | imageNature | String? |  yes  |  |
+ | hasVariant | Boolean? |  yes  |  |
+ | brandUid | Integer? |  yes  |  |
+ | identifier | HashMap<String,Object>? |  yes  |  |
+ | groupedAttributes | HashMap<String,Object>? |  yes  |  |
+ | images | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | outOfStock | Boolean? |  yes  |  |
+ | ratingCount | Integer? |  yes  |  |
+ | media | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | templateTag | String? |  yes  |  |
 
 ---
 
@@ -7867,15 +8269,15 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | minQuantity | Integer? |  yes  |  |
- | autoSelect | Boolean? |  yes  |  |
  | sizes | ArrayList<[Size](#Size)>? |  yes  |  |
- | maxQuantity | Integer? |  yes  |  |
- | productUid | Integer? |  yes  |  |
- | autoAddToCart | Boolean? |  yes  |  |
- | allowRemove | Boolean? |  yes  |  |
- | productDetails | [ProductDetails](#ProductDetails)? |  yes  |  |
  | price | [Price1](#Price1)? |  yes  |  |
+ | autoAddToCart | Boolean? |  yes  |  |
+ | productDetails | [ProductDetails](#ProductDetails)? |  yes  |  |
+ | minQuantity | Integer? |  yes  |  |
+ | productUid | Integer? |  yes  |  |
+ | maxQuantity | Integer? |  yes  |  |
+ | autoSelect | Boolean? |  yes  |  |
+ | allowRemove | Boolean? |  yes  |  |
 
 ---
 
@@ -7886,15 +8288,15 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
- | choice | String? |  yes  |  |
  | active | Boolean? |  yes  |  |
- | name | String? |  yes  |  |
- | products | ArrayList<[Products](#Products)>? |  yes  |  |
- | logo | String? |  yes  |  |
- | companyId | Integer? |  yes  |  |
- | sameStoreAssignment | Boolean? |  yes  |  |
  | slug | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | sameStoreAssignment | Boolean? |  yes  |  |
+ | products | ArrayList<[Products](#Products)>? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | choice | String? |  yes  |  |
  | pageVisibility | ArrayList<String>? |  yes  |  |
 
 ---
@@ -7907,70 +8309,6 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | items | ArrayList<[GetGroupedProducts](#GetGroupedProducts)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [ArticleAssignmentV2](#ArticleAssignmentV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | strategy | String? |  yes  |  |
- | level | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ReturnConfigSchemaV2](#ReturnConfigSchemaV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | unit | String? |  yes  |  |
- | returnable | Boolean? |  yes  |  |
- | time | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [SellerV2](#SellerV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  |  |
- | count | Integer? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [StoreV2](#StoreV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  |  |
- | count | Integer? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductStockPriceV2](#ProductStockPriceV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | marked | Double? |  yes  |  |
- | effective | Double? |  yes  |  |
- | currency | String? |  yes  |  |
 
 ---
 
@@ -8012,14 +8350,13 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
- #### [StrategyWiseListingSchemaV2](#StrategyWiseListingSchemaV2)
+ #### [ProductStockPriceV2](#ProductStockPriceV2)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | distance | Integer? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | tat | Integer? |  yes  |  |
- | pincode | Integer? |  yes  |  |
+ | marked | Double? |  yes  |  |
+ | effective | Double? |  yes  |  |
+ | currency | String? |  yes  |  |
 
 ---
 
@@ -8030,9 +8367,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | key | String? |  yes  |  |
  | value | String? |  yes  |  |
  | type | String? |  yes  |  |
+ | key | String? |  yes  |  |
 
 ---
 
@@ -8051,27 +8388,92 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
+ #### [ReturnConfigSchemaV2](#ReturnConfigSchemaV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | time | Integer? |  yes  |  |
+ | unit | String? |  yes  |  |
+ | returnable | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SellerV2](#SellerV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | count | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [StoreV2](#StoreV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | count | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [StrategyWiseListingSchemaV2](#StrategyWiseListingSchemaV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | tat | Integer? |  yes  |  |
+ | distance | Integer? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ArticleAssignmentV2](#ArticleAssignmentV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | level | String? |  yes  |  |
+ | strategy | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [ProductSizePriceResponseV2](#ProductSizePriceResponseV2)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | articleAssignment | [ArticleAssignmentV2](#ArticleAssignmentV2)? |  yes  |  |
- | quantity | Integer? |  yes  |  |
+ | set | [ProductSetV2](#ProductSetV2)? |  yes  |  |
+ | discount | String? |  yes  |  |
+ | itemType | String? |  yes  |  |
+ | price | [ProductStockPriceV2](#ProductStockPriceV2)? |  yes  |  |
+ | marketplaceAttributes | ArrayList<[MarketPlaceSttributesSchemaV2](#MarketPlaceSttributesSchemaV2)>? |  yes  |  |
  | returnConfig | [ReturnConfigSchemaV2](#ReturnConfigSchemaV2)? |  yes  |  |
- | longLat | ArrayList<Double>? |  yes  |  |
  | seller | [SellerV2](#SellerV2)? |  yes  |  |
  | articleId | String? |  yes  |  |
- | store | [StoreV2](#StoreV2)? |  yes  |  |
- | discount | String? |  yes  |  |
- | pricePerPiece | [ProductStockPriceV2](#ProductStockPriceV2)? |  yes  |  |
- | set | [ProductSetV2](#ProductSetV2)? |  yes  |  |
- | pincode | Integer? |  yes  |  |
- | strategyWiseListing | ArrayList<[StrategyWiseListingSchemaV2](#StrategyWiseListingSchemaV2)>? |  yes  |  |
- | price | [ProductStockPriceV2](#ProductStockPriceV2)? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
  | sellerCount | Integer? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
+ | store | [StoreV2](#StoreV2)? |  yes  |  |
+ | pricePerPiece | [ProductStockPriceV2](#ProductStockPriceV2)? |  yes  |  |
+ | strategyWiseListing | ArrayList<[StrategyWiseListingSchemaV2](#StrategyWiseListingSchemaV2)>? |  yes  |  |
  | specialBadge | String? |  yes  |  |
- | itemType | String? |  yes  |  |
- | marketplaceAttributes | ArrayList<[MarketPlaceSttributesSchemaV2](#MarketPlaceSttributesSchemaV2)>? |  yes  |  |
+ | articleAssignment | [ArticleAssignmentV2](#ArticleAssignmentV2)? |  yes  |  |
+ | longLat | ArrayList<Double>? |  yes  |  |
 
 ---
 
@@ -8095,9 +8497,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sortOn | ArrayList<[ProductSizeSellerFilterSchemaV2](#ProductSizeSellerFilterSchemaV2)>? |  yes  |  |
- | items | ArrayList<[ProductSizePriceResponseV2](#ProductSizePriceResponseV2)>? |  yes  |  |
  | page | [Page](#Page) |  no  |  |
+ | items | ArrayList<[ProductSizePriceResponseV2](#ProductSizePriceResponseV2)>? |  yes  |  |
+ | sortOn | ArrayList<[ProductSizeSellerFilterSchemaV2](#ProductSizeSellerFilterSchemaV2)>? |  yes  |  |
 
 ---
 

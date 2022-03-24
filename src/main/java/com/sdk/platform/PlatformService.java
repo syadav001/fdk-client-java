@@ -13879,9 +13879,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws IOException {
+    public PlatformModels.SuccessResponse updateCompany(PlatformModels.UpdateCompany body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetCompanyProfileSerializerResponse> response = companyprofileApiList.cbsOnboardGet(this.companyId ).execute();
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateCompany(this.companyId , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -13904,9 +13904,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.SuccessResponse updateCompany(PlatformModels.UpdateCompany body) throws IOException {
+    public PlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateCompany(this.companyId , body).execute();
+            Response<PlatformModels.GetCompanyProfileSerializerResponse> response = companyprofileApiList.cbsOnboardGet(this.companyId ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -20679,9 +20679,9 @@ public static class ServiceabilityService {
     
     
     
-    public PlatformModels.ZoneResponse upsertZoneControllerView(String zoneId ,PlatformModels.ZoneRequest body) throws IOException {
+    public PlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ZoneResponse> response = serviceabilityApiList.upsertZoneControllerView(zoneId  , this.companyId , body).execute();
+            Response<PlatformModels.GetSingleZoneDataViewResponse> response = serviceabilityApiList.getZoneDataView(this.companyId , zoneId  ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -20737,9 +20737,9 @@ public static class ServiceabilityService {
     
     
     
-    public PlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws IOException {
+    public PlatformModels.ZoneResponse upsertZoneControllerView(String zoneId ,PlatformModels.ZoneRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetSingleZoneDataViewResponse> response = serviceabilityApiList.getZoneDataView(this.companyId , zoneId  ).execute();
+            Response<PlatformModels.ZoneResponse> response = serviceabilityApiList.upsertZoneControllerView(zoneId  , this.companyId , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
