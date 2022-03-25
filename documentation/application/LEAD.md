@@ -1304,20 +1304,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | response | ArrayList<[KeyValue](#KeyValue)> |  no  | Form response |
+ | response | ArrayList<HashMap<String,Object>> |  no  | Form response |
  | attachments | ArrayList<[TicketAsset](#TicketAsset)>? |  yes  | List of all attachments related to the form |
-
----
-
-
- 
- 
- #### [KeyValue](#KeyValue)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | key | String |  no  | Parameter for evaluating |
- | value | HashMap<String,Object> |  no  | Response for the parameter |
 
 ---
 
