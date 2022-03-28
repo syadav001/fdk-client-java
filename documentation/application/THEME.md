@@ -2955,8 +2955,6 @@ Success. Returns a JSON object of the theme. Check the example shown below or   
       }
     ],
     "styles": {},
-    "constants": {},
-    "settings": {},
     "created_at": "2020-12-22T05:09:04.720Z",
     "updated_at": "2021-01-24T11:22:41.376Z"
   }
@@ -5150,8 +5148,6 @@ Success. Returns a JSON object of the theme. Check the example shown below or re
       }
     ],
     "styles": {},
-    "constants": {},
-    "settings": {},
     "created_at": "2020-12-22T05:09:04.720Z",
     "updated_at": "2021-01-24T11:22:41.376Z"
   }
@@ -5445,10 +5441,8 @@ Success. Returns a JSON object of the theme. Check the example shown below or re
  | src | [Src](#Src)? |  yes  |  |
  | assets | [AssetsSchema](#AssetsSchema)? |  yes  |  |
  | availableSections | ArrayList<[availableSectionSchema](#availableSectionSchema)>? |  yes  |  |
- | constants | HashMap<String,Object>? |  yes  |  |
  | styles | HashMap<String,Object>? |  yes  |  |
  | config | [Config](#Config)? |  yes  |  |
- | settings | HashMap<String,Object>? |  yes  |  |
  | font | [Font](#Font)? |  yes  |  |
  | id | String? |  yes  |  |
  | v | Integer? |  yes  |  |
