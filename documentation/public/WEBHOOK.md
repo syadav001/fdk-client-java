@@ -2,302 +2,74 @@
 
 
 
-##### [Back to Platform docs](./README.md)
+##### [Back to Public docs](./README.md)
 
 ## Webhook Methods
 Webhook dispatcher with retry and one event to many subscriber vice versa
-* [getSubscribersByCompany](#getsubscribersbycompany)
-* [registerSubscriberToEvent](#registersubscribertoevent)
-* [updateSubscriberConfig](#updatesubscriberconfig)
-* [getSubscribersByExtensionId](#getsubscribersbyextensionid)
-* [getSubscriberById](#getsubscriberbyid)
-* [fetchAllEventConfigurations](#fetchalleventconfigurations)
+* [fetchAllWebhookEvents](#fetchallwebhookevents)
+* [queryWebhookEventDetails](#querywebhookeventdetails)
 
 
 
 ## Methods with example and description
 
 
-### getSubscribersByCompany
-Get Subscribers By Company ID
-
-
-
-
-```java
-client.webhook.getSubscribersByCompany( pageNo,  pageSize,  extensionId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| pageNo | Integer? | no | Page Number |   
-| pageSize | Integer? | no | Page Size |   
-| companyId | Integer | yes | Company ID of the application |   
-| extensionId | String? | no | Extension ID |  
-
-
-
-Get Subscribers By CompanyId
-
-*Returned Response:*
-
-
-
-
-[SubscriberResponse](#SubscriberResponse)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### registerSubscriberToEvent
-Register Subscriber
-
-
-
-
-```java
-client.webhook.registerSubscriberToEvent(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company Id of the application |  
-| body | [SubscriberConfig](#SubscriberConfig) | yes | Request body |
-
-
-Register Subscriber
-
-*Returned Response:*
-
-
-
-
-[SubscriberConfig](#SubscriberConfig)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### updateSubscriberConfig
-Update Subscriber
-
-
-
-
-```java
-client.webhook.updateSubscriberConfig(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company ID of the application |  
-| body | [SubscriberConfig](#SubscriberConfig) | yes | Request body |
-
-
-Update Subscriber
-
-*Returned Response:*
-
-
-
-
-[SubscriberConfig](#SubscriberConfig)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getSubscribersByExtensionId
-Get Subscribers By Extension ID
-
-
-
-
-```java
-client.webhook.getSubscribersByExtensionId( pageNo,  pageSize,  extensionId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| pageNo | Integer? | no | Page Number |   
-| pageSize | Integer? | no | Page Size |   
-| companyId | Integer | yes | Company ID of the application |   
-| extensionId | String | yes | Extension ID |  
-
-
-
-Get Subscribers By ExtensionID
-
-*Returned Response:*
-
-
-
-
-[SubscriberConfigList](#SubscriberConfigList)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getSubscriberById
-Get Subscriber By Subscriber ID
-
-
-
-
-```java
-client.webhook.getSubscriberById( subscriberId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company ID of the application |   
-| subscriberId | Integer | yes | Subscriber ID |  
-
-
-
-Get Subscriber By Subscriber ID
-
-*Returned Response:*
-
-
-
-
-[SubscriberResponse](#SubscriberResponse)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### fetchAllEventConfigurations
+### fetchAllWebhookEvents
 Get All Webhook Events
 
 
 
 
 ```java
-client.webhook.fetchAllEventConfigurations() {
+webhook.fetchAllWebhookEvents() {
+  //use response
+}
+```
+
+
+
+
+Get All Webhook Events
+
+*Returned Response:*
+
+
+
+
+[EventConfigResponse](#EventConfigResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### queryWebhookEventDetails
+Send webhook event name, type, version, category in request body to get complete details of event from server
+
+
+
+
+```java
+webhook.queryWebhookEventDetails(body body) {
   //use response
 }
 ```
@@ -305,12 +77,11 @@ client.webhook.fetchAllEventConfigurations() {
 
 
 | Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company ID of the application |  
+| --------- | -----  | -------- | ----------- |
+| body | [List<EventConfigBase>](#List<EventConfigBase>) | yes | Request body |
 
 
-
-Get All Webhook Events
+Get Webhook Event Details for provided events
 
 *Returned Response:*
 

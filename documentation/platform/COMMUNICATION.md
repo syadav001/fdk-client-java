@@ -27,6 +27,8 @@ Manages email, sms, push notifications sent to users
 * [getEmailTemplateById](#getemailtemplatebyid)
 * [updateEmailTemplateById](#updateemailtemplatebyid)
 * [deleteEmailTemplateById](#deleteemailtemplatebyid)
+* [sendCommunicationSynchronously](#sendcommunicationsynchronously)
+* [sendCommunicationAsynchronously](#sendcommunicationasynchronously)
 * [getEventSubscriptions](#geteventsubscriptions)
 * [getJobs](#getjobs)
 * [triggerCampaignJob](#triggercampaignjob)
@@ -1096,7 +1098,7 @@ Success
       {
         "type": "application",
         "provider": "falconide",
-        "from": [
+        "from_address": [
           {
             "is_default": true,
             "name": "abc",
@@ -1186,7 +1188,7 @@ Success
   "value": {
     "type": "application",
     "provider": "falconide",
-    "from": [
+    "from_address": [
       {
         "is_default": true,
         "name": "abc",
@@ -1268,7 +1270,7 @@ Success
   "value": {
     "type": "application",
     "provider": "falconide",
-    "from": [
+    "from_address": [
       {
         "is_default": true,
         "name": "abc",
@@ -1350,7 +1352,7 @@ Success
   "value": {
     "type": "application",
     "provider": "falconide",
-    "from": [
+    "from_address": [
       {
         "is_default": true,
         "name": "abc",
@@ -1446,7 +1448,6 @@ Success
         "_id": "5ef42a49c8b67d279c27a980",
         "slug": "application-creation",
         "name": "Application creation",
-        "from": "hey@gofynd.com",
         "from_name": "Fynd",
         "subject": {
           "template_type": "nunjucks",
@@ -1557,7 +1558,6 @@ Success
     "keys": {
       "bcc": "abc@gofynd.com"
     },
-    "from": "abc@gofynd.com",
     "reply_to": "abc@gofynd.com",
     "headers": [
       {
@@ -1662,7 +1662,6 @@ Success
         "_id": "5ef42a49c8b67d279c27a980",
         "slug": "application-creation",
         "name": "Application creation",
-        "from": "hey@gofynd.com",
         "from_name": "Fynd",
         "subject": {
           "template_type": "nunjucks",
@@ -1766,7 +1765,6 @@ Success
     "_id": "5ef42a49c8b67d279c27a980",
     "slug": "application-creation",
     "name": "Application creation",
-    "from": "hey@gofynd.com",
     "from_name": "Fynd",
     "subject": {
       "template_type": "nunjucks",
@@ -1869,7 +1867,6 @@ Success
     "keys": {
       "bcc": "abc@gofynd.com"
     },
-    "from": "abc@gofynd.com",
     "reply_to": "abc@gofynd.com",
     "headers": [
       {
@@ -1960,6 +1957,134 @@ Success
   "value": {
     "success": true,
     "message": "Deleted successfully"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### sendCommunicationSynchronously
+Send email or sms synchronously
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").communication.sendCommunicationSynchronously(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+| body | [EngineRequest](#EngineRequest) | yes | Request body |
+
+
+Send email or sms synchronously
+
+*Returned Response:*
+
+
+
+
+[EngineResponse](#EngineResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "success": true
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### sendCommunicationAsynchronously
+Send email or sms asynchronously
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").communication.sendCommunicationAsynchronously(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+| body | [EngineRequest](#EngineRequest) | yes | Request body |
+
+
+Send email or sms asynchronously
+
+*Returned Response:*
+
+
+
+
+[EngineResponse](#EngineResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "success": true
   }
 }
 ```
@@ -4218,7 +4343,7 @@ Success
  | apiKey | String? |  yes  |  |
  | type | String? |  yes  |  |
  | provider | String? |  yes  |  |
- | from | ArrayList<[EmailProviderReqFrom](#EmailProviderReqFrom)>? |  yes  |  |
+ | fromAddress | ArrayList<[EmailProviderReqFrom](#EmailProviderReqFrom)>? |  yes  |  |
 
 ---
 
@@ -4231,7 +4356,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  |  |
  | provider | String? |  yes  |  |
- | from | ArrayList<[EmailProviderReqFrom](#EmailProviderReqFrom)>? |  yes  |  |
+ | fromAddress | ArrayList<[EmailProviderReqFrom](#EmailProviderReqFrom)>? |  yes  |  |
  | id | String? |  yes  |  |
  | name | String? |  yes  |  |
  | description | String? |  yes  |  |
@@ -4315,7 +4440,6 @@ Success
  | name | String? |  yes  |  |
  | description | String? |  yes  |  |
  | keys | [EmailTemplateKeys](#EmailTemplateKeys)? |  yes  |  |
- | from | String? |  yes  |  |
  | staticTo | ArrayList<String>? |  yes  |  |
  | staticCc | ArrayList<String>? |  yes  |  |
  | staticBcc | ArrayList<String>? |  yes  |  |
@@ -4360,7 +4484,6 @@ Success
  | id | String? |  yes  |  |
  | name | String? |  yes  |  |
  | keys | [EmailTemplateKeys](#EmailTemplateKeys)? |  yes  |  |
- | from | String? |  yes  |  |
  | replyTo | String? |  yes  |  |
  | headers | ArrayList<[EmailTemplateHeaders](#EmailTemplateHeaders)>? |  yes  |  |
  | subject | [TemplateAndType](#TemplateAndType)? |  yes  |  |
@@ -4393,7 +4516,6 @@ Success
  | id | String? |  yes  |  |
  | slug | String? |  yes  |  |
  | name | String? |  yes  |  |
- | from | String? |  yes  |  |
  | fromName | String? |  yes  |  |
  | subject | [TemplateAndType](#TemplateAndType)? |  yes  |  |
  | html | [TemplateAndType](#TemplateAndType)? |  yes  |  |
@@ -4425,7 +4547,6 @@ Success
  | id | String? |  yes  |  |
  | slug | String? |  yes  |  |
  | name | String? |  yes  |  |
- | from | String? |  yes  |  |
  | fromName | String? |  yes  |  |
  | subject | [TemplateAndType](#TemplateAndType)? |  yes  |  |
  | html | [TemplateAndType](#TemplateAndType)? |  yes  |  |
@@ -4459,6 +4580,127 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | items | ArrayList<[SystemEmailTemplate](#SystemEmailTemplate)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PayloadEmailTemplateStructure](#PayloadEmailTemplateStructure)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | key | String? |  yes  |  |
+ | value | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PayloadEmailProviderStructure](#PayloadEmailProviderStructure)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PayloadEmailStructure](#PayloadEmailStructure)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | template | [PayloadEmailTemplateStructure](#PayloadEmailTemplateStructure)? |  yes  |  |
+ | provider | [PayloadEmailProviderStructure](#PayloadEmailProviderStructure)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PayloadSmsTemplateStructure](#PayloadSmsTemplateStructure)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | key | String? |  yes  |  |
+ | value | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PayloadSmsProviderStructure](#PayloadSmsProviderStructure)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PayloadSmsStructure](#PayloadSmsStructure)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | template | [PayloadSmsTemplateStructure](#PayloadSmsTemplateStructure)? |  yes  |  |
+ | provider | [PayloadSmsProviderStructure](#PayloadSmsProviderStructure)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PayloadStructure](#PayloadStructure)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | data | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | email | [PayloadEmailStructure](#PayloadEmailStructure)? |  yes  |  |
+ | sms | [PayloadSmsStructure](#PayloadSmsStructure)? |  yes  |  |
+ | application | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [MetaStructure](#MetaStructure)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | jobType | String? |  yes  |  |
+ | action | String? |  yes  |  |
+ | trace | String? |  yes  |  |
+ | timestamp | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EngineRequest](#EngineRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | payload | [PayloadStructure](#PayloadStructure)? |  yes  |  |
+ | meta | [MetaStructure](#MetaStructure)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EngineResponse](#EngineResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
 
 ---
 
