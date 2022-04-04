@@ -186,6 +186,9 @@ interface CartApiList {
 
 interface CommonApiList {
     
+    @GET ("/service/common/configuration/v1.0/application/search-application")
+    Call<ApplicationModels.ApplicationResponse> searchApplication(@Header("authorization") String authorization , @Query("query") String query );
+    
     @GET ("/service/common/configuration/v1.0/location")
     Call<ApplicationModels.Locations> getLocations(@Query("location_type") String locationType , @Query("id") String id );
     
@@ -490,6 +493,9 @@ interface ConfigurationApiList {
     
     @DELETE ("/service/application/configuration/v1.0/ordering-store/select")
     Call<ApplicationModels.SuccessMessageResponse> removeOrderingStoreCookie();
+    
+    @GET ("/service/application/configuration/v1.0/staff/list")
+    Call<ApplicationModels.AppStaffListResponse> getAppStaffList(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
     
     @GET ("/service/application/configuration/v1.0/staff")
     Call<ApplicationModels.AppStaffResponse> getAppStaffs(@Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
