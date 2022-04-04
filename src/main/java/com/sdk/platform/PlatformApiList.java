@@ -5307,21 +5307,6 @@ interface InventoryApiList {
     
     
     
-    @GET ("/service/platform/inventory/v1.0/company/{company_id}/job/config")
-    Call<PlatformModels.ResponseEnvelopeListJobConfigDTO> getJobConfigByIntegrationType(@Path("company_id")  String companyId , @Query("integration_type") String  integrationType ,  @Query("disable") Boolean  disable );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/inventory/v1.0/company/{company_id}/email/jobCode")
     Call<PlatformModels.ResponseEnvelopeObject> getJobCodesMetrics(@Path("company_id")  String companyId , @Query("daily_job") Boolean  dailyJob ,  @Query("job_code") String  jobCode );
     

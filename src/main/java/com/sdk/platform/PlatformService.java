@@ -15368,39 +15368,6 @@ public static class InventoryService {
     
     
     
-    public PlatformModels.ResponseEnvelopeListJobConfigDTO getJobConfigByIntegrationType(String integrationType , Boolean disable ) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ResponseEnvelopeListJobConfigDTO> response = inventoryApiList.getJobConfigByIntegrationType(this.companyId ,integrationType , disable ).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public PlatformModels.ResponseEnvelopeObject getJobCodesMetrics(Boolean dailyJob , String jobCode ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ResponseEnvelopeObject> response = inventoryApiList.getJobCodesMetrics(this.companyId ,dailyJob , jobCode ).execute();
@@ -15456,8 +15423,6 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    
-    
     
     
     
