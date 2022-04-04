@@ -16,6 +16,9 @@
 * [getJobByCode](#getjobbycode)
 * [getJobCodeMetrics](#getjobcodemetrics)
 * [getJobCodesByCompanyAndIntegration](#getjobcodesbycompanyandintegration)
+* [getJobConfigByIntegrationType](#getjobconfigbyintegrationtype)
+* [getJobCodesMetrics](#getjobcodesmetrics)
+* [saveJobCodesMetrics](#savejobcodesmetrics)
 
 
 
@@ -545,6 +548,169 @@ REST Endpoint that returns all job codes by company And integration
 [ResponseEnvelopeListJobConfigListDTO](#ResponseEnvelopeListJobConfigListDTO)
 
 Successful operation
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getJobConfigByIntegrationType
+Get Job Configs By Integration Type
+
+
+
+
+```java
+client.inventory.getJobConfigByIntegrationType( integrationType,  disable) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | Company Id |   
+| integrationType | String | yes | Integration Type |   
+| disable | Boolean? | no | JobConfig current state |  
+
+
+
+REST Endpoint that returns all job Configs by Integration Type
+
+*Returned Response:*
+
+
+
+
+[ResponseEnvelopeListJobConfigDTO](#ResponseEnvelopeListJobConfigDTO)
+
+Successful operation
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getJobCodesMetrics
+Find all the JobCodes from Metrics Collection based on the field Values
+
+
+
+
+```java
+client.inventory.getJobCodesMetrics( dailyJob,  jobCode) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | Company Id |   
+| dailyJob | Boolean? | no | Daily Job Flag |   
+| jobCode | String? | no | Email Job Code |  
+
+
+
+Endpoint to return all JobCodes present in Metrics Collection
+
+*Returned Response:*
+
+
+
+
+[ResponseEnvelopeObject](#ResponseEnvelopeObject)
+
+Successful operation
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### saveJobCodesMetrics
+Save JobCode Metrics
+
+
+
+
+```java
+client.inventory.saveJobCodesMetrics(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | Company Id |  
+| body | [EmailJobMetrics](#EmailJobMetrics) | yes | Request body |
+
+
+Endpoint to save JobCode Metrics
+
+*Returned Response:*
+
+
+
+
+[ResponseEnvelopeEmailJobMetrics](#ResponseEnvelopeEmailJobMetrics)
+
+JobCode Metrics entry Created Successfully
 
 
 
@@ -1441,6 +1607,63 @@ Successful operation
  | httpStatus | String? |  yes  |  |
  | items | ArrayList<[JobConfigListDTO](#JobConfigListDTO)>? |  yes  |  |
  | payload | ArrayList<[JobConfigListDTO](#JobConfigListDTO)>? |  yes  |  |
+ | traceId | String? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EmailJobMetrics](#EmailJobMetrics)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | executed | Boolean? |  yes  |  |
+ | id | String? |  yes  |  |
+ | jobCode | String? |  yes  |  |
+ | dailyJob | Boolean? |  yes  |  |
+ | lastExecutedOn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ResponseEnvelopeEmailJobMetrics](#ResponseEnvelopeEmailJobMetrics)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String? |  yes  |  |
+ | status | Integer? |  yes  |  |
+ | error | String? |  yes  |  |
+ | exception | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | totalTimeTakenInMillis | Integer? |  yes  |  |
+ | httpStatus | String? |  yes  |  |
+ | items | [EmailJobMetrics](#EmailJobMetrics)? |  yes  |  |
+ | payload | [EmailJobMetrics](#EmailJobMetrics)? |  yes  |  |
+ | traceId | String? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ResponseEnvelopeObject](#ResponseEnvelopeObject)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String? |  yes  |  |
+ | status | Integer? |  yes  |  |
+ | error | String? |  yes  |  |
+ | exception | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | totalTimeTakenInMillis | Integer? |  yes  |  |
+ | httpStatus | String? |  yes  |  |
+ | items | HashMap<String,Object>? |  yes  |  |
+ | payload | HashMap<String,Object>? |  yes  |  |
  | traceId | String? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
 

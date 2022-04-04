@@ -6,23 +6,79 @@
 
 ## CompanyProfile Methods
 Company Profile API's allows you to access list of products, prices, seller details, similar features, variants and many more useful features. 
-* [cbsOnboardGet](#cbsonboardget)
 * [updateCompany](#updatecompany)
+* [cbsOnboardGet](#cbsonboardget)
 * [getCompanyMetrics](#getcompanymetrics)
-* [getBrand](#getbrand)
 * [editBrand](#editbrand)
+* [getBrand](#getbrand)
 * [createBrand](#createbrand)
-* [getBrands](#getbrands)
 * [createCompanyBrandMapping](#createcompanybrandmapping)
-* [getLocations](#getlocations)
+* [getBrands](#getbrands)
 * [createLocation](#createlocation)
-* [getLocationDetail](#getlocationdetail)
+* [getLocations](#getlocations)
 * [updateLocation](#updatelocation)
+* [getLocationDetail](#getlocationdetail)
 * [createLocationBulk](#createlocationbulk)
 
 
 
 ## Methods with example and description
+
+
+### updateCompany
+Edit company profile
+
+
+
+
+```java
+client.companyprofile.updateCompany(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |  
+| body | [UpdateCompany](#UpdateCompany) | yes | Request body |
+
+
+This API allows to edit the company profile of the seller account.
+
+*Returned Response:*
+
+
+
+
+[SuccessResponse](#SuccessResponse)
+
+Returns a success message
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "uid": 1,
+  "success": true
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
 
 
 ### cbsOnboardGet
@@ -139,62 +195,6 @@ Company profile object. See example below or refer `GetCompanyProfileSerializerR
 ---
 
 
-### updateCompany
-Edit company profile
-
-
-
-
-```java
-client.companyprofile.updateCompany(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |  
-| body | [UpdateCompany](#UpdateCompany) | yes | Request body |
-
-
-This API allows to edit the company profile of the seller account.
-
-*Returned Response:*
-
-
-
-
-[SuccessResponse](#SuccessResponse)
-
-Returns a success message
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "uid": 1,
-  "success": true
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### getCompanyMetrics
 Get company metrics
 
@@ -256,6 +256,63 @@ Metrics response object. See example below or refer `MetricsSerializer` for deta
     "verified": 0,
     "pending": 2
   }
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### editBrand
+Edit a brand.
+
+
+
+
+```java
+client.companyprofile.editBrand( brandId, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Id of the company associated to brand that is to be viewed. |   
+| brandId | String | yes | Id of the brand to be viewed. |  
+| body | [CreateUpdateBrandRequestSerializer](#CreateUpdateBrandRequestSerializer) | yes | Request body |
+
+
+This API allows to edit meta of a brand.
+
+*Returned Response:*
+
+
+
+
+[SuccessResponse](#SuccessResponse)
+
+Returns a success response
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "uid": 1,
+  "success": true
 }
 ```
 </details>
@@ -353,63 +410,6 @@ Brand object. See example below or refer `GetBrandResponseSerializer` for detail
 ---
 
 
-### editBrand
-Edit a brand.
-
-
-
-
-```java
-client.companyprofile.editBrand( brandId, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Id of the company associated to brand that is to be viewed. |   
-| brandId | String | yes | Id of the brand to be viewed. |  
-| body | [CreateUpdateBrandRequestSerializer](#CreateUpdateBrandRequestSerializer) | yes | Request body |
-
-
-This API allows to edit meta of a brand.
-
-*Returned Response:*
-
-
-
-
-[SuccessResponse](#SuccessResponse)
-
-Returns a success response
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "uid": 1,
-  "success": true
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### createBrand
 Create a Brand.
 
@@ -450,6 +450,61 @@ Returns a success response
 ```json
 {
   "uid": 1,
+  "success": true
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### createCompanyBrandMapping
+Create a company brand mapping.
+
+
+
+
+```java
+client.companyprofile.createCompanyBrandMapping(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Id of the company inside which the brand is to be mapped. |  
+| body | [CompanyBrandPostRequestSerializer](#CompanyBrandPostRequestSerializer) | yes | Request body |
+
+
+This API allows to create a company brand mapping, for a already existing brand in the system.
+
+*Returned Response:*
+
+
+
+
+[SuccessResponse](#SuccessResponse)
+
+Returns a success response
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
   "success": true
 }
 ```
@@ -609,14 +664,14 @@ Brand object. See example below or refer `CompanyBrandListSerializer` for detail
 ---
 
 
-### createCompanyBrandMapping
-Create a company brand mapping.
+### createLocation
+Create a location asscoiated to a company.
 
 
 
 
 ```java
-client.companyprofile.createCompanyBrandMapping(body body) {
+client.companyprofile.createLocation(body body) {
   //use response
 }
 ```
@@ -625,11 +680,11 @@ client.companyprofile.createCompanyBrandMapping(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Id of the company inside which the brand is to be mapped. |  
-| body | [CompanyBrandPostRequestSerializer](#CompanyBrandPostRequestSerializer) | yes | Request body |
+| companyId | String | yes | Id of the company inside which the location is to be created. |  
+| body | [LocationSerializer](#LocationSerializer) | yes | Request body |
 
 
-This API allows to create a company brand mapping, for a already existing brand in the system.
+This API allows to create a location associated to a company.
 
 *Returned Response:*
 
@@ -648,6 +703,7 @@ Returns a success response
 
 ```json
 {
+  "uid": 1,
   "success": true
 }
 ```
@@ -905,14 +961,14 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 ---
 
 
-### createLocation
-Create a location asscoiated to a company.
+### updateLocation
+Edit a location asscoiated to a company.
 
 
 
 
 ```java
-client.companyprofile.createLocation(body body) {
+client.companyprofile.updateLocation( locationId, body body) {
   //use response
 }
 ```
@@ -921,11 +977,12 @@ client.companyprofile.createLocation(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Id of the company inside which the location is to be created. |  
+| companyId | String | yes | Id of the company inside which the location is to be created. |   
+| locationId | String | yes | Id of the location which you want to edit. |  
 | body | [LocationSerializer](#LocationSerializer) | yes | Request body |
 
 
-This API allows to create a location associated to a company.
+This API allows to edit a location associated to a company.
 
 *Returned Response:*
 
@@ -1200,63 +1257,6 @@ Brand object. See example below or refer `GetLocationSerializer` for details
 ---
 
 
-### updateLocation
-Edit a location asscoiated to a company.
-
-
-
-
-```java
-client.companyprofile.updateLocation( locationId, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Id of the company inside which the location is to be created. |   
-| locationId | String | yes | Id of the location which you want to edit. |  
-| body | [LocationSerializer](#LocationSerializer) | yes | Request body |
-
-
-This API allows to edit a location associated to a company.
-
-*Returned Response:*
-
-
-
-
-[SuccessResponse](#SuccessResponse)
-
-Returns a success response
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "uid": 1,
-  "success": true
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### createLocationBulk
 Create a location asscoiated to a company in bulk.
 
@@ -1340,61 +1340,21 @@ Returns a success response
 
  
  
- #### [UserSerializer](#UserSerializer)
+ #### [CreateUpdateAddressSerializer](#CreateUpdateAddressSerializer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
- | contact | String? |  yes  |  |
- | userId | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [BusinessCountryInfo](#BusinessCountryInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | country | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [GetAddressSerializer](#GetAddressSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | countryCode | String? |  yes  |  |
- | addressType | String? |  yes  |  |
- | pincode | Integer? |  yes  |  |
- | address1 | String? |  yes  |  |
- | city | String? |  yes  |  |
+ | longitude | Double |  no  |  |
+ | addressType | String |  no  |  |
+ | pincode | Integer |  no  |  |
+ | state | String |  no  |  |
  | landmark | String? |  yes  |  |
- | country | String? |  yes  |  |
- | state | String? |  yes  |  |
- | longitude | Double? |  yes  |  |
+ | latitude | Double |  no  |  |
  | address2 | String? |  yes  |  |
- | latitude | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [Document](#Document)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | legalName | String? |  yes  |  |
- | type | String |  no  |  |
- | verified | Boolean? |  yes  |  |
- | value | String |  no  |  |
- | url | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | city | String |  no  |  |
+ | country | String |  no  |  |
+ | address1 | String |  no  |  |
 
 ---
 
@@ -1425,66 +1385,29 @@ Returns a success response
 
  
  
- #### [GetCompanyProfileSerializerResponse](#GetCompanyProfileSerializerResponse)
+ #### [Document](#Document)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | businessDetails | [BusinessDetails](#BusinessDetails)? |  yes  |  |
- | franchiseEnabled | Boolean? |  yes  |  |
- | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | businessCountryInfo | [BusinessCountryInfo](#BusinessCountryInfo)? |  yes  |  |
- | stage | String? |  yes  |  |
- | warnings | HashMap<String,Object>? |  yes  |  |
- | mode | String? |  yes  |  |
- | businessInfo | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | verifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | name | String? |  yes  |  |
- | notificationEmails | ArrayList<String>? |  yes  |  |
- | addresses | ArrayList<[GetAddressSerializer](#GetAddressSerializer)>? |  yes  |  |
- | uid | Integer |  no  |  |
- | documents | ArrayList<[Document](#Document)>? |  yes  |  |
- | businessType | String |  no  |  |
- | companyType | String |  no  |  |
- | contactDetails | [ContactDetails](#ContactDetails)? |  yes  |  |
- | verifiedOn | String? |  yes  |  |
+ | value | String |  no  |  |
+ | type | String |  no  |  |
+ | verified | Boolean? |  yes  |  |
+ | legalName | String? |  yes  |  |
+ | url | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [ErrorResponse](#ErrorResponse)
+ #### [CompanyTax](#CompanyTax)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | status | Integer? |  yes  |  |
- | code | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CreateUpdateAddressSerializer](#CreateUpdateAddressSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | countryCode | String? |  yes  |  |
- | addressType | String |  no  |  |
- | pincode | Integer |  no  |  |
- | address1 | String |  no  |  |
- | city | String |  no  |  |
- | landmark | String? |  yes  |  |
- | state | String |  no  |  |
- | country | String |  no  |  |
- | longitude | Double |  no  |  |
- | address2 | String? |  yes  |  |
- | latitude | Double |  no  |  |
+ | effectiveDate | String |  no  |  |
+ | cess | Double? |  yes  |  |
+ | rate | Double |  no  |  |
+ | enable | Boolean |  no  |  |
 
 ---
 
@@ -1495,19 +1418,20 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | addresses | ArrayList<[CreateUpdateAddressSerializer](#CreateUpdateAddressSerializer)>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | businessDetails | [BusinessDetails](#BusinessDetails)? |  yes  |  |
- | franchiseEnabled | Boolean? |  yes  |  |
- | notificationEmails | ArrayList<String>? |  yes  |  |
+ | companyType | String? |  yes  |  |
  | warnings | HashMap<String,Object>? |  yes  |  |
+ | businessInfo | String? |  yes  |  |
+ | businessDetails | [BusinessDetails](#BusinessDetails)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | addresses | ArrayList<[CreateUpdateAddressSerializer](#CreateUpdateAddressSerializer)>? |  yes  |  |
+ | franchiseEnabled | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
+ | rejectReason | String? |  yes  |  |
  | contactDetails | [ContactDetails](#ContactDetails)? |  yes  |  |
  | documents | ArrayList<[Document](#Document)>? |  yes  |  |
- | companyType | String? |  yes  |  |
- | name | String? |  yes  |  |
  | businessType | String? |  yes  |  |
- | businessInfo | String? |  yes  |  |
- | rejectReason | String? |  yes  |  |
+ | notificationEmails | ArrayList<String>? |  yes  |  |
+ | taxes | ArrayList<[CompanyTax](#CompanyTax)>? |  yes  |  |
 
 ---
 
@@ -1518,8 +1442,100 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ErrorResponse](#ErrorResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | status | Integer? |  yes  |  |
+ | code | String? |  yes  |  |
+ | message | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BusinessCountryInfo](#BusinessCountryInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | country | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserSerializer](#UserSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | username | String? |  yes  |  |
+ | contact | String? |  yes  |  |
+ | userId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GetAddressSerializer](#GetAddressSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | addressType | String? |  yes  |  |
+ | longitude | Double? |  yes  |  |
+ | country | String? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
+ | state | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
+ | latitude | Double? |  yes  |  |
+ | address2 | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | city | String? |  yes  |  |
+ | address1 | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GetCompanyProfileSerializerResponse](#GetCompanyProfileSerializerResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | contactDetails | [ContactDetails](#ContactDetails)? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | notificationEmails | ArrayList<String>? |  yes  |  |
+ | taxes | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | businessDetails | [BusinessDetails](#BusinessDetails)? |  yes  |  |
+ | businessCountryInfo | [BusinessCountryInfo](#BusinessCountryInfo)? |  yes  |  |
+ | franchiseEnabled | Boolean? |  yes  |  |
+ | businessType | String |  no  |  |
+ | businessInfo | String? |  yes  |  |
+ | uid | Integer |  no  |  |
+ | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
+ | companyType | String |  no  |  |
+ | mode | String? |  yes  |  |
+ | warnings | HashMap<String,Object>? |  yes  |  |
+ | verifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
+ | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
+ | addresses | ArrayList<[GetAddressSerializer](#GetAddressSerializer)>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | verifiedOn | String? |  yes  |  |
+ | documents | ArrayList<[Document](#Document)>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
 
 ---
 
@@ -1542,13 +1558,45 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | brand | [DocumentsObj](#DocumentsObj)? |  yes  |  |
  | uid | Integer? |  yes  |  |
  | companyDocuments | [DocumentsObj](#DocumentsObj)? |  yes  |  |
- | stage | String? |  yes  |  |
- | brand | [DocumentsObj](#DocumentsObj)? |  yes  |  |
  | product | [DocumentsObj](#DocumentsObj)? |  yes  |  |
- | store | [DocumentsObj](#DocumentsObj)? |  yes  |  |
  | storeDocuments | [DocumentsObj](#DocumentsObj)? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | store | [DocumentsObj](#DocumentsObj)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BrandBannerSerializer](#BrandBannerSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | portrait | String? |  yes  |  |
+ | landscape | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CreateUpdateBrandRequestSerializer](#CreateUpdateBrandRequestSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | banner | [BrandBannerSerializer](#BrandBannerSerializer)? |  yes  |  |
+ | localeLanguage | HashMap<String,Object>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | logo | String |  no  |  |
+ | description | String? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | name | String |  no  |  |
+ | brandTier | String? |  yes  |  |
+ | synonyms | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -1568,135 +1616,29 @@ Returns a success response
 
  
  
- #### [BrandBannerSerializer](#BrandBannerSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | landscape | String? |  yes  |  |
- | portrait | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [GetBrandResponseSerializer](#GetBrandResponseSerializer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | createdBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | stage | String? |  yes  |  |
- | warnings | HashMap<String,Object>? |  yes  |  |
- | mode | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | verifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | synonyms | ArrayList<String>? |  yes  |  |
- | logo | String? |  yes  |  |
- | modifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | banner | [BrandBannerSerializer](#BrandBannerSerializer)? |  yes  |  |
- | name | String |  no  |  |
- | rejectReason | String? |  yes  |  |
- | description | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | verifiedOn | String? |  yes  |  |
+ | localeLanguage | HashMap<String,Object>? |  yes  |  |
  | slugKey | String? |  yes  |  |
- | localeLanguage | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [CreateUpdateBrandRequestSerializer](#CreateUpdateBrandRequestSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
+ | rejectReason | String? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | logo | String? |  yes  |  |
  | synonyms | ArrayList<String>? |  yes  |  |
- | companyId | Integer? |  yes  |  |
- | logo | String |  no  |  |
- | brandTier | String? |  yes  |  |
- | banner | [BrandBannerSerializer](#BrandBannerSerializer)? |  yes  |  |
- | name | String |  no  |  |
+ | uid | Integer? |  yes  |  |
  | description | String? |  yes  |  |
- | localeLanguage | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [GetCompanySerializer](#GetCompanySerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | addresses | ArrayList<[GetAddressSerializer](#GetAddressSerializer)>? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | stage | String? |  yes  |  |
- | verifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | rejectReason | String? |  yes  |  |
- | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | companyType | String? |  yes  |  |
- | name | String? |  yes  |  |
- | businessType | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | verifiedOn | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CompanyBrandSerializer](#CompanyBrandSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | stage | String? |  yes  |  |
- | brand | [GetBrandResponseSerializer](#GetBrandResponseSerializer)? |  yes  |  |
- | company | [GetCompanySerializer](#GetCompanySerializer)? |  yes  |  |
- | verifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | warnings | HashMap<String,Object>? |  yes  |  |
- | rejectReason | String? |  yes  |  |
  | modifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | createdOn | String? |  yes  |  |
+ | banner | [BrandBannerSerializer](#BrandBannerSerializer)? |  yes  |  |
+ | mode | String? |  yes  |  |
+ | warnings | HashMap<String,Object>? |  yes  |  |
+ | verifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
  | createdBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | name | String |  no  |  |
  | verifiedOn | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Page](#Page)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | hasNext | Boolean? |  yes  |  |
- | nextId | String? |  yes  |  |
- | itemTotal | Integer? |  yes  |  |
- | type | String |  no  |  |
- | hasPrevious | Boolean? |  yes  |  |
- | size | Integer? |  yes  |  |
- | current | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [CompanyBrandListSerializer](#CompanyBrandListSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[CompanyBrandSerializer](#CompanyBrandSerializer)>? |  yes  |  |
- | page | [Page](#Page)? |  yes  |  |
+ | createdOn | String? |  yes  |  |
 
 ---
 
@@ -1707,22 +1649,83 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | brands | ArrayList<Integer> |  no  |  |
- | uid | Integer? |  yes  |  |
  | company | Integer |  no  |  |
+ | uid | Integer? |  yes  |  |
+ | brands | ArrayList<Integer> |  no  |  |
 
 ---
 
 
  
  
- #### [LocationManagerSerializer](#LocationManagerSerializer)
+ #### [Page](#Page)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | email | String? |  yes  |  |
+ | current | Integer? |  yes  |  |
+ | type | String |  no  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | size | Integer? |  yes  |  |
+ | itemTotal | Integer? |  yes  |  |
+ | nextId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GetCompanySerializer](#GetCompanySerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | companyType | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | verifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
+ | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | addresses | ArrayList<[GetAddressSerializer](#GetAddressSerializer)>? |  yes  |  |
  | name | String? |  yes  |  |
- | mobileNo | [SellerPhoneNumber](#SellerPhoneNumber) |  no  |  |
+ | rejectReason | String? |  yes  |  |
+ | verifiedOn | String? |  yes  |  |
+ | businessType | String? |  yes  |  |
+ | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CompanyBrandSerializer](#CompanyBrandSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | brand | [GetBrandResponseSerializer](#GetBrandResponseSerializer)? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | verifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | warnings | HashMap<String,Object>? |  yes  |  |
+ | createdBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | company | [GetCompanySerializer](#GetCompanySerializer)? |  yes  |  |
+ | rejectReason | String? |  yes  |  |
+ | verifiedOn | String? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | modifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CompanyBrandListSerializer](#CompanyBrandListSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[CompanyBrandSerializer](#CompanyBrandSerializer)>? |  yes  |  |
 
 ---
 
@@ -1745,9 +1748,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | weekday | String |  no  |  |
- | open | Boolean |  no  |  |
  | closing | [LocationTimingSerializer](#LocationTimingSerializer)? |  yes  |  |
+ | open | Boolean |  no  |  |
+ | weekday | String |  no  |  |
  | opening | [LocationTimingSerializer](#LocationTimingSerializer)? |  yes  |  |
 
 ---
@@ -1755,12 +1758,21 @@ Returns a success response
 
  
  
- #### [LocationIntegrationType](#LocationIntegrationType)
+ #### [GetAddressSerializer1](#GetAddressSerializer1)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | inventory | String? |  yes  |  |
- | order | String? |  yes  |  |
+ | addressType | String? |  yes  |  |
+ | longitude | Double? |  yes  |  |
+ | country | String? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
+ | state | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
+ | latitude | Double? |  yes  |  |
+ | address2 | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | city | String? |  yes  |  |
+ | address1 | String? |  yes  |  |
 
 ---
 
@@ -1771,9 +1783,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | password | String? |  yes  |  |
  | username | String? |  yes  |  |
  | enabled | Boolean? |  yes  |  |
- | password | String? |  yes  |  |
 
 ---
 
@@ -1804,68 +1816,13 @@ Returns a success response
 
  
  
- #### [GetLocationSerializer](#GetLocationSerializer)
+ #### [LocationManagerSerializer](#LocationManagerSerializer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
- | manager | [LocationManagerSerializer](#LocationManagerSerializer)? |  yes  |  |
- | createdBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | timing | ArrayList<[LocationDayWiseSerializer](#LocationDayWiseSerializer)>? |  yes  |  |
- | stage | String? |  yes  |  |
- | address | [GetAddressSerializer](#GetAddressSerializer) |  no  |  |
- | warnings | HashMap<String,Object>? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | company | [GetCompanySerializer](#GetCompanySerializer)? |  yes  |  |
- | verifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | integrationType | [LocationIntegrationType](#LocationIntegrationType)? |  yes  |  |
- | storeType | String? |  yes  |  |
- | modifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | name | String |  no  |  |
- | notificationEmails | ArrayList<String>? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | documents | ArrayList<[Document](#Document)>? |  yes  |  |
- | code | String |  no  |  |
- | gstCredentials | [InvoiceDetailsSerializer](#InvoiceDetailsSerializer)? |  yes  |  |
- | displayName | String |  no  |  |
- | verifiedOn | String? |  yes  |  |
- | productReturnConfig | [ProductReturnConfigSerializer](#ProductReturnConfigSerializer)? |  yes  |  |
- | phoneNumber | String |  no  |  |
-
----
-
-
- 
- 
- #### [LocationListSerializer](#LocationListSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[GetLocationSerializer](#GetLocationSerializer)>? |  yes  |  |
- | page | [Page](#Page)? |  yes  |  |
-
----
-
-
- 
- 
- #### [GetAddressSerializer1](#GetAddressSerializer1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | countryCode | String? |  yes  |  |
- | addressType | String? |  yes  |  |
- | pincode | Integer? |  yes  |  |
- | address1 | String? |  yes  |  |
- | city | String? |  yes  |  |
- | landmark | String? |  yes  |  |
- | country | String? |  yes  |  |
- | state | String? |  yes  |  |
- | longitude | Double? |  yes  |  |
- | address2 | String? |  yes  |  |
- | latitude | Double? |  yes  |  |
+ | email | String? |  yes  |  |
+ | mobileNo | [SellerPhoneNumber](#SellerPhoneNumber) |  no  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -1876,23 +1833,82 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
- | manager | [LocationManagerSerializer](#LocationManagerSerializer)? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | stage | String? |  yes  |  |
- | company | Integer |  no  |  |
- | address | [GetAddressSerializer1](#GetAddressSerializer1) |  no  |  |
- | documents | ArrayList<[Document](#Document)>? |  yes  |  |
- | code | String |  no  |  |
- | storeType | String? |  yes  |  |
- | warnings | HashMap<String,Object>? |  yes  |  |
- | gstCredentials | [InvoiceDetailsSerializer](#InvoiceDetailsSerializer)? |  yes  |  |
  | displayName | String |  no  |  |
+ | code | String |  no  |  |
+ | uid | Integer? |  yes  |  |
+ | warnings | HashMap<String,Object>? |  yes  |  |
+ | timing | ArrayList<[LocationDayWiseSerializer](#LocationDayWiseSerializer)>? |  yes  |  |
+ | address | [GetAddressSerializer1](#GetAddressSerializer1) |  no  |  |
+ | storeType | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | gstCredentials | [InvoiceDetailsSerializer](#InvoiceDetailsSerializer)? |  yes  |  |
+ | company | Integer |  no  |  |
  | name | String |  no  |  |
+ | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
+ | documents | ArrayList<[Document](#Document)>? |  yes  |  |
+ | stage | String? |  yes  |  |
  | notificationEmails | ArrayList<String>? |  yes  |  |
  | productReturnConfig | [ProductReturnConfigSerializer](#ProductReturnConfigSerializer)? |  yes  |  |
+ | manager | [LocationManagerSerializer](#LocationManagerSerializer)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LocationIntegrationType](#LocationIntegrationType)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | inventory | String? |  yes  |  |
+ | order | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GetLocationSerializer](#GetLocationSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | phoneNumber | String |  no  |  |
+ | integrationType | [LocationIntegrationType](#LocationIntegrationType)? |  yes  |  |
+ | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | notificationEmails | ArrayList<String>? |  yes  |  |
+ | productReturnConfig | [ProductReturnConfigSerializer](#ProductReturnConfigSerializer)? |  yes  |  |
+ | manager | [LocationManagerSerializer](#LocationManagerSerializer)? |  yes  |  |
+ | displayName | String |  no  |  |
+ | modifiedOn | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | code | String |  no  |  |
  | timing | ArrayList<[LocationDayWiseSerializer](#LocationDayWiseSerializer)>? |  yes  |  |
+ | gstCredentials | [InvoiceDetailsSerializer](#InvoiceDetailsSerializer)? |  yes  |  |
+ | modifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | warnings | HashMap<String,Object>? |  yes  |  |
+ | verifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | createdBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | address | [GetAddressSerializer](#GetAddressSerializer) |  no  |  |
+ | storeType | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | company | [GetCompanySerializer](#GetCompanySerializer)? |  yes  |  |
+ | name | String |  no  |  |
+ | verifiedOn | String? |  yes  |  |
+ | documents | ArrayList<[Document](#Document)>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LocationListSerializer](#LocationListSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[GetLocationSerializer](#GetLocationSerializer)>? |  yes  |  |
 
 ---
 
