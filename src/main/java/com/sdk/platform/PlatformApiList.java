@@ -5295,30 +5295,6 @@ interface InventoryApiList {
     @GET ("/service/platform/inventory/v1.0/company/{company_id}/jobs/code/integration/{integration_id}")
     Call<PlatformModels.ResponseEnvelopeListJobConfigListDTO> getJobCodesByCompanyAndIntegration(@Path("company_id")  String companyId , @Path("integration_id") String  integrationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/inventory/v1.0/company/{company_id}/email/jobCode")
-    Call<PlatformModels.ResponseEnvelopeObject> getJobCodesMetrics(@Path("company_id")  String companyId , @Query("daily_job") Boolean  dailyJob ,  @Query("job_code") String  jobCode );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/inventory/v1.0/company/{company_id}/email/jobCode")
-    Call<PlatformModels.ResponseEnvelopeEmailJobMetrics> saveJobCodesMetrics(@Path("company_id")  String companyId ,@Body PlatformModels.EmailJobMetrics payload);
-    
 }
 
 interface ConfigurationApiList {
