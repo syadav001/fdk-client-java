@@ -622,6 +622,9 @@ interface OrderApiList {
     @POST ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify")
     Call<ApplicationModels.ResponseVerifyOTPShipment> verifyOtpShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId ,@Body ApplicationModels.ReqBodyVerifyOTPShipment payload);
     
+    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}/invoice")
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Path("shipment_id") String shipmentId );
+    
 }
 
 interface RewardsApiList {
