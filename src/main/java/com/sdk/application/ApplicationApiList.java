@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -654,19 +654,19 @@ interface RewardsApiList {
 
 interface FeedbackApiList {
     
-    @POST ("/service/application/feedback/v1.0/abuse")
+    @POST ("/service/application/feedback/v1.0/abuse/")
     Call<ApplicationModels.InsertResponse> createAbuseReport(@Body ApplicationModels.ReportAbuseRequest payload);
     
-    @PUT ("/service/application/feedback/v1.0/abuse")
+    @PUT ("/service/application/feedback/v1.0/abuse/")
     Call<ApplicationModels.UpdateResponse> updateAbuseReport(@Body ApplicationModels.UpdateAbuseStatusRequest payload);
     
     @GET ("/service/application/feedback/v1.0/abuse/entity/{entity_type}/entity-id/{entity_id}")
     Call<ApplicationModels.ReportAbuseGetResponse> getAbuseReports(@Path("entity_id") String entityId , @Path("entity_type") String entityType , @Query("id") String id , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @GET ("/service/application/feedback/v1.0/attributes")
+    @GET ("/service/application/feedback/v1.0/attributes/")
     Call<ApplicationModels.AttributeResponse> getAttributes(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/feedback/v1.0/attributes")
+    @POST ("/service/application/feedback/v1.0/attributes/")
     Call<ApplicationModels.InsertResponse> createAttribute(@Body ApplicationModels.SaveAttributeRequest payload);
     
     @GET ("/service/application/feedback/v1.0/attributes/{slug}")
@@ -675,10 +675,10 @@ interface FeedbackApiList {
     @PUT ("/service/application/feedback/v1.0/attributes/{slug}")
     Call<ApplicationModels.UpdateResponse> updateAttribute(@Path("slug") String slug ,@Body ApplicationModels.UpdateAttributeRequest payload);
     
-    @POST ("/service/application/feedback/v1.0/comment")
+    @POST ("/service/application/feedback/v1.0/comment/")
     Call<ApplicationModels.InsertResponse> createComment(@Body ApplicationModels.CommentRequest payload);
     
-    @PUT ("/service/application/feedback/v1.0/comment")
+    @PUT ("/service/application/feedback/v1.0/comment/")
     Call<ApplicationModels.UpdateResponse> updateComment(@Body ApplicationModels.UpdateCommentRequest payload);
     
     @GET ("/service/application/feedback/v1.0/comment/entity/{entity_type}")
@@ -688,7 +688,7 @@ interface FeedbackApiList {
     Call<ApplicationModels.CheckEligibilityResponse> checkEligibility(@Path("entity_type") String entityType , @Path("entity_id") String entityId );
     
     @DELETE ("/service/application/feedback/v1.0/media/")
-    Call<ApplicationModels.UpdateResponse> deleteMedia();
+    Call<ApplicationModels.UpdateResponse> deleteMedia(@Query("ids") List<String> ids );
     
     @POST ("/service/application/feedback/v1.0/media/")
     Call<ApplicationModels.InsertResponse> createMedia(@Body ApplicationModels.AddMediaListRequest payload);

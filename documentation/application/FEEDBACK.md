@@ -634,11 +634,16 @@ Delete Media
 
 
 ```java
-feedback.deleteMedia() {
+feedback.deleteMedia( ids) {
   //use response
 }
 ```
 
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| ids | List<String> | yes | List of media ID |  
 
 
 
