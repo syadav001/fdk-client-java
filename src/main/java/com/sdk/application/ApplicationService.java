@@ -1493,7 +1493,7 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize , Integer promotionGroup ) throws IOException {
+    public ApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize , String promotionGroup ) throws IOException {
     
         Response<ApplicationModels.PromotionOffersResponse> response = cartApiList.getPromotionOffers(slug, pageSize, promotionGroup).execute();
         if(!response.isSuccessful()) {
@@ -2398,6 +2398,20 @@ public class ApplicationService {
     });
     return paginator ;
     }
+    
+    
+    public ApplicationModels.DataLoadersSchema getDataLoaders() throws IOException {
+    
+        Response<ApplicationModels.DataLoadersSchema> response = contentApiList.getDataLoaders().execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
     
     
     public ApplicationModels.FaqResponseSchema getFaqs() throws IOException {
