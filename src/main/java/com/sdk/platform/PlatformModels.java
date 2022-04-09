@@ -19508,6 +19508,18 @@ public static class PaymentGatewayConfigResponse {
     
     
     
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("excluded_fields")
+    private List<String> excludedFields;
+    
+    
+    
+    
     @JsonProperty("app_id")
     private String appId;
     
@@ -19526,20 +19538,8 @@ public static class PaymentGatewayConfigResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("aggregators")
     private List<Object> aggregators;
-    
-    
-    
-    
-    @JsonProperty("excluded_fields")
-    private List<String> excludedFields;
     
     
     
@@ -19566,14 +19566,14 @@ public static class ErrorCodeDescription {
     
     
     
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
     @JsonProperty("code")
     private String code;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -19594,20 +19594,20 @@ public static class PaymentGatewayConfig {
     
     
     
+    @JsonProperty("secret")
+    private String secret;
+    
+    
+    
+    
     @JsonProperty("key")
     private String key;
     
     
     
     
-    @JsonProperty("config_type")
-    private String configType;
-    
-    
-    
-    
-    @JsonProperty("secret")
-    private String secret;
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
@@ -19618,8 +19618,8 @@ public static class PaymentGatewayConfig {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("config_type")
+    private String configType;
     
     
     
@@ -19702,14 +19702,14 @@ public static class ErrorCodeAndDescription {
     
     
     
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
     @JsonProperty("code")
     private String code;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -19745,6 +19745,34 @@ public static class HttpErrorCodeAndResponse {
 }
 
 /*
+    Model: IntentAppErrorList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class IntentAppErrorList {
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("package_name")
+    private String packageName;
+    
+    
+    
+    
+}
+
+/*
     Model: PaymentModeLogo
 */
 @AllArgsConstructor
@@ -19758,14 +19786,14 @@ public static class PaymentModeLogo {
     
     
     
-    @JsonProperty("large")
-    private String large;
-    
-    
-    
-    
     @JsonProperty("small")
     private String small;
+    
+    
+    
+    
+    @JsonProperty("large")
+    private String large;
     
     
     
@@ -19786,18 +19814,6 @@ public static class IntentApp {
     
     
     
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("package_name")
-    private String packageName;
-    
-    
-    
-    
     @JsonProperty("code")
     private String code;
     
@@ -19810,30 +19826,14 @@ public static class IntentApp {
     
     
     
-}
-
-/*
-    Model: IntentAppErrorList
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.ALWAYS)
-public static class IntentAppErrorList {
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
     
     @JsonProperty("package_name")
     private String packageName;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
     
     
     
@@ -19854,56 +19854,8 @@ public static class PaymentModeList {
     
     
     
-    @JsonProperty("card_isin")
-    private String cardIsin;
-    
-    
-    
-    
-    @JsonProperty("retry_count")
-    private Integer retryCount;
-    
-    
-    
-    
-    @JsonProperty("exp_year")
-    private Integer expYear;
-    
-    
-    
-    
-    @JsonProperty("card_brand")
-    private String cardBrand;
-    
-    
-    
-    
-    @JsonProperty("fynd_vpa")
-    private String fyndVpa;
-    
-    
-    
-    
-    @JsonProperty("nickname")
-    private String nickname;
-    
-    
-    
-    
-    @JsonProperty("card_issuer")
-    private String cardIssuer;
-    
-    
-    
-    
-    @JsonProperty("card_type")
-    private String cardType;
-    
-    
-    
-    
-    @JsonProperty("timeout")
-    private Integer timeout;
+    @JsonProperty("intent_flow")
+    private Boolean intentFlow;
     
     
     
@@ -19914,68 +19866,8 @@ public static class PaymentModeList {
     
     
     
-    @JsonProperty("card_reference")
-    private String cardReference;
-    
-    
-    
-    
-    @JsonProperty("card_id")
-    private String cardId;
-    
-    
-    
-    
-    @JsonProperty("display_priority")
-    private Integer displayPriority;
-    
-    
-    
-    
-    @JsonProperty("logo_url")
-    private PaymentModeLogo logoUrl;
-    
-    
-    
-    
-    @JsonProperty("card_token")
-    private String cardToken;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("merchant_code")
-    private String merchantCode;
-    
-    
-    
-    
-    @JsonProperty("expired")
-    private Boolean expired;
-    
-    
-    
-    
-    @JsonProperty("intent_app")
-    private List<IntentApp> intentApp;
-    
-    
-    
-    
-    @JsonProperty("card_fingerprint")
-    private String cardFingerprint;
-    
-    
-    
-    
-    @JsonProperty("card_name")
-    private String cardName;
+    @JsonProperty("card_isin")
+    private String cardIsin;
     
     
     
@@ -19986,26 +19878,8 @@ public static class PaymentModeList {
     
     
     
-    @JsonProperty("card_brand_image")
-    private String cardBrandImage;
-    
-    
-    
-    
-    @JsonProperty("card_number")
-    private String cardNumber;
-    
-    
-    
-    
-    @JsonProperty("exp_month")
-    private Integer expMonth;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("fynd_vpa")
+    private String fyndVpa;
     
     
     
@@ -20016,14 +19890,140 @@ public static class PaymentModeList {
     
     
     
-    @JsonProperty("intent_flow")
-    private Boolean intentFlow;
+    @JsonProperty("nickname")
+    private String nickname;
+    
+    
+    
+    
+    @JsonProperty("intent_app")
+    private List<IntentApp> intentApp;
+    
+    
+    
+    
+    @JsonProperty("card_number")
+    private String cardNumber;
+    
+    
+    
+    
+    @JsonProperty("merchant_code")
+    private String merchantCode;
+    
+    
+    
+    
+    @JsonProperty("card_fingerprint")
+    private String cardFingerprint;
+    
+    
+    
+    
+    @JsonProperty("card_brand_image")
+    private String cardBrandImage;
+    
+    
+    
+    
+    @JsonProperty("display_priority")
+    private Integer displayPriority;
+    
+    
+    
+    
+    @JsonProperty("card_issuer")
+    private String cardIssuer;
+    
+    
+    
+    
+    @JsonProperty("expired")
+    private Boolean expired;
+    
+    
+    
+    
+    @JsonProperty("card_token")
+    private String cardToken;
+    
+    
+    
+    
+    @JsonProperty("card_name")
+    private String cardName;
+    
+    
+    
+    
+    @JsonProperty("retry_count")
+    private Integer retryCount;
+    
+    
+    
+    
+    @JsonProperty("card_reference")
+    private String cardReference;
+    
+    
+    
+    
+    @JsonProperty("exp_year")
+    private Integer expYear;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
     
     
     
     
     @JsonProperty("intent_app_error_list")
     private List<String> intentAppErrorList;
+    
+    
+    
+    
+    @JsonProperty("timeout")
+    private Integer timeout;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("card_id")
+    private String cardId;
+    
+    
+    
+    
+    @JsonProperty("card_type")
+    private String cardType;
+    
+    
+    
+    
+    @JsonProperty("card_brand")
+    private String cardBrand;
+    
+    
+    
+    
+    @JsonProperty("logo_url")
+    private PaymentModeLogo logoUrl;
+    
+    
+    
+    
+    @JsonProperty("exp_month")
+    private Integer expMonth;
     
     
     
@@ -20044,24 +20044,6 @@ public static class RootPaymentMode {
     
     
     
-    @JsonProperty("logo_url")
-    private PaymentModeLogo logoUrl;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
     @JsonProperty("aggregator_name")
     private String aggregatorName;
     
@@ -20070,6 +20052,12 @@ public static class RootPaymentMode {
     
     @JsonProperty("list")
     private List<PaymentModeList> list;
+    
+    
+    
+    
+    @JsonProperty("logo_url")
+    private PaymentModeLogo logoUrl;
     
     
     
@@ -20094,6 +20082,18 @@ public static class RootPaymentMode {
     
     @JsonProperty("anonymous_enable")
     private Boolean anonymousEnable;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
@@ -20164,26 +20164,14 @@ public static class PayoutsResponse {
     
     
     
-    @JsonProperty("more_attributes")
-    private Object moreAttributes;
+    @JsonProperty("customers")
+    private Object customers;
     
     
     
     
     @JsonProperty("payouts_aggregators")
     private List<Object> payoutsAggregators;
-    
-    
-    
-    
-    @JsonProperty("transfer_type")
-    private String transferType;
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
     
     
     
@@ -20200,8 +20188,20 @@ public static class PayoutsResponse {
     
     
     
-    @JsonProperty("customers")
-    private Object customers;
+    @JsonProperty("transfer_type")
+    private String transferType;
+    
+    
+    
+    
+    @JsonProperty("more_attributes")
+    private Object moreAttributes;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
     
     
     
@@ -20222,38 +20222,8 @@ public static class PayoutBankDetails {
     
     
     
-    @JsonProperty("pincode")
-    private Integer pincode;
-    
-    
-    
-    
-    @JsonProperty("account_type")
-    private String accountType;
-    
-    
-    
-    
-    @JsonProperty("account_no")
-    private String accountNo;
-    
-    
-    
-    
-    @JsonProperty("account_holder")
-    private String accountHolder;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
+    @JsonProperty("ifsc_code")
+    private String ifscCode;
     
     
     
@@ -20264,20 +20234,50 @@ public static class PayoutBankDetails {
     
     
     
+    @JsonProperty("account_no")
+    private String accountNo;
+    
+    
+    
+    
     @JsonProperty("branch_name")
     private String branchName;
     
     
     
     
-    @JsonProperty("ifsc_code")
-    private String ifscCode;
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
     
     
     
     
     @JsonProperty("bank_name")
     private String bankName;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private Integer pincode;
+    
+    
+    
+    
+    @JsonProperty("account_holder")
+    private String accountHolder;
+    
+    
+    
+    
+    @JsonProperty("account_type")
+    private String accountType;
     
     
     
@@ -20304,14 +20304,8 @@ public static class PayoutRequest {
     
     
     
-    @JsonProperty("transfer_type")
-    private String transferType;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("bank_details")
+    private PayoutBankDetails bankDetails;
     
     
     
@@ -20322,8 +20316,14 @@ public static class PayoutRequest {
     
     
     
-    @JsonProperty("bank_details")
-    private PayoutBankDetails bankDetails;
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("transfer_type")
+    private String transferType;
     
     
     
@@ -20350,26 +20350,8 @@ public static class PayoutResponse {
     
     
     
-    @JsonProperty("users")
-    private Object users;
-    
-    
-    
-    
-    @JsonProperty("aggregator")
-    private String aggregator;
-    
-    
-    
-    
-    @JsonProperty("transfer_type")
-    private String transferType;
-    
-    
-    
-    
-    @JsonProperty("unique_transfer_no")
-    private String uniqueTransferNo;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -20380,14 +20362,14 @@ public static class PayoutResponse {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("aggregator")
+    private String aggregator;
     
     
     
     
-    @JsonProperty("payment_status")
-    private String paymentStatus;
+    @JsonProperty("bank_details")
+    private Object bankDetails;
     
     
     
@@ -20398,14 +20380,32 @@ public static class PayoutResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("payment_status")
+    private String paymentStatus;
     
     
     
     
-    @JsonProperty("bank_details")
-    private Object bankDetails;
+    @JsonProperty("unique_transfer_no")
+    private String uniqueTransferNo;
+    
+    
+    
+    
+    @JsonProperty("users")
+    private Object users;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("transfer_type")
+    private String transferType;
     
     
     
@@ -20460,6 +20460,12 @@ public static class UpdatePayoutRequest {
     
     
     
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
+    
     @JsonProperty("unique_external_id")
     private String uniqueExternalId;
     
@@ -20468,12 +20474,6 @@ public static class UpdatePayoutRequest {
     
     @JsonProperty("is_active")
     private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
     
     
     
@@ -20650,14 +20650,14 @@ public static class BeneficiaryModeDetails {
     
     
     
-    @JsonProperty("email")
-    private String email;
+    @JsonProperty("ifsc_code")
+    private String ifscCode;
     
     
     
     
-    @JsonProperty("address")
-    private String address;
+    @JsonProperty("vpa")
+    private String vpa;
     
     
     
@@ -20668,20 +20668,14 @@ public static class BeneficiaryModeDetails {
     
     
     
-    @JsonProperty("wallet")
-    private String wallet;
-    
-    
-    
-    
-    @JsonProperty("account_holder")
-    private String accountHolder;
-    
-    
-    
-    
     @JsonProperty("comment")
     private String comment;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
     
     
     
@@ -20698,20 +20692,26 @@ public static class BeneficiaryModeDetails {
     
     
     
+    @JsonProperty("wallet")
+    private String wallet;
+    
+    
+    
+    
     @JsonProperty("bank_name")
     private String bankName;
     
     
     
     
-    @JsonProperty("vpa")
-    private String vpa;
+    @JsonProperty("address")
+    private String address;
     
     
     
     
-    @JsonProperty("ifsc_code")
-    private String ifscCode;
+    @JsonProperty("account_holder")
+    private String accountHolder;
     
     
     
@@ -20732,8 +20732,8 @@ public static class AddBeneficiaryDetailsRequest {
     
     
     
-    @JsonProperty("otp")
-    private String otp;
+    @JsonProperty("shipment_id")
+    private String shipmentId;
     
     
     
@@ -20744,8 +20744,8 @@ public static class AddBeneficiaryDetailsRequest {
     
     
     
-    @JsonProperty("details")
-    private BeneficiaryModeDetails details;
+    @JsonProperty("delights")
+    private Boolean delights;
     
     
     
@@ -20756,20 +20756,20 @@ public static class AddBeneficiaryDetailsRequest {
     
     
     
+    @JsonProperty("otp")
+    private String otp;
+    
+    
+    
+    
     @JsonProperty("request_id")
     private String requestId;
     
     
     
     
-    @JsonProperty("delights")
-    private Boolean delights;
-    
-    
-    
-    
-    @JsonProperty("shipment_id")
-    private String shipmentId;
+    @JsonProperty("details")
+    private BeneficiaryModeDetails details;
     
     
     
@@ -20802,14 +20802,14 @@ public static class RefundAccountResponse {
     
     
     
-    @JsonProperty("data")
-    private Object data;
-    
-    
-    
-    
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
     
     
     
@@ -20836,14 +20836,14 @@ public static class NotFoundResourceError {
     
     
     
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
     @JsonProperty("code")
     private String code;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -20898,86 +20898,8 @@ public static class OrderBeneficiaryDetails {
     
     
     
-    @JsonProperty("address")
-    private String address;
-    
-    
-    
-    
-    @JsonProperty("account_holder")
-    private String accountHolder;
-    
-    
-    
-    
-    @JsonProperty("comment")
-    private Boolean comment;
-    
-    
-    
-    
-    @JsonProperty("mobile")
-    private Boolean mobile;
-    
-    
-    
-    
-    @JsonProperty("bank_name")
-    private String bankName;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
     @JsonProperty("account_no")
     private String accountNo;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("beneficiary_id")
-    private String beneficiaryId;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("branch_name")
-    private Boolean branchName;
-    
-    
-    
-    
-    @JsonProperty("ifsc_code")
-    private String ifscCode;
     
     
     
@@ -20988,14 +20910,32 @@ public static class OrderBeneficiaryDetails {
     
     
     
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("comment")
+    private Boolean comment;
+    
+    
+    
+    
     @JsonProperty("id")
     private Integer id;
-    
-    
-    
-    
-    @JsonProperty("transfer_mode")
-    private String transferMode;
     
     
     
@@ -21008,6 +20948,66 @@ public static class OrderBeneficiaryDetails {
     
     @JsonProperty("subtitle")
     private String subtitle;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("branch_name")
+    private Boolean branchName;
+    
+    
+    
+    
+    @JsonProperty("bank_name")
+    private String bankName;
+    
+    
+    
+    
+    @JsonProperty("account_holder")
+    private String accountHolder;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private Boolean mobile;
+    
+    
+    
+    
+    @JsonProperty("transfer_mode")
+    private String transferMode;
+    
+    
+    
+    
+    @JsonProperty("ifsc_code")
+    private String ifscCode;
+    
+    
+    
+    
+    @JsonProperty("beneficiary_id")
+    private String beneficiaryId;
     
     
     
@@ -21056,14 +21056,14 @@ public static class PaymentConfirmationMode {
     
     
     
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("amount")
-    private Double amount;
     
     
     
@@ -21074,8 +21074,8 @@ public static class PaymentConfirmationMode {
     
     
     
-    @JsonProperty("meta")
-    private Object meta;
+    @JsonProperty("amount")
+    private Double amount;
     
     
     
@@ -21096,14 +21096,14 @@ public static class PaymentConfirmationRequest {
     
     
     
-    @JsonProperty("order_id")
-    private String orderId;
-    
-    
-    
-    
     @JsonProperty("payment_methods")
     private List<PaymentConfirmationMode> paymentMethods;
+    
+    
+    
+    
+    @JsonProperty("order_id")
+    private String orderId;
     
     
     
@@ -58410,40 +58410,6 @@ public static class EventConfigBase {
 
 
 /*
-    Model: ApplicationServiceabilityConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.ALWAYS)
-public static class ApplicationServiceabilityConfig {
-    
-    
-    
-    
-    @JsonProperty("channel_id")
-    private String channelId;
-    
-    
-    
-    
-    @JsonProperty("serviceability_type")
-    private String serviceabilityType;
-    
-    
-    
-    
-    @JsonProperty("channel_type")
-    private String channelType;
-    
-    
-    
-    
-}
-
-/*
     Model: ServiceabilityrErrorResponse
 */
 @AllArgsConstructor
@@ -58457,8 +58423,8 @@ public static class ServiceabilityrErrorResponse {
     
     
     
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("value")
+    private String value;
     
     
     
@@ -58469,8 +58435,42 @@ public static class ServiceabilityrErrorResponse {
     
     
     
-    @JsonProperty("value")
-    private String value;
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+}
+
+/*
+    Model: ApplicationServiceabilityConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ApplicationServiceabilityConfig {
+    
+    
+    
+    
+    @JsonProperty("channel_type")
+    private String channelType;
+    
+    
+    
+    
+    @JsonProperty("serviceability_type")
+    private String serviceabilityType;
+    
+    
+    
+    
+    @JsonProperty("channel_id")
+    private String channelId;
     
     
     
@@ -58491,8 +58491,8 @@ public static class ApplicationServiceabilityConfigResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("error")
+    private ServiceabilityrErrorResponse error;
     
     
     
@@ -58503,8 +58503,8 @@ public static class ApplicationServiceabilityConfigResponse {
     
     
     
-    @JsonProperty("error")
-    private ServiceabilityrErrorResponse error;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -58525,14 +58525,48 @@ public static class EntityRegionView_Request {
     
     
     
+    @JsonProperty("parent_id")
+    private List<String> parentId;
+    
+    
+    
+    
     @JsonProperty("sub_type")
     private List<String> subType;
     
     
     
     
-    @JsonProperty("parent_id")
-    private List<String> parentId;
+}
+
+/*
+    Model: EntityRegionView_Error
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class EntityRegionView_Error {
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -58559,14 +58593,14 @@ public static class EntityRegionView_Items {
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
     @JsonProperty("uid")
     private String uid;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -58587,26 +58621,8 @@ public static class EntityRegionView_page {
     
     
     
-    @JsonProperty("item_total")
-    private Integer itemTotal;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
     @JsonProperty("type")
     private String type;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
     
     
     
@@ -58617,36 +58633,20 @@ public static class EntityRegionView_page {
     
     
     
-}
-
-/*
-    Model: EntityRegionView_Error
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.ALWAYS)
-public static class EntityRegionView_Error {
+    @JsonProperty("size")
+    private Integer size;
     
     
     
     
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("item_total")
+    private Integer itemTotal;
     
     
     
     
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
+    @JsonProperty("current")
+    private Integer current;
     
     
     
@@ -58667,8 +58667,8 @@ public static class EntityRegionView_Response {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("error")
+    private EntityRegionView_Error error;
     
     
     
@@ -58685,36 +58685,8 @@ public static class EntityRegionView_Response {
     
     
     
-    @JsonProperty("error")
-    private EntityRegionView_Error error;
-    
-    
-    
-    
-}
-
-/*
-    Model: ListViewProduct
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.ALWAYS)
-public static class ListViewProduct {
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("count")
-    private Integer count;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -58735,14 +58707,42 @@ public static class ListViewChannels {
     
     
     
+    @JsonProperty("channel_type")
+    private String channelType;
+    
+    
+    
+    
     @JsonProperty("channel_id")
     private String channelId;
     
     
     
     
-    @JsonProperty("channel_type")
-    private String channelType;
+}
+
+/*
+    Model: ListViewProduct
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ListViewProduct {
+    
+    
+    
+    
+    @JsonProperty("count")
+    private Integer count;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -58763,26 +58763,14 @@ public static class ListViewItems {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("zone_id")
+    private String zoneId;
     
     
     
     
-    @JsonProperty("product")
-    private ListViewProduct product;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
+    @JsonProperty("stores_count")
+    private Integer storesCount;
     
     
     
@@ -58799,20 +58787,32 @@ public static class ListViewItems {
     
     
     
-    @JsonProperty("zone_id")
-    private String zoneId;
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("product")
+    private ListViewProduct product;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
     
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("stores_count")
-    private Integer storesCount;
     
     
     
@@ -58833,20 +58833,8 @@ public static class ZoneDataItem {
     
     
     
-    @JsonProperty("item_total")
-    private Integer itemTotal;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("has_next")
+    private Boolean hasNext;
     
     
     
@@ -58857,8 +58845,20 @@ public static class ZoneDataItem {
     
     
     
-    @JsonProperty("has_next")
-    private Boolean hasNext;
+    @JsonProperty("item_total")
+    private Integer itemTotal;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("current")
+    private Integer current;
     
     
     
@@ -58879,14 +58879,14 @@ public static class ListViewSummary {
     
     
     
-    @JsonProperty("total_active_zones")
-    private Integer totalActiveZones;
-    
-    
-    
-    
     @JsonProperty("total_pincodes_served")
     private Integer totalPincodesServed;
+    
+    
+    
+    
+    @JsonProperty("total_active_zones")
+    private Integer totalActiveZones;
     
     
     
@@ -58947,20 +58947,14 @@ public static class CompanyStoreView_PageItems {
     
     
     
-    @JsonProperty("item_total")
-    private Integer itemTotal;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
     @JsonProperty("type")
     private String type;
+    
+    
+    
+    
+    @JsonProperty("has_next")
+    private Boolean hasNext;
     
     
     
@@ -58971,8 +58965,14 @@ public static class CompanyStoreView_PageItems {
     
     
     
-    @JsonProperty("has_next")
-    private Boolean hasNext;
+    @JsonProperty("item_total")
+    private Integer itemTotal;
+    
+    
+    
+    
+    @JsonProperty("current")
+    private Integer current;
     
     
     
@@ -59008,7 +59008,7 @@ public static class CompanyStoreView_Response {
 }
 
 /*
-    Model: ZoneProductTypes
+    Model: ZoneMappingType
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -59016,19 +59016,25 @@ public static class CompanyStoreView_Response {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.ALWAYS)
-public static class ZoneProductTypes {
+public static class ZoneMappingType {
     
     
     
     
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("country")
+    private String country;
     
     
     
     
-    @JsonProperty("tags")
-    private List<String> tags;
+    @JsonProperty("pincode")
+    private List<String> pincode;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private List<String> state;
     
     
     
@@ -59049,14 +59055,14 @@ public static class GetZoneDataViewChannels {
     
     
     
-    @JsonProperty("channel_id")
-    private String channelId;
-    
-    
-    
-    
     @JsonProperty("channel_type")
     private String channelType;
+    
+    
+    
+    
+    @JsonProperty("channel_id")
+    private String channelId;
     
     
     
@@ -59064,7 +59070,7 @@ public static class GetZoneDataViewChannels {
 }
 
 /*
-    Model: ZoneMappingType
+    Model: ZoneProductTypes
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -59072,25 +59078,19 @@ public static class GetZoneDataViewChannels {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.ALWAYS)
-public static class ZoneMappingType {
+public static class ZoneProductTypes {
     
     
     
     
-    @JsonProperty("pincode")
-    private List<String> pincode;
+    @JsonProperty("tags")
+    private List<String> tags;
     
     
     
     
-    @JsonProperty("state")
-    private List<String> state;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -59111,38 +59111,14 @@ public static class UpdateZoneData {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("zone_id")
+    private String zoneId;
     
     
     
     
-    @JsonProperty("product")
-    private ZoneProductTypes product;
-    
-    
-    
-    
-    @JsonProperty("store_ids")
-    private List<Integer> storeIds;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("region_type")
-    private String regionType;
+    @JsonProperty("mapping")
+    private List<ZoneMappingType> mapping;
     
     
     
@@ -59153,20 +59129,44 @@ public static class UpdateZoneData {
     
     
     
-    @JsonProperty("zone_id")
-    private String zoneId;
+    @JsonProperty("region_type")
+    private String regionType;
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("product")
+    private ZoneProductTypes product;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
     
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("mapping")
-    private List<ZoneMappingType> mapping;
     
     
     
@@ -59187,14 +59187,14 @@ public static class ZoneUpdateRequest {
     
     
     
-    @JsonProperty("data")
-    private UpdateZoneData data;
-    
-    
-    
-    
     @JsonProperty("identifier")
     private String identifier;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private UpdateZoneData data;
     
     
     
@@ -59215,14 +59215,14 @@ public static class ZoneSuccessResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("status_code")
     private Integer statusCode;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -59243,54 +59243,6 @@ public static class GetZoneDataViewItems {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private ZoneProductTypes product;
-    
-    
-    
-    
-    @JsonProperty("store_ids")
-    private List<Integer> storeIds;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("region_type")
-    private String regionType;
-    
-    
-    
-    
-    @JsonProperty("channels")
-    private List<GetZoneDataViewChannels> channels;
-    
-    
-    
-    
-    @JsonProperty("pincodes_count")
-    private Integer pincodesCount;
-    
-    
-    
-    
     @JsonProperty("zone_id")
     private String zoneId;
     
@@ -59303,14 +59255,62 @@ public static class GetZoneDataViewItems {
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
     @JsonProperty("mapping")
     private List<ZoneMappingType> mapping;
+    
+    
+    
+    
+    @JsonProperty("channels")
+    private List<GetZoneDataViewChannels> channels;
+    
+    
+    
+    
+    @JsonProperty("region_type")
+    private String regionType;
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
+    
+    
+    
+    
+    @JsonProperty("pincodes_count")
+    private Integer pincodesCount;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("product")
+    private ZoneProductTypes product;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -59353,32 +59353,8 @@ public static class CreateZoneData {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private ZoneProductTypes product;
-    
-    
-    
-    
-    @JsonProperty("store_ids")
-    private List<Integer> storeIds;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
+    @JsonProperty("mapping")
+    private List<ZoneMappingType> mapping;
     
     
     
@@ -59389,20 +59365,44 @@ public static class CreateZoneData {
     
     
     
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("product")
+    private ZoneProductTypes product;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
     @JsonProperty("channels")
     private List<GetZoneDataViewChannels> channels;
     
     
     
     
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("mapping")
-    private List<ZoneMappingType> mapping;
     
     
     
@@ -59423,14 +59423,14 @@ public static class ZoneRequest {
     
     
     
-    @JsonProperty("data")
-    private CreateZoneData data;
-    
-    
-    
-    
     @JsonProperty("identifier")
     private String identifier;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private CreateZoneData data;
     
     
     
@@ -59451,8 +59451,8 @@ public static class ZoneResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("status_code")
+    private Integer statusCode;
     
     
     
@@ -59463,8 +59463,8 @@ public static class ZoneResponse {
     
     
     
-    @JsonProperty("status_code")
-    private Integer statusCode;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     

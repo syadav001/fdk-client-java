@@ -470,26 +470,26 @@ Response status_code
 
  
  
- #### [ApplicationServiceabilityConfig](#ApplicationServiceabilityConfig)
+ #### [ServiceabilityrErrorResponse](#ServiceabilityrErrorResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | channelId | String |  no  |  |
- | serviceabilityType | String |  no  |  |
- | channelType | String |  no  |  |
+ | value | String |  no  |  |
+ | message | String |  no  |  |
+ | type | String |  no  |  |
 
 ---
 
 
  
  
- #### [ServiceabilityrErrorResponse](#ServiceabilityrErrorResponse)
+ #### [ApplicationServiceabilityConfig](#ApplicationServiceabilityConfig)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String |  no  |  |
- | message | String |  no  |  |
- | value | String |  no  |  |
+ | channelType | String |  no  |  |
+ | serviceabilityType | String |  no  |  |
+ | channelId | String |  no  |  |
 
 ---
 
@@ -500,9 +500,9 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  |  |
- | data | [ApplicationServiceabilityConfig](#ApplicationServiceabilityConfig)? |  yes  |  |
  | error | [ServiceabilityrErrorResponse](#ServiceabilityrErrorResponse)? |  yes  |  |
+ | data | [ApplicationServiceabilityConfig](#ApplicationServiceabilityConfig)? |  yes  |  |
+ | success | Boolean |  no  |  |
 
 ---
 
@@ -513,8 +513,21 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | subType | ArrayList<String> |  no  |  |
  | parentId | ArrayList<String>? |  yes  |  |
+ | subType | ArrayList<String> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [EntityRegionView_Error](#EntityRegionView_Error)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | value | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | type | String? |  yes  |  |
 
 ---
 
@@ -526,8 +539,8 @@ Response status_code
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | subType | String |  no  |  |
- | name | String |  no  |  |
  | uid | String |  no  |  |
+ | name | String |  no  |  |
 
 ---
 
@@ -538,24 +551,11 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | type | String |  no  |  |
+ | hasNext | Boolean |  no  |  |
+ | size | Integer |  no  |  |
  | itemTotal | Integer |  no  |  |
  | current | Integer |  no  |  |
- | type | String |  no  |  |
- | size | Integer |  no  |  |
- | hasNext | Boolean |  no  |  |
-
----
-
-
- 
- 
- #### [EntityRegionView_Error](#EntityRegionView_Error)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
- | message | String? |  yes  |  |
- | value | String? |  yes  |  |
 
 ---
 
@@ -566,22 +566,10 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  |  |
+ | error | [EntityRegionView_Error](#EntityRegionView_Error) |  no  |  |
  | data | ArrayList<[EntityRegionView_Items](#EntityRegionView_Items)> |  no  |  |
  | page | [EntityRegionView_page](#EntityRegionView_page) |  no  |  |
- | error | [EntityRegionView_Error](#EntityRegionView_Error) |  no  |  |
-
----
-
-
- 
- 
- #### [ListViewProduct](#ListViewProduct)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String |  no  |  |
- | count | Integer |  no  |  |
+ | success | Boolean |  no  |  |
 
 ---
 
@@ -592,8 +580,20 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | channelId | String |  no  |  |
  | channelType | String |  no  |  |
+ | channelId | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ListViewProduct](#ListViewProduct)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | count | Integer |  no  |  |
+ | type | String |  no  |  |
 
 ---
 
@@ -604,15 +604,15 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isActive | Boolean |  no  |  |
- | product | [ListViewProduct](#ListViewProduct) |  no  |  |
- | companyId | Integer |  no  |  |
- | slug | String |  no  |  |
+ | zoneId | String |  no  |  |
+ | storesCount | Integer |  no  |  |
  | channels | [ListViewChannels](#ListViewChannels) |  no  |  |
  | pincodesCount | Integer |  no  |  |
- | zoneId | String |  no  |  |
+ | slug | String |  no  |  |
+ | product | [ListViewProduct](#ListViewProduct) |  no  |  |
+ | companyId | Integer |  no  |  |
+ | isActive | Boolean |  no  |  |
  | name | String |  no  |  |
- | storesCount | Integer |  no  |  |
 
 ---
 
@@ -623,11 +623,11 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemTotal | Integer |  no  |  |
- | current | Integer |  no  |  |
- | type | String |  no  |  |
- | size | Integer |  no  |  |
  | hasNext | Boolean |  no  |  |
+ | size | Integer |  no  |  |
+ | itemTotal | Integer |  no  |  |
+ | type | String |  no  |  |
+ | current | Integer |  no  |  |
 
 ---
 
@@ -638,8 +638,8 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | totalActiveZones | Integer |  no  |  |
  | totalPincodesServed | Integer |  no  |  |
+ | totalActiveZones | Integer |  no  |  |
  | totalZones | Integer |  no  |  |
 
 ---
@@ -664,11 +664,11 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | type | String |  no  |  |
+ | hasNext | Boolean |  no  |  |
+ | size | Integer |  no  |  |
  | itemTotal | Integer |  no  |  |
  | current | Integer |  no  |  |
- | type | String |  no  |  |
- | size | Integer |  no  |  |
- | hasNext | Boolean |  no  |  |
 
 ---
 
@@ -687,12 +687,13 @@ Response status_code
 
  
  
- #### [ZoneProductTypes](#ZoneProductTypes)
+ #### [ZoneMappingType](#ZoneMappingType)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String |  no  |  |
- | tags | ArrayList<String> |  no  |  |
+ | country | String |  no  |  |
+ | pincode | ArrayList<String>? |  yes  |  |
+ | state | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -703,21 +704,20 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | channelId | String |  no  |  |
  | channelType | String |  no  |  |
+ | channelId | String |  no  |  |
 
 ---
 
 
  
  
- #### [ZoneMappingType](#ZoneMappingType)
+ #### [ZoneProductTypes](#ZoneProductTypes)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pincode | ArrayList<String>? |  yes  |  |
- | state | ArrayList<String>? |  yes  |  |
- | country | String |  no  |  |
+ | tags | ArrayList<String> |  no  |  |
+ | type | String |  no  |  |
 
 ---
 
@@ -728,16 +728,16 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isActive | Boolean |  no  |  |
- | product | [ZoneProductTypes](#ZoneProductTypes) |  no  |  |
- | storeIds | ArrayList<Integer> |  no  |  |
- | companyId | Integer |  no  |  |
- | slug | String |  no  |  |
- | regionType | String |  no  |  |
- | channels | ArrayList<[GetZoneDataViewChannels](#GetZoneDataViewChannels)> |  no  |  |
  | zoneId | String |  no  |  |
- | name | String |  no  |  |
  | mapping | ArrayList<[ZoneMappingType](#ZoneMappingType)> |  no  |  |
+ | channels | ArrayList<[GetZoneDataViewChannels](#GetZoneDataViewChannels)> |  no  |  |
+ | regionType | String |  no  |  |
+ | storeIds | ArrayList<Integer> |  no  |  |
+ | slug | String |  no  |  |
+ | product | [ZoneProductTypes](#ZoneProductTypes) |  no  |  |
+ | companyId | Integer |  no  |  |
+ | isActive | Boolean |  no  |  |
+ | name | String |  no  |  |
 
 ---
 
@@ -748,8 +748,8 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [UpdateZoneData](#UpdateZoneData) |  no  |  |
  | identifier | String |  no  |  |
+ | data | [UpdateZoneData](#UpdateZoneData) |  no  |  |
 
 ---
 
@@ -760,8 +760,8 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  |  |
  | statusCode | Integer |  no  |  |
+ | success | Boolean |  no  |  |
 
 ---
 
@@ -772,18 +772,18 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isActive | Boolean |  no  |  |
- | product | [ZoneProductTypes](#ZoneProductTypes) |  no  |  |
- | storeIds | ArrayList<Integer> |  no  |  |
- | companyId | Integer |  no  |  |
- | slug | String |  no  |  |
- | regionType | String |  no  |  |
- | channels | ArrayList<[GetZoneDataViewChannels](#GetZoneDataViewChannels)> |  no  |  |
- | pincodesCount | Integer |  no  |  |
  | zoneId | String |  no  |  |
  | storesCount | Integer |  no  |  |
- | name | String |  no  |  |
  | mapping | ArrayList<[ZoneMappingType](#ZoneMappingType)> |  no  |  |
+ | channels | ArrayList<[GetZoneDataViewChannels](#GetZoneDataViewChannels)> |  no  |  |
+ | regionType | String |  no  |  |
+ | storeIds | ArrayList<Integer> |  no  |  |
+ | pincodesCount | Integer |  no  |  |
+ | slug | String |  no  |  |
+ | product | [ZoneProductTypes](#ZoneProductTypes) |  no  |  |
+ | companyId | Integer |  no  |  |
+ | isActive | Boolean |  no  |  |
+ | name | String |  no  |  |
 
 ---
 
@@ -805,15 +805,15 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isActive | Boolean |  no  |  |
- | product | [ZoneProductTypes](#ZoneProductTypes) |  no  |  |
- | storeIds | ArrayList<Integer> |  no  |  |
- | companyId | Integer |  no  |  |
- | slug | String |  no  |  |
- | regionType | String |  no  |  |
- | channels | ArrayList<[GetZoneDataViewChannels](#GetZoneDataViewChannels)> |  no  |  |
- | name | String |  no  |  |
  | mapping | ArrayList<[ZoneMappingType](#ZoneMappingType)> |  no  |  |
+ | regionType | String |  no  |  |
+ | storeIds | ArrayList<Integer> |  no  |  |
+ | slug | String |  no  |  |
+ | product | [ZoneProductTypes](#ZoneProductTypes) |  no  |  |
+ | companyId | Integer |  no  |  |
+ | channels | ArrayList<[GetZoneDataViewChannels](#GetZoneDataViewChannels)> |  no  |  |
+ | isActive | Boolean |  no  |  |
+ | name | String |  no  |  |
 
 ---
 
@@ -824,8 +824,8 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [CreateZoneData](#CreateZoneData) |  no  |  |
  | identifier | String |  no  |  |
+ | data | [CreateZoneData](#CreateZoneData) |  no  |  |
 
 ---
 
@@ -836,9 +836,9 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  |  |
- | zoneId | String |  no  |  |
  | statusCode | Integer |  no  |  |
+ | zoneId | String |  no  |  |
+ | success | Boolean |  no  |  |
 
 ---
 
