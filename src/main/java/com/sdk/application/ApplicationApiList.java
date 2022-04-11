@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -494,6 +494,9 @@ interface ConfigurationApiList {
     @DELETE ("/service/application/configuration/v1.0/ordering-store/select")
     Call<ApplicationModels.SuccessMessageResponse> removeOrderingStoreCookie();
     
+    @GET ("/service/application/configuration/v1.0/staff/list")
+    Call<ApplicationModels.AppStaffListResponse> getAppStaffList(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
+    
     @GET ("/service/application/configuration/v1.0/staff")
     Call<ApplicationModels.AppStaffResponse> getAppStaffs(@Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
     
@@ -537,6 +540,9 @@ interface PaymentApiList {
     @GET ("/service/application/payment/v1.0/rupifi/banner")
     Call<ApplicationModels.RupifiBannerResponse> getRupifiBannerDetails();
     
+    @GET ("/service/application/payment/v1.0/epaylater/banner")
+    Call<ApplicationModels.EpaylaterBannerResponse> getEpaylaterBannerDetails();
+    
     @POST ("/service/application/payment/v1.0/payment/resend_or_cancel")
     Call<ApplicationModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Body ApplicationModels.ResendOrCancelPaymentRequest payload);
     
@@ -569,6 +575,18 @@ interface PaymentApiList {
     
     @POST ("/service/application/payment/v1.0/refund/beneficiary/default")
     Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Body ApplicationModels.SetDefaultBeneficiaryRequest payload);
+    
+    @GET ("/service/application/payment/v1.0/payment/credit-summary/")
+    Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Query("aggregator") String aggregator );
+    
+    @GET ("/service/application/payment/v1.0/payment/redirect-to-aggregator/")
+    Call<ApplicationModels.RedirectToAggregatorResponse> redirectToAggregator(@Query("source") String source , @Query("aggregator") String aggregator );
+    
+    @GET ("/service/application/payment/v1.0/check-credits/")
+    Call<ApplicationModels.CheckCreditResponse> checkCredit(@Query("aggregator") String aggregator );
+    
+    @POST ("/service/application/payment/v1.0/credit-onboard/")
+    Call<ApplicationModels.CustomerOnboardingResponse> customerOnboard(@Body ApplicationModels.CustomerOnboardingRequest payload);
     
 }
 

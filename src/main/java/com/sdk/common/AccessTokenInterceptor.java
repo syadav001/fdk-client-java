@@ -23,7 +23,7 @@ public class AccessTokenInterceptor implements Interceptor {
         okhttp3.Request.Builder builder = original.newBuilder()
                 .addHeader("Authorization", "Bearer "+ platformConfig.getPlatformOauthClient().getToken())
                 .addHeader("Content-Type", "application/x-www-form-urlencoded")
-                .addHeader("x-fp-sdk-version", "0.1.14");
+                .addHeader("x-fp-sdk-version", "0.1.17");
         okhttp3.Request request = builder.build();
         return chain.proceed(request);
     }

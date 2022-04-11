@@ -6878,3 +6878,40 @@ interface WebhookApiList {
     Call<PlatformModels.EventConfigResponse> fetchAllEventConfigurations(@Path("company_id")  String companyId );
     
 }
+
+interface AuditTrailApiList {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/")
+    Call<PlatformModels.LogSchemaResponse> getAuditLogs(@Path("company_id")  String companyId , @Query("qs") String  qs );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/")
+    Call<PlatformModels.CreateLogResponse> createAuditLog(@Path("company_id")  String companyId ,@Body PlatformModels.RequestBodyAuditLog payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/{id}")
+    Call<PlatformModels.LogSchemaResponse> getAuditLog(@Path("company_id")  String companyId , @Path("id") String  id );
+    
+}
