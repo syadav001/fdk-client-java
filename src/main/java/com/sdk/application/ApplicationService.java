@@ -1493,9 +1493,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize ) throws IOException {
+    public ApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize , String promotionGroup ) throws IOException {
     
-        Response<ApplicationModels.PromotionOffersResponse> response = cartApiList.getPromotionOffers(slug, pageSize).execute();
+        Response<ApplicationModels.PromotionOffersResponse> response = cartApiList.getPromotionOffers(slug, pageSize, promotionGroup).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1507,9 +1507,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.LadderPriceOffers getLadderOffers(String slug , String promotionId , Integer pageSize ) throws IOException {
+    public ApplicationModels.LadderPriceOffers getLadderOffers(String slug , String storeId , String promotionId , Integer pageSize ) throws IOException {
     
-        Response<ApplicationModels.LadderPriceOffers> response = cartApiList.getLadderOffers(slug, promotionId, pageSize).execute();
+        Response<ApplicationModels.LadderPriceOffers> response = cartApiList.getLadderOffers(slug, storeId, promotionId, pageSize).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
