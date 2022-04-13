@@ -56,6 +56,8 @@ public class PlatformClient {
     
     public PlatformService.ServiceabilityService serviceability;
     
+    public PlatformService.AuditTrailService auditTrail;
+    
 
     public PlatformClient(PlatformConfig config)   
     {
@@ -106,6 +108,8 @@ public class PlatformClient {
         this.webhook = new PlatformService.WebhookService(config);
         
         this.serviceability = new PlatformService.ServiceabilityService(config);
+        
+        this.auditTrail = new PlatformService.AuditTrailService(config);
         
     }
 
@@ -163,6 +167,8 @@ public class PlatformClient {
         
         public PlatformService.ServiceabilityService.ApplicationClient serviceability;
         
+        public PlatformService.AuditTrailService.ApplicationClient auditTrail;
+        
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
             
@@ -211,6 +217,8 @@ public class PlatformClient {
             this.webhook = new PlatformService.WebhookService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.serviceability = new PlatformService.ServiceabilityService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.auditTrail = new PlatformService.AuditTrailService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 
