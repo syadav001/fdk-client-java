@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -823,6 +823,9 @@ interface LogisticApiList {
     
     @POST ("/service/application/logistics/v1.0")
     Call<ApplicationModels.GetTatProductResponse> getTatProduct(@Body ApplicationModels.GetTatProductReqBody payload);
+    
+    @POST ("/service/application/logistics/v1.0/pincode/zones")
+    Call<ApplicationModels.GetPincodeZonesResponse> getPincodeZones(@Body ApplicationModels.GetPincodeZonesReqBody payload);
     
     @GET ("/service/application/logistics/v1.0/pincode/{pincode}")
     Call<ApplicationModels.GetPincodeCityResponse> getPincodeCity(@Path("pincode") String pincode );
