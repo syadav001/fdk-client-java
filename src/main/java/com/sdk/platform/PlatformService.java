@@ -2706,6 +2706,8 @@ public static class UserService {
     
     
     
+    
+    
 
 
 public class ApplicationClient {
@@ -2845,6 +2847,36 @@ public class ApplicationClient {
     public PlatformModels.BlockUserSuccess blockOrUnblockUsers(PlatformModels.BlockUserRequestSchema body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BlockUserSuccess> response = userApiList.blockOrUnblockUsers(this.companyId , this.applicationId , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.ArchiveUserSuccess archiveUser(PlatformModels.ArchiveUserRequestSchema body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.ArchiveUserSuccess> response = userApiList.archiveUser(this.companyId , this.applicationId , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

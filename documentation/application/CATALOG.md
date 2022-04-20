@@ -7842,62 +7842,13 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
- #### [Meta](#Meta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | source | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Media](#Media)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | url | String? |  yes  |  |
- | type | String? |  yes  |  |
- | meta | [Meta](#Meta)? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductDetailAttribute](#ProductDetailAttribute)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | value | String? |  yes  |  |
- | type | String? |  yes  |  |
- | key | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | details | ArrayList<[ProductDetailAttribute](#ProductDetailAttribute)>? |  yes  |  |
- | title | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [ProductListingActionPage](#ProductListingActionPage)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | query | HashMap<String,Object>? |  yes  |  |
  | params | HashMap<String,Object>? |  yes  |  |
  | type | String? |  yes  |  |
- | query | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -7916,14 +7867,75 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
+ #### [Meta](#Meta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | source | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Media](#Media)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | meta | [Meta](#Meta)? |  yes  |  |
+ | url | String? |  yes  |  |
+ | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [ProductBrand](#ProductBrand)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | uid | Integer? |  yes  |  |
  | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
  | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [MetaFields](#MetaFields)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | key | String |  no  |  |
+ | value | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductDetailAttribute](#ProductDetailAttribute)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | key | String? |  yes  |  |
+ | value | String? |  yes  |  |
+ | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | details | ArrayList<[ProductDetailAttribute](#ProductDetailAttribute)>? |  yes  |  |
+ | title | String? |  yes  |  |
 
 ---
 
@@ -7934,10 +7946,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | currencySymbol | String? |  yes  |  |
  | min | Double? |  yes  |  |
- | currencyCode | String? |  yes  |  |
  | max | Double? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
 
 ---
 
@@ -7956,50 +7968,38 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
- #### [MetaFields](#MetaFields)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | value | String |  no  |  |
- | key | String |  no  |  |
-
----
-
-
- 
- 
  #### [ProductDetail](#ProductDetail)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | medias | ArrayList<[Media](#Media)>? |  yes  |  |
- | similars | ArrayList<String>? |  yes  |  |
- | color | String? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | name | String? |  yes  |  |
- | type | String? |  yes  |  |
- | teaserTag | String? |  yes  |  |
- | highlights | ArrayList<String>? |  yes  |  |
- | productOnlineDate | String? |  yes  |  |
  | slug | String |  no  |  |
+ | uid | Integer? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
+ | categories | ArrayList<[ProductBrand](#ProductBrand)>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | discount | String? |  yes  |  |
+ | highlights | ArrayList<String>? |  yes  |  |
+ | customMeta | ArrayList<[MetaFields](#MetaFields)>? |  yes  |  |
+ | hasVariant | Boolean? |  yes  |  |
  | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
  | itemType | String? |  yes  |  |
- | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
- | categories | ArrayList<[ProductBrand](#ProductBrand)>? |  yes  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | tryouts | ArrayList<String>? |  yes  |  |
  | rating | Double? |  yes  |  |
- | ratingCount | Integer? |  yes  |  |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | itemCode | String? |  yes  |  |
+ | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
+ | name | String? |  yes  |  |
  | price | [ProductListingPrice](#ProductListingPrice)? |  yes  |  |
- | description | String? |  yes  |  |
+ | tryouts | ArrayList<String>? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
+ | productOnlineDate | String? |  yes  |  |
+ | similars | ArrayList<String>? |  yes  |  |
+ | ratingCount | Integer? |  yes  |  |
+ | teaserTag | String? |  yes  |  |
+ | medias | ArrayList<[Media](#Media)>? |  yes  |  |
+ | color | String? |  yes  |  |
  | imageNature | String? |  yes  |  |
- | discount | String? |  yes  |  |
- | hasVariant | Boolean? |  yes  |  |
- | customMeta | ArrayList<[MetaFields](#MetaFields)>? |  yes  |  |
 
 ---
 
@@ -8021,10 +8021,71 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isAvailable | Boolean? |  yes  |  |
  | quantity | Integer? |  yes  |  |
  | display | String? |  yes  |  |
+ | isAvailable | Boolean? |  yes  |  |
  | value | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SizeChartValues](#SizeChartValues)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | col4 | String? |  yes  |  |
+ | col3 | String? |  yes  |  |
+ | col5 | String? |  yes  |  |
+ | col1 | String? |  yes  |  |
+ | col2 | String? |  yes  |  |
+ | col6 | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ColumnHeader](#ColumnHeader)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | value | String? |  yes  |  |
+ | convertable | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ColumnHeaders](#ColumnHeaders)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | col4 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
+ | col3 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
+ | col5 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
+ | col1 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
+ | col2 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
+ | col6 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SizeChart](#SizeChart)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | sizes | ArrayList<[SizeChartValues](#SizeChartValues)>? |  yes  |  |
+ | title | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | sizeTip | String? |  yes  |  |
+ | unit | String? |  yes  |  |
+ | headers | [ColumnHeaders](#ColumnHeaders)? |  yes  |  |
+ | image | String? |  yes  |  |
 
 ---
 
@@ -8042,77 +8103,16 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
- #### [SizeChartValues](#SizeChartValues)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | col6 | String? |  yes  |  |
- | col3 | String? |  yes  |  |
- | col1 | String? |  yes  |  |
- | col5 | String? |  yes  |  |
- | col2 | String? |  yes  |  |
- | col4 | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ColumnHeader](#ColumnHeader)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | convertable | Boolean? |  yes  |  |
- | value | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ColumnHeaders](#ColumnHeaders)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | col6 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
- | col3 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
- | col1 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
- | col5 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
- | col2 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
- | col4 | [ColumnHeader](#ColumnHeader)? |  yes  |  |
-
----
-
-
- 
- 
- #### [SizeChart](#SizeChart)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | image | String? |  yes  |  |
- | sizes | ArrayList<[SizeChartValues](#SizeChartValues)>? |  yes  |  |
- | title | String? |  yes  |  |
- | description | String? |  yes  |  |
- | unit | String? |  yes  |  |
- | sizeTip | String? |  yes  |  |
- | headers | [ColumnHeaders](#ColumnHeaders)? |  yes  |  |
-
----
-
-
- 
- 
  #### [ProductSizes](#ProductSizes)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | sizes | ArrayList<[ProductSize](#ProductSize)>? |  yes  |  |
- | sellable | Boolean? |  yes  |  |
- | price | [ProductListingPrice](#ProductListingPrice)? |  yes  |  |
- | stores | [ProductSizeStores](#ProductSizeStores)? |  yes  |  |
  | sizeChart | [SizeChart](#SizeChart)? |  yes  |  |
+ | price | [ProductListingPrice](#ProductListingPrice)? |  yes  |  |
  | discount | String? |  yes  |  |
+ | sellable | Boolean? |  yes  |  |
+ | stores | [ProductSizeStores](#ProductSizeStores)? |  yes  |  |
 
 ---
 
@@ -8123,10 +8123,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | logo | String? |  yes  |  |
  | display | String? |  yes  |  |
- | description | String? |  yes  |  |
+ | logo | String? |  yes  |  |
  | key | String? |  yes  |  |
+ | description | String? |  yes  |  |
 
 ---
 
@@ -8149,8 +8149,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | attributesMetadata | ArrayList<[AttributeMetadata](#AttributeMetadata)>? |  yes  |  |
  | items | ArrayList<[ProductDetail](#ProductDetail)>? |  yes  |  |
+ | attributesMetadata | ArrayList<[AttributeMetadata](#AttributeMetadata)>? |  yes  |  |
 
 ---
 
@@ -8162,9 +8162,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | subtitle | String? |  yes  |  |
- | attributesMetadata | ArrayList<[AttributeMetadata](#AttributeMetadata)>? |  yes  |  |
- | title | String? |  yes  |  |
  | items | ArrayList<[ProductDetail](#ProductDetail)>? |  yes  |  |
+ | title | String? |  yes  |  |
+ | attributesMetadata | ArrayList<[AttributeMetadata](#AttributeMetadata)>? |  yes  |  |
 
 ---
 
@@ -8187,8 +8187,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | subtitle | String? |  yes  |  |
- | title | String? |  yes  |  |
  | items | ArrayList<[ProductDetail](#ProductDetail)>? |  yes  |  |
+ | title | String? |  yes  |  |
 
 ---
 
@@ -8210,15 +8210,15 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | medias | ArrayList<[Media](#Media)>? |  yes  |  |
- | value | String? |  yes  |  |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | isAvailable | Boolean? |  yes  |  |
  | slug | String? |  yes  |  |
- | color | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | isAvailable | Boolean? |  yes  |  |
+ | value | String? |  yes  |  |
  | colorName | String? |  yes  |  |
  | name | String? |  yes  |  |
+ | medias | ArrayList<[Media](#Media)>? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
+ | color | String? |  yes  |  |
 
 ---
 
@@ -8229,10 +8229,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[ProductVariantItemResponse](#ProductVariantItemResponse)>? |  yes  |  |
- | header | String? |  yes  |  |
- | displayType | String? |  yes  |  |
  | key | String? |  yes  |  |
+ | header | String? |  yes  |  |
+ | items | ArrayList<[ProductVariantItemResponse](#ProductVariantItemResponse)>? |  yes  |  |
+ | displayType | String? |  yes  |  |
 
 ---
 
@@ -8250,27 +8250,14 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
- #### [Seller](#Seller)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | count | Integer? |  yes  |  |
-
----
-
-
- 
- 
  #### [StoreDetail](#StoreDetail)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | city | String? |  yes  |  |
- | code | String? |  yes  |  |
- | name | String? |  yes  |  |
  | id | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | code | String? |  yes  |  |
 
 ---
 
@@ -8281,9 +8268,22 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | currency | String? |  yes  |  |
  | effective | Double? |  yes  |  |
+ | currency | String? |  yes  |  |
  | marked | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Seller](#Seller)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | Integer? |  yes  |  |
+ | count | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -8294,8 +8294,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
  | id | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -8306,15 +8306,15 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | seller | [Seller](#Seller)? |  yes  |  |
  | size | String? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | identifier | HashMap<String,Object>? |  yes  |  |
- | store | [StoreDetail](#StoreDetail)? |  yes  |  |
- | price | [ProductStockPrice](#ProductStockPrice)? |  yes  |  |
- | company | [CompanyDetail](#CompanyDetail)? |  yes  |  |
  | itemId | Integer? |  yes  |  |
  | uid | String? |  yes  |  |
+ | store | [StoreDetail](#StoreDetail)? |  yes  |  |
+ | price | [ProductStockPrice](#ProductStockPrice)? |  yes  |  |
+ | seller | [Seller](#Seller)? |  yes  |  |
+ | identifier | HashMap<String,Object>? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | company | [CompanyDetail](#CompanyDetail)? |  yes  |  |
 
 ---
 
@@ -8336,13 +8336,13 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hasNext | Boolean? |  yes  |  |
  | size | Integer? |  yes  |  |
- | hasPrevious | Boolean? |  yes  |  |
- | itemTotal | Integer? |  yes  |  |
  | current | Integer? |  yes  |  |
- | nextId | String? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
  | type | String |  no  |  |
+ | nextId | String? |  yes  |  |
+ | itemTotal | Integer? |  yes  |  |
 
 ---
 
@@ -8353,43 +8353,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page) |  no  |  |
  | items | ArrayList<[ProductStockStatusItem](#ProductStockStatusItem)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductSortOn](#ProductSortOn)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | isSelected | Boolean? |  yes  |  |
- | value | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductFiltersValue](#ProductFiltersValue)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | currencySymbol | String? |  yes  |  |
- | display | String |  no  |  |
- | queryFormat | String? |  yes  |  |
- | count | Integer? |  yes  |  |
- | max | Integer? |  yes  |  |
- | isSelected | Boolean |  no  |  |
- | value | String? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | selectedMin | Integer? |  yes  |  |
- | selectedMax | Integer? |  yes  |  |
- | min | Integer? |  yes  |  |
- | displayFormat | String? |  yes  |  |
+ | page | [Page](#Page) |  no  |  |
 
 ---
 
@@ -8400,10 +8365,32 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String |  no  |  |
- | logo | String? |  yes  |  |
  | display | String |  no  |  |
+ | logo | String? |  yes  |  |
  | kind | String? |  yes  |  |
+ | name | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductFiltersValue](#ProductFiltersValue)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | displayFormat | String? |  yes  |  |
+ | isSelected | Boolean |  no  |  |
+ | min | Integer? |  yes  |  |
+ | value | String? |  yes  |  |
+ | display | String |  no  |  |
+ | max | Integer? |  yes  |  |
+ | count | Integer? |  yes  |  |
+ | queryFormat | String? |  yes  |  |
+ | selectedMin | Integer? |  yes  |  |
+ | selectedMax | Integer? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
 
 ---
 
@@ -8414,8 +8401,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | values | ArrayList<[ProductFiltersValue](#ProductFiltersValue)> |  no  |  |
  | key | [ProductFiltersKey](#ProductFiltersKey) |  no  |  |
+ | values | ArrayList<[ProductFiltersValue](#ProductFiltersValue)> |  no  |  |
 
 ---
 
@@ -8426,11 +8413,11 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | header | String? |  yes  |  |
  | total | Integer? |  yes  |  |
  | items | ArrayList<[ProductVariantItemResponse](#ProductVariantItemResponse)>? |  yes  |  |
- | header | String? |  yes  |  |
- | key | String? |  yes  |  |
  | displayType | String? |  yes  |  |
+ | key | String? |  yes  |  |
 
 ---
 
@@ -8441,36 +8428,49 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | variants | ArrayList<[ProductVariantListingResponse](#ProductVariantListingResponse)>? |  yes  |  |
- | medias | ArrayList<[Media](#Media)>? |  yes  |  |
- | sellable | Boolean? |  yes  |  |
- | similars | ArrayList<String>? |  yes  |  |
- | color | String? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | name | String? |  yes  |  |
- | type | String? |  yes  |  |
- | teaserTag | String? |  yes  |  |
- | highlights | ArrayList<String>? |  yes  |  |
- | productOnlineDate | String? |  yes  |  |
  | slug | String |  no  |  |
+ | uid | Integer? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
+ | categories | ArrayList<[ProductBrand](#ProductBrand)>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | variants | ArrayList<[ProductVariantListingResponse](#ProductVariantListingResponse)>? |  yes  |  |
+ | type | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | discount | String? |  yes  |  |
+ | highlights | ArrayList<String>? |  yes  |  |
+ | customMeta | ArrayList<[MetaFields](#MetaFields)>? |  yes  |  |
+ | hasVariant | Boolean? |  yes  |  |
  | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
  | itemType | String? |  yes  |  |
- | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
- | categories | ArrayList<[ProductBrand](#ProductBrand)>? |  yes  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | tryouts | ArrayList<String>? |  yes  |  |
  | rating | Double? |  yes  |  |
- | ratingCount | Integer? |  yes  |  |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | itemCode | String? |  yes  |  |
+ | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
+ | name | String? |  yes  |  |
  | price | [ProductListingPrice](#ProductListingPrice)? |  yes  |  |
- | description | String? |  yes  |  |
+ | tryouts | ArrayList<String>? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
+ | productOnlineDate | String? |  yes  |  |
+ | similars | ArrayList<String>? |  yes  |  |
+ | ratingCount | Integer? |  yes  |  |
+ | teaserTag | String? |  yes  |  |
+ | sellable | Boolean? |  yes  |  |
+ | medias | ArrayList<[Media](#Media)>? |  yes  |  |
+ | color | String? |  yes  |  |
  | imageNature | String? |  yes  |  |
- | discount | String? |  yes  |  |
- | hasVariant | Boolean? |  yes  |  |
- | customMeta | ArrayList<[MetaFields](#MetaFields)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductSortOn](#ProductSortOn)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isSelected | Boolean? |  yes  |  |
+ | value | String? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -8481,10 +8481,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sortOn | ArrayList<[ProductSortOn](#ProductSortOn)>? |  yes  |  |
- | page | [Page](#Page) |  no  |  |
  | filters | ArrayList<[ProductFilters](#ProductFilters)>? |  yes  |  |
  | items | ArrayList<[ProductListingDetail](#ProductListingDetail)>? |  yes  |  |
+ | page | [Page](#Page) |  no  |  |
+ | sortOn | ArrayList<[ProductSortOn](#ProductSortOn)>? |  yes  |  |
 
 ---
 
@@ -8507,14 +8507,14 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | slug | String? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
+ | slug | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | discount | String? |  yes  |  |
  | name | String? |  yes  |  |
  | departments | ArrayList<String>? |  yes  |  |
+ | discount | String? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
 
 ---
 
@@ -8525,8 +8525,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page) |  no  |  |
  | items | ArrayList<[BrandItem](#BrandItem)>? |  yes  |  |
+ | page | [Page](#Page) |  no  |  |
 
 ---
 
@@ -8537,10 +8537,89 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
+ | name | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ThirdLevelChild](#ThirdLevelChild)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | name | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | childs | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SecondLevelChild](#SecondLevelChild)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | name | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | childs | ArrayList<[ThirdLevelChild](#ThirdLevelChild)>? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Child](#Child)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | name | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | childs | ArrayList<[SecondLevelChild](#SecondLevelChild)>? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CategoryItems](#CategoryItems)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | name | String? |  yes  |  |
+ | childs | ArrayList<[Child](#Child)>? |  yes  |  |
+ | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DepartmentCategoryTree](#DepartmentCategoryTree)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<[CategoryItems](#CategoryItems)>? |  yes  |  |
+ | department | String? |  yes  |  |
 
 ---
 
@@ -8559,91 +8638,12 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
- #### [ThirdLevelChild](#ThirdLevelChild)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | childs | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | slug | String? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [SecondLevelChild](#SecondLevelChild)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | childs | ArrayList<[ThirdLevelChild](#ThirdLevelChild)>? |  yes  |  |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | slug | String? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Child](#Child)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | childs | ArrayList<[SecondLevelChild](#SecondLevelChild)>? |  yes  |  |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | slug | String? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CategoryItems](#CategoryItems)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | childs | ArrayList<[Child](#Child)>? |  yes  |  |
- | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | slug | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [DepartmentCategoryTree](#DepartmentCategoryTree)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | department | String? |  yes  |  |
- | items | ArrayList<[CategoryItems](#CategoryItems)>? |  yes  |  |
-
----
-
-
- 
- 
  #### [CategoryListingResponse](#CategoryListingResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | departments | ArrayList<[DepartmentIdentifier](#DepartmentIdentifier)>? |  yes  |  |
  | data | ArrayList<[DepartmentCategoryTree](#DepartmentCategoryTree)>? |  yes  |  |
+ | departments | ArrayList<[DepartmentIdentifier](#DepartmentIdentifier)>? |  yes  |  |
 
 ---
 
@@ -8654,10 +8654,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
- | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -8668,8 +8668,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page) |  no  |  |
  | items | ArrayList<[ProductListingDetail](#ProductListingDetail)>? |  yes  |  |
+ | page | [Page](#Page) |  no  |  |
  | message | String? |  yes  |  |
 
 ---
@@ -8681,11 +8681,11 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | slug | String? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
+ | slug | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
- | priorityOrder | Integer? |  yes  |  |
  | name | String? |  yes  |  |
+ | priorityOrder | Integer? |  yes  |  |
 
 ---
 
@@ -8707,9 +8707,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | display | String? |  yes  |  |
  | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
- | display | String? |  yes  |  |
  | type | String? |  yes  |  |
 
 ---
@@ -8728,26 +8728,26 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
- #### [CollectionListingFilterType](#CollectionListingFilterType)
+ #### [CollectionListingFilterTag](#CollectionListingFilterTag)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | isSelected | Boolean? |  yes  |  |
  | display | String? |  yes  |  |
  | name | String? |  yes  |  |
- | isSelected | Boolean? |  yes  |  |
 
 ---
 
 
  
  
- #### [CollectionListingFilterTag](#CollectionListingFilterTag)
+ #### [CollectionListingFilterType](#CollectionListingFilterType)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | isSelected | Boolean? |  yes  |  |
  | display | String? |  yes  |  |
  | name | String? |  yes  |  |
- | isSelected | Boolean? |  yes  |  |
 
 ---
 
@@ -8758,8 +8758,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | ArrayList<[CollectionListingFilterType](#CollectionListingFilterType)>? |  yes  |  |
  | tags | ArrayList<[CollectionListingFilterTag](#CollectionListingFilterTag)>? |  yes  |  |
+ | type | ArrayList<[CollectionListingFilterType](#CollectionListingFilterType)>? |  yes  |  |
 
 ---
 
@@ -8770,25 +8770,25 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | allowSort | Boolean? |  yes  |  |
- | query | HashMap<String,Object>? |  yes  |  |
- | name | String? |  yes  |  |
- | type | String? |  yes  |  |
- | slug | String? |  yes  |  |
- | badge | HashMap<String,Object>? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
+ | slug | String? |  yes  |  |
  | uid | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | schedule | HashMap<String,Object>? |  yes  |  |
+ | appId | String? |  yes  |  |
  | allowFacets | Boolean? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | description | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | type | String? |  yes  |  |
+ | cron | HashMap<String,Object>? |  yes  |  |
+ | badge | HashMap<String,Object>? |  yes  |  |
  | tag | ArrayList<String>? |  yes  |  |
+ | name | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | action | [ProductListingAction](#ProductListingAction)? |  yes  |  |
- | description | String? |  yes  |  |
- | appId | String? |  yes  |  |
- | schedule | HashMap<String,Object>? |  yes  |  |
- | cron | HashMap<String,Object>? |  yes  |  |
+ | query | HashMap<String,Object>? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -8799,9 +8799,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page) |  no  |  |
  | filters | [CollectionListingFilter](#CollectionListingFilter)? |  yes  |  |
  | items | ArrayList<[GetCollectionDetailNest](#GetCollectionDetailNest)>? |  yes  |  |
+ | page | [Page](#Page) |  no  |  |
 
 ---
 
@@ -8812,23 +8812,23 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | allowFacets | Boolean? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
- | slug | String? |  yes  |  |
- | tag | ArrayList<String>? |  yes  |  |
- | description | String? |  yes  |  |
- | appId | String? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
- | schedule | HashMap<String,Object>? |  yes  |  |
- | cron | HashMap<String,Object>? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
- | badge | HashMap<String,Object>? |  yes  |  |
+ | tag | ArrayList<String>? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | query | HashMap<String,Object>? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
+ | name | String? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
  | type | String? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | name | String? |  yes  |  |
- | query | HashMap<String,Object>? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
+ | schedule | HashMap<String,Object>? |  yes  |  |
+ | cron | HashMap<String,Object>? |  yes  |  |
+ | appId | String? |  yes  |  |
+ | badge | HashMap<String,Object>? |  yes  |  |
+ | allowFacets | Boolean? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
 
 ---
 
@@ -8839,8 +8839,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page) |  no  |  |
  | items | ArrayList<[ProductListingDetail](#ProductListingDetail)> |  no  |  |
+ | page | [Page](#Page) |  no  |  |
 
 ---
 
@@ -8874,9 +8874,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | collections | ArrayList<Integer>? |  yes  |  |
  | brands | ArrayList<Integer>? |  yes  |  |
  | products | ArrayList<Integer>? |  yes  |  |
- | collections | ArrayList<Integer>? |  yes  |  |
 
 ---
 
@@ -8898,8 +8898,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
  | coordinates | ArrayList<Double>? |  yes  |  |
+ | type | String? |  yes  |  |
 
 ---
 
@@ -8910,16 +8910,16 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | latLong | [LatLong](#LatLong)? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | city | String? |  yes  |  |
  | country | String? |  yes  |  |
  | address | String? |  yes  |  |
- | name | String? |  yes  |  |
- | pincode | Integer? |  yes  |  |
  | state | String? |  yes  |  |
- | storeCode | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | storeEmail | String? |  yes  |  |
- | city | String? |  yes  |  |
- | latLong | [LatLong](#LatLong)? |  yes  |  |
+ | storeCode | String? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
 
 ---
 
@@ -8930,8 +8930,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page) |  no  |  |
  | items | ArrayList<[Store](#Store)> |  no  |  |
+ | page | [Page](#Page) |  no  |  |
 
 ---
 
@@ -8942,10 +8942,35 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | slug | String? |  yes  |  |
  | logo | String? |  yes  |  |
+ | slug | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
  | priorityOrder | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SellerPhoneNumber](#SellerPhoneNumber)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | countryCode | Integer |  no  |  |
+ | number | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [StoreManagerSerializer](#StoreManagerSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | email | String? |  yes  |  |
+ | mobileNo | [SellerPhoneNumber](#SellerPhoneNumber)? |  yes  |  |
  | name | String? |  yes  |  |
 
 ---
@@ -8957,27 +8982,15 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | country | String? |  yes  |  |
- | latitude | Double? |  yes  |  |
- | state | String? |  yes  |  |
- | pincode | Integer? |  yes  |  |
- | longitude | Double? |  yes  |  |
  | address2 | String? |  yes  |  |
+ | latitude | Double? |  yes  |  |
  | landmark | String? |  yes  |  |
  | city | String? |  yes  |  |
+ | country | String? |  yes  |  |
+ | state | String? |  yes  |  |
+ | longitude | Double? |  yes  |  |
  | address1 | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [SellerPhoneNumber](#SellerPhoneNumber)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | number | String |  no  |  |
- | countryCode | Integer |  no  |  |
+ | pincode | Integer? |  yes  |  |
 
 ---
 
@@ -8988,23 +9001,10 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | businessType | String? |  yes  |  |
- | name | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
  | companyType | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [StoreManagerSerializer](#StoreManagerSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
+ | businessType | String? |  yes  |  |
  | name | String? |  yes  |  |
- | email | String? |  yes  |  |
- | mobileNo | [SellerPhoneNumber](#SellerPhoneNumber)? |  yes  |  |
 
 ---
 
@@ -9015,13 +9015,13 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | address | [StoreAddressSerializer](#StoreAddressSerializer)? |  yes  |  |
- | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
- | company | [CompanyStore](#CompanyStore)? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | manager | [StoreManagerSerializer](#StoreManagerSerializer)? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
  | name | String? |  yes  |  |
+ | address | [StoreAddressSerializer](#StoreAddressSerializer)? |  yes  |  |
  | departments | ArrayList<[StoreDepartments](#StoreDepartments)>? |  yes  |  |
+ | company | [CompanyStore](#CompanyStore)? |  yes  |  |
 
 ---
 
@@ -9032,9 +9032,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page)? |  yes  |  |
  | filters | ArrayList<[StoreDepartments](#StoreDepartments)>? |  yes  |  |
  | items | ArrayList<[AppStore](#AppStore)>? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
 
 ---
 
@@ -9045,8 +9045,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hour | Integer? |  yes  |  |
  | minute | Integer? |  yes  |  |
+ | hour | Integer? |  yes  |  |
 
 ---
 
@@ -9057,9 +9057,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | closing | [Time](#Time)? |  yes  |  |
- | opening | [Time](#Time)? |  yes  |  |
  | weekday | String? |  yes  |  |
+ | opening | [Time](#Time)? |  yes  |  |
+ | closing | [Time](#Time)? |  yes  |  |
  | open | Boolean? |  yes  |  |
 
 ---
@@ -9071,15 +9071,15 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | address | [StoreAddressSerializer](#StoreAddressSerializer)? |  yes  |  |
- | timing | ArrayList<[StoreTiming](#StoreTiming)>? |  yes  |  |
- | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
- | company | [CompanyStore](#CompanyStore)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | manager | [StoreManagerSerializer](#StoreManagerSerializer)? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
  | name | String? |  yes  |  |
+ | address | [StoreAddressSerializer](#StoreAddressSerializer)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | timing | ArrayList<[StoreTiming](#StoreTiming)>? |  yes  |  |
  | departments | ArrayList<[StoreDepartments](#StoreDepartments)>? |  yes  |  |
+ | company | [CompanyStore](#CompanyStore)? |  yes  |  |
 
 ---
 
@@ -9090,9 +9090,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isAvailable | Boolean? |  yes  |  |
  | quantity | Integer? |  yes  |  |
  | display | String? |  yes  |  |
+ | isAvailable | Boolean? |  yes  |  |
  | value | String? |  yes  |  |
 
 ---
@@ -9104,26 +9104,26 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | countryOfOrigin | String? |  yes  |  |
- | images | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | brandUid | Integer? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | name | String? |  yes  |  |
  | slug | String? |  yes  |  |
- | media | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | groupedAttributes | HashMap<String,Object>? |  yes  |  |
- | hsnCode | Integer? |  yes  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | identifier | HashMap<String,Object>? |  yes  |  |
- | rating | Double? |  yes  |  |
- | ratingCount | Integer? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | description | String? |  yes  |  |
  | templateTag | String? |  yes  |  |
- | imageNature | String? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+ | images | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | groupedAttributes | HashMap<String,Object>? |  yes  |  |
  | outOfStock | Boolean? |  yes  |  |
+ | rating | Double? |  yes  |  |
+ | name | String? |  yes  |  |
+ | media | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
+ | countryOfOrigin | String? |  yes  |  |
+ | ratingCount | Integer? |  yes  |  |
+ | identifier | HashMap<String,Object>? |  yes  |  |
+ | hsnCode | Integer? |  yes  |  |
+ | brandUid | Integer? |  yes  |  |
  | hasVariant | Boolean? |  yes  |  |
+ | imageNature | String? |  yes  |  |
 
 ---
 
@@ -9134,11 +9134,11 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | minMarked | Double? |  yes  |  |
  | maxMarked | Double? |  yes  |  |
- | currency | String? |  yes  |  |
- | minEffective | Double? |  yes  |  |
  | maxEffective | Double? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | minMarked | Double? |  yes  |  |
+ | minEffective | Double? |  yes  |  |
 
 ---
 
@@ -9149,15 +9149,15 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sizes | ArrayList<[Size](#Size)>? |  yes  |  |
  | productUid | Integer? |  yes  |  |
- | productDetails | [ProductDetails](#ProductDetails)? |  yes  |  |
- | autoSelect | Boolean? |  yes  |  |
- | price | [Price1](#Price1)? |  yes  |  |
  | autoAddToCart | Boolean? |  yes  |  |
- | allowRemove | Boolean? |  yes  |  |
- | maxQuantity | Integer? |  yes  |  |
+ | sizes | ArrayList<[Size](#Size)>? |  yes  |  |
+ | autoSelect | Boolean? |  yes  |  |
  | minQuantity | Integer? |  yes  |  |
+ | productDetails | [ProductDetails](#ProductDetails)? |  yes  |  |
+ | allowRemove | Boolean? |  yes  |  |
+ | price | [Price1](#Price1)? |  yes  |  |
+ | maxQuantity | Integer? |  yes  |  |
 
 ---
 
@@ -9168,16 +9168,16 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | active | Boolean? |  yes  |  |
- | choice | String? |  yes  |  |
- | slug | String? |  yes  |  |
- | products | ArrayList<[Products](#Products)>? |  yes  |  |
  | logo | String? |  yes  |  |
  | pageVisibility | ArrayList<String>? |  yes  |  |
+ | slug | String? |  yes  |  |
  | sameStoreAssignment | Boolean? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | name | String? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | products | ArrayList<[Products](#Products)>? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | choice | String? |  yes  |  |
+ | active | Boolean? |  yes  |  |
 
 ---
 
@@ -9195,13 +9195,26 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
- #### [ProductStockPriceV2](#ProductStockPriceV2)
+ #### [ReturnConfigSchemaV2](#ReturnConfigSchemaV2)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | currency | String? |  yes  |  |
- | effective | Double? |  yes  |  |
- | marked | Double? |  yes  |  |
+ | unit | String? |  yes  |  |
+ | returnable | Boolean? |  yes  |  |
+ | time | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [StoreV2](#StoreV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | Integer? |  yes  |  |
+ | count | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -9212,9 +9225,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | key | String? |  yes  |  |
  | value | String? |  yes  |  |
  | type | String? |  yes  |  |
- | key | String? |  yes  |  |
 
 ---
 
@@ -9233,40 +9246,38 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  
  
+ #### [ArticleAssignmentV2](#ArticleAssignmentV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | level | String? |  yes  |  |
+ | strategy | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductStockPriceV2](#ProductStockPriceV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | effective | Double? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | marked | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [SellerV2](#SellerV2)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
  | count | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [StrategyWiseListingSchemaV2](#StrategyWiseListingSchemaV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | distance | Integer? |  yes  |  |
- | pincode | Integer? |  yes  |  |
- | tat | Integer? |  yes  |  |
- | quantity | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [ReturnConfigSchemaV2](#ReturnConfigSchemaV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | unit | String? |  yes  |  |
- | time | Integer? |  yes  |  |
- | returnable | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -9277,8 +9288,8 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pieces | Integer? |  yes  |  |
  | size | String? |  yes  |  |
+ | pieces | Integer? |  yes  |  |
 
 ---
 
@@ -9300,33 +9311,22 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sizeDistribution | [ProductSetDistributionV2](#ProductSetDistributionV2)? |  yes  |  |
  | quantity | Integer? |  yes  |  |
+ | sizeDistribution | [ProductSetDistributionV2](#ProductSetDistributionV2)? |  yes  |  |
 
 ---
 
 
  
  
- #### [StoreV2](#StoreV2)
+ #### [StrategyWiseListingSchemaV2](#StrategyWiseListingSchemaV2)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | count | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [ArticleAssignmentV2](#ArticleAssignmentV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | strategy | String? |  yes  |  |
- | level | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | tat | Integer? |  yes  |  |
+ | distance | Integer? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
 
 ---
 
@@ -9337,23 +9337,23 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pricePerPiece | [ProductStockPriceV2](#ProductStockPriceV2)? |  yes  |  |
- | marketplaceAttributes | ArrayList<[MarketPlaceSttributesSchemaV2](#MarketPlaceSttributesSchemaV2)>? |  yes  |  |
- | seller | [SellerV2](#SellerV2)? |  yes  |  |
- | strategyWiseListing | ArrayList<[StrategyWiseListingSchemaV2](#StrategyWiseListingSchemaV2)>? |  yes  |  |
- | returnConfig | [ReturnConfigSchemaV2](#ReturnConfigSchemaV2)? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | set | [ProductSetV2](#ProductSetV2)? |  yes  |  |
- | store | [StoreV2](#StoreV2)? |  yes  |  |
- | pincode | Integer? |  yes  |  |
- | specialBadge | String? |  yes  |  |
- | longLat | ArrayList<Double>? |  yes  |  |
- | price | [ProductStockPriceV2](#ProductStockPriceV2)? |  yes  |  |
- | articleAssignment | [ArticleAssignmentV2](#ArticleAssignmentV2)? |  yes  |  |
- | articleId | String? |  yes  |  |
  | itemType | String? |  yes  |  |
- | discount | String? |  yes  |  |
+ | returnConfig | [ReturnConfigSchemaV2](#ReturnConfigSchemaV2)? |  yes  |  |
+ | longLat | ArrayList<Double>? |  yes  |  |
+ | store | [StoreV2](#StoreV2)? |  yes  |  |
+ | marketplaceAttributes | ArrayList<[MarketPlaceSttributesSchemaV2](#MarketPlaceSttributesSchemaV2)>? |  yes  |  |
+ | specialBadge | String? |  yes  |  |
+ | articleId | String? |  yes  |  |
+ | articleAssignment | [ArticleAssignmentV2](#ArticleAssignmentV2)? |  yes  |  |
+ | price | [ProductStockPriceV2](#ProductStockPriceV2)? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
  | sellerCount | Integer? |  yes  |  |
+ | discount | String? |  yes  |  |
+ | seller | [SellerV2](#SellerV2)? |  yes  |  |
+ | set | [ProductSetV2](#ProductSetV2)? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | strategyWiseListing | ArrayList<[StrategyWiseListingSchemaV2](#StrategyWiseListingSchemaV2)>? |  yes  |  |
+ | pricePerPiece | [ProductStockPriceV2](#ProductStockPriceV2)? |  yes  |  |
 
 ---
 
@@ -9364,9 +9364,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | isSelected | Boolean? |  yes  |  |
  | value | String? |  yes  |  |
  | name | String? |  yes  |  |
- | isSelected | Boolean? |  yes  |  |
 
 ---
 
@@ -9377,9 +9377,9 @@ Success. Returns a ProductSizeSellerV2 object. Check the example shown below or 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sortOn | ArrayList<[ProductSizeSellerFilterSchemaV2](#ProductSizeSellerFilterSchemaV2)>? |  yes  |  |
- | page | [Page](#Page) |  no  |  |
  | items | ArrayList<[ProductSizePriceResponseV2](#ProductSizePriceResponseV2)>? |  yes  |  |
+ | page | [Page](#Page) |  no  |  |
+ | sortOn | ArrayList<[ProductSizeSellerFilterSchemaV2](#ProductSizeSellerFilterSchemaV2)>? |  yes  |  |
 
 ---
 

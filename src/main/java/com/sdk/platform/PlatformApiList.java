@@ -980,6 +980,18 @@ interface UserApiList {
     
     
     
+    @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/archive")
+    Call<PlatformModels.ArchiveUserSuccess> archiveUser(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.ArchiveUserRequestSchema payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
