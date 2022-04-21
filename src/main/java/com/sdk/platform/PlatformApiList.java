@@ -4878,17 +4878,17 @@ interface CompanyProfileApiList {
     
     
     
-    @PATCH ("/service/platform/company-profile/v1.0/company/{company_id}")
-    Call<PlatformModels.SuccessResponse> updateCompany(@Path("company_id")  String companyId ,@Body PlatformModels.UpdateCompany payload);
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/company-profile/v1.0/company/{company_id}")
     Call<PlatformModels.GetCompanyProfileSerializerResponse> cbsOnboardGet(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/company-profile/v1.0/company/{company_id}")
+    Call<PlatformModels.SuccessResponse> updateCompany(@Path("company_id")  String companyId ,@Body PlatformModels.UpdateCompany payload);
     
     
     
@@ -4908,20 +4908,20 @@ interface CompanyProfileApiList {
     
     
     
-    @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
-    Call<PlatformModels.SuccessResponse> editBrand(@Path("company_id")  String companyId , @Path("brand_id") String  brandId ,@Body PlatformModels.CreateUpdateBrandRequestSerializer payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
     Call<PlatformModels.GetBrandResponseSerializer> getBrand(@Path("company_id")  String companyId , @Path("brand_id") String  brandId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
+    Call<PlatformModels.SuccessResponse> editBrand(@Path("company_id")  String companyId , @Path("brand_id") String  brandId ,@Body PlatformModels.CreateUpdateBrandRequestSerializer payload);
     
     
     
@@ -5001,20 +5001,20 @@ interface CompanyProfileApiList {
     
     
     
-    @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
-    Call<PlatformModels.SuccessResponse> updateLocation(@Path("company_id")  String companyId , @Path("location_id") String  locationId ,@Body PlatformModels.LocationSerializer payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
     Call<PlatformModels.GetLocationSerializer> getLocationDetail(@Path("company_id")  String companyId , @Path("location_id") String  locationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
+    Call<PlatformModels.SuccessResponse> updateLocation(@Path("company_id")  String companyId , @Path("location_id") String  locationId ,@Body PlatformModels.LocationSerializer payload);
     
     
     

@@ -13891,9 +13891,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.SuccessResponse updateCompany(PlatformModels.UpdateCompany body) throws IOException {
+    public PlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateCompany(this.companyId , body).execute();
+            Response<PlatformModels.GetCompanyProfileSerializerResponse> response = companyprofileApiList.cbsOnboardGet(this.companyId ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -13916,9 +13916,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws IOException {
+    public PlatformModels.SuccessResponse updateCompany(PlatformModels.UpdateCompany body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetCompanyProfileSerializerResponse> response = companyprofileApiList.cbsOnboardGet(this.companyId ).execute();
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateCompany(this.companyId , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -13970,9 +13970,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.SuccessResponse editBrand(String brandId ,PlatformModels.CreateUpdateBrandRequestSerializer body) throws IOException {
+    public PlatformModels.GetBrandResponseSerializer getBrand(String brandId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.editBrand(this.companyId , brandId  , body).execute();
+            Response<PlatformModels.GetBrandResponseSerializer> response = companyprofileApiList.getBrand(this.companyId , brandId  ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -13999,9 +13999,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetBrandResponseSerializer getBrand(String brandId ) throws IOException {
+    public PlatformModels.SuccessResponse editBrand(String brandId ,PlatformModels.CreateUpdateBrandRequestSerializer body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetBrandResponseSerializer> response = companyprofileApiList.getBrand(this.companyId , brandId  ).execute();
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.editBrand(this.companyId , brandId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -14329,9 +14329,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.SuccessResponse updateLocation(String locationId ,PlatformModels.LocationSerializer body) throws IOException {
+    public PlatformModels.GetLocationSerializer getLocationDetail(String locationId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateLocation(this.companyId , locationId  , body).execute();
+            Response<PlatformModels.GetLocationSerializer> response = companyprofileApiList.getLocationDetail(this.companyId , locationId  ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -14358,9 +14358,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetLocationSerializer getLocationDetail(String locationId ) throws IOException {
+    public PlatformModels.SuccessResponse updateLocation(String locationId ,PlatformModels.LocationSerializer body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetLocationSerializer> response = companyprofileApiList.getLocationDetail(this.companyId , locationId  ).execute();
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateLocation(this.companyId , locationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
