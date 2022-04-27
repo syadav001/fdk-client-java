@@ -224,6 +224,8 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | manufacturingTime | Integer? |  yes  |  |
+ | manufacturingTimeUnit | String? |  yes  |  |
  | category | [LogisticRequestCategory](#LogisticRequestCategory)? |  yes  |  |
 
 ---
