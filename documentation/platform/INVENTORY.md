@@ -6,6 +6,7 @@
 
 ## Inventory Methods
 
+* [getConfigByCompany](#getconfigbycompany)
 * [getJobsByCompany](#getjobsbycompany)
 * [updateJob](#updatejob)
 * [createJob](#createjob)
@@ -20,6 +21,59 @@
 
 
 ## Methods with example and description
+
+
+### getConfigByCompany
+Get Slingshot Configuration Of  A Company
+
+
+
+
+```java
+client.inventory.getConfigByCompany() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | Company Id |  
+
+
+
+REST Endpoint that returns all configuration detail of a company
+
+*Returned Response:*
+
+
+
+
+[ResponseEnvelopeListSlingshotConfigurationDetail](#ResponseEnvelopeListSlingshotConfigurationDetail)
+
+Successful operation
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
 
 
 ### getJobsByCompany
@@ -573,6 +627,123 @@ Successful operation
 
  
  
+ #### [GCompany](#GCompany)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | integration | String? |  yes  |  |
+ | level | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | opted | Boolean? |  yes  |  |
+ | permissions | ArrayList<String>? |  yes  |  |
+ | token | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | stores | ArrayList<[GStore](#GStore)>? |  yes  |  |
+ | gstores | ArrayList<[GStore](#GStore)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GStore](#GStore)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | integration | String? |  yes  |  |
+ | level | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | opted | Boolean? |  yes  |  |
+ | permissions | ArrayList<String>? |  yes  |  |
+ | token | String? |  yes  |  |
+ | code | String? |  yes  |  |
+ | name | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Integration](#Integration)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | meta | ArrayList<[Metum](#Metum)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Metum](#Metum)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | value | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Page](#Page)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String |  no  |  |
+ | size | Integer? |  yes  |  |
+ | current | Integer? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | itemTotal | Integer? |  yes  |  |
+ | nextId | String? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ResponseEnvelopeListSlingshotConfigurationDetail](#ResponseEnvelopeListSlingshotConfigurationDetail)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String? |  yes  |  |
+ | status | Integer? |  yes  |  |
+ | error | String? |  yes  |  |
+ | exception | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | totalTimeTakenInMillis | Integer? |  yes  |  |
+ | httpStatus | String? |  yes  |  |
+ | items | ArrayList<[SlingshotConfigurationDetail](#SlingshotConfigurationDetail)>? |  yes  |  |
+ | payload | ArrayList<[SlingshotConfigurationDetail](#SlingshotConfigurationDetail)>? |  yes  |  |
+ | traceId | String? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SlingshotConfigurationDetail](#SlingshotConfigurationDetail)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | integration | [Integration](#Integration)? |  yes  |  |
+ | companies | ArrayList<[GCompany](#GCompany)>? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [DataTresholdDTO](#DataTresholdDTO)
 
  | Properties | Type | Nullable | Description |
@@ -624,23 +795,6 @@ Successful operation
  | ---------- | ---- | -------- | ----------- |
  | type | Integer? |  yes  |  |
  | groupList | ArrayList<[GenericDTO](#GenericDTO)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [Page](#Page)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String |  no  |  |
- | size | Integer? |  yes  |  |
- | current | Integer? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | itemTotal | Integer? |  yes  |  |
- | nextId | String? |  yes  |  |
- | hasPrevious | Boolean? |  yes  |  |
 
 ---
 
