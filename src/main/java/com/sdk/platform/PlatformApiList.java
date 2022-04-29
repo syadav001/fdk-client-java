@@ -4854,17 +4854,17 @@ interface CompanyProfileApiList {
     
     
     
-    @PATCH ("/service/platform/company-profile/v1.0/company/{company_id}")
-    Call<PlatformModels.SuccessResponse> updateCompany(@Path("company_id")  String companyId ,@Body PlatformModels.UpdateCompany payload);
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/company-profile/v1.0/company/{company_id}")
     Call<PlatformModels.GetCompanyProfileSerializerResponse> cbsOnboardGet(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/company-profile/v1.0/company/{company_id}")
+    Call<PlatformModels.SuccessResponse> updateCompany(@Path("company_id")  String companyId ,@Body PlatformModels.UpdateCompany payload);
     
     
     
@@ -4914,6 +4914,15 @@ interface CompanyProfileApiList {
     
     
     
+    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/company-brand")
+    Call<PlatformModels.SuccessResponse> createCompanyBrandMapping(@Path("company_id")  String companyId ,@Body PlatformModels.CompanyBrandPostRequestSerializer payload);
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -4932,8 +4941,8 @@ interface CompanyProfileApiList {
     
     
     
-    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/company-brand")
-    Call<PlatformModels.SuccessResponse> createCompanyBrandMapping(@Path("company_id")  String companyId ,@Body PlatformModels.CompanyBrandPostRequestSerializer payload);
+    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location")
+    Call<PlatformModels.SuccessResponse> createLocation(@Path("company_id")  String companyId ,@Body PlatformModels.LocationSerializer payload);
     
     
     
@@ -4958,15 +4967,6 @@ interface CompanyProfileApiList {
     
     @GET ("/service/platform/company-profile/v1.0/company/{company_id}/location")
     Call<PlatformModels.LocationListSerializer> getLocations(@Path("company_id")  String companyId , @Query("store_type") String  storeType ,  @Query("q") String  q ,  @Query("stage") String  stage ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location")
-    Call<PlatformModels.SuccessResponse> createLocation(@Path("company_id")  String companyId ,@Body PlatformModels.LocationSerializer payload);
     
     
     
@@ -5354,45 +5354,6 @@ interface InventoryApiList {
     
     @GET ("/service/platform/inventory/v1.0/company/{company_id}/jobs/code/integration/{integration_id}")
     Call<PlatformModels.ResponseEnvelopeListJobConfigListDTO> getJobCodesByCompanyAndIntegration(@Path("company_id")  String companyId , @Path("integration_id") String  integrationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/inventory/v1.0/company/{company_id}/job/config")
-    Call<PlatformModels.ResponseEnvelopeListJobConfigDTO> getJobConfigByIntegrationType(@Path("company_id")  String companyId , @Query("integration_type") String  integrationType ,  @Query("disable") Boolean  disable );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/inventory/v1.0/company/{company_id}/email/jobCode")
-    Call<PlatformModels.ResponseEnvelopeObject> getJobCodesMetrics(@Path("company_id")  String companyId , @Query("daily_job") Boolean  dailyJob ,  @Query("job_code") String  jobCode );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/inventory/v1.0/company/{company_id}/email/jobCode")
-    Call<PlatformModels.ResponseEnvelopeEmailJobMetrics> saveJobCodesMetrics(@Path("company_id")  String companyId ,@Body PlatformModels.EmailJobMetrics payload);
     
 }
 

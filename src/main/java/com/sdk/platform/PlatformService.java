@@ -13826,9 +13826,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.SuccessResponse updateCompany(PlatformModels.UpdateCompany body) throws IOException {
+    public PlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateCompany(this.companyId , body).execute();
+            Response<PlatformModels.GetCompanyProfileSerializerResponse> response = companyprofileApiList.cbsOnboardGet(this.companyId ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -13851,9 +13851,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws IOException {
+    public PlatformModels.SuccessResponse updateCompany(PlatformModels.UpdateCompany body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetCompanyProfileSerializerResponse> response = companyprofileApiList.cbsOnboardGet(this.companyId ).execute();
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.updateCompany(this.companyId , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -13984,6 +13984,31 @@ public static class CompanyProfileService {
     
     
     
+    public PlatformModels.SuccessResponse createCompanyBrandMapping(PlatformModels.CompanyBrandPostRequestSerializer body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.createCompanyBrandMapping(this.companyId , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -14085,9 +14110,9 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.SuccessResponse createCompanyBrandMapping(PlatformModels.CompanyBrandPostRequestSerializer body) throws IOException {
+    public PlatformModels.SuccessResponse createLocation(PlatformModels.LocationSerializer body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.createCompanyBrandMapping(this.companyId , body).execute();
+            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.createLocation(this.companyId , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -14221,31 +14246,6 @@ public static class CompanyProfileService {
         }
     });
     return paginator ;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.SuccessResponse createLocation(PlatformModels.LocationSerializer body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = companyprofileApiList.createLocation(this.companyId , body).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -15494,97 +15494,6 @@ public static class InventoryService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.ResponseEnvelopeListJobConfigDTO getJobConfigByIntegrationType(String integrationType , Boolean disable ) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ResponseEnvelopeListJobConfigDTO> response = inventoryApiList.getJobConfigByIntegrationType(this.companyId ,integrationType , disable ).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.ResponseEnvelopeObject getJobCodesMetrics(Boolean dailyJob , String jobCode ) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ResponseEnvelopeObject> response = inventoryApiList.getJobCodesMetrics(this.companyId ,dailyJob , jobCode ).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.ResponseEnvelopeEmailJobMetrics saveJobCodesMetrics(PlatformModels.EmailJobMetrics body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ResponseEnvelopeEmailJobMetrics> response = inventoryApiList.saveJobCodesMetrics(this.companyId , body).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
 
 
 public class ApplicationClient {
@@ -15600,12 +15509,6 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    
-    
-    
-    
-    
-    
     
     
     
