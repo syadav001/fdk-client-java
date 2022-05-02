@@ -3,6 +3,7 @@ package com.sdk.universal;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 public class PublicClient {
