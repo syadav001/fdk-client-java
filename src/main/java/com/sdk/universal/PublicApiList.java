@@ -1,6 +1,5 @@
 package com.sdk.universal;
 
-
 import retrofit2.http.*;
 import retrofit2.Call;
 import java.util.*;

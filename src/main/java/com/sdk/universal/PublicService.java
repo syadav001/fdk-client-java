@@ -14,7 +14,6 @@ public class PublicService {
 
 
 
-
 @Getter
 public static class ConfigurationService {
     private PublicConfig publicConfig;
@@ -69,7 +68,6 @@ public static class ConfigurationService {
 
 
 
-
 @Getter
 public static class WebhookService {
     private PublicConfig publicConfig;
@@ -121,7 +119,6 @@ public static class WebhookService {
     
       
 }
-
 
 
 
@@ -232,7 +229,6 @@ public static class InventoryService {
     
       
 }
-
 
 
 

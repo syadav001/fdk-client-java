@@ -5,7 +5,6 @@ package com.sdk.universal;
 import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 
-
 import java.util.*;
 
 public class PublicModels {
@@ -1481,6 +1480,12 @@ public static class GStore{
     
     
     
+    
+    @JsonProperty("data")
+    private StoreData data;
+    
+    
+    
 }
 
 
@@ -1668,6 +1673,28 @@ public static class SlingshotConfigurationDetail{
     
     @JsonProperty("companies")
     private List<GCompany> companies;
+    
+    
+    
+}
+
+
+/*
+    Model: StoreData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class StoreData{
+    
+    
+    
+    
+    @JsonProperty("location_id")
+    private String locationId;
     
     
     

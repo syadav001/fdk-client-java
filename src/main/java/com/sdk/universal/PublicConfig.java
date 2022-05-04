@@ -7,7 +7,6 @@ import java.net.CookieManager;
 import java.net.CookieStore;
 import java.util.Objects;
 
-
 @Getter
 @Setter
 public class PublicConfig {
