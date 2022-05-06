@@ -1490,52 +1490,6 @@ public static class GStore{
 
 
 /*
-    Model: Integration
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.ALWAYS)
-public static class Integration{
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private List<Metum> meta;
-    
-    
-    
-}
-
-
-/*
     Model: Metum
 */
 @AllArgsConstructor
@@ -1666,13 +1620,59 @@ public static class SlingshotConfigurationDetail{
     
     
     @JsonProperty("integration")
-    private Integration integration;
+    private SlingshotIntegration integration;
     
     
     
     
     @JsonProperty("companies")
     private List<GCompany> companies;
+    
+    
+    
+}
+
+
+/*
+    Model: SlingshotIntegration
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class SlingshotIntegration{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private List<Metum> meta;
     
     
     

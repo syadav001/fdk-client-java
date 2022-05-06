@@ -383,21 +383,6 @@ JobCode Metrics entry Created Successfully
 
  
  
- #### [Integration](#Integration)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | description | String? |  yes  |  |
- | name | String? |  yes  |  |
- | slug | String? |  yes  |  |
- | meta | ArrayList<[Metum](#Metum)>? |  yes  |  |
-
----
-
-
- 
- 
  #### [Metum](#Metum)
 
  | Properties | Type | Nullable | Description |
@@ -453,8 +438,23 @@ JobCode Metrics entry Created Successfully
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | integration | [Integration](#Integration)? |  yes  |  |
+ | integration | [SlingshotIntegration](#SlingshotIntegration)? |  yes  |  |
  | companies | ArrayList<[GCompany](#GCompany)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SlingshotIntegration](#SlingshotIntegration)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | meta | ArrayList<[Metum](#Metum)>? |  yes  |  |
 
 ---
 
