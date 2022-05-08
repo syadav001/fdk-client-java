@@ -1702,7 +1702,7 @@ public static class StoreData{
 
 
 /*
-    Model: ResponseEnvelopeObject
+    Model: ApikeyModel
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1710,7 +1710,35 @@ public static class StoreData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.ALWAYS)
-public static class ResponseEnvelopeObject{
+public static class ApikeyModel{
+    
+    
+    
+    
+    @JsonProperty("session_id")
+    private String sessionId;
+    
+    
+    
+    
+    @JsonProperty("error_message")
+    private String errorMessage;
+    
+    
+    
+}
+
+
+/*
+    Model: ResponseEnvelopeApikeyModel
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ResponseEnvelopeApikeyModel{
     
     
     
@@ -1758,13 +1786,13 @@ public static class ResponseEnvelopeObject{
     
     
     @JsonProperty("items")
-    private Object items;
+    private ApikeyModel items;
     
     
     
     
     @JsonProperty("payload")
-    private Object payload;
+    private ApikeyModel payload;
     
     
     
@@ -2223,6 +2251,88 @@ public static class ResponseEnvelopeEmailJobMetrics{
     
     @JsonProperty("payload")
     private EmailJobMetrics payload;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: ResponseEnvelopeObject
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public static class ResponseEnvelopeObject{
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("total_time_taken_in_millis")
+    private Integer totalTimeTakenInMillis;
+    
+    
+    
+    
+    @JsonProperty("http_status")
+    private String httpStatus;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private Object items;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private Object payload;
     
     
     

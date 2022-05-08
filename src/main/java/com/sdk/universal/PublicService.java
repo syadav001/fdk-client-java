@@ -159,9 +159,9 @@ public static class InventoryService {
     
     
     
-    public PublicModels.ResponseEnvelopeObject getApiKey(String userName , String password ) throws IOException {
+    public PublicModels.ResponseEnvelopeApikeyModel getApiKey(String userName , String password ) throws IOException {
     
-        Response<PublicModels.ResponseEnvelopeObject> response = inventoryApiList.getApiKey(userName, password).execute();
+        Response<PublicModels.ResponseEnvelopeApikeyModel> response = inventoryApiList.getApiKey(userName, password).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

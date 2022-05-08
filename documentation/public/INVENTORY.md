@@ -99,7 +99,7 @@ REST Endpoint that returns apikey by username by password
 
 
 
-[ResponseEnvelopeObject](#ResponseEnvelopeObject)
+[ResponseEnvelopeApikeyModel](#ResponseEnvelopeApikeyModel)
 
 Successful operation
 
@@ -472,7 +472,19 @@ JobCode Metrics entry Created Successfully
 
  
  
- #### [ResponseEnvelopeObject](#ResponseEnvelopeObject)
+ #### [ApikeyModel](#ApikeyModel)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | sessionId | String? |  yes  |  |
+ | errorMessage | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ResponseEnvelopeApikeyModel](#ResponseEnvelopeApikeyModel)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -483,8 +495,8 @@ JobCode Metrics entry Created Successfully
  | message | String? |  yes  |  |
  | totalTimeTakenInMillis | Integer? |  yes  |  |
  | httpStatus | String? |  yes  |  |
- | items | HashMap<String,Object>? |  yes  |  |
- | payload | HashMap<String,Object>? |  yes  |  |
+ | items | [ApikeyModel](#ApikeyModel)? |  yes  |  |
+ | payload | [ApikeyModel](#ApikeyModel)? |  yes  |  |
  | traceId | String? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
 
@@ -620,6 +632,27 @@ JobCode Metrics entry Created Successfully
  | httpStatus | String? |  yes  |  |
  | items | [EmailJobMetrics](#EmailJobMetrics)? |  yes  |  |
  | payload | [EmailJobMetrics](#EmailJobMetrics)? |  yes  |  |
+ | traceId | String? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ResponseEnvelopeObject](#ResponseEnvelopeObject)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String? |  yes  |  |
+ | status | Integer? |  yes  |  |
+ | error | String? |  yes  |  |
+ | exception | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | totalTimeTakenInMillis | Integer? |  yes  |  |
+ | httpStatus | String? |  yes  |  |
+ | items | HashMap<String,Object>? |  yes  |  |
+ | payload | HashMap<String,Object>? |  yes  |  |
  | traceId | String? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
 
