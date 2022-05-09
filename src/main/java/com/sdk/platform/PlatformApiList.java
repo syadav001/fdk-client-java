@@ -4878,17 +4878,17 @@ interface CompanyProfileApiList {
     
     
     
-    @GET ("/service/platform/company-profile/v1.0/company/{company_id}")
-    Call<PlatformModels.GetCompanyProfileSerializerResponse> cbsOnboardGet(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
     @PATCH ("/service/platform/company-profile/v1.0/company/{company_id}")
     Call<PlatformModels.SuccessResponse> updateCompany(@Path("company_id")  String companyId ,@Body PlatformModels.UpdateCompany payload);
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/company-profile/v1.0/company/{company_id}")
+    Call<PlatformModels.GetCompanyProfileSerializerResponse> cbsOnboardGet(@Path("company_id")  String companyId );
     
     
     
@@ -4908,18 +4908,6 @@ interface CompanyProfileApiList {
     
     
     
-    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
-    Call<PlatformModels.GetBrandResponseSerializer> getBrand(@Path("company_id")  String companyId , @Path("brand_id") String  brandId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
     Call<PlatformModels.SuccessResponse> editBrand(@Path("company_id")  String companyId , @Path("brand_id") String  brandId ,@Body PlatformModels.CreateUpdateBrandRequestSerializer payload);
     
@@ -4929,17 +4917,20 @@ interface CompanyProfileApiList {
     
     
     
+    
+    
+    
+    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
+    Call<PlatformModels.GetBrandResponseSerializer> getBrand(@Path("company_id")  String companyId , @Path("brand_id") String  brandId );
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/brand")
     Call<PlatformModels.SuccessResponse> createBrand(@Path("company_id")  String companyId ,@Body PlatformModels.CreateUpdateBrandRequestSerializer payload);
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/company-brand")
-    Call<PlatformModels.SuccessResponse> createCompanyBrandMapping(@Path("company_id")  String companyId ,@Body PlatformModels.CompanyBrandPostRequestSerializer payload);
     
     
     
@@ -4965,8 +4956,8 @@ interface CompanyProfileApiList {
     
     
     
-    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location")
-    Call<PlatformModels.SuccessResponse> createLocation(@Path("company_id")  String companyId ,@Body PlatformModels.LocationSerializer payload);
+    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/company-brand")
+    Call<PlatformModels.SuccessResponse> createCompanyBrandMapping(@Path("company_id")  String companyId ,@Body PlatformModels.CompanyBrandPostRequestSerializer payload);
     
     
     
@@ -4998,11 +4989,8 @@ interface CompanyProfileApiList {
     
     
     
-    
-    
-    
-    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
-    Call<PlatformModels.GetLocationSerializer> getLocationDetail(@Path("company_id")  String companyId , @Path("location_id") String  locationId );
+    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location")
+    Call<PlatformModels.SuccessResponse> createLocation(@Path("company_id")  String companyId ,@Body PlatformModels.LocationSerializer payload);
     
     
     
@@ -5015,6 +5003,18 @@ interface CompanyProfileApiList {
     
     @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
     Call<PlatformModels.SuccessResponse> updateLocation(@Path("company_id")  String companyId , @Path("location_id") String  locationId ,@Body PlatformModels.LocationSerializer payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
+    Call<PlatformModels.GetLocationSerializer> getLocationDetail(@Path("company_id")  String companyId , @Path("location_id") String  locationId );
     
     
     
@@ -6139,6 +6139,99 @@ interface CartApiList {
     
     @PATCH ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/coupon/{id}")
     Call<PlatformModels.SuccessMessage> updateCouponPartially(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.CouponPartialUpdate payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion")
+    Call<PlatformModels.PromotionsResponse> getPromotions(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("q") String  q ,  @Query("is_active") Boolean  isActive ,  @Query("promo_group") String  promoGroup ,  @Query("promotion_type") String  promotionType ,  @Query("fp_panel") String  fpPanel ,  @Query("promotion_id") String  promotionId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion")
+    Call<PlatformModels.PromotionAdd> createPromotion(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.PromotionAdd payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion/{id}")
+    Call<PlatformModels.PromotionUpdate> getPromotionById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion/{id}")
+    Call<PlatformModels.PromotionUpdate> updatePromotion(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.PromotionUpdate payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion/{id}")
+    Call<PlatformModels.SuccessMessage> updatePromotionPartially(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.PromotionPartialUpdate payload);
     
     
     
