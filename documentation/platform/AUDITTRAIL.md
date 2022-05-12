@@ -9,6 +9,7 @@
 * [getAuditLogs](#getauditlogs)
 * [createAuditLog](#createauditlog)
 * [getAuditLog](#getauditlog)
+* [getEntityTypes](#getentitytypes)
 
 
 
@@ -279,6 +280,78 @@ Success
 ---
 
 
+### getEntityTypes
+Get entity types
+
+
+
+
+```java
+client.audittrail.getEntityTypes() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company Id |  
+
+
+
+Get entity types
+
+*Returned Response:*
+
+
+
+
+[EntityTypesResponse](#EntityTypesResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "items": [
+      {
+        "entity_value:\"sales-channel\"": null,
+        "display_name": "Sales Channel"
+      },
+      {
+        "entity_value:\"shipment-update\"": null,
+        "display_name": "Shipment Update"
+      }
+    ]
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
 
@@ -445,6 +518,29 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | message | String? |  yes  | Internal server Server error |
  | code | String? |  yes  | Error code |
+
+---
+
+
+ 
+ 
+ #### [EntityTypesResponse](#EntityTypesResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<[EntityTypeObj](#EntityTypeObj)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EntityTypeObj](#EntityTypeObj)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | entityValue | String? |  yes  |  |
+ | displayName | String? |  yes  |  |
 
 ---
 
