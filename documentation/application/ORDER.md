@@ -1096,6 +1096,7 @@ Success, the code is valid and returns a SignedUrl
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | showPromise | Boolean? |  yes  |  |
  | min | String? |  yes  |  |
  | max | String? |  yes  |  |
 
