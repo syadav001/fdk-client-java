@@ -6942,6 +6942,109 @@ interface WebhookApiList {
     
 }
 
+interface ServiceabilityApiList {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/application/{application_id}/serviceability")
+    Call<PlatformModels.ApplicationServiceabilityConfigResponse> getApplicationServiceability(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/logistics-internal/v1.0/company/{company_id}/regions")
+    Call<PlatformModels.EntityRegionView_Response> getEntityRegionView(@Path("company_id")  String companyId ,@Body PlatformModels.EntityRegionView_Request payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/zones")
+    Call<PlatformModels.ListViewResponse> getListView(@Path("company_id")  String companyId , @Query("page_number") Integer  pageNumber ,  @Query("page_size") Integer  pageSize ,  @Query("name") String  name ,  @Query("is_active") Boolean  isActive ,  @Query("channel_ids") String  channelIds );
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/all-stores")
+    Call<PlatformModels.CompanyStoreView_Response> getCompanyStoreView(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<PlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body PlatformModels.ZoneUpdateRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<PlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone/")
+    Call<PlatformModels.ZoneResponse> upsertZoneControllerView(@Path("company_id")  String companyId ,@Body PlatformModels.ZoneRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/logistics-internal/v1.0/company/{company_id}/application/{application_id}/zones")
+    Call<PlatformModels.GetZoneFromPincodeViewResponse> getZoneFromPincode(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.GetZoneFromPincodeViewRequest payload);
+    
+}
+
 interface AuditTrailApiList {
     
     
