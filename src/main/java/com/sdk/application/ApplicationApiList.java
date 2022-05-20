@@ -573,6 +573,24 @@ interface PaymentApiList {
     @POST ("/service/application/payment/v1.0/refund/beneficiary/default")
     Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Body ApplicationModels.SetDefaultBeneficiaryRequest payload);
     
+    @GET ("/service/application/payment/v1.0/create-payment-link/")
+    Call<ApplicationModels.GetPaymentLinkResponse> getPaymentLink(@Query("id") String id );
+    
+    @POST ("/service/application/payment/v1.0/create-payment-link/")
+    Call<ApplicationModels.CreatePaymentLinkResponse> createPaymentLink(@Body ApplicationModels.CreatePaymentLinkRequest payload);
+    
+    @POST ("/service/application/payment/v1.0/resend-payment-link/")
+    Call<ApplicationModels.CancelOrResendPaymentLinkResponse> resendPaymentLink(@Body ApplicationModels.CancelOrResendPaymentLinkRequest payload);
+    
+    @POST ("/service/application/payment/v1.0/cancel-payment-link/")
+    Call<ApplicationModels.CancelOrResendPaymentLinkResponse> cancelPaymentLink(@Body ApplicationModels.CancelOrResendPaymentLinkRequest payload);
+    
+    @GET ("/service/application/payment/v1.0/payment/options/link/")
+    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Query("id") String id );
+    
+    @GET ("/service/application/payment/v1.0/polling-payment-link/")
+    Call<ApplicationModels.PollingPaymentLinkResponse> pollingPaymentLink(@Query("id") String id );
+    
     @GET ("/service/application/payment/v1.0/payment/credit-summary/")
     Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Query("aggregator") String aggregator );
     
@@ -618,6 +636,9 @@ interface OrderApiList {
     
     @POST ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify")
     Call<ApplicationModels.ResponseVerifyOTPShipment> verifyOtpShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId ,@Body ApplicationModels.ReqBodyVerifyOTPShipment payload);
+    
+    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}/invoice")
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Path("shipment_id") String shipmentId );
     
 }
 
@@ -817,6 +838,9 @@ interface LogisticApiList {
     
     @POST ("/service/application/logistics/v1.0")
     Call<ApplicationModels.GetTatProductResponse> getTatProduct(@Body ApplicationModels.GetTatProductReqBody payload);
+    
+    @POST ("/service/application/logistics/v1.0/pincode/zones")
+    Call<ApplicationModels.GetPincodeZonesResponse> getPincodeZones(@Body ApplicationModels.GetPincodeZonesReqBody payload);
     
     @GET ("/service/application/logistics/v1.0/pincode/{pincode}")
     Call<ApplicationModels.GetPincodeCityResponse> getPincodeCity(@Path("pincode") String pincode );
