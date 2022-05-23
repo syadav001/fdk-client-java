@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -175,6 +175,12 @@ interface CartApiList {
     
     @POST ("/service/application/cart/v1.0/share-cart/{token}/{action}")
     Call<ApplicationModels.SharedCartResponse> updateCartWithSharedItems(@Path("token") String token , @Path("action") String action );
+    
+    @GET ("/service/application/cart/v1.0/available-promotions")
+    Call<ApplicationModels.PromotionOffersResponse> getPromotionOffers(@Query("slug") String slug , @Query("page_size") Integer pageSize , @Query("promotion_group") String promotionGroup );
+    
+    @GET ("/service/application/cart/v1.0/available-ladder-prices")
+    Call<ApplicationModels.LadderPriceOffers> getLadderOffers(@Query("slug") String slug , @Query("store_id") String storeId , @Query("promotion_id") String promotionId , @Query("page_size") Integer pageSize );
     
 }
 
