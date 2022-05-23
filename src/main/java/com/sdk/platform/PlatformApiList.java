@@ -4948,7 +4948,7 @@ interface CompanyProfileApiList {
     
     
     @PATCH ("/service/platform/company-profile/v1.0/company/{company_id}")
-    Call<PlatformModels.SuccessResponse> updateCompany(@Path("company_id")  String companyId ,@Body PlatformModels.UpdateCompany payload);
+    Call<PlatformModels.SuccessResponseProfile> updateCompany(@Path("company_id")  String companyId ,@Body PlatformModels.UpdateCompany payload);
     
     
     
@@ -4981,7 +4981,7 @@ interface CompanyProfileApiList {
     
     
     @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
-    Call<PlatformModels.SuccessResponse> editBrand(@Path("company_id")  String companyId , @Path("brand_id") String  brandId ,@Body PlatformModels.CreateUpdateBrandRequestSerializer payload);
+    Call<PlatformModels.SuccessResponseProfile> editBrand(@Path("company_id")  String companyId , @Path("brand_id") String  brandId ,@Body PlatformModels.CreateUpdateBrandRequestSerializer payload);
     
     
     
@@ -4990,7 +4990,7 @@ interface CompanyProfileApiList {
     
     
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/brand/")
-    Call<PlatformModels.SuccessResponse> createBrand(@Path("company_id")  String companyId ,@Body PlatformModels.CreateUpdateBrandRequestSerializer payload);
+    Call<PlatformModels.SuccessResponseProfile> createBrand(@Path("company_id")  String companyId ,@Body PlatformModels.CreateUpdateBrandRequestSerializer payload);
     
     
     
@@ -5017,7 +5017,7 @@ interface CompanyProfileApiList {
     
     
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/company-brand")
-    Call<PlatformModels.SuccessResponse> createCompanyBrandMapping(@Path("company_id")  String companyId ,@Body PlatformModels.CompanyBrandPostRequestSerializer payload);
+    Call<PlatformModels.SuccessResponseProfile> createCompanyBrandMapping(@Path("company_id")  String companyId ,@Body PlatformModels.CompanyBrandPostRequestSerializer payload);
     
     
     
@@ -5050,7 +5050,7 @@ interface CompanyProfileApiList {
     
     
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location")
-    Call<PlatformModels.SuccessResponse> createLocation(@Path("company_id")  String companyId ,@Body PlatformModels.LocationSerializer payload);
+    Call<PlatformModels.SuccessResponseProfile> createLocation(@Path("company_id")  String companyId ,@Body PlatformModels.LocationSerializer payload);
     
     
     
@@ -5074,7 +5074,7 @@ interface CompanyProfileApiList {
     
     
     @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/location/{location_id}")
-    Call<PlatformModels.SuccessResponse> updateLocation(@Path("company_id")  String companyId , @Path("location_id") String  locationId ,@Body PlatformModels.LocationSerializer payload);
+    Call<PlatformModels.SuccessResponseProfile> updateLocation(@Path("company_id")  String companyId , @Path("location_id") String  locationId ,@Body PlatformModels.LocationSerializer payload);
     
     
     
@@ -5083,7 +5083,7 @@ interface CompanyProfileApiList {
     
     
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location/bulk")
-    Call<PlatformModels.SuccessResponse> createLocationBulk(@Path("company_id")  String companyId ,@Body PlatformModels.BulkLocationSerializer payload);
+    Call<PlatformModels.SuccessResponseProfile> createLocationBulk(@Path("company_id")  String companyId ,@Body PlatformModels.BulkLocationSerializer payload);
     
 }
 
