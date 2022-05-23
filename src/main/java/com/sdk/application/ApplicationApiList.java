@@ -604,6 +604,9 @@ interface OrderApiList {
     @POST ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify")
     Call<ApplicationModels.ResponseVerifyOTPShipment> verifyOtpShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId ,@Body ApplicationModels.ReqBodyVerifyOTPShipment payload);
     
+    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}/invoice")
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Path("shipment_id") String shipmentId );
+    
 }
 
 interface RewardsApiList {
@@ -802,6 +805,9 @@ interface LogisticApiList {
     
     @POST ("/service/application/logistics/v1.0")
     Call<ApplicationModels.GetTatProductResponse> getTatProduct(@Body ApplicationModels.GetTatProductReqBody payload);
+    
+    @POST ("/service/application/logistics/v1.0/pincode/zones")
+    Call<ApplicationModels.GetPincodeZonesResponse> getPincodeZones(@Body ApplicationModels.GetPincodeZonesReqBody payload);
     
     @GET ("/service/application/logistics/v1.0/pincode/{pincode}")
     Call<ApplicationModels.GetPincodeCityResponse> getPincodeCity(@Path("pincode") String pincode );
