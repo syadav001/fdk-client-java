@@ -5524,6 +5524,7 @@ Success. Returns a JSON object of the theme. Check the example shown below or re
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | link | String? |  yes  |  |
+ | links | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -5546,6 +5547,7 @@ Success. Returns a JSON object of the theme. Check the example shown below or re
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | link | String? |  yes  |  |
+ | links | ArrayList<String>? |  yes  |  |
 
 ---
 
