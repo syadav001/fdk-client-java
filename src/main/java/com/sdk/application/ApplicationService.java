@@ -760,9 +760,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -774,9 +774,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1157,9 +1157,9 @@ public class ApplicationService {
 
     
     
-    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId ) throws IOException {
+    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode ) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.getCart(id, i, b, assignCardId).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.getCart(id, i, b, assignCardId, areaCode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1185,9 +1185,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b ,ApplicationModels.AddCartRequest body) throws IOException {
+    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode ,ApplicationModels.AddCartRequest body) throws IOException {
     
-        Response<ApplicationModels.AddCartDetailResponse> response = cartApiList.addItems(i, b, body).execute();
+        Response<ApplicationModels.AddCartDetailResponse> response = cartApiList.addItems(i, b, areaCode, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1199,9 +1199,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b ,ApplicationModels.UpdateCartRequest body) throws IOException {
+    public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , String areaCode ,ApplicationModels.UpdateCartRequest body) throws IOException {
     
-        Response<ApplicationModels.UpdateCartDetailResponse> response = cartApiList.updateCart(id, i, b, body).execute();
+        Response<ApplicationModels.UpdateCartDetailResponse> response = cartApiList.updateCart(id, i, b, areaCode, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3611,6 +3611,34 @@ public class FileStorageService extends FileStorage {
     
     
     
+    public ApplicationModels.EpaylaterBannerResponse getEpaylaterBannerDetails() throws IOException {
+    
+        Response<ApplicationModels.EpaylaterBannerResponse> response = paymentApiList.getEpaylaterBannerDetails().execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ResendOrCancelPaymentResponse resendOrCancelPayment(ApplicationModels.ResendOrCancelPaymentRequest body) throws IOException {
+    
+        Response<ApplicationModels.ResendOrCancelPaymentResponse> response = paymentApiList.resendOrCancelPayment( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.TransferModeResponse getActiveRefundTransferModes() throws IOException {
     
         Response<ApplicationModels.TransferModeResponse> response = paymentApiList.getActiveRefundTransferModes().execute();
@@ -3740,6 +3768,62 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.SetDefaultBeneficiaryResponse updateDefaultBeneficiary(ApplicationModels.SetDefaultBeneficiaryRequest body) throws IOException {
     
         Response<ApplicationModels.SetDefaultBeneficiaryResponse> response = paymentApiList.updateDefaultBeneficiary( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CustomerCreditSummaryResponse customerCreditSummary(String aggregator ) throws IOException {
+    
+        Response<ApplicationModels.CustomerCreditSummaryResponse> response = paymentApiList.customerCreditSummary(aggregator).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.RedirectToAggregatorResponse redirectToAggregator(String source , String aggregator ) throws IOException {
+    
+        Response<ApplicationModels.RedirectToAggregatorResponse> response = paymentApiList.redirectToAggregator(source, aggregator).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CheckCreditResponse checkCredit(String aggregator ) throws IOException {
+    
+        Response<ApplicationModels.CheckCreditResponse> response = paymentApiList.checkCredit(aggregator).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CustomerOnboardingResponse customerOnboard(ApplicationModels.CustomerOnboardingRequest body) throws IOException {
+    
+        Response<ApplicationModels.CustomerOnboardingResponse> response = paymentApiList.customerOnboard( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3909,6 +3993,20 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.ResponseVerifyOTPShipment verifyOtpShipmentCustomer(String orderId , String shipmentId ,ApplicationModels.ReqBodyVerifyOTPShipment body) throws IOException {
     
         Response<ApplicationModels.ResponseVerifyOTPShipment> response = orderApiList.verifyOtpShipmentCustomer(orderId, shipmentId, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ResponseGetInvoiceShipment getInvoiceByShipmentId(String shipmentId ) throws IOException {
+    
+        Response<ApplicationModels.ResponseGetInvoiceShipment> response = orderApiList.getInvoiceByShipmentId(shipmentId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5093,9 +5191,9 @@ public class FileStorageService extends FileStorage {
 
     
     
-    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId ) throws IOException {
+    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode ) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.getCart(id, i, b, assignCardId).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.getCart(id, i, b, assignCardId, areaCode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5121,9 +5219,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b ,ApplicationModels.AddCartRequest body) throws IOException {
+    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode ,ApplicationModels.AddCartRequest body) throws IOException {
     
-        Response<ApplicationModels.AddCartDetailResponse> response = poscartApiList.addItems(i, b, body).execute();
+        Response<ApplicationModels.AddCartDetailResponse> response = poscartApiList.addItems(i, b, areaCode, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5135,9 +5233,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b ,ApplicationModels.UpdateCartRequest body) throws IOException {
+    public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , String areaCode ,ApplicationModels.UpdateCartRequest body) throws IOException {
     
-        Response<ApplicationModels.UpdateCartDetailResponse> response = poscartApiList.updateCart(id, i, b, body).execute();
+        Response<ApplicationModels.UpdateCartDetailResponse> response = poscartApiList.updateCart(id, i, b, areaCode, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5503,6 +5601,20 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.GetTatProductResponse getTatProduct(ApplicationModels.GetTatProductReqBody body) throws IOException {
     
         Response<ApplicationModels.GetTatProductResponse> response = logisticApiList.getTatProduct( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.GetPincodeZonesResponse getPincodeZones(ApplicationModels.GetPincodeZonesReqBody body) throws IOException {
+    
+        Response<ApplicationModels.GetPincodeZonesResponse> response = logisticApiList.getPincodeZones( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
