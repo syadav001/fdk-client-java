@@ -1,6 +1,7 @@
 package com.sdk.common;
 
 import okhttp3.*;
+import okhttp3.internal.JavaNetCookieJar;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
@@ -15,13 +16,11 @@ import java.net.CookieStore;
 import java.security.cert.CertificateException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Service Generator class for Retrofit communication Depends on baseUrl
- * property
- */
+/** Service Generator class for Retrofit communication Depends on baseUrl property */
 public class RetrofitServiceFactory {
 
     private String baseURL;
@@ -36,15 +35,13 @@ public class RetrofitServiceFactory {
 
     public RetrofitServiceFactory() {
         baseURL = "http://localhost:8080";
-        HttpUrl httpUrl = HttpUrl.parse(baseURL);
-        if (Objects.nonNull(httpUrl)) {
-            builder = new Retrofit.Builder()
-                    .baseUrl(httpUrl)
-                    .addConverterFactory(JacksonConverterFactory.create());
-            retrofit = builder.build();
-            httpClient = new OkHttpClient.Builder();
-            logging = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
-        }
+        builder =
+                new Retrofit.Builder()
+                        .baseUrl(baseURL)
+                        .addConverterFactory(JacksonConverterFactory.create());
+        retrofit = builder.build();
+        httpClient = new OkHttpClient.Builder();
+        logging = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
     }
 
     public <S> S createService(String baseUrl, Class<S> serviceClass, List<Interceptor> interceptorList) {
@@ -54,12 +51,11 @@ public class RetrofitServiceFactory {
     /**
      * This method generates retrofit Service call object
      *
-     * @param baseUrl      the base url for retrofit
+     * @param baseUrl the base url for retrofit
      * @param serviceClass the class call object which needs to be returned
      * @return the service class call object
      */
-    public <S> S createService(String baseUrl, Class<S> serviceClass, List<Interceptor> interceptorList,
-            CookieStore cookieStore) {
+    public <S> S createService(String baseUrl, Class<S> serviceClass, List<Interceptor> interceptorList, CookieStore cookieStore) {
         setApiBaseUrl(baseUrl);
         if (!httpClient.interceptors().contains(logging)) {
             httpClient.addInterceptor(logging);
@@ -72,26 +68,25 @@ public class RetrofitServiceFactory {
     private static OkHttpClient getUnsafeOkHttpClient(List<Interceptor> interceptorList, CookieStore cookieStore) {
         try {
             // Create a trust manager that does not validate certificate chains
-            final TrustManager[] trustAllCerts = new TrustManager[] {
-                    new X509TrustManager() {
-                        @Override
-                        public void checkClientTrusted(
-                                java.security.cert.X509Certificate[] chain, String authType)
-                                throws CertificateException {
-                        }
+            final TrustManager[] trustAllCerts =
+                    new TrustManager[] {
+                            new X509TrustManager() {
+                                @Override
+                                public void checkClientTrusted(
+                                        java.security.cert.X509Certificate[] chain, String authType)
+                                        throws CertificateException {}
 
-                        @Override
-                        public void checkServerTrusted(
-                                java.security.cert.X509Certificate[] chain, String authType)
-                                throws CertificateException {
-                        }
+                                @Override
+                                public void checkServerTrusted(
+                                        java.security.cert.X509Certificate[] chain, String authType)
+                                        throws CertificateException {}
 
-                        @Override
-                        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                            return new java.security.cert.X509Certificate[] {};
-                        }
-                    }
-            };
+                                @Override
+                                public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                                    return new java.security.cert.X509Certificate[] {};
+                                }
+                            }
+                    };
 
             // Install the all-trusting trust manager
             final SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
@@ -102,17 +97,16 @@ public class RetrofitServiceFactory {
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
             builder.sslSocketFactory(sslSocketFactory, (X509TrustManager) trustAllCerts[0]);
             builder.hostnameVerifier((hostname, session) -> true);
-            if (!interceptorList.isEmpty()) {
+            if(!interceptorList.isEmpty()) {
                 interceptorList.forEach(builder::addInterceptor);
             }
             CookieJar cookieJar = addCookie(cookieStore);
-            if (Objects.nonNull(cookieJar)) {
+            if(Objects.nonNull(cookieJar)) {
                 builder.cookieJar(cookieJar);
             }
             builder.readTimeout(Duration.ofMinutes(Constants.READ_TIMEOUT).toMinutes(), TimeUnit.MINUTES);
-            builder.connectTimeout(Duration.ofSeconds(Constants.CONNECT_TIMEOUT).getSeconds(), TimeUnit.SECONDS);
-            builder.writeTimeout(Duration.ofSeconds(Constants.WRITE_TIMEOUT).getSeconds(), TimeUnit.SECONDS);
-            builder.retryOnConnectionFailure(true);
+            builder.connectTimeout(Duration.ofSeconds(Constants.CONNECT_TIMEOUT).getSeconds(), TimeUnit.MINUTES);
+            builder.writeTimeout(Duration.ofSeconds(Constants.WRITE_TIMEOUT).getSeconds(), TimeUnit.MINUTES);
             builder.connectionPool(
                     new ConnectionPool(Constants.IDLE_CONNECTION, Constants.KEEP_ALIVE, TimeUnit.MINUTES));
             return builder.build();
@@ -122,7 +116,7 @@ public class RetrofitServiceFactory {
     }
 
     private static CookieJar addCookie(CookieStore cookieStore) {
-        if (Objects.nonNull(cookieStore)) {
+        if(Objects.nonNull(cookieStore)) {
             CookieManager cookieManager = new CookieManager(cookieStore, CookiePolicy.ACCEPT_ALL);
             return new JavaNetCookieJar(cookieManager);
         }
@@ -131,19 +125,17 @@ public class RetrofitServiceFactory {
 
     private void setApiBaseUrl(String baseUrl) {
         baseURL = baseUrl;
-        HttpUrl httpUrl = HttpUrl.parse(baseUrl);
-        if (Objects.nonNull(httpUrl)) {
-            builder = new Retrofit.Builder()
-                    .baseUrl(httpUrl)
-                    .addConverterFactory(JacksonConverterFactory.create());
-        }
+        builder =
+                new Retrofit.Builder()
+                        .addConverterFactory(JacksonConverterFactory.create())
+                        .baseUrl(baseURL);
     }
 
     interface Constants {
         int READ_TIMEOUT = 15;
-        int CONNECT_TIMEOUT = 60;
-        int WRITE_TIMEOUT = 60;
+        int CONNECT_TIMEOUT = 15;
+        int WRITE_TIMEOUT = 15;
         int KEEP_ALIVE = 10;
-        int IDLE_CONNECTION = 1;
+        int IDLE_CONNECTION = 0;
     }
 }
