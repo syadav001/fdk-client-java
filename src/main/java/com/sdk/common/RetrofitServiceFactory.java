@@ -1,6 +1,7 @@
 package com.sdk.common;
 
 import okhttp3.*;
+import okhttp3.internal.JavaNetCookieJar;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
