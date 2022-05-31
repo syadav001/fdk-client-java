@@ -3919,7 +3919,7 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | primary | Boolean? |  yes  |  |
  | verified | Boolean? |  yes  |  |
  | phone | String? |  yes  |  |
- | countryCode | Integer? |  yes  |  |
+ | countryCode | String? |  yes  |  |
 
 ---
 
