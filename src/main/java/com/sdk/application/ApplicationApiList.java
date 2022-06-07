@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -577,7 +577,7 @@ interface PaymentApiList {
     Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Body ApplicationModels.SetDefaultBeneficiaryRequest payload);
     
     @GET ("/service/application/payment/v1.0/create-payment-link/")
-    Call<ApplicationModels.GetPaymentLinkResponse> getPaymentLink(@Query("id") String id );
+    Call<ApplicationModels.GetPaymentLinkResponse> getPaymentLink(@Query("payment_link_id") String paymentLinkId );
     
     @POST ("/service/application/payment/v1.0/create-payment-link/")
     Call<ApplicationModels.CreatePaymentLinkResponse> createPaymentLink(@Body ApplicationModels.CreatePaymentLinkRequest payload);
@@ -589,10 +589,10 @@ interface PaymentApiList {
     Call<ApplicationModels.CancelOrResendPaymentLinkResponse> cancelPaymentLink(@Body ApplicationModels.CancelOrResendPaymentLinkRequest payload);
     
     @GET ("/service/application/payment/v1.0/payment/options/link/")
-    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Query("id") String id );
+    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Query("payment_link_id") String paymentLinkId , @Query("refresh") Boolean refresh );
     
     @GET ("/service/application/payment/v1.0/polling-payment-link/")
-    Call<ApplicationModels.PollingPaymentLinkResponse> pollingPaymentLink(@Query("id") String id );
+    Call<ApplicationModels.PollingPaymentLinkResponse> pollingPaymentLink(@Query("payment_link_id") String paymentLinkId );
     
     @GET ("/service/application/payment/v1.0/payment/credit-summary/")
     Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Query("aggregator") String aggregator );

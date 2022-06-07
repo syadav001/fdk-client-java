@@ -760,9 +760,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -774,9 +774,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3779,9 +3779,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.GetPaymentLinkResponse getPaymentLink(String id ) throws IOException {
+    public ApplicationModels.GetPaymentLinkResponse getPaymentLink(String paymentLinkId ) throws IOException {
     
-        Response<ApplicationModels.GetPaymentLinkResponse> response = paymentApiList.getPaymentLink(id).execute();
+        Response<ApplicationModels.GetPaymentLinkResponse> response = paymentApiList.getPaymentLink(paymentLinkId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3835,9 +3835,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PaymentModeRouteResponse getPaymentModeRoutesPaymentLink(String id ) throws IOException {
+    public ApplicationModels.PaymentModeRouteResponse getPaymentModeRoutesPaymentLink(String paymentLinkId , Boolean refresh ) throws IOException {
     
-        Response<ApplicationModels.PaymentModeRouteResponse> response = paymentApiList.getPaymentModeRoutesPaymentLink(id).execute();
+        Response<ApplicationModels.PaymentModeRouteResponse> response = paymentApiList.getPaymentModeRoutesPaymentLink(paymentLinkId, refresh).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3849,9 +3849,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PollingPaymentLinkResponse pollingPaymentLink(String id ) throws IOException {
+    public ApplicationModels.PollingPaymentLinkResponse pollingPaymentLink(String paymentLinkId ) throws IOException {
     
-        Response<ApplicationModels.PollingPaymentLinkResponse> response = paymentApiList.pollingPaymentLink(id).execute();
+        Response<ApplicationModels.PollingPaymentLinkResponse> response = paymentApiList.pollingPaymentLink(paymentLinkId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

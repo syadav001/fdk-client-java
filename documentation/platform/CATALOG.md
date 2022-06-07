@@ -71,8 +71,8 @@ Catalog API's allows you to access list of products, prices, seller details, sim
 * [getProductSize](#getproductsize)
 * [createBulkProductUploadJob](#createbulkproductuploadjob)
 * [getProductBulkUploadHistory](#getproductbulkuploadhistory)
-* [createProductsInBulk](#createproductsinbulk)
 * [deleteProductBulkJob](#deleteproductbulkjob)
+* [createProductsInBulk](#createproductsinbulk)
 * [getProductTags](#getproducttags)
 * [createProductAssetsInBulk](#createproductassetsinbulk)
 * [getProductAssetsInBulk](#getproductassetsinbulk)
@@ -84,13 +84,13 @@ Catalog API's allows you to access list of products, prices, seller details, sim
 * [deleteInventory](#deleteinventory)
 * [createBulkInventoryJob](#createbulkinventoryjob)
 * [getInventoryBulkUploadHistory](#getinventorybulkuploadhistory)
-* [createBulkInventory](#createbulkinventory)
 * [deleteBulkInventoryJob](#deletebulkinventoryjob)
+* [createBulkInventory](#createbulkinventory)
 * [createInventoryExportJob](#createinventoryexportjob)
 * [getInventoryExport](#getinventoryexport)
 * [exportInventoryConfig](#exportinventoryconfig)
-* [updateRealtimeInventory](#updaterealtimeinventory)
 * [deleteRealtimeInventory](#deleterealtimeinventory)
+* [updateRealtimeInventory](#updaterealtimeinventory)
 * [updateInventories](#updateinventories)
 * [createHsnCode](#createhsncode)
 * [getAllHsnCodes](#getallhsncodes)
@@ -8831,14 +8831,14 @@ List of bulk product upload jobs. See `BulkRequestGetSchema` for details
 ---
 
 
-### createProductsInBulk
-Create products in bulk associated with given batch Id.
+### deleteProductBulkJob
+Delete Bulk product job.
 
 
 
 
 ```java
-client.catalog.createProductsInBulk( batchId, body body) {
+client.catalog.deleteProductBulkJob( batchId) {
   //use response
 }
 ```
@@ -8847,12 +8847,12 @@ client.catalog.createProductsInBulk( batchId, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company Id in which assets to be uploaded. |   
-| batchId | String | yes | Batch Id in which assets to be uploaded. |  
-| body | [BulkProductRequest](#BulkProductRequest) | yes | Request body |
+| companyId | String | yes | Company Id of the company associated to size that is to be deleted. |   
+| batchId | Integer | yes | Batch Id of the bulk product job to be deleted. |  
 
 
-This API helps to create products in bulk push to kafka for approval/creation.
+
+This API allows to delete bulk product job associated with company.
 
 *Returned Response:*
 
@@ -8887,14 +8887,14 @@ Returns a success response
 ---
 
 
-### deleteProductBulkJob
-Delete Bulk product job.
+### createProductsInBulk
+Create products in bulk associated with given batch Id.
 
 
 
 
 ```java
-client.catalog.deleteProductBulkJob( batchId) {
+client.catalog.createProductsInBulk( batchId, body body) {
   //use response
 }
 ```
@@ -8903,12 +8903,12 @@ client.catalog.deleteProductBulkJob( batchId) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company Id of the company associated to size that is to be deleted. |   
-| batchId | Integer | yes | Batch Id of the bulk product job to be deleted. |  
+| companyId | Integer | yes | Company Id in which assets to be uploaded. |   
+| batchId | String | yes | Batch Id in which assets to be uploaded. |  
+| body | [BulkProductRequest](#BulkProductRequest) | yes | Request body |
 
 
-
-This API allows to delete bulk product job associated with company.
+This API helps to create products in bulk push to kafka for approval/creation.
 
 *Returned Response:*
 
@@ -10763,14 +10763,14 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
 ---
 
 
-### createBulkInventory
-Create products in bulk associated with given batch Id.
+### deleteBulkInventoryJob
+Delete Bulk Inventory job.
 
 
 
 
 ```java
-client.catalog.createBulkInventory( batchId, body body) {
+client.catalog.deleteBulkInventoryJob( batchId) {
   //use response
 }
 ```
@@ -10779,12 +10779,12 @@ client.catalog.createBulkInventory( batchId, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company Id in which Inventory is to be uploaded. |   
-| batchId | String | yes | Batch Id of the bulk create job. |  
-| body | [InventoryBulkRequest](#InventoryBulkRequest) | yes | Request body |
+| companyId | String | yes | Company Id of the company of which bulk Inventory job is to be deleted. |   
+| batchId | String | yes | Batch Id of the bulk delete job. |  
 
 
-This API helps to create products in bulk push to kafka for approval/creation.
+
+This API allows to delete bulk Inventory job associated with company.
 
 *Returned Response:*
 
@@ -10819,14 +10819,14 @@ Returns a success response
 ---
 
 
-### deleteBulkInventoryJob
-Delete Bulk Inventory job.
+### createBulkInventory
+Create products in bulk associated with given batch Id.
 
 
 
 
 ```java
-client.catalog.deleteBulkInventoryJob( batchId) {
+client.catalog.createBulkInventory( batchId, body body) {
   //use response
 }
 ```
@@ -10835,12 +10835,12 @@ client.catalog.deleteBulkInventoryJob( batchId) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company Id of the company of which bulk Inventory job is to be deleted. |   
-| batchId | String | yes | Batch Id of the bulk delete job. |  
+| companyId | Integer | yes | Company Id in which Inventory is to be uploaded. |   
+| batchId | String | yes | Batch Id of the bulk create job. |  
+| body | [InventoryBulkRequest](#InventoryBulkRequest) | yes | Request body |
 
 
-
-This API allows to delete bulk Inventory job associated with company.
+This API helps to create products in bulk push to kafka for approval/creation.
 
 *Returned Response:*
 
@@ -11047,14 +11047,14 @@ returns filters configuration for inventory export
 ---
 
 
-### updateRealtimeInventory
+### deleteRealtimeInventory
 Add Inventory for particular size and store.
 
 
 
 
 ```java
-client.catalog.updateRealtimeInventory( itemId,  sellerIdentifier, body body) {
+client.catalog.deleteRealtimeInventory( itemId,  sellerIdentifier, body body) {
   //use response
 }
 ```
@@ -11134,14 +11134,14 @@ Returns a success response
 ---
 
 
-### deleteRealtimeInventory
+### updateRealtimeInventory
 Add Inventory for particular size and store.
 
 
 
 
 ```java
-client.catalog.deleteRealtimeInventory( itemId,  sellerIdentifier, body body) {
+client.catalog.updateRealtimeInventory( itemId,  sellerIdentifier, body body) {
   //use response
 }
 ```
@@ -13436,9 +13436,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | code | String? |  yes  |  |
- | status | Integer? |  yes  |  |
  | message | String? |  yes  |  |
+ | status | Integer? |  yes  |  |
+ | code | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
@@ -13450,13 +13450,13 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | size | Integer? |  yes  |  |
- | nextId | String? |  yes  |  |
  | hasNext | Boolean? |  yes  |  |
- | type | String |  no  |  |
- | hasPrevious | Boolean? |  yes  |  |
  | itemTotal | Integer? |  yes  |  |
  | current | Integer? |  yes  |  |
+ | size | Integer? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+ | type | String |  no  |  |
+ | nextId | String? |  yes  |  |
 
 ---
 
@@ -13467,11 +13467,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | words | ArrayList<String>? |  yes  |  |
- | result | HashMap<String,Object>? |  yes  |  |
- | uid | String? |  yes  |  |
  | appId | String? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
+ | result | HashMap<String,Object>? |  yes  |  |
+ | words | ArrayList<String>? |  yes  |  |
+ | uid | String? |  yes  |  |
 
 ---
 
@@ -13506,11 +13506,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | words | ArrayList<String>? |  yes  |  |
- | result | [SearchKeywordResult](#SearchKeywordResult) |  no  |  |
- | isActive | Boolean? |  yes  |  |
  | appId | String? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | result | [SearchKeywordResult](#SearchKeywordResult) |  no  |  |
+ | words | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -13533,11 +13533,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | appId | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
  | results | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | words | ArrayList<String>? |  yes  |  |
  | uid | String? |  yes  |  |
- | appId | String? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -13556,13 +13556,25 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
+ #### [Media](#Media)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | url | String? |  yes  |  |
+ | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [AutocompletePageAction](#AutocompletePageAction)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | params | HashMap<String,Object>? |  yes  |  |
  | query | HashMap<String,Object>? |  yes  |  |
  | url | String? |  yes  |  |
- | params | HashMap<String,Object>? |  yes  |  |
  | type | String? |  yes  |  |
 
 ---
@@ -13582,26 +13594,14 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [Media](#Media)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | url | String? |  yes  |  |
- | type | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [AutocompleteResult](#AutocompleteResult)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | [AutocompleteAction](#AutocompleteAction)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
  | display | String? |  yes  |  |
+ | action | [AutocompleteAction](#AutocompleteAction)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -13612,11 +13612,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | results | ArrayList<[AutocompleteResult](#AutocompleteResult)>? |  yes  |  |
- | words | ArrayList<String>? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
  | appId | String? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | results | ArrayList<[AutocompleteResult](#AutocompleteResult)>? |  yes  |  |
+ | words | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -13629,8 +13629,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | ---------- | ---- | -------- | ----------- |
  | words | ArrayList<String>? |  yes  |  |
  | results | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
  | appId | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -13641,12 +13641,12 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | productUid | Integer |  no  |  |
+ | maxQuantity | Integer |  no  |  |
  | minQuantity | Integer |  no  |  |
  | allowRemove | Boolean? |  yes  |  |
  | autoSelect | Boolean? |  yes  |  |
+ | productUid | Integer |  no  |  |
  | autoAddToCart | Boolean? |  yes  |  |
- | maxQuantity | Integer |  no  |  |
 
 ---
 
@@ -13657,19 +13657,19 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | createdOn | String? |  yes  |  |
+ | sameStoreAssignment | Boolean? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | logo | String? |  yes  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | choice | String |  no  |  |
- | name | String |  no  |  |
- | sameStoreAssignment | Boolean? |  yes  |  |
- | pageVisibility | ArrayList<String>? |  yes  |  |
- | logo | String? |  yes  |  |
- | isActive | Boolean |  no  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | products | ArrayList<[ProductBundleItem](#ProductBundleItem)> |  no  |  |
  | slug | String |  no  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
+ | isActive | Boolean |  no  |  |
+ | name | String |  no  |  |
  | modifiedOn | String? |  yes  |  |
+ | pageVisibility | ArrayList<String>? |  yes  |  |
+ | products | ArrayList<[ProductBundleItem](#ProductBundleItem)> |  no  |  |
+ | createdOn | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -13680,21 +13680,21 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | createdOn | String? |  yes  |  |
+ | sameStoreAssignment | Boolean? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | logo | String? |  yes  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | choice | String |  no  |  |
- | name | String |  no  |  |
- | sameStoreAssignment | Boolean? |  yes  |  |
- | pageVisibility | ArrayList<String>? |  yes  |  |
- | logo | String? |  yes  |  |
- | id | String? |  yes  |  |
- | isActive | Boolean |  no  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | products | ArrayList<[ProductBundleItem](#ProductBundleItem)> |  no  |  |
  | slug | String |  no  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | isActive | Boolean |  no  |  |
+ | name | String |  no  |  |
+ | modifiedOn | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | pageVisibility | ArrayList<String>? |  yes  |  |
+ | products | ArrayList<[ProductBundleItem](#ProductBundleItem)> |  no  |  |
+ | createdOn | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -13717,17 +13717,31 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | price | HashMap<String,Object>? |  yes  |  |
- | sizes | ArrayList<String>? |  yes  |  |
- | name | String? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | identifier | HashMap<String,Object>? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | countryOfOrigin | String? |  yes  |  |
  | images | ArrayList<String>? |  yes  |  |
- | uid | Integer? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
  | slug | String? |  yes  |  |
+ | sizes | ArrayList<String>? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | price | HashMap<String,Object>? |  yes  |  |
+ | identifier | HashMap<String,Object>? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | countryOfOrigin | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Size](#Size)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isAvailable | Boolean? |  yes  |  |
+ | value | String? |  yes  |  |
+ | display | String? |  yes  |  |
  | quantity | Integer? |  yes  |  |
 
 ---
@@ -13740,24 +13754,10 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | maxMarked | Double? |  yes  |  |
+ | maxEffective | Double? |  yes  |  |
  | minEffective | Double? |  yes  |  |
  | minMarked | Double? |  yes  |  |
  | currency | String? |  yes  |  |
- | maxEffective | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [Size](#Size)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | quantity | Integer? |  yes  |  |
- | isAvailable | Boolean? |  yes  |  |
- | value | String? |  yes  |  |
- | display | String? |  yes  |  |
 
 ---
 
@@ -13769,14 +13769,14 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | productDetails | [LimitedProductData](#LimitedProductData)? |  yes  |  |
- | productUid | Integer? |  yes  |  |
- | price | [Price](#Price)? |  yes  |  |
- | minQuantity | Integer? |  yes  |  |
- | allowRemove | Boolean? |  yes  |  |
- | autoAddToCart | Boolean? |  yes  |  |
- | autoSelect | Boolean? |  yes  |  |
  | maxQuantity | Integer? |  yes  |  |
+ | minQuantity | Integer? |  yes  |  |
  | sizes | ArrayList<[Size](#Size)>? |  yes  |  |
+ | allowRemove | Boolean? |  yes  |  |
+ | price | [Price](#Price)? |  yes  |  |
+ | autoSelect | Boolean? |  yes  |  |
+ | productUid | Integer? |  yes  |  |
+ | autoAddToCart | Boolean? |  yes  |  |
 
 ---
 
@@ -13787,16 +13787,16 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | choice | String? |  yes  |  |
- | pageVisibility | ArrayList<String>? |  yes  |  |
  | sameStoreAssignment | Boolean? |  yes  |  |
  | logo | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | products | ArrayList<[GetProducts](#GetProducts)>? |  yes  |  |
- | slug | String? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | choice | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
+ | pageVisibility | ArrayList<String>? |  yes  |  |
+ | products | ArrayList<[GetProducts](#GetProducts)>? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -13807,17 +13807,17 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | sameStoreAssignment | Boolean? |  yes  |  |
+ | logo | String? |  yes  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | choice | String |  no  |  |
- | name | String |  no  |  |
- | sameStoreAssignment | Boolean? |  yes  |  |
- | pageVisibility | ArrayList<String>? |  yes  |  |
- | logo | String? |  yes  |  |
- | isActive | Boolean |  no  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | products | ArrayList<[ProductBundleItem](#ProductBundleItem)> |  no  |  |
  | slug | String |  no  |  |
+ | isActive | Boolean |  no  |  |
+ | name | String |  no  |  |
  | modifiedOn | String? |  yes  |  |
+ | pageVisibility | ArrayList<String>? |  yes  |  |
+ | products | ArrayList<[ProductBundleItem](#ProductBundleItem)> |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -13829,8 +13829,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | values | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | unit | String? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
+ | unit | String? |  yes  |  |
 
 ---
 
@@ -13852,20 +13852,20 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | brandId | Integer? |  yes  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | name | String |  no  |  |
- | tag | String? |  yes  |  |
- | companyId | Integer? |  yes  |  |
  | active | Boolean? |  yes  |  |
- | title | String |  no  |  |
- | guide | [Guide](#Guide)? |  yes  |  |
- | subtitle | String? |  yes  |  |
  | description | String? |  yes  |  |
- | id | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
+ | tag | String? |  yes  |  |
  | createdBy | HashMap<String,Object>? |  yes  |  |
+ | title | String |  no  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
+ | name | String |  no  |  |
  | modifiedOn | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | guide | [Guide](#Guide)? |  yes  |  |
+ | brandId | Integer? |  yes  |  |
+ | subtitle | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
  | image | String? |  yes  |  |
 
 ---
@@ -13900,19 +13900,19 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | brandId | Integer? |  yes  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | name | String? |  yes  |  |
- | tag | String? |  yes  |  |
  | active | Boolean? |  yes  |  |
- | title | String? |  yes  |  |
- | guide | HashMap<String,Object>? |  yes  |  |
- | subtitle | String? |  yes  |  |
- | id | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
+ | tag | String? |  yes  |  |
  | createdBy | HashMap<String,Object>? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
+ | title | String? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | guide | HashMap<String,Object>? |  yes  |  |
+ | brandId | Integer? |  yes  |  |
+ | subtitle | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
 
 ---
 
@@ -13936,20 +13936,6 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | customMeta | ArrayList<[MetaFields](#MetaFields)> |  no  |  |
-
----
-
-
- 
- 
- #### [GetCatalogConfigurationDetailsProduct](#GetCatalogConfigurationDetailsProduct)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | detail | HashMap<String,Object>? |  yes  |  |
- | compare | HashMap<String,Object>? |  yes  |  |
- | variant | HashMap<String,Object>? |  yes  |  |
- | similar | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -14016,12 +14002,26 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
+ #### [GetCatalogConfigurationDetailsProduct](#GetCatalogConfigurationDetailsProduct)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | detail | HashMap<String,Object>? |  yes  |  |
+ | compare | HashMap<String,Object>? |  yes  |  |
+ | similar | HashMap<String,Object>? |  yes  |  |
+ | variant | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [GetCatalogConfigurationMetaData](#GetCatalogConfigurationMetaData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | product | [GetCatalogConfigurationDetailsProduct](#GetCatalogConfigurationDetailsProduct)? |  yes  |  |
  | listing | [MetaDataListingResponse](#MetaDataListingResponse)? |  yes  |  |
+ | product | [GetCatalogConfigurationDetailsProduct](#GetCatalogConfigurationDetailsProduct)? |  yes  |  |
 
 ---
 
@@ -14045,11 +14045,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | map | HashMap<String,Object>? |  yes  |  |
- | bucketPoints | ArrayList<[ConfigurationBucketPoints](#ConfigurationBucketPoints)>? |  yes  |  |
- | sort | String? |  yes  |  |
  | condition | String? |  yes  |  |
+ | bucketPoints | ArrayList<[ConfigurationBucketPoints](#ConfigurationBucketPoints)>? |  yes  |  |
  | value | String? |  yes  |  |
+ | map | HashMap<String,Object>? |  yes  |  |
+ | sort | String? |  yes  |  |
 
 ---
 
@@ -14061,11 +14061,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | priority | Integer |  no  |  |
+ | logo | String? |  yes  |  |
+ | isActive | Boolean |  no  |  |
  | valueConfig | [ConfigurationListingFilterValue](#ConfigurationListingFilterValue)? |  yes  |  |
  | name | String? |  yes  |  |
  | type | String |  no  |  |
- | logo | String? |  yes  |  |
- | isActive | Boolean |  no  |  |
  | key | String |  no  |  |
 
 ---
@@ -14077,8 +14077,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | allowSingle | Boolean |  no  |  |
  | attributeConfig | ArrayList<[ConfigurationListingFilterConfig](#ConfigurationListingFilterConfig)>? |  yes  |  |
+ | allowSingle | Boolean |  no  |  |
 
 ---
 
@@ -14090,9 +14090,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | priority | Integer |  no  |  |
- | name | String? |  yes  |  |
  | logo | String? |  yes  |  |
  | isActive | Boolean |  no  |  |
+ | name | String? |  yes  |  |
  | key | String |  no  |  |
 
 ---
@@ -14104,8 +14104,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | config | ArrayList<[ConfigurationListingSortConfig](#ConfigurationListingSortConfig)>? |  yes  |  |
  | defaultKey | String |  no  |  |
+ | config | ArrayList<[ConfigurationListingSortConfig](#ConfigurationListingSortConfig)>? |  yes  |  |
 
 ---
 
@@ -14128,36 +14128,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | min | Integer |  no  |  |
  | max | Integer |  no  |  |
-
----
-
-
- 
- 
- #### [ConfigurationProductVariantConfig](#ConfigurationProductVariantConfig)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | priority | Integer |  no  |  |
- | size | [ProductSize](#ProductSize) |  no  |  |
- | name | String |  no  |  |
- | displayType | String |  no  |  |
- | logo | String? |  yes  |  |
- | isActive | Boolean |  no  |  |
- | key | String |  no  |  |
-
----
-
-
- 
- 
- #### [ConfigurationProductVariant](#ConfigurationProductVariant)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | config | ArrayList<[ConfigurationProductVariantConfig](#ConfigurationProductVariantConfig)>? |  yes  |  |
+ | min | Integer |  no  |  |
 
 ---
 
@@ -14169,11 +14141,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | priority | Integer |  no  |  |
- | size | [ProductSize](#ProductSize)? |  yes  |  |
  | title | String? |  yes  |  |
- | subtitle | String? |  yes  |  |
  | logo | String? |  yes  |  |
  | isActive | Boolean |  no  |  |
+ | size | [ProductSize](#ProductSize)? |  yes  |  |
+ | subtitle | String? |  yes  |  |
  | key | String |  no  |  |
 
 ---
@@ -14192,12 +14164,40 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
+ #### [ConfigurationProductVariantConfig](#ConfigurationProductVariantConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | displayType | String |  no  |  |
+ | priority | Integer |  no  |  |
+ | logo | String? |  yes  |  |
+ | isActive | Boolean |  no  |  |
+ | name | String |  no  |  |
+ | size | [ProductSize](#ProductSize) |  no  |  |
+ | key | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ConfigurationProductVariant](#ConfigurationProductVariant)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | config | ArrayList<[ConfigurationProductVariantConfig](#ConfigurationProductVariantConfig)>? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [ConfigurationProduct](#ConfigurationProduct)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | variant | [ConfigurationProductVariant](#ConfigurationProductVariant) |  no  |  |
  | similar | [ConfigurationProductSimilar](#ConfigurationProductSimilar) |  no  |  |
+ | variant | [ConfigurationProductVariant](#ConfigurationProductVariant) |  no  |  |
 
 ---
 
@@ -14210,8 +14210,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | ---------- | ---- | -------- | ----------- |
  | listing | [ConfigurationListing](#ConfigurationListing)? |  yes  |  |
  | product | [ConfigurationProduct](#ConfigurationProduct)? |  yes  |  |
- | appId | String |  no  |  |
  | configId | String? |  yes  |  |
+ | appId | String |  no  |  |
  | configType | String |  no  |  |
 
 ---
@@ -14225,10 +14225,10 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | ---------- | ---- | -------- | ----------- |
  | listing | [ConfigurationListing](#ConfigurationListing)? |  yes  |  |
  | product | [ConfigurationProduct](#ConfigurationProduct)? |  yes  |  |
- | id | String? |  yes  |  |
- | appId | String |  no  |  |
  | configId | String? |  yes  |  |
+ | appId | String |  no  |  |
  | configType | String |  no  |  |
+ | id | String? |  yes  |  |
 
 ---
 
@@ -14265,10 +14265,10 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | ---------- | ---- | -------- | ----------- |
  | listing | [GetCatalogConfigurationDetailsSchemaListing](#GetCatalogConfigurationDetailsSchemaListing)? |  yes  |  |
  | product | [GetCatalogConfigurationDetailsProduct](#GetCatalogConfigurationDetailsProduct)? |  yes  |  |
- | id | String? |  yes  |  |
- | appId | String |  no  |  |
  | configId | String? |  yes  |  |
+ | appId | String |  no  |  |
  | configType | String |  no  |  |
+ | id | String? |  yes  |  |
 
 ---
 
@@ -14291,18 +14291,18 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | String |  no  |  |
- | currencyCode | String? |  yes  |  |
- | queryFormat | String? |  yes  |  |
- | selectedMax | Integer? |  yes  |  |
- | count | Integer? |  yes  |  |
  | max | Integer? |  yes  |  |
+ | selectedMin | Integer? |  yes  |  |
+ | count | Integer? |  yes  |  |
+ | queryFormat | String? |  yes  |  |
  | displayFormat | String? |  yes  |  |
- | min | Integer? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+ | selectedMax | Integer? |  yes  |  |
+ | display | String |  no  |  |
  | value | String |  no  |  |
  | isSelected | Boolean |  no  |  |
- | currencySymbol | String? |  yes  |  |
- | selectedMin | Integer? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
+ | min | Integer? |  yes  |  |
 
 ---
 
@@ -14313,10 +14313,10 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | String |  no  |  |
- | name | String |  no  |  |
  | logo | String? |  yes  |  |
  | operators | ArrayList<String>? |  yes  |  |
+ | display | String |  no  |  |
+ | name | String |  no  |  |
  | kind | String? |  yes  |  |
 
 ---
@@ -14340,9 +14340,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | name | String? |  yes  |  |
  | value | String? |  yes  |  |
  | isSelected | Boolean? |  yes  |  |
- | name | String? |  yes  |  |
 
 ---
 
@@ -14361,12 +14361,24 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [SeoDetail](#SeoDetail)
+ #### [CollectionImage](#CollectionImage)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | description | String? |  yes  |  |
- | title | String? |  yes  |  |
+ | url | String |  no  |  |
+ | aspectRatio | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CollectionBadge](#CollectionBadge)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | text | String? |  yes  |  |
+ | color | String? |  yes  |  |
 
 ---
 
@@ -14377,9 +14389,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | attribute | String |  no  |  |
  | value | ArrayList<String> |  no  |  |
  | op | String |  no  |  |
- | attribute | String |  no  |  |
 
 ---
 
@@ -14400,12 +14412,14 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [CollectionImage](#CollectionImage)
+ #### [UserInfo](#UserInfo)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | url | String |  no  |  |
- | aspectRatio | String |  no  |  |
+ | email | String? |  yes  |  |
+ | username | String? |  yes  |  |
+ | userId | String? |  yes  |  |
+ | uid | String? |  yes  |  |
 
 ---
 
@@ -14424,26 +14438,12 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [UserInfo](#UserInfo)
+ #### [SeoDetail](#SeoDetail)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | email | String? |  yes  |  |
- | username | String? |  yes  |  |
- | userId | String? |  yes  |  |
- | uid | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CollectionBadge](#CollectionBadge)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | text | String? |  yes  |  |
- | color | String? |  yes  |  |
+ | title | String? |  yes  |  |
+ | description | String? |  yes  |  |
 
 ---
 
@@ -14454,63 +14454,31 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | localeLanguage | HashMap<String,Object>? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | seo | [SeoDetail](#SeoDetail)? |  yes  |  |
- | slug | String |  no  |  |
- | name | String |  no  |  |
- | type | String |  no  |  |
- | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
- | description | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
- | appId | String |  no  |  |
- | schedule | [Schedule](#Schedule)? |  yes  |  |
- | banners | [CollectionBanner](#CollectionBanner) |  no  |  |
- | createdBy | [UserInfo](#UserInfo)? |  yes  |  |
- | published | Boolean? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
  | logo | [CollectionImage](#CollectionImage) |  no  |  |
- | isVisible | Boolean? |  yes  |  |
- | priority | Integer? |  yes  |  |
- | modifiedBy | [UserInfo](#UserInfo)? |  yes  |  |
  | badge | [CollectionBadge](#CollectionBadge)? |  yes  |  |
- | sortOn | String? |  yes  |  |
  | allowFacets | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [CollectionPrice](#CollectionPrice)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | lte | Integer? |  yes  |  |
- | gte | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [CollectionQuery1](#CollectionQuery1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | genders | ArrayList<String>? |  yes  |  |
- | imageNature | ArrayList<String>? |  yes  |  |
- | storeIds | ArrayList<Integer>? |  yes  |  |
- | price | [CollectionPrice](#CollectionPrice)? |  yes  |  |
- | categories | ArrayList<Integer>? |  yes  |  |
- | discount | [CollectionPrice](#CollectionPrice)? |  yes  |  |
+ | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
  | sortOn | String? |  yes  |  |
- | departments | ArrayList<String>? |  yes  |  |
- | sizes | ArrayList<String>? |  yes  |  |
- | brands | ArrayList<Integer>? |  yes  |  |
+ | schedule | [Schedule](#Schedule)? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
+ | isVisible | Boolean? |  yes  |  |
+ | modifiedBy | [UserInfo](#UserInfo)? |  yes  |  |
+ | slug | String |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | createdBy | [UserInfo](#UserInfo)? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | name | String |  no  |  |
+ | banners | [CollectionBanner](#CollectionBanner) |  no  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | type | String |  no  |  |
+ | localeLanguage | HashMap<String,Object>? |  yes  |  |
+ | seo | [SeoDetail](#SeoDetail)? |  yes  |  |
+ | priority | Integer? |  yes  |  |
+ | appId | String |  no  |  |
+ | isActive | Boolean? |  yes  |  |
+ | published | Boolean? |  yes  |  |
 
 ---
 
@@ -14521,8 +14489,40 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | url | String? |  yes  |  |
  | aspectRatio | String? |  yes  |  |
+ | url | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CollectionPrice](#CollectionPrice)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | gte | Integer? |  yes  |  |
+ | lte | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CollectionQuery1](#CollectionQuery1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | sortOn | String? |  yes  |  |
+ | departments | ArrayList<String>? |  yes  |  |
+ | storeIds | ArrayList<Integer>? |  yes  |  |
+ | sizes | ArrayList<String>? |  yes  |  |
+ | discount | [CollectionPrice](#CollectionPrice)? |  yes  |  |
+ | genders | ArrayList<String>? |  yes  |  |
+ | brands | ArrayList<Integer>? |  yes  |  |
+ | imageNature | ArrayList<String>? |  yes  |  |
+ | price | [CollectionPrice](#CollectionPrice)? |  yes  |  |
+ | categories | ArrayList<Integer>? |  yes  |  |
 
 ---
 
@@ -14533,8 +14533,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | landscape | [BannerImage](#BannerImage)? |  yes  |  |
  | portrait | [BannerImage](#BannerImage)? |  yes  |  |
+ | landscape | [BannerImage](#BannerImage)? |  yes  |  |
 
 ---
 
@@ -14545,25 +14545,76 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
- | slug | String? |  yes  |  |
- | name | String? |  yes  |  |
- | type | String? |  yes  |  |
- | query | ArrayList<[CollectionQuery1](#CollectionQuery1)>? |  yes  |  |
- | description | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
- | appId | String? |  yes  |  |
- | schedule | HashMap<String,Object>? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | cron | HashMap<String,Object>? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
  | logo | [BannerImage](#BannerImage)? |  yes  |  |
- | priority | Integer? |  yes  |  |
- | tag | ArrayList<String>? |  yes  |  |
  | badge | HashMap<String,Object>? |  yes  |  |
- | sortOn | String? |  yes  |  |
  | allowFacets | Boolean? |  yes  |  |
+ | query | ArrayList<[CollectionQuery1](#CollectionQuery1)>? |  yes  |  |
+ | sortOn | String? |  yes  |  |
+ | schedule | HashMap<String,Object>? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | cron | HashMap<String,Object>? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | tag | ArrayList<String>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | type | String? |  yes  |  |
+ | priority | Integer? |  yes  |  |
+ | appId | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CollectionListingFilterTag](#CollectionListingFilterTag)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String? |  yes  |  |
+ | display | String? |  yes  |  |
+ | isSelected | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CollectionListingFilterType](#CollectionListingFilterType)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String? |  yes  |  |
+ | display | String? |  yes  |  |
+ | isSelected | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CollectionListingFilter](#CollectionListingFilter)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | tags | ArrayList<[CollectionListingFilterTag](#CollectionListingFilterTag)>? |  yes  |  |
+ | type | ArrayList<[CollectionListingFilterType](#CollectionListingFilterType)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Media1](#Media1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | url | String |  no  |  |
+ | type | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -14594,81 +14645,30 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [Media1](#Media1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | url | String |  no  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | type | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [GetCollectionDetailNest](#GetCollectionDetailNest)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
- | slug | String? |  yes  |  |
- | action | [Action](#Action)? |  yes  |  |
- | name | String? |  yes  |  |
- | type | String? |  yes  |  |
- | query | ArrayList<[CollectionQuery1](#CollectionQuery1)>? |  yes  |  |
- | description | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
- | appId | String? |  yes  |  |
- | schedule | HashMap<String,Object>? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | cron | HashMap<String,Object>? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
  | logo | [Media1](#Media1)? |  yes  |  |
- | uid | String? |  yes  |  |
- | priority | Integer? |  yes  |  |
- | tag | ArrayList<String>? |  yes  |  |
+ | action | [Action](#Action)? |  yes  |  |
  | badge | HashMap<String,Object>? |  yes  |  |
  | allowFacets | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [CollectionListingFilterTag](#CollectionListingFilterTag)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | isSelected | Boolean? |  yes  |  |
- | display | String? |  yes  |  |
+ | query | ArrayList<[CollectionQuery1](#CollectionQuery1)>? |  yes  |  |
+ | schedule | HashMap<String,Object>? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | cron | HashMap<String,Object>? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | tag | ArrayList<String>? |  yes  |  |
  | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CollectionListingFilterType](#CollectionListingFilterType)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | isSelected | Boolean? |  yes  |  |
- | display | String? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CollectionListingFilter](#CollectionListingFilter)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | tags | ArrayList<[CollectionListingFilterTag](#CollectionListingFilterTag)>? |  yes  |  |
- | type | ArrayList<[CollectionListingFilterType](#CollectionListingFilterType)>? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | type | String? |  yes  |  |
+ | priority | Integer? |  yes  |  |
+ | appId | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | uid | String? |  yes  |  |
 
 ---
 
@@ -14680,8 +14680,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | page | [Page](#Page)? |  yes  |  |
- | items | ArrayList<[GetCollectionDetailNest](#GetCollectionDetailNest)>? |  yes  |  |
  | filters | [CollectionListingFilter](#CollectionListingFilter)? |  yes  |  |
+ | items | ArrayList<[GetCollectionDetailNest](#GetCollectionDetailNest)>? |  yes  |  |
 
 ---
 
@@ -14692,24 +14692,24 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | cron | HashMap<String,Object>? |  yes  |  |
- | priority | Integer? |  yes  |  |
- | name | String? |  yes  |  |
- | tag | ArrayList<String>? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
- | badge | HashMap<String,Object>? |  yes  |  |
- | type | String? |  yes  |  |
  | query | ArrayList<[CollectionQuery1](#CollectionQuery1)>? |  yes  |  |
- | schedule | HashMap<String,Object>? |  yes  |  |
  | description | String? |  yes  |  |
+ | tag | ArrayList<String>? |  yes  |  |
+ | priority | Integer? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
  | logo | [Media1](#Media1)? |  yes  |  |
+ | schedule | HashMap<String,Object>? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
  | appId | String? |  yes  |  |
  | slug | String? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | cron | HashMap<String,Object>? |  yes  |  |
+ | badge | HashMap<String,Object>? |  yes  |  |
  | allowFacets | Boolean? |  yes  |  |
+ | type | String? |  yes  |  |
 
 ---
 
@@ -14720,28 +14720,28 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | localeLanguage | HashMap<String,Object>? |  yes  |  |
- | allowFacets | Boolean? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | seo | [SeoDetail](#SeoDetail)? |  yes  |  |
- | slug | String? |  yes  |  |
- | name | String? |  yes  |  |
- | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
- | description | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
- | schedule | [Schedule](#Schedule)? |  yes  |  |
- | banners | [CollectionBanner](#CollectionBanner)? |  yes  |  |
- | published | Boolean? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
  | logo | [CollectionImage](#CollectionImage)? |  yes  |  |
- | isVisible | Boolean? |  yes  |  |
- | priority | Integer? |  yes  |  |
- | modifiedBy | [UserInfo](#UserInfo)? |  yes  |  |
  | badge | [CollectionBadge](#CollectionBadge)? |  yes  |  |
+ | allowFacets | Boolean? |  yes  |  |
+ | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
  | sortOn | String? |  yes  |  |
+ | schedule | [Schedule](#Schedule)? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
+ | isVisible | Boolean? |  yes  |  |
+ | modifiedBy | [UserInfo](#UserInfo)? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | banners | [CollectionBanner](#CollectionBanner)? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | localeLanguage | HashMap<String,Object>? |  yes  |  |
+ | seo | [SeoDetail](#SeoDetail)? |  yes  |  |
+ | priority | Integer? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | published | Boolean? |  yes  |  |
 
 ---
 
@@ -14752,8 +14752,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | String? |  yes  |  |
  | itemId | Integer? |  yes  |  |
+ | action | String? |  yes  |  |
 
 ---
 
@@ -14764,9 +14764,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | query | HashMap<String,Object>? |  yes  |  |
  | item | ArrayList<[ItemQueryForUserCollection](#ItemQueryForUserCollection)>? |  yes  |  |
  | type | String? |  yes  |  |
+ | query | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -14788,9 +14788,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | [Action](#Action)? |  yes  |  |
  | logo | [Media1](#Media1)? |  yes  |  |
  | name | String? |  yes  |  |
+ | action | [Action](#Action)? |  yes  |  |
  | uid | Integer? |  yes  |  |
 
 ---
@@ -14802,8 +14802,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
  | value | String? |  yes  |  |
+ | type | String? |  yes  |  |
  | key | String? |  yes  |  |
 
 ---
@@ -14827,10 +14827,10 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | min | Double? |  yes  |  |
  | currencySymbol | String? |  yes  |  |
- | currencyCode | String? |  yes  |  |
  | max | Double? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
+ | min | Double? |  yes  |  |
 
 ---
 
@@ -14853,32 +14853,32 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | medias | ArrayList<[Media1](#Media1)>? |  yes  |  |
  | promoMeta | HashMap<String,Object>? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | highlights | ArrayList<String>? |  yes  |  |
- | productOnlineDate | String? |  yes  |  |
- | rating | Double? |  yes  |  |
- | discount | String? |  yes  |  |
- | slug | String |  no  |  |
- | ratingCount | Integer? |  yes  |  |
+ | itemType | String? |  yes  |  |
+ | imageNature | String? |  yes  |  |
+ | tryouts | ArrayList<String>? |  yes  |  |
  | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
+ | sellable | Boolean? |  yes  |  |
+ | similars | ArrayList<String>? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | slug | String |  no  |  |
+ | discount | String? |  yes  |  |
+ | teaserTag | HashMap<String,Object>? |  yes  |  |
+ | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | ratingCount | Integer? |  yes  |  |
+ | highlights | ArrayList<String>? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
  | name | String? |  yes  |  |
  | hasVariant | Boolean? |  yes  |  |
- | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
- | type | String? |  yes  |  |
- | description | String? |  yes  |  |
- | itemType | String? |  yes  |  |
+ | rating | Double? |  yes  |  |
  | price | [ProductListingPrice](#ProductListingPrice)? |  yes  |  |
- | medias | ArrayList<[Media1](#Media1)>? |  yes  |  |
+ | type | String? |  yes  |  |
  | attributes | HashMap<String,Object>? |  yes  |  |
- | similars | ArrayList<String>? |  yes  |  |
+ | productOnlineDate | String? |  yes  |  |
  | color | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
- | sellable | Boolean? |  yes  |  |
- | teaserTag | HashMap<String,Object>? |  yes  |  |
- | tryouts | ArrayList<String>? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | imageNature | String? |  yes  |  |
 
 ---
 
@@ -14890,8 +14890,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | page | [Page](#Page)? |  yes  |  |
- | items | ArrayList<[ProductListingDetail](#ProductListingDetail)>? |  yes  |  |
  | filters | ArrayList<[ProductFilters](#ProductFilters)>? |  yes  |  |
+ | items | ArrayList<[ProductListingDetail](#ProductListingDetail)>? |  yes  |  |
  | sortOn | ArrayList<[ProductSortOn](#ProductSortOn)>? |  yes  |  |
 
 ---
@@ -14904,8 +14904,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | outOfStockCount | Integer? |  yes  |  |
- | count | Integer? |  yes  |  |
  | sellableCount | Integer? |  yes  |  |
+ | count | Integer? |  yes  |  |
 
 ---
 
@@ -14917,10 +14917,10 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | availableArticles | Integer? |  yes  |  |
- | name | String? |  yes  |  |
  | totalSizes | Integer? |  yes  |  |
- | availableSizes | Integer? |  yes  |  |
  | articleFreshness | Integer? |  yes  |  |
+ | availableSizes | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
  | totalArticles | Integer? |  yes  |  |
 
 ---
@@ -14968,10 +14968,10 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | optLevel | String |  no  |  |
  | storeIds | ArrayList<Integer>? |  yes  |  |
- | brandIds | ArrayList<Integer>? |  yes  |  |
  | enabled | Boolean? |  yes  |  |
+ | optLevel | String |  no  |  |
+ | brandIds | ArrayList<Integer>? |  yes  |  |
 
 ---
 
@@ -14982,16 +14982,16 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | platform | String |  no  |  |
  | optLevel | String |  no  |  |
  | storeIds | ArrayList<Integer> |  no  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | brandIds | ArrayList<Integer> |  no  |  |
  | enabled | Boolean |  no  |  |
- | createdOn | Integer |  no  |  |
  | createdBy | HashMap<String,Object>? |  yes  |  |
- | modifiedOn | Integer |  no  |  |
  | companyId | Integer |  no  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | modifiedOn | Integer |  no  |  |
+ | brandIds | ArrayList<Integer> |  no  |  |
+ | createdOn | Integer |  no  |  |
+ | platform | String |  no  |  |
 
 ---
 
@@ -15015,8 +15015,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | companyType | String? |  yes  |  |
- | businessType | String? |  yes  |  |
  | name | String? |  yes  |  |
+ | businessType | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
 
 ---
@@ -15028,10 +15028,10 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | brandId | Integer? |  yes  |  |
  | brandName | String? |  yes  |  |
- | totalArticle | Integer? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | totalArticle | Integer? |  yes  |  |
+ | brandId | Integer? |  yes  |  |
 
 ---
 
@@ -15054,9 +15054,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | company | String? |  yes  |  |
  | store | Integer? |  yes  |  |
  | brand | Integer? |  yes  |  |
- | company | String? |  yes  |  |
 
 ---
 
@@ -15067,17 +15067,17 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | additionalContacts | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | documents | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | displayName | String? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
+ | timing | HashMap<String,Object>? |  yes  |  |
  | storeType | String? |  yes  |  |
  | name | String? |  yes  |  |
- | documents | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | timing | HashMap<String,Object>? |  yes  |  |
- | storeCode | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | additionalContacts | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | displayName | String? |  yes  |  |
  | modifiedOn | String? |  yes  |  |
- | companyId | Integer? |  yes  |  |
+ | storeCode | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
 
 ---
 
@@ -15096,12 +15096,23 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
+ #### [AttributeMasterDetails](#AttributeMasterDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | displayType | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [AttributeSchemaRange](#AttributeSchemaRange)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | min | Integer? |  yes  |  |
  | max | Integer? |  yes  |  |
+ | min | Integer? |  yes  |  |
 
 ---
 
@@ -15112,12 +15123,12 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | multi | Boolean? |  yes  |  |
- | type | String |  no  |  |
- | format | String? |  yes  |  |
- | range | [AttributeSchemaRange](#AttributeSchemaRange)? |  yes  |  |
  | allowedValues | ArrayList<String>? |  yes  |  |
+ | multi | Boolean? |  yes  |  |
+ | range | [AttributeSchemaRange](#AttributeSchemaRange)? |  yes  |  |
  | mandatory | Boolean? |  yes  |  |
+ | format | String? |  yes  |  |
+ | type | String |  no  |  |
 
 ---
 
@@ -15129,19 +15140,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | priority | Integer? |  yes  |  |
- | indexing | Boolean |  no  |  |
  | dependsOn | ArrayList<String>? |  yes  |  |
-
----
-
-
- 
- 
- #### [AttributeMasterDetails](#AttributeMasterDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | displayType | String |  no  |  |
+ | indexing | Boolean |  no  |  |
 
 ---
 
@@ -15175,18 +15175,18 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | schema | [AttributeMaster](#AttributeMaster)? |  yes  |  |
  | description | String? |  yes  |  |
- | logo | String? |  yes  |  |
- | filters | [AttributeMasterFilter](#AttributeMasterFilter)? |  yes  |  |
  | details | [AttributeMasterDetails](#AttributeMasterDetails)? |  yes  |  |
- | meta | [AttributeMasterMeta](#AttributeMasterMeta)? |  yes  |  |
+ | schema | [AttributeMaster](#AttributeMaster)? |  yes  |  |
  | departments | ArrayList<String>? |  yes  |  |
- | slug | String? |  yes  |  |
- | id | String? |  yes  |  |
- | enabledForEndConsumer | Boolean? |  yes  |  |
  | isNested | Boolean? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | filters | [AttributeMasterFilter](#AttributeMasterFilter)? |  yes  |  |
+ | enabledForEndConsumer | Boolean? |  yes  |  |
+ | meta | [AttributeMasterMeta](#AttributeMasterMeta)? |  yes  |  |
 
 ---
 
@@ -15209,11 +15209,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | errors | HashMap<String,Object>? |  yes  |  |
- | message | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
  | code | String? |  yes  |  |
  | status | Integer? |  yes  |  |
+ | message | String? |  yes  |  |
+ | errors | HashMap<String,Object>? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -15224,9 +15224,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | contact | String? |  yes  |  |
- | username | String? |  yes  |  |
  | userId | String? |  yes  |  |
+ | username | String? |  yes  |  |
+ | contact | String? |  yes  |  |
 
 ---
 
@@ -15237,21 +15237,21 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | pageNo | Integer? |  yes  |  |
+ | synonyms | ArrayList<String>? |  yes  |  |
+ | priorityOrder | Integer? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
+ | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
+ | pageSize | Integer? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | itemType | String? |  yes  |  |
  | search | String? |  yes  |  |
  | createdOn | String? |  yes  |  |
- | pageSize | Integer? |  yes  |  |
- | name | String? |  yes  |  |
- | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | priorityOrder | Integer? |  yes  |  |
- | pageNo | Integer? |  yes  |  |
- | itemType | String? |  yes  |  |
- | logo | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | synonyms | ArrayList<String>? |  yes  |  |
- | slug | String? |  yes  |  |
- | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
 
 ---
 
@@ -15274,11 +15274,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | errors | HashMap<String,Object>? |  yes  |  |
- | message | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
  | code | String? |  yes  |  |
  | status | Integer? |  yes  |  |
+ | message | String? |  yes  |  |
+ | errors | HashMap<String,Object>? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -15289,22 +15289,22 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | name | String? |  yes  |  |
- | isExpirable | Boolean |  no  |  |
- | tag | String? |  yes  |  |
- | isPhysical | Boolean |  no  |  |
  | description | String? |  yes  |  |
  | isArchived | Boolean? |  yes  |  |
+ | departments | ArrayList<String>? |  yes  |  |
+ | tag | String? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
  | attributes | ArrayList<String>? |  yes  |  |
- | categories | ArrayList<String>? |  yes  |  |
  | logo | String? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | slug | String |  no  |  |
  | isActive | Boolean? |  yes  |  |
  | createdOn | String? |  yes  |  |
- | departments | ArrayList<String>? |  yes  |  |
- | slug | String |  no  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
  | modifiedOn | String? |  yes  |  |
+ | isExpirable | Boolean |  no  |  |
+ | isPhysical | Boolean |  no  |  |
+ | categories | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -15323,63 +15323,40 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [TemplateDetails](#TemplateDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | isExpirable | Boolean |  no  |  |
- | tag | String? |  yes  |  |
- | isPhysical | Boolean |  no  |  |
- | description | String? |  yes  |  |
- | isArchived | Boolean? |  yes  |  |
- | attributes | ArrayList<String>? |  yes  |  |
- | categories | ArrayList<String>? |  yes  |  |
- | logo | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | id | String? |  yes  |  |
- | departments | ArrayList<String>? |  yes  |  |
- | slug | String |  no  |  |
-
----
-
-
- 
- 
  #### [Properties](#Properties)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | customOrder | HashMap<String,Object>? |  yes  |  |
- | sizeGuide | HashMap<String,Object>? |  yes  |  |
- | itemCode | HashMap<String,Object>? |  yes  |  |
- | highlights | HashMap<String,Object>? |  yes  |  |
- | media | HashMap<String,Object>? |  yes  |  |
- | slug | HashMap<String,Object>? |  yes  |  |
- | sizes | HashMap<String,Object>? |  yes  |  |
+ | brandUid | HashMap<String,Object>? |  yes  |  |
  | productGroupTag | HashMap<String,Object>? |  yes  |  |
+ | returnConfig | HashMap<String,Object>? |  yes  |  |
+ | itemType | HashMap<String,Object>? |  yes  |  |
+ | traderType | HashMap<String,Object>? |  yes  |  |
+ | itemCode | HashMap<String,Object>? |  yes  |  |
+ | slug | HashMap<String,Object>? |  yes  |  |
+ | categorySlug | HashMap<String,Object>? |  yes  |  |
+ | sizes | HashMap<String,Object>? |  yes  |  |
+ | isDependent | HashMap<String,Object>? |  yes  |  |
+ | currency | HashMap<String,Object>? |  yes  |  |
+ | teaserTag | HashMap<String,Object>? |  yes  |  |
+ | description | HashMap<String,Object>? |  yes  |  |
+ | variants | HashMap<String,Object>? |  yes  |  |
+ | multiSize | HashMap<String,Object>? |  yes  |  |
+ | highlights | HashMap<String,Object>? |  yes  |  |
+ | tags | HashMap<String,Object>? |  yes  |  |
+ | shortDescription | HashMap<String,Object>? |  yes  |  |
  | name | HashMap<String,Object>? |  yes  |  |
  | trader | HashMap<String,Object>? |  yes  |  |
- | description | HashMap<String,Object>? |  yes  |  |
+ | productPublish | HashMap<String,Object>? |  yes  |  |
  | countryOfOrigin | HashMap<String,Object>? |  yes  |  |
- | itemType | HashMap<String,Object>? |  yes  |  |
+ | moq | HashMap<String,Object>? |  yes  |  |
+ | sizeGuide | HashMap<String,Object>? |  yes  |  |
+ | command | HashMap<String,Object>? |  yes  |  |
+ | customOrder | HashMap<String,Object>? |  yes  |  |
  | isActive | HashMap<String,Object>? |  yes  |  |
  | hsnCode | HashMap<String,Object>? |  yes  |  |
- | multiSize | HashMap<String,Object>? |  yes  |  |
- | traderType | HashMap<String,Object>? |  yes  |  |
- | brandUid | HashMap<String,Object>? |  yes  |  |
- | tags | HashMap<String,Object>? |  yes  |  |
- | moq | HashMap<String,Object>? |  yes  |  |
- | categorySlug | HashMap<String,Object>? |  yes  |  |
- | teaserTag | HashMap<String,Object>? |  yes  |  |
  | noOfBoxes | HashMap<String,Object>? |  yes  |  |
- | shortDescription | HashMap<String,Object>? |  yes  |  |
- | isDependent | HashMap<String,Object>? |  yes  |  |
- | command | HashMap<String,Object>? |  yes  |  |
- | currency | HashMap<String,Object>? |  yes  |  |
- | variants | HashMap<String,Object>? |  yes  |  |
- | returnConfig | HashMap<String,Object>? |  yes  |  |
- | productPublish | HashMap<String,Object>? |  yes  |  |
+ | media | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -15390,12 +15367,12 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | description | String? |  yes  |  |
+ | title | String? |  yes  |  |
  | properties | [Properties](#Properties)? |  yes  |  |
  | required | ArrayList<String>? |  yes  |  |
- | title | String? |  yes  |  |
- | type | String? |  yes  |  |
  | definitions | HashMap<String,Object>? |  yes  |  |
- | description | String? |  yes  |  |
+ | type | String? |  yes  |  |
 
 ---
 
@@ -15406,8 +15383,31 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | globalValidation | [GlobalValidation](#GlobalValidation)? |  yes  |  |
  | templateValidation | HashMap<String,Object>? |  yes  |  |
+ | globalValidation | [GlobalValidation](#GlobalValidation)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TemplateDetails](#TemplateDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | description | String? |  yes  |  |
+ | isArchived | Boolean? |  yes  |  |
+ | departments | ArrayList<String>? |  yes  |  |
+ | tag | String? |  yes  |  |
+ | attributes | ArrayList<String>? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | slug | String |  no  |  |
+ | isActive | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | isExpirable | Boolean |  no  |  |
+ | isPhysical | Boolean |  no  |  |
+ | categories | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -15418,8 +15418,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | templateDetails | [TemplateDetails](#TemplateDetails)? |  yes  |  |
  | data | [TemplateValidationData](#TemplateValidationData)? |  yes  |  |
+ | templateDetails | [TemplateDetails](#TemplateDetails)? |  yes  |  |
 
 ---
 
@@ -15430,8 +15430,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | HashMap<String,Object>? |  yes  |  |
  | message | String? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -15442,8 +15442,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | countryOfOrigin | ArrayList<String>? |  yes  |  |
  | hsnCode | ArrayList<String>? |  yes  |  |
+ | countryOfOrigin | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -15454,21 +15454,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [HSNData](#HSNData)? |  yes  |  |
  | message | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductDownloadItemsData](#ProductDownloadItemsData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | brand | ArrayList<String>? |  yes  |  |
- | templates | ArrayList<String>? |  yes  |  |
- | type | String? |  yes  |  |
+ | data | [HSNData](#HSNData)? |  yes  |  |
 
 ---
 
@@ -15479,8 +15466,21 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
  | userId | String? |  yes  |  |
+ | username | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductDownloadItemsData](#ProductDownloadItemsData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | templates | ArrayList<String>? |  yes  |  |
+ | brand | ArrayList<String>? |  yes  |  |
+ | type | String? |  yes  |  |
 
 ---
 
@@ -15491,16 +15491,16 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | templateTags | HashMap<String,Object>? |  yes  |  |
+ | createdBy | [VerifiedBy](#VerifiedBy)? |  yes  |  |
+ | data | [ProductDownloadItemsData](#ProductDownloadItemsData)? |  yes  |  |
  | taskId | String? |  yes  |  |
  | sellerId | Double? |  yes  |  |
- | data | [ProductDownloadItemsData](#ProductDownloadItemsData)? |  yes  |  |
- | id | String? |  yes  |  |
- | completedOn | String? |  yes  |  |
  | url | String? |  yes  |  |
- | status | String? |  yes  |  |
- | createdBy | [VerifiedBy](#VerifiedBy)? |  yes  |  |
  | triggerOn | String? |  yes  |  |
- | templateTags | HashMap<String,Object>? |  yes  |  |
+ | completedOn | String? |  yes  |  |
+ | status | String? |  yes  |  |
+ | id | String? |  yes  |  |
 
 ---
 
@@ -15536,8 +15536,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | department | Integer |  no  |  |
- | l1 | Integer |  no  |  |
  | l2 | Integer |  no  |  |
+ | l1 | Integer |  no  |  |
 
 ---
 
@@ -15561,8 +15561,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | google | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
- | ajio | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
  | facebook | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
+ | ajio | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
 
 ---
 
@@ -15573,9 +15573,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | landscape | String |  no  |  |
- | portrait | String |  no  |  |
  | logo | String |  no  |  |
+ | portrait | String |  no  |  |
+ | landscape | String |  no  |  |
 
 ---
 
@@ -15586,16 +15586,16 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | level | Integer |  no  |  |
- | priority | Integer? |  yes  |  |
- | name | String |  no  |  |
- | tryouts | ArrayList<String>? |  yes  |  |
- | hierarchy | ArrayList<[Hierarchy](#Hierarchy)>? |  yes  |  |
- | isActive | Boolean |  no  |  |
  | synonyms | ArrayList<String>? |  yes  |  |
  | departments | ArrayList<Integer> |  no  |  |
- | slug | String? |  yes  |  |
+ | priority | Integer? |  yes  |  |
+ | hierarchy | ArrayList<[Hierarchy](#Hierarchy)>? |  yes  |  |
  | marketplaces | [CategoryMapping](#CategoryMapping)? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | isActive | Boolean |  no  |  |
+ | name | String |  no  |  |
+ | level | Integer |  no  |  |
+ | tryouts | ArrayList<String>? |  yes  |  |
  | media | [Media2](#Media2)? |  yes  |  |
 
 ---
@@ -15619,23 +15619,23 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | createdOn | String? |  yes  |  |
- | level | Integer |  no  |  |
- | priority | Integer? |  yes  |  |
- | isActive | Boolean |  no  |  |
- | name | String |  no  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | id | String? |  yes  |  |
- | tryouts | ArrayList<String>? |  yes  |  |
- | hierarchy | ArrayList<[Hierarchy](#Hierarchy)>? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | synonyms | ArrayList<String>? |  yes  |  |
  | departments | ArrayList<Integer> |  no  |  |
- | slug | String? |  yes  |  |
- | marketplaces | [CategoryMapping](#CategoryMapping)? |  yes  |  |
+ | priority | Integer? |  yes  |  |
+ | hierarchy | ArrayList<[Hierarchy](#Hierarchy)>? |  yes  |  |
  | createdBy | HashMap<String,Object>? |  yes  |  |
+ | marketplaces | [CategoryMapping](#CategoryMapping)? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | isActive | Boolean |  no  |  |
+ | createdOn | String? |  yes  |  |
+ | name | String |  no  |  |
+ | level | Integer |  no  |  |
  | modifiedOn | String? |  yes  |  |
+ | tryouts | ArrayList<String>? |  yes  |  |
  | media | [Media2](#Media2)? |  yes  |  |
+ | id | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
 
 ---
 
@@ -15669,21 +15669,33 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
  | message | String? |  yes  |  |
+ | success | Boolean? |  yes  |  |
 
 ---
 
 
  
  
- #### [CustomOrder](#CustomOrder)
+ #### [ReturnConfig](#ReturnConfig)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isCustomOrder | Boolean? |  yes  |  |
- | manufacturingTimeUnit | String? |  yes  |  |
- | manufacturingTime | Integer? |  yes  |  |
+ | time | Integer |  no  |  |
+ | unit | String |  no  |  |
+ | returnable | Boolean |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [TeaserTag](#TeaserTag)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | url | String? |  yes  |  |
+ | tag | String? |  yes  |  |
 
 ---
 
@@ -15716,36 +15728,24 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [OrderQuantity](#OrderQuantity)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | minimum | Integer? |  yes  |  |
- | maximum | Integer? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [TeaserTag](#TeaserTag)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | tag | String? |  yes  |  |
- | url | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [ProductPublish](#ProductPublish)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | isSet | Boolean? |  yes  |  |
  | productOnlineDate | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderQuantity](#OrderQuantity)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | maximum | Integer? |  yes  |  |
+ | minimum | Integer? |  yes  |  |
  | isSet | Boolean? |  yes  |  |
 
 ---
@@ -15753,13 +15753,13 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [ReturnConfig](#ReturnConfig)
+ #### [CustomOrder](#CustomOrder)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | unit | String |  no  |  |
- | returnable | Boolean |  no  |  |
- | time | Integer |  no  |  |
+ | manufacturingTime | Integer? |  yes  |  |
+ | manufacturingTimeUnit | String? |  yes  |  |
+ | isCustomOrder | Boolean? |  yes  |  |
 
 ---
 
@@ -15770,44 +15770,44 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | customOrder | [CustomOrder](#CustomOrder)? |  yes  |  |
- | taxIdentifier | [TaxIdentifier](#TaxIdentifier) |  no  |  |
- | sizeGuide | String? |  yes  |  |
- | itemCode | String |  no  |  |
- | highlights | ArrayList<String>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | departments | ArrayList<Integer> |  no  |  |
- | slug | String |  no  |  |
- | action | String? |  yes  |  |
+ | brandUid | Integer |  no  |  |
  | productGroupTag | ArrayList<String>? |  yes  |  |
+ | action | String? |  yes  |  |
+ | returnConfig | [ReturnConfig](#ReturnConfig) |  no  |  |
+ | itemType | String |  no  |  |
+ | isSet | Boolean? |  yes  |  |
+ | itemCode | String |  no  |  |
+ | companyId | Integer |  no  |  |
+ | slug | String |  no  |  |
+ | categorySlug | String |  no  |  |
+ | isDependent | Boolean? |  yes  |  |
+ | isImageLessProduct | Boolean? |  yes  |  |
+ | templateTag | String |  no  |  |
+ | currency | String |  no  |  |
+ | teaserTag | [TeaserTag](#TeaserTag)? |  yes  |  |
+ | taxIdentifier | [TaxIdentifier](#TaxIdentifier) |  no  |  |
+ | description | String? |  yes  |  |
+ | variants | HashMap<String,Object>? |  yes  |  |
+ | departments | ArrayList<Integer> |  no  |  |
+ | multiSize | Boolean? |  yes  |  |
+ | highlights | ArrayList<String>? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
  | name | String |  no  |  |
  | trader | ArrayList<[Trader](#Trader)> |  no  |  |
- | description | String? |  yes  |  |
- | countryOfOrigin | String |  no  |  |
- | requester | String? |  yes  |  |
- | itemType | String |  no  |  |
- | isActive | Boolean? |  yes  |  |
- | templateTag | String |  no  |  |
- | brandUid | Integer |  no  |  |
- | multiSize | Boolean? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | isImageLessProduct | Boolean? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
- | moq | [OrderQuantity](#OrderQuantity)? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | categorySlug | String |  no  |  |
- | companyId | Integer |  no  |  |
  | bulkJobId | String? |  yes  |  |
- | teaserTag | [TeaserTag](#TeaserTag)? |  yes  |  |
- | changeRequestId | String? |  yes  |  |
- | noOfBoxes | Integer? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | isDependent | Boolean? |  yes  |  |
  | productPublish | [ProductPublish](#ProductPublish)? |  yes  |  |
- | currency | String |  no  |  |
- | variants | HashMap<String,Object>? |  yes  |  |
- | returnConfig | [ReturnConfig](#ReturnConfig) |  no  |  |
+ | countryOfOrigin | String |  no  |  |
+ | changeRequestId | String? |  yes  |  |
+ | moq | [OrderQuantity](#OrderQuantity)? |  yes  |  |
+ | sizeGuide | String? |  yes  |  |
+ | customOrder | [CustomOrder](#CustomOrder)? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | requester | String? |  yes  |  |
+ | noOfBoxes | Integer? |  yes  |  |
  | media | ArrayList<[Media1](#Media1)>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
 
 ---
 
@@ -15818,10 +15818,10 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | url | String? |  yes  |  |
  | aspectRatio | String? |  yes  |  |
- | secureUrl | String? |  yes  |  |
+ | url | String? |  yes  |  |
  | aspectRatioF | Double? |  yes  |  |
+ | secureUrl | String? |  yes  |  |
 
 ---
 
@@ -15832,10 +15832,10 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | url | String? |  yes  |  |
  | aspectRatio | String? |  yes  |  |
- | secureUrl | String? |  yes  |  |
+ | url | String? |  yes  |  |
  | aspectRatioF | Integer? |  yes  |  |
+ | secureUrl | String? |  yes  |  |
 
 ---
 
@@ -15859,8 +15859,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | productOnlineDate | Integer? |  yes  |  |
  | isSet | Boolean? |  yes  |  |
+ | productOnlineDate | Integer? |  yes  |  |
 
 ---
 
@@ -15871,44 +15871,44 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | customOrder | HashMap<String,Object>? |  yes  |  |
- | sizeGuide | String? |  yes  |  |
- | l3Mapping | ArrayList<String>? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | highlights | ArrayList<String>? |  yes  |  |
- | id | String? |  yes  |  |
- | images | ArrayList<[Image](#Image)>? |  yes  |  |
- | departments | ArrayList<Integer>? |  yes  |  |
- | slug | String? |  yes  |  |
- | sizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | brand | [Brand](#Brand)? |  yes  |  |
- | name | String? |  yes  |  |
- | description | String? |  yes  |  |
- | countryOfOrigin | String? |  yes  |  |
- | itemType | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | templateTag | String? |  yes  |  |
  | brandUid | Integer? |  yes  |  |
- | multiSize | Boolean? |  yes  |  |
- | hsnCode | String? |  yes  |  |
- | variants | HashMap<String,Object>? |  yes  |  |
- | categoryUid | Integer? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
- | moq | HashMap<String,Object>? |  yes  |  |
- | color | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
+ | l3Mapping | ArrayList<String>? |  yes  |  |
  | primaryColor | String? |  yes  |  |
- | categorySlug | String? |  yes  |  |
- | isExpirable | Boolean? |  yes  |  |
- | isPhysical | Boolean? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | isDependent | Boolean? |  yes  |  |
- | productPublish | [ProductPublished](#ProductPublished)? |  yes  |  |
- | currency | String? |  yes  |  |
  | imageNature | String? |  yes  |  |
- | allSizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | itemType | String? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+ | images | ArrayList<[Image](#Image)>? |  yes  |  |
+ | brand | [Brand](#Brand)? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | categorySlug | String? |  yes  |  |
+ | sizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | isDependent | Boolean? |  yes  |  |
+ | id | String? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | templateTag | String? |  yes  |  |
+ | isExpirable | Boolean? |  yes  |  |
+ | description | String? |  yes  |  |
+ | departments | ArrayList<Integer>? |  yes  |  |
+ | variants | HashMap<String,Object>? |  yes  |  |
+ | multiSize | Boolean? |  yes  |  |
+ | highlights | ArrayList<String>? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | isPhysical | Boolean? |  yes  |  |
+ | productPublish | [ProductPublished](#ProductPublished)? |  yes  |  |
+ | countryOfOrigin | String? |  yes  |  |
+ | moq | HashMap<String,Object>? |  yes  |  |
+ | sizeGuide | String? |  yes  |  |
+ | customOrder | HashMap<String,Object>? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | hsnCode | String? |  yes  |  |
+ | color | String? |  yes  |  |
+ | categoryUid | Integer? |  yes  |  |
+ | allSizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | media | ArrayList<[Media1](#Media1)>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
 
 ---
 
@@ -15956,23 +15956,23 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | failedRecords | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | customTemplateTag | String? |  yes  |  |
- | modifiedBy | [UserInfo1](#UserInfo1)? |  yes  |  |
- | trackingUrl | String? |  yes  |  |
- | failed | Integer? |  yes  |  |
+ | stage | String? |  yes  |  |
  | succeed | Integer? |  yes  |  |
  | cancelled | Integer? |  yes  |  |
- | stage | String? |  yes  |  |
- | filePath | String? |  yes  |  |
- | cancelledRecords | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | createdOn | String |  no  |  |
- | total | Integer |  no  |  |
- | templateTag | String? |  yes  |  |
  | createdBy | [UserInfo1](#UserInfo1)? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
+ | cancelledRecords | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | modifiedBy | [UserInfo1](#UserInfo1)? |  yes  |  |
  | companyId | Integer |  no  |  |
+ | failedRecords | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | filePath | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | templateTag | String? |  yes  |  |
+ | customTemplateTag | String? |  yes  |  |
+ | createdOn | String |  no  |  |
+ | trackingUrl | String? |  yes  |  |
+ | failed | Integer? |  yes  |  |
+ | total | Integer |  no  |  |
 
 ---
 
@@ -15983,12 +15983,12 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | modifiedBy | [UserInfo1](#UserInfo1)? |  yes  |  |
- | batchId | String |  no  |  |
- | isActive | Boolean? |  yes  |  |
- | createdOn | String |  no  |  |
  | createdBy | [UserInfo1](#UserInfo1)? |  yes  |  |
+ | batchId | String |  no  |  |
+ | modifiedBy | [UserInfo1](#UserInfo1)? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
  | modifiedOn | String? |  yes  |  |
+ | createdOn | String |  no  |  |
 
 ---
 
@@ -15999,8 +15999,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
  | userId | String? |  yes  |  |
+ | username | String? |  yes  |  |
  | fullName | String? |  yes  |  |
 
 ---
@@ -16012,22 +16012,22 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | failedRecords | ArrayList<String>? |  yes  |  |
- | modifiedBy | [UserDetail](#UserDetail)? |  yes  |  |
- | template | [ProductTemplate](#ProductTemplate)? |  yes  |  |
- | failed | Integer? |  yes  |  |
+ | stage | String? |  yes  |  |
  | succeed | Integer? |  yes  |  |
  | cancelled | Integer? |  yes  |  |
- | stage | String? |  yes  |  |
- | filePath | String? |  yes  |  |
- | cancelledRecords | ArrayList<String>? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | createdOn | String? |  yes  |  |
  | total | Integer? |  yes  |  |
- | templateTag | String? |  yes  |  |
  | createdBy | [UserDetail](#UserDetail)? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
+ | modifiedBy | [UserDetail](#UserDetail)? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | failedRecords | ArrayList<String>? |  yes  |  |
+ | filePath | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | templateTag | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | failed | Integer? |  yes  |  |
+ | cancelledRecords | ArrayList<String>? |  yes  |  |
+ | template | [ProductTemplate](#ProductTemplate)? |  yes  |  |
 
 ---
 
@@ -16051,9 +16051,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | data | ArrayList<HashMap<String,Object>> |  no  |  |
+ | companyId | Integer |  no  |  |
  | templateTag | String |  no  |  |
  | batchId | String |  no  |  |
- | companyId | Integer |  no  |  |
 
 ---
 
@@ -16099,8 +16099,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
  | userId | String? |  yes  |  |
+ | username | String? |  yes  |  |
  | companyId | Integer? |  yes  |  |
 
 ---
@@ -16112,23 +16112,23 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | failedRecords | ArrayList<String>? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | succeed | Integer? |  yes  |  |
+ | cancelled | Integer? |  yes  |  |
  | total | Integer? |  yes  |  |
+ | createdBy | [UserCommon](#UserCommon)? |  yes  |  |
  | modifiedBy | [UserCommon](#UserCommon)? |  yes  |  |
+ | failedRecords | ArrayList<String>? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
+ | filePath | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | retry | Integer? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
  | trackingUrl | String? |  yes  |  |
  | failed | Integer? |  yes  |  |
- | retry | Integer? |  yes  |  |
- | cancelled | Integer? |  yes  |  |
- | stage | String? |  yes  |  |
- | filePath | String? |  yes  |  |
  | cancelledRecords | ArrayList<String>? |  yes  |  |
- | id | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | succeed | Integer? |  yes  |  |
- | createdBy | [UserCommon](#UserCommon)? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | companyId | Integer? |  yes  |  |
 
 ---
 
@@ -16151,9 +16151,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | itemId | Integer? |  yes  |  |
  | companyId | Integer? |  yes  |  |
  | size | String? |  yes  |  |
- | itemId | Integer? |  yes  |  |
 
 ---
 
@@ -16164,8 +16164,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
  | data | [ProductSizeDeleteDataResponse](#ProductSizeDeleteDataResponse)? |  yes  |  |
+ | success | Boolean? |  yes  |  |
 
 ---
 
@@ -16176,22 +16176,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | brandUid | Integer? |  yes  |  |
  | itemCode | String? |  yes  |  |
+ | brandUid | Integer? |  yes  |  |
  | uid | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [GTIN](#GTIN)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | gtinValue | String |  no  |  |
- | primary | Boolean? |  yes  |  |
- | gtinType | String |  no  |  |
 
 ---
 
@@ -16202,8 +16189,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | size | String |  no  |  |
  | pieces | Integer |  no  |  |
+ | size | String |  no  |  |
 
 ---
 
@@ -16225,8 +16212,21 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | quantity | Integer? |  yes  |  |
  | sizeDistribution | [SizeDistribution](#SizeDistribution) |  no  |  |
+ | quantity | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GTIN](#GTIN)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | primary | Boolean? |  yes  |  |
+ | gtinValue | String |  no  |  |
+ | gtinType | String |  no  |  |
 
 ---
 
@@ -16237,23 +16237,23 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | price | Double |  no  |  |
- | size | String |  no  |  |
- | priceTransfer | Double? |  yes  |  |
- | itemLength | Double? |  yes  |  |
- | quantity | Integer |  no  |  |
- | expirationDate | String? |  yes  |  |
- | identifiers | ArrayList<[GTIN](#GTIN)> |  no  |  |
- | itemWidth | Double? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
- | storeCode | String |  no  |  |
  | set | [InventorySet](#InventorySet)? |  yes  |  |
- | currency | String |  no  |  |
- | itemWeightUnitOfMeasure | String? |  yes  |  |
- | itemDimensionsUnitOfMeasure | String? |  yes  |  |
- | itemWeight | Double? |  yes  |  |
  | priceEffective | Double |  no  |  |
  | itemHeight | Double? |  yes  |  |
+ | itemWidth | Double? |  yes  |  |
+ | itemWeight | Double? |  yes  |  |
+ | itemLength | Double? |  yes  |  |
+ | itemWeightUnitOfMeasure | String? |  yes  |  |
+ | storeCode | String |  no  |  |
+ | size | String |  no  |  |
+ | expirationDate | String? |  yes  |  |
+ | price | Double |  no  |  |
+ | currency | String |  no  |  |
+ | itemDimensionsUnitOfMeasure | String? |  yes  |  |
+ | quantity | Integer |  no  |  |
+ | identifiers | ArrayList<[GTIN](#GTIN)> |  no  |  |
+ | isSet | Boolean? |  yes  |  |
+ | priceTransfer | Double? |  yes  |  |
 
 ---
 
@@ -16265,8 +16265,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | item | [ItemQuery](#ItemQuery) |  no  |  |
- | sizes | ArrayList<[InvSize](#InvSize)> |  no  |  |
  | companyId | Integer |  no  |  |
+ | sizes | ArrayList<[InvSize](#InvSize)> |  no  |  |
 
 ---
 
@@ -16277,19 +16277,19 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | price | Integer? |  yes  |  |
- | priceTransfer | Integer? |  yes  |  |
- | sellableQuantity | Integer? |  yes  |  |
- | size | String? |  yes  |  |
- | itemId | Integer? |  yes  |  |
- | identifiers | HashMap<String,Object>? |  yes  |  |
- | sellerIdentifier | String? |  yes  |  |
  | store | HashMap<String,Object>? |  yes  |  |
  | uid | String? |  yes  |  |
- | currency | String? |  yes  |  |
+ | sellableQuantity | Integer? |  yes  |  |
  | inventoryUpdatedOn | String? |  yes  |  |
- | quantity | Integer? |  yes  |  |
  | priceEffective | Integer? |  yes  |  |
+ | itemId | Integer? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | size | String? |  yes  |  |
+ | price | Integer? |  yes  |  |
+ | sellerIdentifier | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | identifiers | HashMap<String,Object>? |  yes  |  |
+ | priceTransfer | Integer? |  yes  |  |
 
 ---
 
@@ -16308,13 +16308,37 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [Manufacturer](#Manufacturer)
+ #### [QuantityBase](#QuantityBase)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | address | String |  no  |  |
- | name | String |  no  |  |
- | isDefault | Boolean |  no  |  |
+ | updatedAt | Integer? |  yes  |  |
+ | count | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Quantities](#Quantities)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | notAvailable | [QuantityBase](#QuantityBase)? |  yes  |  |
+ | damaged | [QuantityBase](#QuantityBase)? |  yes  |  |
+ | orderCommitted | [QuantityBase](#QuantityBase)? |  yes  |  |
+ | sellable | [QuantityBase](#QuantityBase)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [StoreMeta](#StoreMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | Integer |  no  |  |
 
 ---
 
@@ -16325,8 +16349,21 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | Integer |  no  |  |
  | name | String |  no  |  |
+ | id | Integer |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Manufacturer](#Manufacturer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  |  |
+ | isDefault | Boolean |  no  |  |
+ | address | String |  no  |  |
 
 ---
 
@@ -16346,39 +16383,15 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [StoreMeta](#StoreMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | Integer |  no  |  |
-
----
-
-
- 
- 
  #### [PriceMeta](#PriceMeta)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | tpNotes | HashMap<String,Object>? |  yes  |  |
  | effective | Double |  no  |  |
  | transfer | Double |  no  |  |
  | currency | String |  no  |  |
- | tpNotes | HashMap<String,Object>? |  yes  |  |
  | marked | Double |  no  |  |
-
----
-
-
- 
- 
- #### [Weight](#Weight)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | unit | String |  no  |  |
- | shipping | Double |  no  |  |
- | isDefault | Boolean |  no  |  |
 
 ---
 
@@ -16396,41 +16409,28 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [QuantityBase](#QuantityBase)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | count | Integer? |  yes  |  |
- | updatedAt | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [Quantities](#Quantities)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | damaged | [QuantityBase](#QuantityBase)? |  yes  |  |
- | notAvailable | [QuantityBase](#QuantityBase)? |  yes  |  |
- | sellable | [QuantityBase](#QuantityBase)? |  yes  |  |
- | orderCommitted | [QuantityBase](#QuantityBase)? |  yes  |  |
-
----
-
-
- 
- 
  #### [Dimension](#Dimension)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | unit | String |  no  |  |
  | length | Double |  no  |  |
- | height | Double |  no  |  |
  | isDefault | Boolean |  no  |  |
  | width | Double |  no  |  |
+ | unit | String |  no  |  |
+ | height | Double |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Weight](#Weight)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isDefault | Boolean |  no  |  |
+ | unit | String |  no  |  |
+ | shipping | Double |  no  |  |
 
 ---
 
@@ -16441,39 +16441,39 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | taxIdentifier | HashMap<String,Object>? |  yes  |  |
- | manufacturer | [Manufacturer](#Manufacturer) |  no  |  |
- | rawMeta | HashMap<String,Object>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | addedOnStore | String? |  yes  |  |
- | fyndMeta | HashMap<String,Object>? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
+ | totalQuantity | Integer |  no  |  |
+ | set | [InventorySet](#InventorySet)? |  yes  |  |
  | fyndArticleCode | String |  no  |  |
- | brand | [BrandMeta](#BrandMeta) |  no  |  |
- | trader | ArrayList<[Trader1](#Trader1)>? |  yes  |  |
- | store | [StoreMeta](#StoreMeta) |  no  |  |
- | countryOfOrigin | String |  no  |  |
- | isActive | Boolean? |  yes  |  |
- | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | fragile | Boolean |  no  |  |
- | price | [PriceMeta](#PriceMeta) |  no  |  |
+ | returnConfig | HashMap<String,Object>? |  yes  |  |
+ | quantities | [Quantities](#Quantities)? |  yes  |  |
+ | addedOnStore | String? |  yes  |  |
  | size | String |  no  |  |
  | expirationDate | String? |  yes  |  |
- | identifier | HashMap<String,Object> |  no  |  |
  | isSet | Boolean? |  yes  |  |
- | weight | [Weight](#Weight) |  no  |  |
- | set | [InventorySet](#InventorySet)? |  yes  |  |
- | uid | String |  no  |  |
- | trackInventory | Boolean? |  yes  |  |
- | totalQuantity | Integer |  no  |  |
- | fyndItemCode | String |  no  |  |
- | company | [CompanyMeta](#CompanyMeta) |  no  |  |
- | itemId | Integer |  no  |  |
+ | store | [StoreMeta](#StoreMeta) |  no  |  |
+ | brand | [BrandMeta](#BrandMeta) |  no  |  |
  | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
+ | trackInventory | Boolean? |  yes  |  |
+ | identifier | HashMap<String,Object> |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | taxIdentifier | HashMap<String,Object>? |  yes  |  |
+ | fyndMeta | HashMap<String,Object>? |  yes  |  |
+ | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
+ | manufacturer | [Manufacturer](#Manufacturer) |  no  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | itemId | Integer |  no  |  |
+ | fragile | Boolean |  no  |  |
+ | trader | ArrayList<[Trader1](#Trader1)>? |  yes  |  |
+ | price | [PriceMeta](#PriceMeta) |  no  |  |
  | sellerIdentifier | String? |  yes  |  |
- | quantities | [Quantities](#Quantities)? |  yes  |  |
+ | countryOfOrigin | String |  no  |  |
+ | company | [CompanyMeta](#CompanyMeta) |  no  |  |
+ | isActive | Boolean? |  yes  |  |
  | dimension | [Dimension](#Dimension) |  no  |  |
- | returnConfig | HashMap<String,Object>? |  yes  |  |
+ | rawMeta | HashMap<String,Object>? |  yes  |  |
+ | weight | [Weight](#Weight) |  no  |  |
+ | fyndItemCode | String |  no  |  |
+ | uid | String |  no  |  |
 
 ---
 
@@ -16496,21 +16496,21 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | failedRecords | ArrayList<String>? |  yes  |  |
- | total | Integer? |  yes  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | failed | Integer? |  yes  |  |
- | cancelled | Integer? |  yes  |  |
  | stage | String? |  yes  |  |
- | filePath | String? |  yes  |  |
- | cancelledRecords | ArrayList<String>? |  yes  |  |
- | id | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | createdOn | String? |  yes  |  |
  | succeed | Integer? |  yes  |  |
+ | cancelled | Integer? |  yes  |  |
+ | total | Integer? |  yes  |  |
  | createdBy | HashMap<String,Object>? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | failedRecords | ArrayList<String>? |  yes  |  |
+ | filePath | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | failed | Integer? |  yes  |  |
+ | cancelledRecords | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -16533,24 +16533,24 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | price | Double |  no  |  |
- | size | String? |  yes  |  |
- | priceTransfer | Double? |  yes  |  |
- | itemLength | Double? |  yes  |  |
- | quantity | Integer |  no  |  |
- | expirationDate | String? |  yes  |  |
- | identifiers | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | itemWidth | Double? |  yes  |  |
- | sellerIdentifier | String |  no  |  |
- | isSet | Boolean? |  yes  |  |
- | storeCode | String |  no  |  |
  | set | [InventorySet](#InventorySet)? |  yes  |  |
- | currency | String |  no  |  |
- | itemWeightUnitOfMeasure | String? |  yes  |  |
- | itemDimensionsUnitOfMeasure | String? |  yes  |  |
- | itemWeight | Double? |  yes  |  |
+ | sellerIdentifier | String |  no  |  |
  | priceEffective | Double |  no  |  |
  | itemHeight | Double? |  yes  |  |
+ | itemWidth | Double? |  yes  |  |
+ | itemWeight | Double? |  yes  |  |
+ | itemLength | Double? |  yes  |  |
+ | itemWeightUnitOfMeasure | String? |  yes  |  |
+ | storeCode | String |  no  |  |
+ | size | String? |  yes  |  |
+ | expirationDate | String? |  yes  |  |
+ | price | Double |  no  |  |
+ | currency | String |  no  |  |
+ | itemDimensionsUnitOfMeasure | String? |  yes  |  |
+ | quantity | Integer |  no  |  |
+ | identifiers | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+ | priceTransfer | Double? |  yes  |  |
 
 ---
 
@@ -16561,10 +16561,10 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sizes | ArrayList<[Size1](#Size1)> |  no  |  |
  | batchId | String |  no  |  |
  | user | HashMap<String,Object>? |  yes  |  |
  | companyId | Integer |  no  |  |
+ | sizes | ArrayList<[Size1](#Size1)> |  no  |  |
 
 ---
 
@@ -16588,11 +16588,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | taskId | String |  no  |  |
  | requestParams | HashMap<String,Object>? |  yes  |  |
+ | taskId | String |  no  |  |
  | sellerId | Integer |  no  |  |
- | status | String? |  yes  |  |
  | triggerOn | String? |  yes  |  |
+ | status | String? |  yes  |  |
 
 ---
 
@@ -16603,13 +16603,13 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | taskId | String |  no  |  |
  | requestParams | HashMap<String,Object>? |  yes  |  |
- | sellerId | Integer |  no  |  |
  | url | String? |  yes  |  |
- | status | String? |  yes  |  |
+ | sellerId | Integer |  no  |  |
+ | taskId | String |  no  |  |
  | triggerOn | String? |  yes  |  |
  | completedOn | String? |  yes  |  |
+ | status | String? |  yes  |  |
 
 ---
 
@@ -16644,12 +16644,12 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | storeId | Integer |  no  |  |
+ | totalQuantity | Integer |  no  |  |
+ | priceMarked | Double |  no  |  |
+ | priceEffective | Double |  no  |  |
  | expirationDate | String? |  yes  |  |
  | sellerIdentifier | String |  no  |  |
- | totalQuantity | Integer |  no  |  |
- | priceEffective | Double |  no  |  |
- | priceMarked | Double |  no  |  |
+ | storeId | Integer |  no  |  |
 
 ---
 
@@ -16660,9 +16660,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
  | payload | ArrayList<[InventoryPayload](#InventoryPayload)>? |  yes  |  |
  | companyId | Integer |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -16673,8 +16673,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | errors | HashMap<String,Object>? |  yes  |  |
  | message | String |  no  |  |
+ | errors | String? |  yes  |  |
 
 ---
 
@@ -16685,8 +16685,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | reason | [InventoryFailedReason](#InventoryFailedReason)? |  yes  |  |
  | data | [InventoryPayload](#InventoryPayload)? |  yes  |  |
+ | reason | [InventoryFailedReason](#InventoryFailedReason)? |  yes  |  |
 
 ---
 
@@ -16697,8 +16697,8 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[InventoryResponseItem](#InventoryResponseItem)>? |  yes  |  |
  | message | String |  no  |  |
+ | items | ArrayList<[InventoryResponseItem](#InventoryResponseItem)>? |  yes  |  |
 
 ---
 
@@ -16709,16 +16709,16 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | tax2 | Double? |  yes  |  |
- | threshold2 | Double? |  yes  |  |
  | taxOnEsp | Boolean? |  yes  |  |
+ | tax2 | Double? |  yes  |  |
  | companyId | Integer |  no  |  |
+ | threshold2 | Double? |  yes  |  |
+ | hsnCode | String |  no  |  |
+ | threshold1 | Double |  no  |  |
+ | hs2Code | String |  no  |  |
+ | taxOnMrp | Boolean |  no  |  |
  | tax1 | Double |  no  |  |
  | uid | Integer? |  yes  |  |
- | taxOnMrp | Boolean |  no  |  |
- | hsnCode | String |  no  |  |
- | hs2Code | String |  no  |  |
- | threshold1 | Double |  no  |  |
 
 ---
 
@@ -16729,17 +16729,17 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | tax2 | Double? |  yes  |  |
- | threshold2 | Double? |  yes  |  |
  | taxOnEsp | Boolean? |  yes  |  |
+ | tax2 | Double? |  yes  |  |
  | companyId | Integer? |  yes  |  |
- | tax1 | Double? |  yes  |  |
- | id | String? |  yes  |  |
- | taxOnMrp | Boolean? |  yes  |  |
+ | threshold2 | Double? |  yes  |  |
  | hsnCode | String? |  yes  |  |
- | hs2Code | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
  | threshold1 | Double? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | hs2Code | String? |  yes  |  |
+ | taxOnMrp | Boolean? |  yes  |  |
+ | tax1 | Double? |  yes  |  |
 
 ---
 
@@ -16761,11 +16761,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | size | Integer? |  yes  |  |
  | hasNext | Boolean? |  yes  |  |
  | itemTotal | Integer? |  yes  |  |
- | hasPrevious | Boolean? |  yes  |  |
  | current | String? |  yes  |  |
+ | size | Integer? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
 
 ---
 
@@ -16824,16 +16824,16 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | taxes | ArrayList<[TaxSlab](#TaxSlab)> |  no  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | type | String |  no  |  |
- | countryCode | String |  no  |  |
  | description | String |  no  |  |
- | createdOn | String? |  yes  |  |
- | hsnCode | String |  no  |  |
+ | taxes | ArrayList<[TaxSlab](#TaxSlab)> |  no  |  |
  | createdBy | HashMap<String,Object>? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | hsnCode | String |  no  |  |
  | modifiedOn | String? |  yes  |  |
  | reportingHsn | String |  no  |  |
+ | createdOn | String? |  yes  |  |
+ | type | String |  no  |  |
+ | countryCode | String |  no  |  |
 
 ---
 
@@ -16856,14 +16856,14 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | logo | [Media](#Media)? |  yes  |  |
- | discount | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | departments | ArrayList<String>? |  yes  |  |
- | slug | String? |  yes  |  |
+ | logo | [Media](#Media)? |  yes  |  |
  | action | [Action](#Action)? |  yes  |  |
+ | discount | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | name | String? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | uid | Integer? |  yes  |  |
 
 ---
 
@@ -16886,11 +16886,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
  | priorityOrder | Integer? |  yes  |  |
  | logo | [Media](#Media)? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | slug | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
 
 ---
 
@@ -16902,6 +16902,85 @@ Company profile object. See example below or refer `LocationListSerializer` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | items | ArrayList<[Department](#Department)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ThirdLevelChild](#ThirdLevelChild)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | action | [Action](#Action)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | childs | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SecondLevelChild](#SecondLevelChild)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | action | [Action](#Action)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | childs | ArrayList<[ThirdLevelChild](#ThirdLevelChild)>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Child](#Child)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | action | [Action](#Action)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | childs | ArrayList<[SecondLevelChild](#SecondLevelChild)>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CategoryItems](#CategoryItems)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | action | [Action](#Action)? |  yes  |  |
+ | name | String? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | childs | ArrayList<[Child](#Child)>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DepartmentCategoryTree](#DepartmentCategoryTree)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | department | String? |  yes  |  |
+ | items | ArrayList<[CategoryItems](#CategoryItems)>? |  yes  |  |
 
 ---
 
@@ -16920,91 +16999,12 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [ThirdLevelChild](#ThirdLevelChild)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | action | [Action](#Action)? |  yes  |  |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | slug | String? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | childs | ArrayList<HashMap<String,Object>>? |  yes  |  |
-
----
-
-
- 
- 
- #### [SecondLevelChild](#SecondLevelChild)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | action | [Action](#Action)? |  yes  |  |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | slug | String? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | childs | ArrayList<[ThirdLevelChild](#ThirdLevelChild)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [Child](#Child)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | action | [Action](#Action)? |  yes  |  |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | slug | String? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | childs | ArrayList<[SecondLevelChild](#SecondLevelChild)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [CategoryItems](#CategoryItems)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | childs | ArrayList<[Child](#Child)>? |  yes  |  |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | slug | String? |  yes  |  |
- | action | [Action](#Action)? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
-
----
-
-
- 
- 
- #### [DepartmentCategoryTree](#DepartmentCategoryTree)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[CategoryItems](#CategoryItems)>? |  yes  |  |
- | department | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [CategoryListingResponse](#CategoryListingResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | departments | ArrayList<[DepartmentIdentifier](#DepartmentIdentifier)>? |  yes  |  |
  | data | ArrayList<[DepartmentCategoryTree](#DepartmentCategoryTree)>? |  yes  |  |
+ | departments | ArrayList<[DepartmentIdentifier](#DepartmentIdentifier)>? |  yes  |  |
 
 ---
 
@@ -17015,11 +17015,11 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page) |  no  |  |
  | items | ArrayList<[ProductListingDetail](#ProductListingDetail)>? |  yes  |  |
- | filters | ArrayList<[ProductFilters](#ProductFilters)>? |  yes  |  |
  | sortOn | ArrayList<[ProductSortOn](#ProductSortOn)>? |  yes  |  |
+ | page | [Page](#Page) |  no  |  |
  | operators | HashMap<String,Object>? |  yes  |  |
+ | filters | ArrayList<[ProductFilters](#ProductFilters)>? |  yes  |  |
 
 ---
 
@@ -17030,79 +17030,44 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | medias | ArrayList<[Media1](#Media1)>? |  yes  |  |
  | promoMeta | HashMap<String,Object>? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | highlights | ArrayList<String>? |  yes  |  |
- | productOnlineDate | String? |  yes  |  |
- | rating | Double? |  yes  |  |
- | slug | String |  no  |  |
- | ratingCount | Integer? |  yes  |  |
+ | itemType | String? |  yes  |  |
+ | imageNature | String? |  yes  |  |
+ | tryouts | ArrayList<String>? |  yes  |  |
  | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
+ | similars | ArrayList<String>? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | slug | String |  no  |  |
+ | teaserTag | HashMap<String,Object>? |  yes  |  |
+ | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | ratingCount | Integer? |  yes  |  |
+ | highlights | ArrayList<String>? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
  | name | String? |  yes  |  |
  | hasVariant | Boolean? |  yes  |  |
- | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
+ | rating | Double? |  yes  |  |
  | type | String? |  yes  |  |
- | description | String? |  yes  |  |
- | itemType | String? |  yes  |  |
- | medias | ArrayList<[Media1](#Media1)>? |  yes  |  |
  | attributes | HashMap<String,Object>? |  yes  |  |
- | similars | ArrayList<String>? |  yes  |  |
+ | productOnlineDate | String? |  yes  |  |
  | color | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
- | teaserTag | HashMap<String,Object>? |  yes  |  |
- | tryouts | ArrayList<String>? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | imageNature | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [SellerPhoneNumber](#SellerPhoneNumber)
+ #### [Document](#Document)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | countryCode | Integer |  no  |  |
- | number | String |  no  |  |
-
----
-
-
- 
- 
- #### [LocationTimingSerializer](#LocationTimingSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | hour | Integer? |  yes  |  |
- | minute | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [LocationDayWiseSerializer](#LocationDayWiseSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | weekday | String |  no  |  |
- | open | Boolean |  no  |  |
- | closing | [LocationTimingSerializer](#LocationTimingSerializer)? |  yes  |  |
- | opening | [LocationTimingSerializer](#LocationTimingSerializer)? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductReturnConfigSerializer](#ProductReturnConfigSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | onSameStore | Boolean? |  yes  |  |
- | storeUid | Integer? |  yes  |  |
+ | url | String? |  yes  |  |
+ | value | String |  no  |  |
+ | legalName | String? |  yes  |  |
+ | verified | Boolean? |  yes  |  |
+ | type | String |  no  |  |
 
 ---
 
@@ -17113,9 +17078,9 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | password | String? |  yes  |  |
- | username | String? |  yes  |  |
  | enabled | Boolean? |  yes  |  |
+ | username | String? |  yes  |  |
+ | password | String? |  yes  |  |
 
 ---
 
@@ -17134,26 +17099,51 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [UserSerializer1](#UserSerializer1)
+ #### [SellerPhoneNumber](#SellerPhoneNumber)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | contact | String? |  yes  |  |
- | username | String? |  yes  |  |
- | userId | String? |  yes  |  |
+ | number | String |  no  |  |
+ | countryCode | Integer |  no  |  |
 
 ---
 
 
  
  
- #### [UserSerializer2](#UserSerializer2)
+ #### [LocationManagerSerializer](#LocationManagerSerializer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | contact | String? |  yes  |  |
- | username | String? |  yes  |  |
- | userId | String? |  yes  |  |
+ | email | String? |  yes  |  |
+ | mobileNo | [SellerPhoneNumber](#SellerPhoneNumber) |  no  |  |
+ | name | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LocationTimingSerializer](#LocationTimingSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | minute | Integer? |  yes  |  |
+ | hour | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LocationDayWiseSerializer](#LocationDayWiseSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | closing | [LocationTimingSerializer](#LocationTimingSerializer)? |  yes  |  |
+ | weekday | String |  no  |  |
+ | opening | [LocationTimingSerializer](#LocationTimingSerializer)? |  yes  |  |
+ | open | Boolean |  no  |  |
 
 ---
 
@@ -17164,17 +17154,55 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | latitude | Double? |  yes  |  |
  | country | String? |  yes  |  |
- | address1 | String? |  yes  |  |
- | state | String? |  yes  |  |
  | landmark | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
- | pincode | Integer? |  yes  |  |
- | longitude | Double? |  yes  |  |
  | address2 | String? |  yes  |  |
- | city | String? |  yes  |  |
+ | address1 | String? |  yes  |  |
+ | longitude | Double? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
+ | state | String? |  yes  |  |
+ | latitude | Double? |  yes  |  |
  | addressType | String? |  yes  |  |
+ | city | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserSerializer1](#UserSerializer1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | username | String? |  yes  |  |
+ | contact | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductReturnConfigSerializer](#ProductReturnConfigSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | onSameStore | Boolean? |  yes  |  |
+ | storeUid | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserSerializer2](#UserSerializer2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | username | String? |  yes  |  |
+ | contact | String? |  yes  |  |
 
 ---
 
@@ -17185,19 +17213,19 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | businessType | String? |  yes  |  |
- | modifiedBy | [UserSerializer2](#UserSerializer2)? |  yes  |  |
- | name | String? |  yes  |  |
- | verifiedBy | [UserSerializer2](#UserSerializer2)? |  yes  |  |
- | addresses | ArrayList<[GetAddressSerializer](#GetAddressSerializer)>? |  yes  |  |
  | companyType | String? |  yes  |  |
+ | verifiedOn | String? |  yes  |  |
+ | businessType | String? |  yes  |  |
+ | addresses | ArrayList<[GetAddressSerializer](#GetAddressSerializer)>? |  yes  |  |
+ | createdBy | [UserSerializer2](#UserSerializer2)? |  yes  |  |
+ | modifiedBy | [UserSerializer2](#UserSerializer2)? |  yes  |  |
+ | rejectReason | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | verifiedBy | [UserSerializer2](#UserSerializer2)? |  yes  |  |
  | stage | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | verifiedOn | String? |  yes  |  |
- | createdBy | [UserSerializer2](#UserSerializer2)? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | rejectReason | String? |  yes  |  |
 
 ---
 
@@ -17216,63 +17244,35 @@ Company profile object. See example below or refer `LocationListSerializer` for 
 
  
  
- #### [Document](#Document)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | verified | Boolean? |  yes  |  |
- | type | String |  no  |  |
- | legalName | String? |  yes  |  |
- | value | String |  no  |  |
- | url | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [LocationManagerSerializer](#LocationManagerSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | mobileNo | [SellerPhoneNumber](#SellerPhoneNumber) |  no  |  |
- | email | String? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [GetLocationSerializer](#GetLocationSerializer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
- | phoneNumber | String |  no  |  |
- | timing | ArrayList<[LocationDayWiseSerializer](#LocationDayWiseSerializer)>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | productReturnConfig | [ProductReturnConfigSerializer](#ProductReturnConfigSerializer)? |  yes  |  |
- | gstCredentials | [InvoiceDetailsSerializer](#InvoiceDetailsSerializer)? |  yes  |  |
- | displayName | String |  no  |  |
- | modifiedOn | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | name | String |  no  |  |
- | createdBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | verifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | code | String |  no  |  |
- | notificationEmails | ArrayList<String>? |  yes  |  |
  | verifiedOn | String? |  yes  |  |
- | storeType | String? |  yes  |  |
- | modifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | company | [GetCompanySerializer](#GetCompanySerializer)? |  yes  |  |
- | integrationType | [LocationIntegrationType](#LocationIntegrationType)? |  yes  |  |
  | documents | ArrayList<[Document](#Document)>? |  yes  |  |
- | stage | String? |  yes  |  |
- | address | [GetAddressSerializer](#GetAddressSerializer) |  no  |  |
+ | gstCredentials | [InvoiceDetailsSerializer](#InvoiceDetailsSerializer)? |  yes  |  |
+ | storeType | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
  | manager | [LocationManagerSerializer](#LocationManagerSerializer)? |  yes  |  |
+ | notificationEmails | ArrayList<String>? |  yes  |  |
+ | timing | ArrayList<[LocationDayWiseSerializer](#LocationDayWiseSerializer)>? |  yes  |  |
+ | address | [GetAddressSerializer](#GetAddressSerializer) |  no  |  |
+ | verifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | modifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | createdBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | productReturnConfig | [ProductReturnConfigSerializer](#ProductReturnConfigSerializer)? |  yes  |  |
+ | code | String |  no  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | name | String |  no  |  |
+ | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
+ | company | [GetCompanySerializer](#GetCompanySerializer)? |  yes  |  |
+ | phoneNumber | String |  no  |  |
+ | integrationType | [LocationIntegrationType](#LocationIntegrationType)? |  yes  |  |
+ | displayName | String |  no  |  |
  | warnings | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
 
 ---
 
