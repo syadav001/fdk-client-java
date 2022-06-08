@@ -3835,9 +3835,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PaymentModeRouteResponse getPaymentModeRoutesPaymentLink(String paymentLinkId , Boolean refresh ) throws IOException {
+    public ApplicationModels.PaymentModeRouteResponse getPaymentModeRoutesPaymentLink(String paymentLinkId ) throws IOException {
     
-        Response<ApplicationModels.PaymentModeRouteResponse> response = paymentApiList.getPaymentModeRoutesPaymentLink(paymentLinkId, refresh).execute();
+        Response<ApplicationModels.PaymentModeRouteResponse> response = paymentApiList.getPaymentModeRoutesPaymentLink(paymentLinkId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3852,6 +3852,20 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.PollingPaymentLinkResponse pollingPaymentLink(String paymentLinkId ) throws IOException {
     
         Response<ApplicationModels.PollingPaymentLinkResponse> response = paymentApiList.pollingPaymentLink(paymentLinkId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CreateOrderUserResponse createOrderHandlerPaymentLink(ApplicationModels.CreateOrderUserRequest body) throws IOException {
+    
+        Response<ApplicationModels.CreateOrderUserResponse> response = paymentApiList.createOrderHandlerPaymentLink( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

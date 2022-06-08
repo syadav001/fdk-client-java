@@ -589,10 +589,13 @@ interface PaymentApiList {
     Call<ApplicationModels.CancelOrResendPaymentLinkResponse> cancelPaymentLink(@Body ApplicationModels.CancelOrResendPaymentLinkRequest payload);
     
     @GET ("/service/application/payment/v1.0/payment/options/link/")
-    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Query("payment_link_id") String paymentLinkId , @Query("refresh") Boolean refresh );
+    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Query("payment_link_id") String paymentLinkId );
     
     @GET ("/service/application/payment/v1.0/polling-payment-link/")
     Call<ApplicationModels.PollingPaymentLinkResponse> pollingPaymentLink(@Query("payment_link_id") String paymentLinkId );
+    
+    @POST ("/service/application/payment/v1.0/create-order/link/")
+    Call<ApplicationModels.CreateOrderUserResponse> createOrderHandlerPaymentLink(@Body ApplicationModels.CreateOrderUserRequest payload);
     
     @GET ("/service/application/payment/v1.0/payment/credit-summary/")
     Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Query("aggregator") String aggregator );
