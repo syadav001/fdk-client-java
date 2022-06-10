@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -583,10 +583,10 @@ interface PaymentApiList {
     Call<ApplicationModels.CreatePaymentLinkResponse> createPaymentLink(@Body ApplicationModels.CreatePaymentLinkRequest payload);
     
     @POST ("/service/application/payment/v1.0/resend-payment-link/")
-    Call<ApplicationModels.CancelOrResendPaymentLinkResponse> resendPaymentLink(@Body ApplicationModels.CancelOrResendPaymentLinkRequest payload);
+    Call<ApplicationModels.ResendPaymentLinkResponse> resendPaymentLink(@Body ApplicationModels.CancelOrResendPaymentLinkRequest payload);
     
     @POST ("/service/application/payment/v1.0/cancel-payment-link/")
-    Call<ApplicationModels.CancelOrResendPaymentLinkResponse> cancelPaymentLink(@Body ApplicationModels.CancelOrResendPaymentLinkRequest payload);
+    Call<ApplicationModels.CancelPaymentLinkResponse> cancelPaymentLink(@Body ApplicationModels.CancelOrResendPaymentLinkRequest payload);
     
     @GET ("/service/application/payment/v1.0/payment/options/link/")
     Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Query("payment_link_id") String paymentLinkId );
