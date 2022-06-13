@@ -6957,43 +6957,6 @@ interface WebhookApiList {
     
 }
 
-interface AuditTrailApiList {
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/")
-    Call<PlatformModels.LogSchemaResponse> getAuditLogs(@Path("company_id")  String companyId , @Query("qs") String  qs );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/")
-    Call<PlatformModels.CreateLogResponse> createAuditLog(@Path("company_id")  String companyId ,@Body PlatformModels.RequestBodyAuditLog payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/{id}")
-    Call<PlatformModels.LogSchemaResponse> getAuditLog(@Path("company_id")  String companyId , @Path("id") String  id );
-    
-}
-
 interface ServiceabilityApiList {
     
     
@@ -7059,20 +7022,20 @@ interface ServiceabilityApiList {
     
     
     
-    @PUT ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone/{zone_id}")
-    Call<PlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body PlatformModels.ZoneUpdateRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone/{zone_id}")
     Call<PlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<PlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body PlatformModels.ZoneUpdateRequest payload);
     
     
     
@@ -7094,5 +7057,42 @@ interface ServiceabilityApiList {
     
     @POST ("/service/platform/logistics-internal/v1.0/company/{company_id}/application/{application_id}/zones")
     Call<PlatformModels.GetZoneFromPincodeViewResponse> getZoneFromPincode(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.GetZoneFromPincodeViewRequest payload);
+    
+}
+
+interface AuditTrailApiList {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/")
+    Call<PlatformModels.LogSchemaResponse> getAuditLogs(@Path("company_id")  String companyId , @Query("qs") String  qs );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/")
+    Call<PlatformModels.CreateLogResponse> createAuditLog(@Path("company_id")  String companyId ,@Body PlatformModels.RequestBodyAuditLog payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/{id}")
+    Call<PlatformModels.LogSchemaResponse> getAuditLog(@Path("company_id")  String companyId , @Path("id") String  id );
     
 }
