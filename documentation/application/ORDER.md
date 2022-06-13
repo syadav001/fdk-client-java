@@ -16,6 +16,7 @@ Handles Platform websites OMS
 * [getCustomerDetailsByShipmentId](#getcustomerdetailsbyshipmentid)
 * [sendOtpToShipmentCustomer](#sendotptoshipmentcustomer)
 * [verifyOtpShipmentCustomer](#verifyotpshipmentcustomer)
+* [getInvoiceByShipmentId](#getinvoicebyshipmentid)
 
 
 
@@ -559,6 +560,59 @@ Success, the code is valid and returns a session token
 ---
 
 
+### getInvoiceByShipmentId
+Get Invoice URL
+
+
+
+
+```java
+order.getInvoiceByShipmentId( shipmentId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| shipmentId | String | yes | ID of the shipment. An order may contain multiple items and may get divided into one or more shipment, each having its own ID. |  
+
+
+
+Use this API to get a generated Invoice URL for viewing or download.
+
+*Returned Response:*
+
+
+
+
+[ResponseGetInvoiceShipment](#ResponseGetInvoiceShipment)
+
+Success, the code is valid and returns a SignedUrl
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
 
@@ -639,6 +693,20 @@ Success, the code is valid and returns a session token
 
  
  
+ #### [ResponseGetInvoiceShipment](#ResponseGetInvoiceShipment)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean |  no  |  |
+ | presignedType | String |  no  |  |
+ | shipmentId | String |  no  |  |
+ | presignedUrl | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [ResponseVerifyOTPShipment](#ResponseVerifyOTPShipment)
 
  | Properties | Type | Nullable | Description |
@@ -707,6 +775,7 @@ Success, the code is valid and returns a session token
  | ---------- | ---- | -------- | ----------- |
  | statuses | ArrayList<[StatusesBody](#StatusesBody)> |  no  |  |
  | forceTransition | Boolean |  no  |  |
+ | task | Boolean? |  yes  |  |
 
 ---
 
@@ -1016,6 +1085,7 @@ Success, the code is valid and returns a session token
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | showPromise | Boolean? |  yes  |  |
  | timestamp | [Timestamp](#Timestamp)? |  yes  |  |
 
 ---
@@ -1091,6 +1161,7 @@ Success, the code is valid and returns a session token
  | beneficiaryDetails | Boolean? |  yes  |  |
  | canReturn | Boolean? |  yes  |  |
  | canBreak | HashMap<String,Object>? |  yes  |  |
+ | showDownloadInvoice | Boolean? |  yes  |  |
  | prices | [Prices](#Prices)? |  yes  |  |
  | needHelpUrl | String? |  yes  |  |
  | shipmentId | String? |  yes  |  |
@@ -1134,6 +1205,7 @@ Success, the code is valid and returns a session token
  | ---------- | ---- | -------- | ----------- |
  | logo | String? |  yes  |  |
  | mode | String? |  yes  |  |
+ | mop | String? |  yes  |  |
  | status | String? |  yes  |  |
 
 ---
