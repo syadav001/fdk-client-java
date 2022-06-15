@@ -597,6 +597,12 @@ interface PaymentApiList {
     @POST ("/service/application/payment/v1.0/create-order/link/")
     Call<ApplicationModels.CreateOrderUserResponse> createOrderHandlerPaymentLink(@Body ApplicationModels.CreateOrderUserRequest payload);
     
+    @POST ("/service/application/payment/v1.0/payment/request/link/")
+    Call<ApplicationModels.PaymentInitializationResponse> initialisePaymentPaymentLink(@Body ApplicationModels.PaymentInitializationRequest payload);
+    
+    @POST ("/service/application/payment/v1.0/payment/confirm/polling/link/")
+    Call<ApplicationModels.PaymentStatusUpdateResponse> checkAndUpdatePaymentStatusPaymentLink(@Body ApplicationModels.PaymentStatusUpdateRequest payload);
+    
     @GET ("/service/application/payment/v1.0/payment/credit-summary/")
     Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Query("aggregator") String aggregator );
     
